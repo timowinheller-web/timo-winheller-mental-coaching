@@ -64,7 +64,21 @@ Für echten Versand ohne E-Mail-Programm:
 2. In `kontakt.html`: `action="#"` durch die URL des Dienstes ersetzen und `data-fallback="mailto"` entfernen.
 3. In `datenschutz.html` Abschnitt 4 den Platzhalter zum Formulardienst ausfüllen.
 
-## Hosting
+## Live-Website & Veröffentlichen
+
+- Repository: https://github.com/timowinheller-web/timo-winheller-mental-coaching
+- Live (GitHub Pages): https://timowinheller-web.github.io/timo-winheller-mental-coaching/
+
+Jede Änderung wird veröffentlicht, sobald sie auf `main` gepusht ist (Aufbau dauert 1–3 Minuten):
+
+```bash
+git add -A && git commit -m "Texte angepasst" && git push
+```
+
+Eigene Domain (z. B. `timo-winheller-coaching.de`): im Repo unter Settings → Pages → „Custom domain" eintragen
+und beim Domain-Anbieter einen CNAME auf `timowinheller-web.github.io` setzen.
+
+## Hosting (Alternativen)
 
 - **Klassischer Webspace (Strato, IONOS, All-Inkl):** alle Dateien und Ordner per FTP/SFTP in das Web-Root hochladen. Fertig.
 - **Netlify / Cloudflare Pages / GitHub Pages:** Ordner hochladen bzw. Repository verbinden. Kein Build-Befehl nötig, Publish-Directory = `.`
