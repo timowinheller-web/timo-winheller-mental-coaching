@@ -21,6 +21,12 @@ Instrument Serif + Manrope.
 | `js/main.js` | Mobile-Menü, Akkordeon, Formular |
 | `desing/` | Design-System-Export (Tokens, Komponenten, Guidelines). **Nicht im Repo** (.gitignore) |
 
+## Darstellung: Tag/Nacht und Akzentfarbe
+
+Standard ist das helle Tag-Schema. Der Schalter in der Navigation wechselt zu Nacht und zwischen den
+Akzenten Orange, Petrol und Violett (Auswahl bleibt per localStorage erhalten). Alle Farben stehen in
+`css/tokens/theme.css`; neue Akzente = ein weiterer `:root[data-accent="…"]`-Block plus ein Punkt in `build.py`.
+
 ## Texte ändern und veröffentlichen
 
 1. Text in `parts/<seite>.body.html` ändern (Navigation/Footer/Titel in `build.py`)

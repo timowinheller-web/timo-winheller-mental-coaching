@@ -1,15 +1,30 @@
 // Neuronale Netze auf <canvas class="neural">:
-//   data-neural="field" – frei driftendes Netz (Seitenhintergrund)
+//   data-neural="field" – frei driftendes Netz (Seitenhintergrund), reagiert auf den Mauszeiger
 //   data-neural="brain" – Netz in einer Gehirn-Silhouette (Hero, Methode)
-// Ember-Impulse wandern entlang der Verbindungen. prefers-reduced-motion: statisches Bild.
+// Impulse in der Akzentfarbe wandern entlang der Verbindungen und lösen am Ziel Funken aus.
+// Farben kommen aus den CSS-Tokens (--net-line, --net-node, --accent-rgb) und folgen dem Theme-Wechsel.
 (function () {
   var canvases = Array.prototype.slice.call(document.querySelectorAll('canvas.neural'));
   if (!canvases.length) return;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var finePointer = window.matchMedia('(pointer: fine)').matches;
   var DPR = Math.min(window.devicePixelRatio || 1, 2);
-  var EMBER = '#FF6A1F', EMBER_RGB = '255,106,31';
-  var LINE_RGB = '127,166,217';   // --ink-400, aufgehellt
-  var NODE_RGB = '253,251,248';   // --bone
+
+  var T = {};
+  function readTheme() {
+    var cs = getComputedStyle(document.documentElement);
+    var v = function (n, d) { var x = cs.getPropertyValue(n).trim(); return x || d; };
+    T.line = v('--net-line', '127,166,217');
+    T.node = v('--net-node', '253,251,248');
+    T.accent = v('--accent-rgb', '255,106,31');
+    T.accentHex = v('--accent-500', '#FF6A1F');
+    T.alpha = parseFloat(v('--net-alpha', '1')) || 1;
+  }
+  readTheme();
+  window.addEventListener('themechange', readTheme);
+
+  var mouse = { x: -1e4, y: -1e4 };
+  if (finePointer) window.addEventListener('pointermove', function (e) { mouse.x = e.clientX; mouse.y = e.clientY; }, { passive: true });
 
   // Gehirn-Silhouette (Seitenansicht, Stirn links) als kubische Bézier-Segmente im 400×320-Raster
   var BRAIN = [
@@ -24,7 +39,6 @@
     [[198, 258], [160, 262], [112, 248], [92, 215]],
     [[92, 215], [70, 205], [56, 180], [60, 150]]
   ];
-  // Furchen, nur angedeutet
   var GYRI = [
     [[100, 178], [140, 160], [190, 168], [240, 148]],
     [[190, 48], [200, 90], [180, 130], [200, 178]],
@@ -53,7 +67,7 @@
   function dist(ax, ay, bx, by) { var dx = ax - bx, dy = ay - by; return Math.sqrt(dx * dx + dy * dy); }
   function mk(p, r, edge) {
     return { hx: p[0], hy: p[1], x: p[0], y: p[1], r: r, edge: edge, ph: Math.random() * 6.28,
-      f: 0.4 + Math.random() * 0.6, amp: edge ? 1 : 1.5 + Math.random() * 2, hub: !edge && Math.random() < 0.08 };
+      f: 0.4 + Math.random() * 0.6, amp: edge ? 1 : 1.5 + Math.random() * 2.2, hub: !edge && Math.random() < 0.1, lit: 0 };
   }
 
   function build(sc) {
@@ -64,30 +78,30 @@
       var outline = poly(BRAIN, 24);
       sc.outline = outline.map(map);
       sc.gyri = GYRI.map(function (g) { return poly([g], 24).map(map); });
-      for (i = 0; i < outline.length; i += 5) nodes.push(mk(map(outline[i]), 1.2, true));
-      var want = (w < 600 ? 80 : 125) + nodes.length, tries = 0;
-      while (nodes.length < want && tries++ < 6000) {
+      for (i = 0; i < outline.length; i += 4) nodes.push(mk(map(outline[i]), 1.2, true));
+      var want = (w < 600 ? 130 : 210) + nodes.length, tries = 0;
+      while (nodes.length < want && tries++ < 9000) {
         var x = 50 + Math.random() * 320, y = 25 + Math.random() * 285;
-        if (inPoly(outline, x, y)) nodes.push(mk(map([x, y]), 1 + Math.random() * 1.3, false));
+        if (inPoly(outline, x, y)) nodes.push(mk(map([x, y]), 0.9 + Math.random() * 1.3, false));
       }
-      sc.linkDist = 400 * s * 0.125;
+      sc.linkDist = 400 * s * 0.115;
       for (i = 0; i < nodes.length; i++) for (j = i + 1; j < nodes.length; j++) {
         d = dist(nodes[i].hx, nodes[i].hy, nodes[j].hx, nodes[j].hy);
         if (d < sc.linkDist) links.push([i, j, d]);
       }
     } else {
-      var n = Math.max(36, Math.min(96, Math.round(w * h / 16000)));
+      var n = Math.max(60, Math.min(160, Math.round(w * h / 12000)));
       for (i = 0; i < n; i++) {
         var nd = mk([Math.random() * w, Math.random() * h], 1 + Math.random() * 1.4, false);
-        nd.vx = (Math.random() - 0.5) * 0.25; nd.vy = (Math.random() - 0.5) * 0.25;
+        nd.vx = (Math.random() - 0.5) * 0.28; nd.vy = (Math.random() - 0.5) * 0.28;
         nodes.push(nd);
       }
-      sc.linkDist = 140;
+      sc.linkDist = 150;
     }
-    sc.nodes = nodes; sc.links = links; sc.pulses = [];
+    sc.nodes = nodes; sc.links = links; sc.pulses = []; sc.sparks = [];
   }
 
-  function step(sc, t) {
+  function step(sc, t, dt) {
     var nodes = sc.nodes, i, j, d;
     if (sc.mode === 'brain') {
       for (i = 0; i < nodes.length; i++) {
@@ -107,12 +121,21 @@
         if (d < sc.linkDist) sc.links.push([i, j, d]);
       }
     }
-    var maxP = sc.mode === 'brain' ? 5 : 3;
-    if (sc.links.length && sc.pulses.length < maxP && Math.random() < 0.03) {
+    for (i = 0; i < nodes.length; i++) if (nodes[i].lit > 0) nodes[i].lit = Math.max(0, nodes[i].lit - dt * 1.5);
+    var maxP = sc.mode === 'brain' ? 9 : 6;
+    if (sc.links.length && sc.pulses.length < maxP && Math.random() < 0.05) {
       var L = sc.links[Math.floor(Math.random() * sc.links.length)];
-      sc.pulses.push({ a: L[0], b: L[1], p: 0, v: 0.008 + Math.random() * 0.01, dir: Math.random() < 0.5 });
+      sc.pulses.push({ a: L[0], b: L[1], p: 0, v: 0.008 + Math.random() * 0.012, dir: Math.random() < 0.5 });
     }
-    for (i = sc.pulses.length - 1; i >= 0; i--) { sc.pulses[i].p += sc.pulses[i].v; if (sc.pulses[i].p >= 1) sc.pulses.splice(i, 1); }
+    for (i = sc.pulses.length - 1; i >= 0; i--) {
+      var P = sc.pulses[i]; P.p += P.v;
+      if (P.p >= 1) {
+        var end = nodes[P.dir ? P.b : P.a];
+        end.lit = 1; sc.sparks.push({ x: end.x, y: end.y, t: 0 });
+        sc.pulses.splice(i, 1);
+      }
+    }
+    for (i = sc.sparks.length - 1; i >= 0; i--) { sc.sparks[i].t += dt * 1.8; if (sc.sparks[i].t >= 1) sc.sparks.splice(i, 1); }
   }
 
   function pathOf(ctx, pts, close) {
@@ -123,41 +146,64 @@
   function strokePath(ctx, pts, close, style, w) { pathOf(ctx, pts, close); ctx.strokeStyle = style; ctx.lineWidth = w; ctx.stroke(); }
 
   function draw(sc, t) {
-    var ctx = sc.ctx, nodes = sc.nodes, i;
+    var ctx = sc.ctx, nodes = sc.nodes, i, A = T.accent;
     ctx.clearRect(0, 0, sc.w, sc.h);
     if (sc.mode === 'brain' && sc.outline) {
       var g = ctx.createRadialGradient(sc.w / 2, sc.h / 2, 10, sc.w / 2, sc.h / 2, Math.max(sc.w, sc.h) * 0.45);
-      g.addColorStop(0, 'rgba(' + EMBER_RGB + ',.12)'); g.addColorStop(1, 'rgba(' + EMBER_RGB + ',0)');
+      g.addColorStop(0, 'rgba(' + A + ',.14)'); g.addColorStop(1, 'rgba(' + A + ',0)');
       ctx.save(); pathOf(ctx, sc.outline, true); ctx.clip(); ctx.fillStyle = g; ctx.fillRect(0, 0, sc.w, sc.h); ctx.restore();
-      strokePath(ctx, sc.outline, true, 'rgba(' + NODE_RGB + ',' + (0.12 + Math.sin(t * 0.6) * 0.03).toFixed(3) + ')', 1.2);
-      sc.gyri.forEach(function (gy) { strokePath(ctx, gy, false, 'rgba(' + NODE_RGB + ',.08)', 1); });
+      strokePath(ctx, sc.outline, true, 'rgba(' + T.node + ',' + ((0.14 + Math.sin(t * 0.6) * 0.04) * T.alpha).toFixed(3) + ')', 1.2);
+      sc.gyri.forEach(function (gy) { strokePath(ctx, gy, false, 'rgba(' + T.node + ',' + (0.09 * T.alpha).toFixed(3) + ')', 1); });
     }
-    var alphaMax = sc.mode === 'brain' ? 0.32 : 0.18;
+    var alphaMax = (sc.mode === 'brain' ? 0.32 : 0.2) * T.alpha;
     ctx.lineWidth = 1;
     for (i = 0; i < sc.links.length; i++) {
       var L = sc.links[i], a = nodes[L[0]], b = nodes[L[1]], al = (1 - L[2] / sc.linkDist) * alphaMax;
       if (al <= 0.01) continue;
-      ctx.strokeStyle = 'rgba(' + LINE_RGB + ',' + al.toFixed(3) + ')';
+      ctx.strokeStyle = 'rgba(' + T.line + ',' + al.toFixed(3) + ')';
       ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+    }
+    // Mauszeiger: nahe Knoten leuchten und verbinden sich mit dem Zeiger
+    var rect = sc.c.getBoundingClientRect(), px = mouse.x - rect.left, py = mouse.y - rect.top;
+    var near = px > 0 && py > 0 && px < sc.w && py < sc.h, R = sc.mode === 'brain' ? 110 : 190;
+    if (near) {
+      for (i = 0; i < nodes.length; i++) {
+        var nn = nodes[i], dd = dist(nn.x, nn.y, px, py);
+        if (dd < R) {
+          var k = 1 - dd / R; nn.lit = Math.max(nn.lit, k);
+          ctx.strokeStyle = 'rgba(' + A + ',' + (k * 0.45).toFixed(3) + ')';
+          ctx.beginPath(); ctx.moveTo(nn.x, nn.y); ctx.lineTo(px, py); ctx.stroke();
+        }
+      }
     }
     for (i = 0; i < nodes.length; i++) {
       var n = nodes[i];
-      if (n.hub) { ctx.fillStyle = 'rgba(' + EMBER_RGB + ',.85)'; ctx.shadowColor = EMBER; ctx.shadowBlur = 10; }
-      else { ctx.fillStyle = 'rgba(' + NODE_RGB + ',' + (n.edge ? 0.5 : 0.42) + ')'; ctx.shadowBlur = 0; }
-      ctx.beginPath(); ctx.arc(n.x, n.y, n.hub ? n.r + 0.8 : n.r, 0, 6.283); ctx.fill();
+      if (n.hub || n.lit > 0.02) {
+        var lit = Math.max(n.hub ? 0.85 : 0, n.lit);
+        ctx.fillStyle = 'rgba(' + A + ',' + lit.toFixed(3) + ')'; ctx.shadowColor = T.accentHex; ctx.shadowBlur = 8 + 10 * n.lit;
+        ctx.beginPath(); ctx.arc(n.x, n.y, n.r + 0.8 + n.lit * 1.4, 0, 6.283); ctx.fill();
+      } else {
+        ctx.fillStyle = 'rgba(' + T.node + ',' + ((n.edge ? 0.5 : 0.42) * T.alpha).toFixed(3) + ')'; ctx.shadowBlur = 0;
+        ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, 6.283); ctx.fill();
+      }
     }
     ctx.shadowBlur = 0;
     for (i = 0; i < sc.pulses.length; i++) {
-      var P = sc.pulses[i], A = nodes[P.a], B = nodes[P.b], q = P.dir ? P.p : 1 - P.p;
-      ctx.fillStyle = EMBER; ctx.shadowColor = EMBER; ctx.shadowBlur = 14;
-      ctx.beginPath(); ctx.arc(A.x + (B.x - A.x) * q, A.y + (B.y - A.y) * q, 2.4, 0, 6.283); ctx.fill();
+      var P = sc.pulses[i], Pa = nodes[P.a], Pb = nodes[P.b], q = P.dir ? P.p : 1 - P.p;
+      ctx.fillStyle = T.accentHex; ctx.shadowColor = T.accentHex; ctx.shadowBlur = 14;
+      ctx.beginPath(); ctx.arc(Pa.x + (Pb.x - Pa.x) * q, Pa.y + (Pb.y - Pa.y) * q, 2.4, 0, 6.283); ctx.fill();
     }
     ctx.shadowBlur = 0;
+    for (i = 0; i < sc.sparks.length; i++) {
+      var S = sc.sparks[i];
+      ctx.strokeStyle = 'rgba(' + A + ',' + (1 - S.t).toFixed(3) + ')'; ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.arc(S.x, S.y, 3 + S.t * 16, 0, 6.283); ctx.stroke();
+    }
   }
 
   var scenes = [];
   canvases.forEach(function (c) {
-    var sc = { c: c, ctx: c.getContext('2d'), mode: c.dataset.neural || 'field', w: 0, h: 0, visible: true, nodes: [], links: [], pulses: [] };
+    var sc = { c: c, ctx: c.getContext('2d'), mode: c.dataset.neural || 'field', w: 0, h: 0, visible: true, nodes: [], links: [], pulses: [], sparks: [] };
     function resize() {
       var r = c.getBoundingClientRect();
       if (!r.width || !r.height) return;
@@ -165,10 +211,11 @@
       c.width = Math.round(r.width * DPR); c.height = Math.round(r.height * DPR);
       sc.ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
       build(sc);
-      if (reduce) { step(sc, 0); draw(sc, 0); }
+      if (reduce) { step(sc, 0, 0); draw(sc, 0); }
     }
     resize();
     var to; window.addEventListener('resize', function () { clearTimeout(to); to = setTimeout(resize, 150); });
+    if (reduce) window.addEventListener('themechange', function () { draw(sc, 0); });
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(function (es) { es.forEach(function (e) { sc.visible = e.isIntersecting; }); }).observe(c);
     }
@@ -180,8 +227,8 @@
   function loop(now) {
     requestAnimationFrame(loop);
     if (document.hidden) { last = now; return; }
-    t += Math.min(50, now - last) / 1000; last = now;
-    for (var i = 0; i < scenes.length; i++) if (scenes[i].visible && scenes[i].w) { step(scenes[i], t); draw(scenes[i], t); }
+    var dt = Math.min(50, now - last) / 1000; last = now; t += dt;
+    for (var i = 0; i < scenes.length; i++) if (scenes[i].visible && scenes[i].w) { step(scenes[i], t, dt); draw(scenes[i], t); }
   }
   requestAnimationFrame(loop);
 })();

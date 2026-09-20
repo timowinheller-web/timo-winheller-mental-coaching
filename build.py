@@ -51,12 +51,12 @@ def render_icons(html):
 
 LOGO_MARK = (
     '<svg viewBox="0 0 64 64" fill="none" aria-hidden="true">'
-    '<circle cx="32" cy="32" r="4.5" fill="#FF6A1F"/>'
-    '<path d="M32 18.5a13.5 13.5 0 0 1 13.5 13.5" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round"/>'
-    '<path d="M32 18.5A13.5 13.5 0 0 0 18.5 32" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round" opacity=".45"/>'
-    '<path d="M32 8a24 24 0 0 1 24 24" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round"/>'
-    '<path d="M32 8A24 24 0 0 0 8 32" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round" opacity=".3"/>'
-    '<path d="M32 56a24 24 0 0 1-24-24" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round" opacity=".55"/>'
+    '<circle cx="32" cy="32" r="4.5" fill="currentColor"/>'
+    '<path d="M32 18.5a13.5 13.5 0 0 1 13.5 13.5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>'
+    '<path d="M32 18.5A13.5 13.5 0 0 0 18.5 32" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".45"/>'
+    '<path d="M32 8a24 24 0 0 1 24 24" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>'
+    '<path d="M32 8A24 24 0 0 0 8 32" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".3"/>'
+    '<path d="M32 56a24 24 0 0 1-24-24" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".55"/>'
     '</svg>'
 )
 
@@ -71,13 +71,14 @@ def logo():
 def head(slug, title, desc):
     canonical = BASE_URL + ("" if slug == "index" else slug + ".html")
     return f"""<!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-theme="light" data-accent="ember">
 <head>
 <meta charset="UTF-8">
+<script>(function(){{try{{var t=localStorage.getItem("tw-theme"),a=localStorage.getItem("tw-accent");if(t)document.documentElement.setAttribute("data-theme",t);if(a)document.documentElement.setAttribute("data-accent",a);}}catch(e){{}}}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{desc}">
-<meta name="theme-color" content="#070C17">
+<meta name="theme-color" content="#FAF5EE">
 <link rel="canonical" href="{canonical}">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{title}">
@@ -90,8 +91,22 @@ def head(slug, title, desc):
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<div class="aurora" aria-hidden="true"><span></span><span></span></div>
 <canvas class="neural neural--bg" data-neural="field" aria-hidden="true"></canvas>
+<div class="cursor-glow" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"></div>
 """
+
+
+def theme_control():
+    return ('<div class="theme" role="group" aria-label="Darstellung">'
+            '<button class="theme__mode" type="button" data-theme-toggle aria-label="Dunkles Schema" aria-pressed="false">'
+            + icon("moon", "ic--moon") + icon("sun", "ic--sun") + '</button>'
+            '<span class="theme__accents">'
+            '<button type="button" class="theme__dot theme__dot--ember is-active" data-accent="ember" aria-label="Akzent Orange"></button>'
+            '<button type="button" class="theme__dot theme__dot--petrol" data-accent="petrol" aria-label="Akzent Petrol"></button>'
+            '<button type="button" class="theme__dot theme__dot--violett" data-accent="violett" aria-label="Akzent Violett"></button>'
+            '</span></div>')
 
 
 def nav(active):
@@ -105,18 +120,22 @@ def nav(active):
     {logo()}
     <ul class="nav__links">{"".join(links)}</ul>
     <div class="nav__right">
+      {theme_control()}
       <a class="btn btn--sm nav__cta" href="kontakt.html">Erstgespräch</a>
       <button class="nav__toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobilmenu">{icon("menu", "ic--menu")}{icon("x", "ic--x")}</button>
     </div>
   </div>
-  <nav class="nav__menu glass" id="mobilmenu" aria-label="Menü">{"".join(mobile)}<a class="btn" href="kontakt.html">Kostenfreies Erstgespräch</a></nav>
+  <nav class="nav__menu glass" id="mobilmenu" aria-label="Menü">{"".join(mobile)}<a class="btn" href="kontakt.html">Kostenfreies Erstgespräch</a>{theme_control()}</nav>
 </header>
 <main id="inhalt">
 """
 
 
-def footer():
+def footer(slug):
+    sticky = "" if slug == "kontakt" else '<div class="glass sticky-cta"><a class="btn" href="kontakt.html">Kostenfreies Erstgespräch</a></div>'
     return f"""</main>
+<button class="iconbtn totop" type="button" aria-label="Nach oben">{icon("arrow-up")}</button>
+{sticky}
 <footer class="footer">
   <div class="wrap">
     <div class="footer__grid">
@@ -138,7 +157,7 @@ def footer():
 def main():
     for slug, _label, title, desc in PAGES:
         body = (ROOT / "parts" / f"{slug}.body.html").read_text()
-        page = head(slug, title, desc) + nav(slug) + render_icons(body) + footer()
+        page = head(slug, title, desc) + nav(slug) + render_icons(body) + footer(slug)
         (ROOT / f"{slug}.html").write_text(page)
         print(f"gebaut: {slug}.html")
 

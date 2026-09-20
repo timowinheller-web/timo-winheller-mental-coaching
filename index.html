@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-theme="light" data-accent="ember">
 <head>
 <meta charset="UTF-8">
+<script>(function(){try{var t=localStorage.getItem("tw-theme"),a=localStorage.getItem("tw-accent");if(t)document.documentElement.setAttribute("data-theme",t);if(a)document.documentElement.setAttribute("data-accent",a);}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Timo Winheller · Mental Coaching</title>
 <meta name="description" content="Mentales Coaching für Menschen, die viel tragen. Neuro-Resonanz, online und in Wiesbaden. Kostenfreies Erstgespräch.">
-<meta name="theme-color" content="#070C17">
+<meta name="theme-color" content="#FAF5EE">
 <link rel="canonical" href="https://timowinheller-web.github.io/timo-winheller-mental-coaching/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Timo Winheller · Mental Coaching">
@@ -18,12 +19,24 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<div class="aurora" aria-hidden="true"><span></span><span></span></div>
 <canvas class="neural neural--bg" data-neural="field" aria-hidden="true"></canvas>
+<div class="cursor-glow" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"></div>
 <header class="nav">
   <div class="nav__pill">
-    <a class="logo" href="index.html" aria-label="Timo Winheller Mental Coaching – Startseite"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="4.5" fill="#FF6A1F"/><path d="M32 18.5a13.5 13.5 0 0 1 13.5 13.5" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round"/><path d="M32 18.5A13.5 13.5 0 0 0 18.5 32" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round" opacity=".45"/><path d="M32 8a24 24 0 0 1 24 24" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round"/><path d="M32 8A24 24 0 0 0 8 32" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round" opacity=".3"/><path d="M32 56a24 24 0 0 1-24-24" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round" opacity=".55"/></svg><span class="logo__text"><span class="logo__name">TIMO WINHELLER</span><span class="logo__sub">MENTAL COACHING</span></span></a>
+    <a class="logo" href="index.html" aria-label="Timo Winheller Mental Coaching – Startseite"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="4.5" fill="currentColor"/><path d="M32 18.5a13.5 13.5 0 0 1 13.5 13.5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M32 18.5A13.5 13.5 0 0 0 18.5 32" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".45"/><path d="M32 8a24 24 0 0 1 24 24" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M32 8A24 24 0 0 0 8 32" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".3"/><path d="M32 56a24 24 0 0 1-24-24" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".55"/></svg><span class="logo__text"><span class="logo__name">TIMO WINHELLER</span><span class="logo__sub">MENTAL COACHING</span></span></a>
     <ul class="nav__links"><li><a href="index.html" aria-current="page">Start</a></li><li><a href="angebot.html">Angebot</a></li><li><a href="methode.html">Methode</a></li><li><a href="ueber-mich.html">Über mich</a></li><li><a href="kontakt.html">Kontakt</a></li></ul>
     <div class="nav__right">
+      <div class="theme" role="group" aria-label="Darstellung"><button class="theme__mode" type="button" data-theme-toggle aria-label="Dunkles Schema" aria-pressed="false"><svg class="ic ic--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" /></svg><svg class="ic ic--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4" />
+  <path d="M12 2v2" />
+  <path d="M12 20v2" />
+  <path d="m4.93 4.93 1.41 1.41" />
+  <path d="m17.66 17.66 1.41 1.41" />
+  <path d="M2 12h2" />
+  <path d="M20 12h2" />
+  <path d="m6.34 17.66-1.41 1.41" />
+  <path d="m19.07 4.93-1.41 1.41" /></svg></button><span class="theme__accents"><button type="button" class="theme__dot theme__dot--ember is-active" data-accent="ember" aria-label="Akzent Orange"></button><button type="button" class="theme__dot theme__dot--petrol" data-accent="petrol" aria-label="Akzent Petrol"></button><button type="button" class="theme__dot theme__dot--violett" data-accent="violett" aria-label="Akzent Violett"></button></span></div>
       <a class="btn btn--sm nav__cta" href="kontakt.html">Erstgespräch</a>
       <button class="nav__toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobilmenu"><svg class="ic ic--menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16" />
   <path d="M4 12h16" />
@@ -31,7 +44,15 @@
   <path d="m6 6 12 12" /></svg></button>
     </div>
   </div>
-  <nav class="nav__menu glass" id="mobilmenu" aria-label="Menü"><a href="index.html" aria-current="page">Start</a><a href="angebot.html">Angebot</a><a href="methode.html">Methode</a><a href="ueber-mich.html">Über mich</a><a href="kontakt.html">Kontakt</a><a class="btn" href="kontakt.html">Kostenfreies Erstgespräch</a></nav>
+  <nav class="nav__menu glass" id="mobilmenu" aria-label="Menü"><a href="index.html" aria-current="page">Start</a><a href="angebot.html">Angebot</a><a href="methode.html">Methode</a><a href="ueber-mich.html">Über mich</a><a href="kontakt.html">Kontakt</a><a class="btn" href="kontakt.html">Kostenfreies Erstgespräch</a><div class="theme" role="group" aria-label="Darstellung"><button class="theme__mode" type="button" data-theme-toggle aria-label="Dunkles Schema" aria-pressed="false"><svg class="ic ic--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" /></svg><svg class="ic ic--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4" />
+  <path d="M12 2v2" />
+  <path d="M12 20v2" />
+  <path d="m4.93 4.93 1.41 1.41" />
+  <path d="m17.66 17.66 1.41 1.41" />
+  <path d="M2 12h2" />
+  <path d="M20 12h2" />
+  <path d="m6.34 17.66-1.41 1.41" />
+  <path d="m19.07 4.93-1.41 1.41" /></svg></button><span class="theme__accents"><button type="button" class="theme__dot theme__dot--ember is-active" data-accent="ember" aria-label="Akzent Orange"></button><button type="button" class="theme__dot theme__dot--petrol" data-accent="petrol" aria-label="Akzent Petrol"></button><button type="button" class="theme__dot theme__dot--violett" data-accent="violett" aria-label="Akzent Violett"></button></span></div></nav>
 </header>
 <main id="inhalt">
 <section class="hero" data-slider>
@@ -111,6 +132,8 @@
   </div>
 </section>
 
+<div class="ticker" aria-hidden="true"><div class="ticker__track"><span>Stress &amp; Überlastung</span><i></i><span>Ängste &amp; Blackouts</span><i></i><span>Perfektionismus</span><i></i><span>Entscheidungen</span><i></i><span>Trading-Psychologie</span><i></i><span>Führung &amp; Verantwortung</span><i></i><span>Umbruch &amp; Neustart</span><i></i><span>Schlaf &amp; Erholung</span><i></i><span>Neuro-Resonanz</span><i></i><span>Online &amp; in Wiesbaden</span><i></i><span>Stress &amp; Überlastung</span><i></i><span>Ängste &amp; Blackouts</span><i></i><span>Perfektionismus</span><i></i><span>Entscheidungen</span><i></i><span>Trading-Psychologie</span><i></i><span>Führung &amp; Verantwortung</span><i></i><span>Umbruch &amp; Neustart</span><i></i><span>Schlaf &amp; Erholung</span><i></i><span>Neuro-Resonanz</span><i></i><span>Online &amp; in Wiesbaden</span><i></i></div></div>
+
 <section class="section">
   <div class="wrap grid grid--split grid--split-a">
     <div class="frame frame--dawn"><img src="img/ripple.jpg" alt="" width="1408" height="768" loading="lazy" decoding="async"></div>
@@ -119,14 +142,15 @@
         <span class="eyebrow">Erkennst du dich?</span>
         <h2 class="sh__title">Es ist nicht normal. Und es ist <em>veränderbar.</em></h2>
       </div>
-      <ul class="signals">
-        <li>Du schläfst ein, aber nicht durch.</li>
-        <li>Du bist erreichbar — auch innerlich, immer.</li>
-        <li>Entscheidungen kosten dich mehr Kraft als früher.</li>
-        <li>Du funktionierst im Außen und bist leer im Innen.</li>
-        <li>Dein Körper meldet sich, bevor dein Kopf es zugibt.</li>
-        <li>Erholung fühlt sich an wie eine weitere Aufgabe.</li>
+      <ul class="signals signals--check" data-selfcheck>
+        <li><label class="signals__item"><input type="checkbox" name="signal1"><span class="signals__dot" aria-hidden="true"></span><span>Du schläfst ein, aber nicht durch.</span></label></li>
+        <li><label class="signals__item"><input type="checkbox" name="signal2"><span class="signals__dot" aria-hidden="true"></span><span>Du bist erreichbar — auch innerlich, immer.</span></label></li>
+        <li><label class="signals__item"><input type="checkbox" name="signal3"><span class="signals__dot" aria-hidden="true"></span><span>Entscheidungen kosten dich mehr Kraft als früher.</span></label></li>
+        <li><label class="signals__item"><input type="checkbox" name="signal4"><span class="signals__dot" aria-hidden="true"></span><span>Du funktionierst im Außen und bist leer im Innen.</span></label></li>
+        <li><label class="signals__item"><input type="checkbox" name="signal5"><span class="signals__dot" aria-hidden="true"></span><span>Dein Körper meldet sich, bevor dein Kopf es zugibt.</span></label></li>
+        <li><label class="signals__item"><input type="checkbox" name="signal6"><span class="signals__dot" aria-hidden="true"></span><span>Erholung fühlt sich an wie eine weitere Aufgabe.</span></label></li>
       </ul>
+      <div class="glass selfcheck"><strong data-selfcheck-count>0 von 6</strong><p data-selfcheck-text>Kreuze an, was du aus den letzten Wochen kennst.</p><a class="btn btn--sm" href="kontakt.html">Erstgespräch</a></div>
       <p class="small muted note mt-5">Diese Zustände sind kein Charakterzug. Sie sind erlernte Muster — und was erlernt ist, lässt sich neu lernen.</p>
     </div>
   </div>
@@ -167,6 +191,32 @@
       </div>
     </div>
     <p class="center small muted mt-6">Coaching ändert nicht den Reiz. Es ändert das Muster dazwischen — und damit die Reaktion.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap grid grid--split grid--split-b">
+    <div>
+      <div class="sh">
+        <span class="eyebrow">Probier es aus</span>
+        <h2 class="sh__title">60 Sekunden, die dein Nervensystem <em>runterfahren.</em></h2>
+        <p class="lead">Der Atem-Anker ist eines der ersten Werkzeuge im Coaching: 4 Sekunden ein, 4 halten, 6 aus. Die lange Ausatmung sagt deinem Körper, dass keine Gefahr besteht.</p>
+      </div>
+      <ul class="signals">
+        <li><span><strong>Drei Runden</strong> reichen, um den Puls spürbar zu senken.</span></li>
+        <li><span><strong>Vor dem Meeting, vor dem Trade, vor dem Gespräch</strong> — überall einsetzbar, ohne dass es jemand merkt.</span></li>
+        <li><span><strong>Im Coaching</strong> verknüpfen wir diese Ruhe mit einem Anker, den du jederzeit abrufen kannst.</span></li>
+      </ul>
+    </div>
+    <div class="glass glass--pad" data-breath>
+      <div class="breath" aria-live="polite">
+        <span class="breath__ring breath__ring--2" aria-hidden="true"></span>
+        <span class="breath__ring breath__ring--1" aria-hidden="true"></span>
+        <div class="breath__circle" aria-hidden="true"></div>
+        <div class="breath__label"><strong>Bereit?</strong><span>4 ein · 4 halten · 6 aus</span></div>
+      </div>
+      <p class="center"><button class="btn" type="button" data-breath-start>Starten</button></p>
+    </div>
   </div>
 </section>
 
@@ -335,10 +385,13 @@
   </div>
 </section>
 </main>
+<button class="iconbtn totop" type="button" aria-label="Nach oben"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7" />
+  <path d="M12 19V5" /></svg></button>
+<div class="glass sticky-cta"><a class="btn" href="kontakt.html">Kostenfreies Erstgespräch</a></div>
 <footer class="footer">
   <div class="wrap">
     <div class="footer__grid">
-      <div class="footer__brand"><a class="logo" href="index.html" aria-label="Timo Winheller Mental Coaching – Startseite"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="4.5" fill="#FF6A1F"/><path d="M32 18.5a13.5 13.5 0 0 1 13.5 13.5" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round"/><path d="M32 18.5A13.5 13.5 0 0 0 18.5 32" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round" opacity=".45"/><path d="M32 8a24 24 0 0 1 24 24" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round"/><path d="M32 8A24 24 0 0 0 8 32" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round" opacity=".3"/><path d="M32 56a24 24 0 0 1-24-24" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round" opacity=".55"/></svg><span class="logo__text"><span class="logo__name">TIMO WINHELLER</span><span class="logo__sub">MENTAL COACHING</span></span></a><p>Mentales Coaching für Menschen, die viel tragen. Wiesbaden und online.</p></div>
+      <div class="footer__brand"><a class="logo" href="index.html" aria-label="Timo Winheller Mental Coaching – Startseite"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="4.5" fill="currentColor"/><path d="M32 18.5a13.5 13.5 0 0 1 13.5 13.5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M32 18.5A13.5 13.5 0 0 0 18.5 32" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".45"/><path d="M32 8a24 24 0 0 1 24 24" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M32 8A24 24 0 0 0 8 32" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".3"/><path d="M32 56a24 24 0 0 1-24-24" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".55"/></svg><span class="logo__text"><span class="logo__name">TIMO WINHELLER</span><span class="logo__sub">MENTAL COACHING</span></span></a><p>Mentales Coaching für Menschen, die viel tragen. Wiesbaden und online.</p></div>
       <div class="footer__col"><span class="footer__title">Angebot</span><a href="angebot.html">Angebot &amp; Preise</a><a href="methode.html">Methode</a><a href="fallbeispiele.html">Fallbeispiele</a></div>
       <div class="footer__col"><span class="footer__title">Mehr</span><a href="ueber-mich.html">Über mich</a><a href="index.html#fragen">Fragen</a><a href="kontakt.html">Erstgespräch</a></div>
       <div class="footer__col"><span class="footer__title">Kontakt</span><span class="ph">[E-MAIL]</span><span class="ph">[TELEFON]</span><span>Praxis Wiesbaden · online</span></div>
