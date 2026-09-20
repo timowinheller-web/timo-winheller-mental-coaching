@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kontakt & Erstgespräch – Timo Winheller Mental Coaching</title>
+  <meta name="description" content="Kostenloses 30-minütiges Erstgespräch vereinbaren. Online oder vor Ort.">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html" aria-label="Startseite">
+      <svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1f3a5f"/><path d="M18 40c4-10 10-16 14-16s10 6 14 16" stroke="#d98c3f" stroke-width="4" stroke-linecap="round" fill="none"/><circle cx="32" cy="22" r="4" fill="#f6f1ea"/></svg>
+      <span>Timo Winheller<small>Mental Coaching</small></span>
+    </a>
+    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="hauptmenu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <ul class="nav-links" id="hauptmenu">
+      <li><a href="index.html">Start</a></li>
+      <li><a href="angebot.html">Angebot</a></li>
+      <li><a href="methode.html">Methode</a></li>
+      <li><a href="fallbeispiele.html">Fallbeispiele</a></li>
+      <li><a href="ueber-mich.html">Über mich</a></li>
+      <li><a class="btn btn-primary" href="kontakt.html">Kostenloses Erstgespräch</a></li>
+    </ul>
+  </div>
+</header>
+<main>
+<section class="page-hero">
+  <div class="container">
+    <h1>Kostenloses Erstgespräch</h1>
+    <p class="lead">Schreib mir kurz, worum es geht. Ich melde mich innerhalb von zwei Werktagen mit Terminvorschlägen für ein 30-minütiges Videogespräch.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="grid grid-2">
+      <div>
+        <!--
+          Formular-Versand: Trage bei action= die URL deines Formulardienstes ein, z. B.
+            Formspark:  https://submit-form.com/DEINE-ID
+            Formspree:  https://formspree.io/f/DEINE-ID
+            Netlify:    action="/" + Attribut netlify (siehe README)
+          Solange data-fallback="mailto" gesetzt ist, öffnet das Formular stattdessen das E-Mail-Programm.
+        -->
+        <form id="kontaktformular" class="form" method="POST" action="#" data-fallback="mailto" data-mail="[E-MAIL]" novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" required>
+            <span class="error">Bitte gib deinen Namen an.</span>
+          </div>
+          <div class="field">
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+            <span class="error">Bitte gib eine gültige E-Mail-Adresse an.</span>
+          </div>
+          <div class="field">
+            <label for="thema">Worum geht es?</label>
+            <select id="thema" name="thema">
+              <option>Stress / Überlastung</option>
+              <option>Ängste / Blockaden</option>
+              <option>Perfektionismus / Aufschieben</option>
+              <option>Entscheidung / Umbruch</option>
+              <option>Führung / Selbstständigkeit</option>
+              <option>Trading / Leistung unter Druck</option>
+              <option>Etwas anderes</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="nachricht">Kurz beschrieben</label>
+            <textarea id="nachricht" name="nachricht" rows="6" placeholder="Was ist gerade schwierig? Was soll anders werden? 2–3 Sätze reichen." required></textarea>
+            <span class="error">Bitte schreib mindestens einen kurzen Satz.</span>
+          </div>
+          <div class="field">
+            <label class="check"><input type="checkbox" id="datenschutz" name="datenschutz" required> <span>Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage gespeichert werden.</span></label>
+            <span class="error">Bitte bestätige die Datenschutzerklärung.</span>
+          </div>
+          <button type="submit" class="btn btn-primary">Anfrage senden</button>
+          <div class="form-success">Danke! Dein E-Mail-Programm sollte sich jetzt geöffnet haben. Falls nicht, schreib mir direkt an <span class="placeholder">[E-MAIL]</span>.</div>
+        </form>
+      </div>
+      <div>
+        <div class="card">
+          <h3>Direkt erreichen</h3>
+          <p><strong>E-Mail:</strong> <span class="placeholder">[E-MAIL]</span><br>
+          <strong>Telefon:</strong> <span class="placeholder">[TELEFON]</span><br>
+          <span class="small muted">Rückruf meist am selben Werktag.</span></p>
+          <h3 class="mt-2">Vor Ort</h3>
+          <p><span class="placeholder">[STRASSE NR]</span><br><span class="placeholder">[PLZ] [STADT]</span><br><span class="small muted">Termine vor Ort nach Vereinbarung.</span></p>
+          <h3 class="mt-2">Online</h3>
+          <p class="mb-0">Videogespräch per Zoom oder Google Meet. Den Link bekommst du mit der Terminbestätigung.</p>
+        </div>
+        <div class="callout mt-2">
+          <strong>Was passiert im Erstgespräch?</strong>
+          <ol class="mt-1 mb-0" style="padding-left:20px">
+            <li>Du schilderst dein Thema (10 Min)</li>
+            <li>Ich stelle Fragen und erkläre, wie ich vorgehen würde (15 Min)</li>
+            <li>Wir klären Format, Umfang und nächste Schritte (5 Min)</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <strong>Timo Winheller Mental Coaching</strong>
+        <p class="muted small mt-1">Neuro-Resonanz-Practitioner (Denys Scharnweber Akademie). Coaching online und vor Ort in <span class="placeholder">[STADT]</span>.</p>
+      </div>
+      <div>
+        <strong>Navigation</strong>
+        <ul class="mt-1">
+          <li><a href="angebot.html">Angebot &amp; Preise</a></li>
+          <li><a href="methode.html">Methode</a></li>
+          <li><a href="fallbeispiele.html">Fallbeispiele</a></li>
+          <li><a href="ueber-mich.html">Über mich</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Kontakt</strong>
+        <ul class="mt-1">
+          <li><span class="placeholder">[E-MAIL]</span></li>
+          <li><span class="placeholder">[TELEFON]</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="jahr">2026</span> Timo Winheller</span>
+      <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+    </div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

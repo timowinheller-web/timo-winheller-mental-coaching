@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Ruhige Landschaft">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1f3a5f"/><stop offset="1" stop-color="#7fa6d9"/></linearGradient>
+    <linearGradient id="hill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9e0d3"/><stop offset="1" stop-color="#c9bba6"/></linearGradient>
+  </defs>
+  <rect width="640" height="480" fill="url(#sky)"/>
+  <circle cx="480" cy="140" r="56" fill="#d98c3f" opacity=".9"/>
+  <path d="M0 330c120-60 220-70 320-30s200 30 320-20v200H0z" fill="url(#hill)"/>
+  <path d="M0 390c140-40 260-40 380 0s180 20 260-10v100H0z" fill="#f6f1ea"/>
+</svg>
