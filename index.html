@@ -18,6 +18,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<canvas class="neural neural--bg" data-neural="field" aria-hidden="true"></canvas>
 <header class="nav">
   <div class="nav__pill">
     <a class="logo" href="index.html" aria-label="Timo Winheller Mental Coaching – Startseite"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="4.5" fill="#FF6A1F"/><path d="M32 18.5a13.5 13.5 0 0 1 13.5 13.5" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round"/><path d="M32 18.5A13.5 13.5 0 0 0 18.5 32" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round" opacity=".45"/><path d="M32 8a24 24 0 0 1 24 24" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round"/><path d="M32 8A24 24 0 0 0 8 32" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round" opacity=".3"/><path d="M32 56a24 24 0 0 1-24-24" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round" opacity=".55"/></svg><span class="logo__text"><span class="logo__name">TIMO WINHELLER</span><span class="logo__sub">MENTAL COACHING</span></span></a>
@@ -33,20 +34,62 @@
   <nav class="nav__menu glass" id="mobilmenu" aria-label="Menü"><a href="index.html" aria-current="page">Start</a><a href="angebot.html">Angebot</a><a href="methode.html">Methode</a><a href="ueber-mich.html">Über mich</a><a href="kontakt.html">Kontakt</a><a class="btn" href="kontakt.html">Kostenfreies Erstgespräch</a></nav>
 </header>
 <main id="inhalt">
-<section class="hero">
-  <img class="hero__img" src="img/open-door.jpg" alt="" width="1408" height="768" fetchpriority="high">
+<section class="hero" data-slider>
+  <div class="hero__slides" aria-hidden="true">
+    <div class="hero__slide is-active"><img src="img/open-door.jpg" alt="" width="1408" height="768" fetchpriority="high"></div>
+    <div class="hero__slide"><img src="img/ripple.jpg" alt="" width="1408" height="768"></div>
+    <div class="hero__slide"><img src="img/horizon.jpg" alt="" width="1408" height="768"></div>
+  </div>
   <div class="hero__wash"></div>
   <div class="hero__scrim"></div>
   <div class="glow"></div>
   <div class="wrap hero__inner">
-    <div class="hero__copy">
-      <span class="badge badge--dot">Kostenfreies Erstgespräch · 30 Minuten</span>
-      <h1 class="display-1">Ruhe ist keine Gabe.<br>Sie ist <em>trainierbar.</em></h1>
-      <p class="lead">Mentales Coaching für Menschen, die viel tragen — im Beruf, in Verantwortung, in Umbrüchen. Wir arbeiten an der Ursache, nicht am Symptom.</p>
-      <div class="hero__actions">
-        <a class="btn btn--lg" href="kontakt.html">Kostenfreies Erstgespräch <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" />
+    <div class="hero__grid">
+      <div class="hero__copy">
+        <span class="badge badge--dot">Kostenfreies Erstgespräch · 30 Minuten</span>
+        <div class="hero__texts">
+          <div class="hero__text is-active">
+            <h1 class="display-1">Ruhe ist keine Gabe.<br>Sie ist <em>trainierbar.</em></h1>
+            <p class="lead">Mentales Coaching für Menschen, die viel tragen — im Beruf, in Verantwortung, in Umbrüchen. Wir arbeiten an der Ursache, nicht am Symptom.</p>
+          </div>
+          <div class="hero__text" aria-hidden="true">
+            <p class="display-1">Vom Reagieren ins <em>Entscheiden.</em></p>
+            <p class="lead">Muster laufen schneller als jeder Gedanke. Im Coaching lernst du, den Moment dazwischen zu nutzen — im Kopf und im Körper.</p>
+          </div>
+          <div class="hero__text" aria-hidden="true">
+            <p class="display-1">Klarer Kopf. Ruhige <em>Entscheidungen.</em></p>
+            <p class="lead">Neuro-Resonanz verbindet NLP mit Körperarbeit und Atem. Veränderung, die bleibt — online oder in der Praxis in Wiesbaden.</p>
+          </div>
+        </div>
+        <div class="hero__actions">
+          <a class="btn btn--lg" href="kontakt.html">Kostenfreies Erstgespräch <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" />
   <path d="m12 5 7 7-7 7" /></svg></a>
-        <a class="btn btn--lg btn--secondary" href="methode.html">Wie ich arbeite</a>
+          <a class="btn btn--lg btn--secondary" href="methode.html">Wie ich arbeite</a>
+        </div>
+        <div class="slider__nav">
+          <button class="iconbtn" type="button" data-prev aria-label="Vorheriger Slide"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7" />
+  <path d="M19 12H5" /></svg></button>
+          <div class="dots" role="group" aria-label="Slides">
+            <button type="button" class="is-active" aria-label="Slide 1"></button>
+            <button type="button" aria-label="Slide 2"></button>
+            <button type="button" aria-label="Slide 3"></button>
+          </div>
+          <button class="iconbtn" type="button" data-next aria-label="Nächster Slide"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" />
+  <path d="m12 5 7 7-7 7" /></svg></button>
+        </div>
+      </div>
+      <div class="glass neuro-panel" aria-label="Animiertes neuronales Netz in Form eines Gehirns">
+        <canvas class="neural" data-neural="brain" aria-hidden="true"></canvas>
+        <span class="chip chip--tl"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12q2.5 2 5 0t5 0 5 0 5 0" />
+  <path d="M2 19q2.5 2 5 0t5 0 5 0 5 0" />
+  <path d="M2 5q2.5 2 5 0t5 0 5 0 5 0" /></svg> Muster erkennen</span>
+        <span class="chip chip--tr"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6v16" />
+  <path d="m19 13 2-1a9 9 0 0 1-18 0l2 1" />
+  <path d="M9 11h6" />
+  <circle cx="12" cy="4" r="2" /></svg> Anker setzen</span>
+        <span class="chip chip--b"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" />
+  <circle cx="12" cy="12" r="6" />
+  <circle cx="12" cy="12" r="2" /></svg> Zustand verändern</span>
       </div>
     </div>
     <div class="glass hero__meta">
@@ -89,7 +132,45 @@
   </div>
 </section>
 
-<section class="section section--alt">
+<section class="section section--alt" id="neuro">
+  <div class="wrap">
+    <div class="sh sh--center">
+      <span class="eyebrow">Neuro-Resonanz</span>
+      <h2 class="sh__title">So entsteht ein Muster. Und hier setzen wir <em>an.</em></h2>
+      <p class="lead">Dein Nervensystem lernt Abkürzungen. Manche davon kosten dich heute mehr, als sie dich schützen.</p>
+    </div>
+    <div class="flow mt-8">
+      <div class="glass flow__node">
+        <span class="disc"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z" /></svg></span>
+        <h3>Reiz</h3>
+        <p>Die Meeting-Einladung, der Kursverlust, die Nachricht vom Chef, die offene Entscheidung.</p>
+      </div>
+      <div class="flow__link" aria-hidden="true"><svg viewBox="0 0 100 14" preserveAspectRatio="none"><line class="flow__base" x1="0" y1="7" x2="100" y2="7" vector-effect="non-scaling-stroke"/><line class="flow__pulse" x1="0" y1="7" x2="100" y2="7" vector-effect="non-scaling-stroke"/></svg></div>
+      <div class="glass flow__node flow__node--ember">
+        <span class="disc"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 18V5" />
+  <path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4" />
+  <path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5" />
+  <path d="M17.997 5.125a4 4 0 0 1 2.526 5.77" />
+  <path d="M18 18a4 4 0 0 0 2-7.464" />
+  <path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517" />
+  <path d="M6 18a4 4 0 0 1-2-7.464" />
+  <path d="M6.003 5.125a4 4 0 0 0-2.526 5.77" /></svg></span>
+        <h3>Muster</h3>
+        <p>Ein gelerntes Programm: inneres Bild, Satz, Körperreaktion — schneller als jeder Gedanke.</p>
+        <span class="badge badge--dot">Hier arbeiten wir</span>
+      </div>
+      <div class="flow__link" aria-hidden="true"><svg viewBox="0 0 100 14" preserveAspectRatio="none"><line class="flow__base" x1="0" y1="7" x2="100" y2="7" vector-effect="non-scaling-stroke"/><line class="flow__pulse" x1="0" y1="7" x2="100" y2="7" vector-effect="non-scaling-stroke"/></svg></div>
+      <div class="glass flow__node">
+        <span class="disc"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" /></svg></span>
+        <h3>Reaktion</h3>
+        <p>Herzrasen, Blackout, Rache-Trade, Aufschieben, Grübeln bis nachts um zwei.</p>
+      </div>
+    </div>
+    <p class="center small muted mt-6">Coaching ändert nicht den Reiz. Es ändert das Muster dazwischen — und damit die Reaktion.</p>
+  </div>
+</section>
+
+<section class="section">
   <div class="wrap">
     <div class="sh sh--center">
       <span class="eyebrow">Die Methode</span>
@@ -123,7 +204,7 @@
   </div>
 </section>
 
-<section class="section" id="angebot">
+<section class="section section--alt" id="angebot">
   <div class="wrap">
     <div class="sh">
       <span class="eyebrow">Angebot</span>
@@ -166,74 +247,90 @@
   </div>
 </section>
 
-<section class="section section--alt">
+<section class="section">
   <div class="wrap">
     <div class="sh">
       <span class="eyebrow">Aus der Praxis</span>
       <h2 class="sh__title">Was sich danach <em>verändert hat.</em></h2>
-      <p class="lead">Drei typische Verläufe — anonymisiert und in Details verändert.</p>
+      <p class="lead">Vier typische Verläufe — anonymisiert und in Details verändert.</p>
     </div>
-    <div class="grid grid--3 mt-8">
-      <article class="card card--glass quote-card">
-        <span class="quote-card__mark">01</span>
-        <p>Herzrasen und Blackout vor jedem Vorstands-Meeting. Vier Sitzungen mit Ankertechniken und Submodalitätenarbeit — dann freie Rede, ruhige Stimme, klare Botschaft.</p>
-        <footer><strong>Führungskraft, 41</strong><span>Präsentationsangst · 4 Sitzungen</span></footer>
-      </article>
-      <article class="card card--glass quote-card">
-        <span class="quote-card__mark">02</span>
-        <p>Projekte wurden nie fertig, weil „noch nicht gut genug". Glaubenssatzarbeit und Timeline haben den Anspruch umgebaut. Das Projekt ging raus, das Grübeln ließ nach.</p>
-        <footer><strong>Selbstständige, 34</strong><span>Perfektionismus · 6 Sitzungen</span></footer>
-      </article>
-      <article class="card card--glass quote-card">
-        <span class="quote-card__mark">03</span>
-        <p>Regelwerk vorhanden, im Live-Konto trotzdem Rache-Trades nach Verlusten. Ruhe-Anker auf die Körperreaktion, neuer Glaubenssatz zum Verlust — acht Wochen ohne einen Trade außerhalb der Regeln.</p>
-        <footer><strong>Trader, 38</strong><span>Impulskontrolle · 5 Sitzungen</span></footer>
-      </article>
+    <div class="carousel mt-8" data-carousel>
+      <div class="carousel__track" tabindex="0" aria-label="Fallbeispiele, horizontal scrollbar">
+        <article class="card card--glass quote-card carousel__item">
+          <span class="quote-card__mark">01</span>
+          <p>Herzrasen und Blackout vor jedem Vorstands-Meeting. Vier Sitzungen mit Ankertechniken und Submodalitätenarbeit — dann freie Rede, ruhige Stimme, klare Botschaft.</p>
+          <footer><strong>Führungskraft, 41</strong><span>Präsentationsangst · 4 Sitzungen</span></footer>
+        </article>
+        <article class="card card--glass quote-card carousel__item">
+          <span class="quote-card__mark">02</span>
+          <p>Projekte wurden nie fertig, weil „noch nicht gut genug". Glaubenssatzarbeit und Timeline haben den Anspruch umgebaut. Das Projekt ging raus, das Grübeln ließ nach.</p>
+          <footer><strong>Selbstständige, 34</strong><span>Perfektionismus · 6 Sitzungen</span></footer>
+        </article>
+        <article class="card card--glass quote-card carousel__item">
+          <span class="quote-card__mark">03</span>
+          <p>Regelwerk vorhanden, im Live-Konto trotzdem Rache-Trades nach Verlusten. Ruhe-Anker auf die Körperreaktion, neuer Glaubenssatz zum Verlust — acht Wochen ohne einen Trade außerhalb der Regeln.</p>
+          <footer><strong>Trader, 38</strong><span>Impulskontrolle · 5 Sitzungen</span></footer>
+        </article>
+        <article class="card card--glass quote-card carousel__item">
+          <span class="quote-card__mark">04</span>
+          <p>Neue Stelle in einer anderen Stadt, gleichzeitig Trennung — monatelang keine Entscheidung. Aufstellungsarbeit mit den inneren Anteilen, dann Zielearbeit. Entscheidung in der dritten Sitzung, ohne Rückfall.</p>
+          <footer><strong>Angestellte, 46</strong><span>Umbruch · 3 Sitzungen</span></footer>
+        </article>
+      </div>
+      <div class="carousel__nav">
+        <button class="iconbtn" type="button" data-prev aria-label="Zurück"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7" />
+  <path d="M19 12H5" /></svg></button>
+        <div class="dots carousel__dots" role="group" aria-label="Karten"></div>
+        <button class="iconbtn" type="button" data-next aria-label="Weiter"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" />
+  <path d="m12 5 7 7-7 7" /></svg></button>
+      </div>
     </div>
-    <p class="mt-7"><a class="link" href="fallbeispiele.html">Alle Fallbeispiele lesen <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" />
+    <p class="center mt-6"><a class="link" href="fallbeispiele.html">Alle Fallbeispiele lesen <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" />
   <path d="m12 5 7 7-7 7" /></svg></a></p>
   </div>
 </section>
 
-<section class="section" id="fragen">
+<section class="section section--alt" id="fragen">
   <div class="wrap grid grid--faq">
     <div class="sh">
       <span class="eyebrow">Fragen</span>
       <h2 class="sh__title">Bevor du <em>schreibst.</em></h2>
     </div>
-    <div class="acc">
-      <div class="acc__item is-open">
-        <button class="acc__btn" type="button" aria-expanded="true"><span>Wie läuft das Erstgespräch ab?</span><span class="acc__plus" aria-hidden="true">+</span></button>
-        <div class="acc__panel"><p>30 Minuten per Video, kostenfrei. Du erzählst, was dich beschäftigt, ich höre zu und sage dir ehrlich, ob und wie ich helfen kann.</p></div>
-      </div>
-      <div class="acc__item">
-        <button class="acc__btn" type="button" aria-expanded="false"><span>Ist Coaching dasselbe wie Therapie?</span><span class="acc__plus" aria-hidden="true">+</span></button>
-        <div class="acc__panel"><p>Nein. Coaching arbeitet mit gesunden Menschen an Zielen, Mustern und Belastung. Wenn eine Behandlung sinnvoller ist, sage ich dir das im Erstgespräch.</p></div>
-      </div>
-      <div class="acc__item">
-        <button class="acc__btn" type="button" aria-expanded="false"><span>Wie viele Sitzungen brauche ich?</span><span class="acc__plus" aria-hidden="true">+</span></button>
-        <div class="acc__panel"><p>Die meisten Themen brauchen zwischen vier und zehn Sitzungen. Wir entscheiden nach jeder Sitzung neu — es gibt keine Mindestlaufzeit.</p></div>
-      </div>
-      <div class="acc__item">
-        <button class="acc__btn" type="button" aria-expanded="false"><span>Funktioniert das auch online?</span><span class="acc__plus" aria-hidden="true">+</span></button>
-        <div class="acc__panel"><p>Ja. Für fast alle Themen ist das Videogespräch gleichwertig. Du brauchst nur einen Raum, in dem du 75 Minuten ungestört bist.</p></div>
-      </div>
-      <div class="acc__item">
-        <button class="acc__btn" type="button" aria-expanded="false"><span>Was kostet es und wer zahlt?</span><span class="acc__plus" aria-hidden="true">+</span></button>
-        <div class="acc__panel"><p>Coaching ist eine Selbstzahlerleistung. Arbeitgeber übernehmen es häufig als Weiterbildung — eine Rechnung dafür bekommst du selbstverständlich.</p></div>
+    <div class="glass faq-panel">
+      <div class="acc">
+        <div class="acc__item is-open">
+          <button class="acc__btn" type="button" aria-expanded="true"><span>Wie läuft das Erstgespräch ab?</span><span class="acc__plus" aria-hidden="true">+</span></button>
+          <div class="acc__panel"><p>30 Minuten per Video, kostenfrei. Du erzählst, was dich beschäftigt, ich höre zu und sage dir ehrlich, ob und wie ich helfen kann.</p></div>
+        </div>
+        <div class="acc__item">
+          <button class="acc__btn" type="button" aria-expanded="false"><span>Ist Coaching dasselbe wie Therapie?</span><span class="acc__plus" aria-hidden="true">+</span></button>
+          <div class="acc__panel"><p>Nein. Coaching arbeitet mit gesunden Menschen an Zielen, Mustern und Belastung. Wenn eine Behandlung sinnvoller ist, sage ich dir das im Erstgespräch.</p></div>
+        </div>
+        <div class="acc__item">
+          <button class="acc__btn" type="button" aria-expanded="false"><span>Wie viele Sitzungen brauche ich?</span><span class="acc__plus" aria-hidden="true">+</span></button>
+          <div class="acc__panel"><p>Die meisten Themen brauchen zwischen vier und zehn Sitzungen. Wir entscheiden nach jeder Sitzung neu — es gibt keine Mindestlaufzeit.</p></div>
+        </div>
+        <div class="acc__item">
+          <button class="acc__btn" type="button" aria-expanded="false"><span>Funktioniert das auch online?</span><span class="acc__plus" aria-hidden="true">+</span></button>
+          <div class="acc__panel"><p>Ja. Für fast alle Themen ist das Videogespräch gleichwertig. Du brauchst nur einen Raum, in dem du 75 Minuten ungestört bist.</p></div>
+        </div>
+        <div class="acc__item">
+          <button class="acc__btn" type="button" aria-expanded="false"><span>Was kostet es und wer zahlt?</span><span class="acc__plus" aria-hidden="true">+</span></button>
+          <div class="acc__panel"><p>Coaching ist eine Selbstzahlerleistung. Arbeitgeber übernehmen es häufig als Weiterbildung — eine Rechnung dafür bekommst du selbstverständlich.</p></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <section class="cta">
-  <img class="cta__img" src="img/horizon.jpg" alt="" width="1408" height="768" loading="lazy" decoding="async">
+  <img class="cta__img" src="img/garden-path.jpg" alt="" width="1408" height="768" loading="lazy" decoding="async">
   <div class="cta__wash"></div>
   <div class="wrap cta__inner">
-    <span class="eyebrow">Der erste Schritt</span>
-    <h2 class="display-2">Ein Gespräch. Dann weißt du, ob es passt.</h2>
-    <p class="lead">30 Minuten, kostenfrei, ohne Verkaufsgespräch. Du entscheidest danach in Ruhe.</p>
-    <a class="btn btn--lg" href="kontakt.html">Termin anfragen <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" />
+    <span class="eyebrow">Lernen wir uns kennen</span>
+    <h2 class="display-2">30 Minuten. Dann weißt du, ob es passt.</h2>
+    <p class="lead">Kostenfrei, online, ohne Verpflichtung. Du schilderst dein Thema, ich sage dir ehrlich, ob und wie ich helfen kann.</p>
+    <a class="btn btn--lg" href="kontakt.html">Erstgespräch anfragen <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" />
   <path d="m12 5 7 7-7 7" /></svg></a>
   </div>
 </section>
@@ -249,6 +346,7 @@
     <div class="footer__bottom"><span>© <span id="jahr">2026</span> Timo Winheller Mental Coaching</span><span class="footer__legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></span></div>
   </div>
 </footer>
+<script src="js/neural.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

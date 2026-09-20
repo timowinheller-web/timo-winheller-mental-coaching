@@ -18,6 +18,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<canvas class="neural neural--bg" data-neural="field" aria-hidden="true"></canvas>
 <header class="nav">
   <div class="nav__pill">
     <a class="logo" href="index.html" aria-label="Timo Winheller Mental Coaching – Startseite"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="4.5" fill="#FF6A1F"/><path d="M32 18.5a13.5 13.5 0 0 1 13.5 13.5" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round"/><path d="M32 18.5A13.5 13.5 0 0 0 18.5 32" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round" opacity=".45"/><path d="M32 8a24 24 0 0 1 24 24" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round"/><path d="M32 8A24 24 0 0 0 8 32" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round" opacity=".3"/><path d="M32 56a24 24 0 0 1-24-24" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round" opacity=".55"/></svg><span class="logo__text"><span class="logo__name">TIMO WINHELLER</span><span class="logo__sub">MENTAL COACHING</span></span></a>
@@ -39,8 +40,27 @@
       <span class="eyebrow">Die Methode</span>
       <h1 class="sh__title">Neuro-Resonanz: Verstand und Gefühl ziehen wieder in <em>dieselbe Richtung.</em></h1>
       <p class="lead">Die Präzision des NLP, verbunden mit Körperarbeit, Atem und Meditation. Veränderung, die nicht nur im Kopf stattfindet — und deshalb bleibt.</p>
+      <a class="btn mt-3" href="kontakt.html">Kostenfreies Erstgespräch <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" />
+  <path d="m12 5 7 7-7 7" /></svg></a>
     </div>
-    <div class="frame frame--dawn"><img src="img/forest-light.jpg" alt="" width="1408" height="768" fetchpriority="high"></div>
+    <div class="glass neuro-panel neuro-panel--tall" aria-label="Animiertes neuronales Netz in Form eines Gehirns">
+      <canvas class="neural" data-neural="brain" aria-hidden="true"></canvas>
+      <span class="chip chip--tl"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 18V5" />
+  <path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4" />
+  <path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5" />
+  <path d="M17.997 5.125a4 4 0 0 1 2.526 5.77" />
+  <path d="M18 18a4 4 0 0 0 2-7.464" />
+  <path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517" />
+  <path d="M6 18a4 4 0 0 1-2-7.464" />
+  <path d="M6.003 5.125a4 4 0 0 0-2.526 5.77" /></svg> Glaubenssätze</span>
+      <span class="chip chip--tr"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6v16" />
+  <path d="m19 13 2-1a9 9 0 0 1-18 0l2 1" />
+  <path d="M9 11h6" />
+  <circle cx="12" cy="4" r="2" /></svg> Anker</span>
+      <span class="chip chip--b"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="3" />
+  <path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" />
+  <circle cx="18" cy="5" r="3" /></svg> Timeline</span>
+    </div>
   </div>
 </section>
 
@@ -65,56 +85,65 @@
       <h2 class="sh__title">Sechs Werkzeuge, verständlich <em>erklärt.</em></h2>
       <p class="lead">Welche Technik zum Einsatz kommt, hängt von deinem Thema ab. Das hier sind die wichtigsten.</p>
     </div>
-    <div class="grid grid--3 mt-8">
-      <article class="card card--glass card--interactive feature">
-        <div class="feature__top"><span class="disc"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 18V5" />
+    <div class="carousel mt-8" data-carousel>
+      <div class="carousel__track" tabindex="0" aria-label="Bausteine, horizontal scrollbar">
+        <article class="card card--glass card--interactive feature carousel__item">
+          <div class="feature__top"><span class="disc"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 18V5" />
   <path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4" />
   <path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5" />
   <path d="M17.997 5.125a4 4 0 0 1 2.526 5.77" />
   <path d="M18 18a4 4 0 0 0 2-7.464" />
   <path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517" />
   <path d="M6 18a4 4 0 0 1-2-7.464" />
-  <path d="M6.003 5.125a4 4 0 0 0-2.526 5.77" /></svg></span></div>
-        <h3>Glaubenssatzarbeit</h3>
-        <p>„Ich bin nicht gut genug", „Ich darf keine Fehler machen" — solche Sätze steuern dich, ohne dass du sie hörst. Wir machen sie sichtbar und ersetzen sie durch etwas, das dich trägt.</p>
-      </article>
-      <article class="card card--glass card--interactive feature">
-        <div class="feature__top"><span class="disc"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6v16" />
+  <path d="M6.003 5.125a4 4 0 0 0-2.526 5.77" /></svg></span><span class="feature__index">01</span></div>
+          <h3>Glaubenssatzarbeit</h3>
+          <p>„Ich bin nicht gut genug", „Ich darf keine Fehler machen" — solche Sätze steuern dich, ohne dass du sie hörst. Wir machen sie sichtbar und ersetzen sie durch etwas, das dich trägt.</p>
+        </article>
+        <article class="card card--glass card--interactive feature carousel__item">
+          <div class="feature__top"><span class="disc"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6v16" />
   <path d="m19 13 2-1a9 9 0 0 1-18 0l2 1" />
   <path d="M9 11h6" />
-  <circle cx="12" cy="4" r="2" /></svg></span></div>
-        <h3>Ankern</h3>
-        <p>Ein Zustand wie Ruhe oder Selbstsicherheit wird mit einem Reiz verknüpft, den du jederzeit abrufen kannst — vor dem Meeting, vor der Prüfung, im Konflikt.</p>
-      </article>
-      <article class="card card--glass card--interactive feature">
-        <div class="feature__top"><span class="disc"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
+  <circle cx="12" cy="4" r="2" /></svg></span><span class="feature__index">02</span></div>
+          <h3>Ankern</h3>
+          <p>Ein Zustand wie Ruhe oder Selbstsicherheit wird mit einem Reiz verknüpft, den du jederzeit abrufen kannst — vor dem Meeting, vor der Prüfung, im Konflikt.</p>
+        </article>
+        <article class="card card--glass card--interactive feature carousel__item">
+          <div class="feature__top"><span class="disc"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
   <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
-  <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" /></svg></span></div>
-        <h3>Submodalitäten</h3>
-        <p>Wie dein Kopf ein Erlebnis abspeichert — groß, nah, laut, farbig — bestimmt, wie stark es wirkt. Wir ändern die Abspeicherung, und die Reaktion ändert sich mit.</p>
-      </article>
-      <article class="card card--glass card--interactive feature">
-        <div class="feature__top"><span class="disc"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="3" />
+  <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" /></svg></span><span class="feature__index">03</span></div>
+          <h3>Submodalitäten</h3>
+          <p>Wie dein Kopf ein Erlebnis abspeichert — groß, nah, laut, farbig — bestimmt, wie stark es wirkt. Wir ändern die Abspeicherung, und die Reaktion ändert sich mit.</p>
+        </article>
+        <article class="card card--glass card--interactive feature carousel__item">
+          <div class="feature__top"><span class="disc"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="3" />
   <path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15" />
-  <circle cx="18" cy="5" r="3" /></svg></span></div>
-        <h3>Timeline-Arbeit</h3>
-        <p>Prägende Erfahrungen werden neu bewertet, sodass sie die Gegenwart nicht mehr blockieren. Ziele werden in der Zukunft so verankert, dass sie ziehen.</p>
-      </article>
-      <article class="card card--glass card--interactive feature">
-        <div class="feature__top"><span class="disc"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.8 19.6A2 2 0 1 0 14 16H2" />
+  <circle cx="18" cy="5" r="3" /></svg></span><span class="feature__index">04</span></div>
+          <h3>Timeline-Arbeit</h3>
+          <p>Prägende Erfahrungen werden neu bewertet, sodass sie die Gegenwart nicht mehr blockieren. Ziele werden in der Zukunft so verankert, dass sie ziehen.</p>
+        </article>
+        <article class="card card--glass card--interactive feature carousel__item">
+          <div class="feature__top"><span class="disc"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.8 19.6A2 2 0 1 0 14 16H2" />
   <path d="M17.5 8a2.5 2.5 0 1 1 2 4H2" />
-  <path d="M9.8 4.4A2 2 0 1 1 11 8H2" /></svg></span></div>
-        <h3>Wu-Wei-Transformation®</h3>
-        <p>Ein Format der Akademie, das Widerstand nicht bekämpft, sondern auflöst. Besonders wirksam bei Themen, an denen du dich schon lange abarbeitest.</p>
-      </article>
-      <article class="card card--glass card--interactive feature">
-        <div class="feature__top"><span class="disc"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+  <path d="M9.8 4.4A2 2 0 1 1 11 8H2" /></svg></span><span class="feature__index">05</span></div>
+          <h3>Wu-Wei-Transformation®</h3>
+          <p>Ein Format der Akademie, das Widerstand nicht bekämpft, sondern auflöst. Besonders wirksam bei Themen, an denen du dich schon lange abarbeitest.</p>
+        </article>
+        <article class="card card--glass card--interactive feature carousel__item">
+          <div class="feature__top"><span class="disc"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
   <path d="M16 3.128a4 4 0 0 1 0 7.744" />
   <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-  <circle cx="9" cy="7" r="4" /></svg></span></div>
-        <h3>Aufstellungs- &amp; Dualitätenarbeit</h3>
-        <p>Innere Konflikte — „Ich will, aber ich traue mich nicht" — werden räumlich sichtbar gemacht und integriert. Beide Seiten bekommen ihren Platz.</p>
-      </article>
+  <circle cx="9" cy="7" r="4" /></svg></span><span class="feature__index">06</span></div>
+          <h3>Aufstellungs- &amp; Dualitätenarbeit</h3>
+          <p>Innere Konflikte — „Ich will, aber ich traue mich nicht" — werden räumlich sichtbar gemacht und integriert. Beide Seiten bekommen ihren Platz.</p>
+        </article>
+      </div>
+      <div class="carousel__nav">
+        <button class="iconbtn" type="button" data-prev aria-label="Zurück"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7" />
+  <path d="M19 12H5" /></svg></button>
+        <div class="dots carousel__dots" role="group" aria-label="Karten"></div>
+        <button class="iconbtn" type="button" data-next aria-label="Weiter"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" />
+  <path d="m12 5 7 7-7 7" /></svg></button>
+      </div>
     </div>
   </div>
 </section>
@@ -134,7 +163,7 @@
         <li><span><strong>Impulsives Verhalten, Selbstsabotage:</strong> Emotionsregulation, Wu-Wei, Ankern von Regeln</span></li>
       </ul>
     </div>
-    <div class="card card--inset">
+    <div class="glass glass--pad">
       <span class="eyebrow">Ehrlich gesagt</span>
       <h3 class="mt-3">Coaching ist nicht Therapie.</h3>
       <p class="small mt-3">Coaching richtet sich an gesunde Menschen, die in einem Bereich weiterkommen wollen. Es ersetzt keine Psychotherapie und keine ärztliche Behandlung. Bei psychischen Erkrankungen, akuten Krisen oder Suizidgedanken wende dich bitte an eine Psychotherapeutin, deinen Hausarzt oder die Telefonseelsorge: 0800 111 0 111 — kostenlos, rund um die Uhr.</p>
@@ -144,7 +173,7 @@
 </section>
 
 <section class="cta">
-  <img class="cta__img" src="img/garden-path.jpg" alt="" width="1408" height="768" loading="lazy" decoding="async">
+  <img class="cta__img" src="img/forest-light.jpg" alt="" width="1408" height="768" loading="lazy" decoding="async">
   <div class="cta__wash"></div>
   <div class="wrap cta__inner">
     <span class="eyebrow">Neugierig, wie das bei deinem Thema aussieht?</span>
@@ -166,6 +195,7 @@
     <div class="footer__bottom"><span>© <span id="jahr">2026</span> Timo Winheller Mental Coaching</span><span class="footer__legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></span></div>
   </div>
 </footer>
+<script src="js/neural.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

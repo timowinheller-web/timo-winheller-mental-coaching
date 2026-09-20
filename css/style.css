@@ -293,3 +293,74 @@ h1 em,h2 em,h3 em,.display-1 em,.display-2 em,.accent{font-style:italic;color:va
 .footer__legal a:hover{color:var(--text-body)}
 @media (max-width:960px){.footer__grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.footer__grid{grid-template-columns:minmax(0,1fr)}}
+
+/* ============================================================
+   Neuro-Ebene: Netz im Hintergrund, Gehirn-Panels, Slider, Karussells, Fluss
+   ============================================================ */
+main,.footer{position:relative;z-index:1}
+.neural{display:block}
+.neural--bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.55}
+
+/* Gehirn im Glas */
+.neuro-panel{position:relative;min-height:460px;overflow:hidden;padding:0}
+.neuro-panel--tall{min-height:520px}
+.neuro-panel .neural{position:absolute;inset:0;width:100%;height:100%}
+.neuro-panel::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 55%,rgba(255,106,31,.14),rgba(255,106,31,0) 70%);pointer-events:none}
+.chip{position:absolute;z-index:2;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:var(--radius-pill);background:var(--surface-glass);border:1px solid var(--line-soft);-webkit-backdrop-filter:blur(var(--blur-glass));backdrop-filter:blur(var(--blur-glass));box-shadow:var(--shadow-md);font-size:var(--size-caption);font-weight:600;color:var(--text-strong);white-space:nowrap}
+.chip .ic{width:16px;height:16px;color:var(--ember-400)}
+.chip--tl{left:18px;top:18px}
+.chip--tr{right:18px;top:72px}
+.chip--b{left:50%;bottom:18px;transform:translateX(-50%)}
+@media (max-width:960px){.neuro-panel,.neuro-panel--tall{min-height:360px}.chip--tr{top:18px}}
+@media (max-width:560px){.chip--tr{top:62px}.chip--tl{left:12px;top:12px}.chip--tr{right:12px}.chip--b{bottom:12px}}
+
+/* Hero als Slider */
+.hero{align-items:center;padding:130px 0 64px;min-height:min(840px,100svh)}
+.hero__slides{position:absolute;inset:0}
+.hero__slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s var(--ease-calm)}
+.hero__slide.is-active{opacity:1}
+.hero__slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.hero__inner{padding-bottom:0}
+.hero__grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:48px;align-items:center}
+.hero__texts{display:grid}
+.hero__text{grid-area:1/1;display:flex;flex-direction:column;gap:22px;opacity:0;transform:translateY(8px);transition:opacity var(--dur-veil) var(--ease-calm),transform var(--dur-veil) var(--ease-calm);pointer-events:none}
+.hero__text.is-active{opacity:1;transform:none;pointer-events:auto}
+.slider__nav{display:flex;align-items:center;gap:14px;margin-top:6px}
+.dots{display:flex;gap:8px;align-items:center}
+.dots button{width:8px;height:8px;padding:0;border-radius:999px;border:0;background:var(--line-strong);cursor:pointer;transition:var(--transition-base)}
+.dots button.is-active{width:24px;background:var(--ember-500);box-shadow:0 0 10px var(--ember-500)}
+.iconbtn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line-soft);background:var(--surface-card);color:var(--text-strong);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0;-webkit-backdrop-filter:blur(var(--blur-glass));backdrop-filter:blur(var(--blur-glass));transition:var(--transition-base)}
+.iconbtn:hover{background:var(--surface-card-hover);border-color:var(--line-strong)}
+.iconbtn[disabled]{opacity:.35;cursor:default}
+.iconbtn .ic{width:18px;height:18px}
+@media (max-width:960px){.hero{padding-top:110px}.hero__grid{grid-template-columns:minmax(0,1fr);gap:28px}}
+
+/* Karussell */
+.carousel{position:relative}
+.carousel__track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 6px 14px;margin:-6px -6px 0;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.carousel__track::-webkit-scrollbar{display:none}
+.carousel__item{flex:0 0 min(100%,380px);scroll-snap-align:start}
+.carousel__nav{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:16px}
+@media (max-width:640px){.carousel__item{flex-basis:86%}}
+
+/* Fluss: Reiz → Muster → Reaktion */
+.flow{display:grid;grid-template-columns:minmax(0,1fr) 64px minmax(0,1fr) 64px minmax(0,1fr);align-items:stretch}
+.flow__node{padding:28px;display:flex;flex-direction:column;gap:12px;border-radius:var(--radius-lg)}
+.flow__node h3{font-size:var(--size-h3)}
+.flow__node p{font-size:var(--size-small);color:var(--text-muted);flex:1}
+.flow__node .badge{align-self:flex-start}
+.flow__node--ember{border-color:var(--line-ember);box-shadow:var(--shadow-ember)}
+.flow__link{display:flex;align-items:center;justify-content:center}
+.flow__link svg{width:100%;height:14px;overflow:visible}
+.flow__base{stroke:var(--line-strong);stroke-width:1}
+.flow__pulse{stroke:var(--ember-400);stroke-width:2;stroke-linecap:round;stroke-dasharray:10 44;animation:flowPulse 2.4s linear infinite}
+@keyframes flowPulse{to{stroke-dashoffset:-54}}
+@media (prefers-reduced-motion:reduce){.flow__pulse{animation:none}}
+@media (max-width:900px){.flow{grid-template-columns:minmax(0,1fr)}.flow__link{height:56px}.flow__link svg{width:56px;transform:rotate(90deg)}}
+
+/* Glas-Panels für Kennzahlen und FAQ */
+.stats-panel{margin-top:40px;padding:28px 32px}
+.stats-panel .stats{margin:0;padding:0;border:0}
+.faq-panel{padding:8px 28px}
+@media (max-width:640px){.faq-panel{padding:4px 16px}}
+.glass--pad{padding:32px}

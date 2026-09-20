@@ -90,6 +90,7 @@ def head(slug, title, desc):
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<canvas class="neural neural--bg" data-neural="field" aria-hidden="true"></canvas>
 """
 
 
@@ -127,6 +128,7 @@ def footer():
     <div class="footer__bottom"><span>© <span id="jahr">2026</span> Timo Winheller Mental Coaching</span><span class="footer__legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></span></div>
   </div>
 </footer>
+<script src="js/neural.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
