@@ -1,0 +1,32 @@
+:root{
+/* — Base: Mitternacht (deep blue-ink ground, taken from the brand photography) — */
+--ink-1000:#04070E;--ink-900:#070C17;--ink-850:#0A1120;--ink-800:#0E1729;--ink-700:#152238;--ink-600:#1E3050;--ink-500:#2B4368;--ink-400:#3E5C86;
+/* — Ember: the signature orange — */
+--ember-700:#B83C05;--ember-600:#E0500B;--ember-500:#FF6A1F;--ember-400:#FF8A45;--ember-300:#FFA870;--ember-200:#FFC8A3;--ember-100:#FFE4D2;
+/* — Sand: warm neutrals from oak, linen, clay — */
+--sand-700:#8A7660;--sand-600:#A89078;--sand-500:#C4AE93;--sand-400:#DCCCB5;--sand-300:#EADDCB;--sand-200:#F2E9DC;--sand-100:#FAF5EE;--bone:#FDFBF8;
+/* — Support (used sparingly, never decoratively) — */
+--sage-500:#6E8C74;--sage-200:#C7D6C9;--clay-500:#B4553F;--gold-500:#D9A441;
+
+/* — Semantic: text — */
+--text-strong:var(--bone);--text-body:rgba(253,251,248,.78);--text-muted:rgba(253,251,248,.56);--text-faint:rgba(253,251,248,.38);
+--text-accent:var(--ember-400);--text-on-ember:#1A0A02;
+--text-strong-on-light:var(--ink-900);--text-body-on-light:rgba(7,12,23,.74);--text-muted-on-light:rgba(7,12,23,.54);
+
+/* — Semantic: surfaces — */
+--surface-page:var(--ink-900);--surface-page-alt:var(--ink-850);--surface-light:var(--sand-100);--surface-light-alt:var(--sand-200);
+--surface-card:rgba(255,255,255,.045);--surface-card-hover:rgba(255,255,255,.07);--surface-glass:rgba(10,17,32,.55);
+--surface-inset:rgba(4,7,14,.45);--surface-ember:var(--ember-500);--surface-ember-soft:rgba(255,106,31,.12);
+
+/* — Semantic: lines — */
+--line-hairline:rgba(253,251,248,.08);--line-soft:rgba(253,251,248,.14);--line-strong:rgba(253,251,248,.26);
+--line-ember:rgba(255,106,31,.42);--line-on-light:rgba(7,12,23,.12);
+
+/* — Signature gradients & glows — */
+--glow-ember:radial-gradient(60% 60% at 50% 50%,rgba(255,106,31,.30) 0%,rgba(255,106,31,0) 70%); /* @kind other */
+--glow-ember-strong:radial-gradient(50% 50% at 50% 50%,rgba(255,106,31,.55) 0%,rgba(255,106,31,0) 72%); /* @kind other */
+--wash-night:linear-gradient(180deg,var(--ink-900) 0%,var(--ink-850) 55%,var(--ink-1000) 100%); /* @kind other */
+--wash-dawn:linear-gradient(135deg,rgba(255,106,31,.16) 0%,rgba(255,106,31,0) 46%,rgba(62,92,134,.18) 100%); /* @kind other */
+--rule-ember:linear-gradient(90deg,rgba(255,106,31,0) 0%,rgba(255,106,31,.7) 50%,rgba(255,106,31,0) 100%); /* @kind other */
+--scrim-bottom:linear-gradient(180deg,rgba(7,12,23,0) 0%,rgba(7,12,23,.72) 62%,var(--ink-900) 100%); /* @kind other */
+}

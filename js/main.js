@@ -1,49 +1,66 @@
-// Mobile-Menü, Footer-Jahr, Formular-Validierung
+// Navigation (mobil), Akkordeon, Footer-Jahr, Kontaktformular
 (function () {
-  var toggle = document.querySelector('.nav-toggle');
-  var links = document.querySelector('.nav-links');
-  if (toggle && links) {
+  var nav = document.querySelector('.nav');
+  var toggle = document.querySelector('.nav__toggle');
+  if (nav && toggle) {
     toggle.addEventListener('click', function () {
-      var open = links.classList.toggle('open');
+      var open = nav.classList.toggle('is-open');
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+        nav.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
     });
   }
 
   var year = document.getElementById('jahr');
   if (year) year.textContent = new Date().getFullYear();
 
+  document.querySelectorAll('.acc__btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.acc__item');
+      var open = item.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+
   var form = document.getElementById('kontaktformular');
   if (!form) return;
+  var ds = form.querySelector('#datenschutz');
+  var send = form.querySelector('#senden');
 
-  function setInvalid(field, invalid) {
-    field.closest('.field').classList.toggle('invalid', invalid);
+  // Senden erst möglich, wenn der Datenschutz-Haken gesetzt ist
+  function syncSend() { send.disabled = !ds.checked; }
+  ds.addEventListener('change', syncSend);
+  syncSend();
+
+  function setInvalid(el, bad) {
+    el.closest('.field').classList.toggle('is-invalid', bad);
+    return !bad;
   }
 
   form.addEventListener('submit', function (e) {
-    var ok = true;
     var name = form.querySelector('#name');
     var email = form.querySelector('#email');
     var msg = form.querySelector('#nachricht');
-    var ds = form.querySelector('#datenschutz');
-
-    setInvalid(name, !name.value.trim()); ok = ok && !!name.value.trim();
-    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value);
-    setInvalid(email, !emailOk); ok = ok && emailOk;
-    setInvalid(msg, msg.value.trim().length < 10); ok = ok && msg.value.trim().length >= 10;
-    setInvalid(ds, !ds.checked); ok = ok && ds.checked;
-
+    var ok = true;
+    ok = setInvalid(name, !name.value.trim()) && ok;
+    ok = setInvalid(email, !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) && ok;
+    ok = setInvalid(msg, msg.value.trim().length < 10) && ok;
+    ok = setInvalid(ds, !ds.checked) && ok;
     if (!ok) { e.preventDefault(); return; }
 
     // Fallback: solange kein Formular-Dienst eingetragen ist, per E-Mail-Programm senden.
     if (form.dataset.fallback === 'mailto') {
       e.preventDefault();
-      var thema = form.querySelector('#thema').value;
-      var body = 'Name: ' + name.value + '\nE-Mail: ' + email.value + '\nThema: ' + thema + '\n\n' + msg.value;
+      var format = form.querySelector('#format').value;
+      var body = 'Name: ' + name.value + '\nE-Mail: ' + email.value + '\nFormat: ' + format + '\n\n' + msg.value;
       window.location.href = 'mailto:' + form.dataset.mail +
-        '?subject=' + encodeURIComponent('Anfrage Erstgespräch – ' + thema) +
+        '?subject=' + encodeURIComponent('Anfrage Erstgespräch') +
         '&body=' + encodeURIComponent(body);
-      var success = document.querySelector('.form-success');
-      if (success) { success.style.display = 'block'; }
+      form.classList.add('is-sent');
     }
   });
 })();

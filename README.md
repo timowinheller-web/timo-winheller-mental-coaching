@@ -1,91 +1,74 @@
 # Timo Winheller Mental Coaching – Website
 
-Statische Website ohne Build-Tool. Alle Seiten liegen fertig als `.html` im Hauptordner
-und können direkt auf jeden Webspace hochgeladen werden.
+Statische Website (HTML/CSS/JS, kein Build-Tool nötig zum Hosten) im Design-System
+**„Mitternacht & Ember"**: Nachtblau-Grund, Sand-Neutrale, ein Orange (`--ember-500`), Glas-Panels,
+Instrument Serif + Manrope.
+
+- Live (GitHub Pages): https://timowinheller-web.github.io/timo-winheller-mental-coaching/
+- Repository: https://github.com/timowinheller-web/timo-winheller-mental-coaching
 
 ## Struktur
 
-| Datei | Inhalt |
+| Pfad | Inhalt |
 |---|---|
-| `index.html` | Startseite |
-| `angebot.html` | Pakete, Preise, Ablauf |
-| `methode.html` | Neuro-Resonanz erklärt |
-| `fallbeispiele.html` | 4 anonymisierte Fallbeispiele |
-| `ueber-mich.html` | Werdegang, Zertifikat |
-| `kontakt.html` | Formular für Erstgespräch |
-| `impressum.html` | § 5 DDG |
-| `datenschutz.html` | DSGVO |
-| `css/style.css` | Design (Farben oben in `:root`) |
-| `js/main.js` | Mobile-Menü, Formular |
-| `img/` | Platzhalter-Grafiken |
-| `parts/*.body.html` + `build.sh` | Quelltexte der Seiteninhalte + Generator (optional) |
+| `index.html` … `datenschutz.html` | Die 8 fertigen Seiten (werden aus `parts/` gebaut) |
+| `parts/<seite>.body.html` | **Seiteninhalte – hier Texte ändern** |
+| `build.py` | Baut alle Seiten: setzt `<head>`, Navigation, Footer und Icons ein |
+| `css/style.css` | Komponenten (Buttons, Karten, Nav, Hero …) |
+| `css/tokens/*.css` | Design-Tokens: Farben, Typografie, Abstände, Radien, Schatten, Motion |
+| `css/fonts/` | Schriften lokal (Manrope, Instrument Serif) – kein Google-Fonts-Aufruf |
+| `img/*.jpg` | Die 10 Markenfotos (komprimiert), `img/icons/` Lucide-Icons, `img/logo.svg` Favicon |
+| `js/main.js` | Mobile-Menü, Akkordeon, Formular |
+| `desing/` | Design-System-Export (Tokens, Komponenten, Guidelines). **Nicht im Repo** (.gitignore) |
 
-## Texte ändern
+## Texte ändern und veröffentlichen
 
-Zwei Wege:
-
-**A – direkt (einfach):** Die fertige `.html`-Datei im Editor öffnen und den Text ändern.
-Nachteil: Header und Footer stehen in allen 8 Dateien; eine Änderung am Menü musst du 8× machen.
-
-**B – über den Generator:** Inhalt in `parts/<seite>.body.html` ändern, Menü/Footer in `build.sh`,
-dann im Terminal:
+1. Text in `parts/<seite>.body.html` ändern (Navigation/Footer/Titel in `build.py`)
+2. Seiten neu bauen:
 
 ```bash
-bash build.sh parts .
+python3 build.py
 ```
 
-Das schreibt alle 8 Seiten neu.
-
-## Platzhalter (vor Veröffentlichung ausfüllen)
-
-Alle Platzhalter sind gelb hinterlegt (`<span class="placeholder">…</span>`). Suche im Ordner nach `[`:
-
-```bash
-grep -n "placeholder" *.html
-```
-
-| Platzhalter | Wo |
-|---|---|
-| `[STADT]`, `[STRASSE NR]`, `[PLZ]` | Footer (alle Seiten), angebot, kontakt, impressum, datenschutz |
-| `[E-MAIL]`, `[TELEFON]` | Footer, kontakt (auch `data-mail="[E-MAIL]"` im Formular!), impressum, datenschutz |
-| `[JAHR]` | ueber-mich (Ausbildungsjahr) |
-| `[Kurzbiografie …]` | ueber-mich |
-| `[Variante A/B Umsatzsteuer]` | impressum, angebot (Preishinweis) |
-| `[HOSTING-ANBIETER]`, `[DATUM]`, `[Formulardienst]`, `[Videodienst]`, `[Aufsichtsbehörde]` | datenschutz |
-| `img/portrait.svg` | durch echtes Foto ersetzen (z. B. `portrait.jpg`, dann `src` in index + ueber-mich anpassen) |
-| `img/zertifikat.svg` | durch Scan ersetzen |
-
-## Kontaktformular aktivieren
-
-Aktuell öffnet das Formular das E-Mail-Programm des Besuchers (`data-fallback="mailto"`).
-Für echten Versand ohne E-Mail-Programm:
-
-1. Konto bei einem Formulardienst anlegen (Formspark ~ kostenlos für kleine Mengen, Formspree, oder Netlify Forms wenn bei Netlify gehostet).
-2. In `kontakt.html`: `action="#"` durch die URL des Dienstes ersetzen und `data-fallback="mailto"` entfernen.
-3. In `datenschutz.html` Abschnitt 4 den Platzhalter zum Formulardienst ausfüllen.
-
-## Live-Website & Veröffentlichen
-
-- Repository: https://github.com/timowinheller-web/timo-winheller-mental-coaching
-- Live (GitHub Pages): https://timowinheller-web.github.io/timo-winheller-mental-coaching/
-
-Jede Änderung wird veröffentlicht, sobald sie auf `main` gepusht ist (Aufbau dauert 1–3 Minuten):
+3. Veröffentlichen (GitHub Pages baut in 1–3 Minuten):
 
 ```bash
 git add -A && git commit -m "Texte angepasst" && git push
 ```
 
-Eigene Domain (z. B. `timo-winheller-coaching.de`): im Repo unter Settings → Pages → „Custom domain" eintragen
-und beim Domain-Anbieter einen CNAME auf `timowinheller-web.github.io` setzen.
+Icons: `{{icon:name}}` in den Parts, Name = Lucide-Icon in `img/icons/` (weitere von https://lucide.dev als SVG dort ablegen).
 
-## Hosting (Alternativen)
+## Platzhalter (vor Veröffentlichung ausfüllen)
 
-- **Klassischer Webspace (Strato, IONOS, All-Inkl):** alle Dateien und Ordner per FTP/SFTP in das Web-Root hochladen. Fertig.
-- **Netlify / Cloudflare Pages / GitHub Pages:** Ordner hochladen bzw. Repository verbinden. Kein Build-Befehl nötig, Publish-Directory = `.`
-- SSL/HTTPS bei allen genannten Anbietern inklusive – einschalten.
+Platzhalter sind orange gestrichelt hervorgehoben (`<span class="ph">…</span>`). Suche:
+
+```bash
+grep -n 'class="ph"' parts/*.html build.py
+```
+
+| Platzhalter | Wo |
+|---|---|
+| `[E-MAIL]`, `[TELEFON]` | `build.py` (Footer), kontakt (auch `data-mail="[E-MAIL]"` im Formular), impressum, datenschutz |
+| `[STRASSE NR]`, `[PLZ]` | impressum, datenschutz |
+| **Wiesbaden** | steht als Praxis-Ort auf allen Seiten (aus dem Design-Briefing) – bitte prüfen |
+| `[JAHR]`, `[Kurzbiografie …]` | ueber-mich |
+| `[Umsatzsteuer Variante A/B]` | angebot (Preishinweis), impressum |
+| `[HOSTING-ANBIETER]`, `[DATUM]`, `[Formulardienst]`, `[Videodienst]`, `[Aufsichtsbehörde]` | datenschutz |
+| Portraitfoto | Design-System liefert keins; bei Bedarf in `img/` ablegen und auf ueber-mich einbauen |
+
+## Kontaktformular aktivieren
+
+Aktuell öffnet das Formular das E-Mail-Programm des Besuchers (`data-fallback="mailto"`).
+Für echten Versand: Konto bei Formspark/Formspree anlegen, in `parts/kontakt.body.html`
+`action="#"` durch die Dienst-URL ersetzen, `data-fallback="mailto"` entfernen, `python3 build.py`,
+und in `parts/datenschutz.body.html` Abschnitt 4 den Dienst nennen.
+
+## Eigene Domain
+
+Im Repo unter Settings → Pages → „Custom domain" eintragen und beim Domain-Anbieter einen CNAME
+auf `timowinheller-web.github.io` setzen. Danach `BASE_URL` in `build.py` anpassen und neu bauen.
 
 ## Rechtlicher Hinweis
 
 Impressum und Datenschutzerklärung sind sorgfältig erstellte Vorlagen, aber keine Rechtsberatung.
-Vor Veröffentlichung einmal von einem Anwalt oder einem Generator (z. B. e-recht24.de) gegenprüfen lassen,
-insbesondere wenn später Tracking, Newsletter, Buchungstools oder Google Fonts hinzukommen.
+Vor Veröffentlichung von einem Anwalt oder Generator (z. B. e-recht24.de) gegenprüfen lassen.

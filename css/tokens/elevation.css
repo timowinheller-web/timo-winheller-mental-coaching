@@ -1,0 +1,18 @@
+:root{
+/* On a dark ground, elevation reads as glow + inner light, not grey drop shadow. */
+--shadow-none:none;
+--shadow-sm:0 1px 2px rgba(4,7,14,.5);
+--shadow-md:0 12px 32px -12px rgba(4,7,14,.7);
+--shadow-lg:0 32px 72px -28px rgba(4,7,14,.85);
+--shadow-float:0 40px 96px -32px rgba(4,7,14,.9),0 2px 0 rgba(255,255,255,.04) inset;
+--shadow-ember:0 16px 40px -14px rgba(255,106,31,.45);
+--shadow-ember-strong:0 0 0 1px rgba(255,106,31,.35),0 20px 60px -18px rgba(255,106,31,.6);
+--inner-top-light:inset 0 1px 0 rgba(255,255,255,.07); /* @kind shadow */
+--inner-hairline:inset 0 0 0 1px rgba(255,255,255,.07); /* @kind shadow */
+--focus-ring:0 0 0 2px var(--ink-900),0 0 0 4px var(--ember-500); /* @kind shadow */
+
+--blur-glass:18px; /* @kind other */
+--blur-veil:40px; /* @kind other */
+--blur-soft:6px; /* @kind other */
+--glass-saturate:1.25; /* @kind other */
+}

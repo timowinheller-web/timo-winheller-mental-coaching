@@ -1,0 +1,5 @@
+:root{
+--radius-xs:4px;--radius-sm:8px;--radius-md:14px;--radius-lg:20px;--radius-xl:28px;--radius-2xl:40px;--radius-pill:999px;--radius-circle:50%;
+--border-hair:1px; /* @kind other */
+--border-thick:1.5px; /* @kind other */
+}

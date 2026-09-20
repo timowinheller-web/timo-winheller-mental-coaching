@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 720" role="img" aria-label="Platzhalter Portrait">
-  <rect width="600" height="720" fill="#e9e0d3"/>
-  <circle cx="300" cy="270" r="110" fill="#c9bba6"/>
-  <path d="M120 720c0-140 80-220 180-220s180 80 180 220z" fill="#c9bba6"/>
-  <text x="300" y="660" font-family="Arial, sans-serif" font-size="26" fill="#6b5d48" text-anchor="middle">Platzhalter: Portraitfoto einfügen</text>
-</svg>

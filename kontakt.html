@@ -1,141 +1,118 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kontakt & Erstgespräch – Timo Winheller Mental Coaching</title>
-  <meta name="description" content="Kostenloses 30-minütiges Erstgespräch vereinbaren. Online oder vor Ort.">
-  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Erstgespräch anfragen · Timo Winheller Mental Coaching</title>
+<meta name="description" content="Kostenfreies 30-minütiges Erstgespräch anfragen. Online oder in Wiesbaden.">
+<meta name="theme-color" content="#070C17">
+<link rel="canonical" href="https://timowinheller-web.github.io/timo-winheller-mental-coaching/kontakt.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Erstgespräch anfragen · Timo Winheller Mental Coaching">
+<meta property="og:description" content="Kostenfreies 30-minütiges Erstgespräch anfragen. Online oder in Wiesbaden.">
+<meta property="og:image" content="https://timowinheller-web.github.io/timo-winheller-mental-coaching/img/open-door.jpg">
+<meta property="og:locale" content="de_DE">
+<link rel="icon" href="img/logo.svg" type="image/svg+xml">
+<link rel="preload" href="css/fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="css/fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header class="site-header">
-  <div class="container nav">
-    <a class="brand" href="index.html" aria-label="Startseite">
-      <svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#1f3a5f"/><path d="M18 40c4-10 10-16 14-16s10 6 14 16" stroke="#d98c3f" stroke-width="4" stroke-linecap="round" fill="none"/><circle cx="32" cy="22" r="4" fill="#f6f1ea"/></svg>
-      <span>Timo Winheller<small>Mental Coaching</small></span>
-    </a>
-    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="hauptmenu">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
-    <ul class="nav-links" id="hauptmenu">
-      <li><a href="index.html">Start</a></li>
-      <li><a href="angebot.html">Angebot</a></li>
-      <li><a href="methode.html">Methode</a></li>
-      <li><a href="fallbeispiele.html">Fallbeispiele</a></li>
-      <li><a href="ueber-mich.html">Über mich</a></li>
-      <li><a class="btn btn-primary" href="kontakt.html">Kostenloses Erstgespräch</a></li>
-    </ul>
-  </div>
-</header>
-<main>
-<section class="page-hero">
-  <div class="container">
-    <h1>Kostenloses Erstgespräch</h1>
-    <p class="lead">Schreib mir kurz, worum es geht. Ich melde mich innerhalb von zwei Werktagen mit Terminvorschlägen für ein 30-minütiges Videogespräch.</p>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="grid grid-2">
-      <div>
-        <!--
-          Formular-Versand: Trage bei action= die URL deines Formulardienstes ein, z. B.
-            Formspark:  https://submit-form.com/DEINE-ID
-            Formspree:  https://formspree.io/f/DEINE-ID
-            Netlify:    action="/" + Attribut netlify (siehe README)
-          Solange data-fallback="mailto" gesetzt ist, öffnet das Formular stattdessen das E-Mail-Programm.
-        -->
-        <form id="kontaktformular" class="form" method="POST" action="#" data-fallback="mailto" data-mail="[E-MAIL]" novalidate>
-          <div class="field">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" autocomplete="name" required>
-            <span class="error">Bitte gib deinen Namen an.</span>
-          </div>
-          <div class="field">
-            <label for="email">E-Mail</label>
-            <input type="email" id="email" name="email" autocomplete="email" required>
-            <span class="error">Bitte gib eine gültige E-Mail-Adresse an.</span>
-          </div>
-          <div class="field">
-            <label for="thema">Worum geht es?</label>
-            <select id="thema" name="thema">
-              <option>Stress / Überlastung</option>
-              <option>Ängste / Blockaden</option>
-              <option>Perfektionismus / Aufschieben</option>
-              <option>Entscheidung / Umbruch</option>
-              <option>Führung / Selbstständigkeit</option>
-              <option>Trading / Leistung unter Druck</option>
-              <option>Etwas anderes</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="nachricht">Kurz beschrieben</label>
-            <textarea id="nachricht" name="nachricht" rows="6" placeholder="Was ist gerade schwierig? Was soll anders werden? 2–3 Sätze reichen." required></textarea>
-            <span class="error">Bitte schreib mindestens einen kurzen Satz.</span>
-          </div>
-          <div class="field">
-            <label class="check"><input type="checkbox" id="datenschutz" name="datenschutz" required> <span>Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage gespeichert werden.</span></label>
-            <span class="error">Bitte bestätige die Datenschutzerklärung.</span>
-          </div>
-          <button type="submit" class="btn btn-primary">Anfrage senden</button>
-          <div class="form-success">Danke! Dein E-Mail-Programm sollte sich jetzt geöffnet haben. Falls nicht, schreib mir direkt an <span class="placeholder">[E-MAIL]</span>.</div>
-        </form>
-      </div>
-      <div>
-        <div class="card">
-          <h3>Direkt erreichen</h3>
-          <p><strong>E-Mail:</strong> <span class="placeholder">[E-MAIL]</span><br>
-          <strong>Telefon:</strong> <span class="placeholder">[TELEFON]</span><br>
-          <span class="small muted">Rückruf meist am selben Werktag.</span></p>
-          <h3 class="mt-2">Vor Ort</h3>
-          <p><span class="placeholder">[STRASSE NR]</span><br><span class="placeholder">[PLZ] [STADT]</span><br><span class="small muted">Termine vor Ort nach Vereinbarung.</span></p>
-          <h3 class="mt-2">Online</h3>
-          <p class="mb-0">Videogespräch per Zoom oder Google Meet. Den Link bekommst du mit der Terminbestätigung.</p>
-        </div>
-        <div class="callout mt-2">
-          <strong>Was passiert im Erstgespräch?</strong>
-          <ol class="mt-1 mb-0" style="padding-left:20px">
-            <li>Du schilderst dein Thema (10 Min)</li>
-            <li>Ich stelle Fragen und erkläre, wie ich vorgehen würde (15 Min)</li>
-            <li>Wir klären Format, Umfang und nächste Schritte (5 Min)</li>
-          </ol>
-        </div>
-      </div>
+<header class="nav">
+  <div class="nav__pill">
+    <a class="logo" href="index.html" aria-label="Timo Winheller Mental Coaching – Startseite"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="4.5" fill="#FF6A1F"/><path d="M32 18.5a13.5 13.5 0 0 1 13.5 13.5" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round"/><path d="M32 18.5A13.5 13.5 0 0 0 18.5 32" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round" opacity=".45"/><path d="M32 8a24 24 0 0 1 24 24" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round"/><path d="M32 8A24 24 0 0 0 8 32" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round" opacity=".3"/><path d="M32 56a24 24 0 0 1-24-24" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round" opacity=".55"/></svg><span class="logo__text"><span class="logo__name">TIMO WINHELLER</span><span class="logo__sub">MENTAL COACHING</span></span></a>
+    <ul class="nav__links"><li><a href="index.html">Start</a></li><li><a href="angebot.html">Angebot</a></li><li><a href="methode.html">Methode</a></li><li><a href="ueber-mich.html">Über mich</a></li><li><a href="kontakt.html" aria-current="page">Kontakt</a></li></ul>
+    <div class="nav__right">
+      <a class="btn btn--sm nav__cta" href="kontakt.html">Erstgespräch</a>
+      <button class="nav__toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobilmenu"><svg class="ic ic--menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16" />
+  <path d="M4 12h16" />
+  <path d="M4 19h16" /></svg><svg class="ic ic--x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18" />
+  <path d="m6 6 12 12" /></svg></button>
     </div>
+  </div>
+  <nav class="nav__menu glass" id="mobilmenu" aria-label="Menü"><a href="index.html">Start</a><a href="angebot.html">Angebot</a><a href="methode.html">Methode</a><a href="ueber-mich.html">Über mich</a><a href="kontakt.html" aria-current="page">Kontakt</a><a class="btn" href="kontakt.html">Kostenfreies Erstgespräch</a></nav>
+</header>
+<main id="inhalt">
+<section class="section section--head">
+  <div class="wrap grid grid--split grid--start">
+    <div>
+      <div class="sh">
+        <span class="eyebrow">Kontakt</span>
+        <h1 class="sh__title">Erstgespräch <em>anfragen.</em></h1>
+        <p class="lead">Schreib mir in zwei, drei Sätzen, worum es geht. Ich antworte innerhalb von 24 Stunden — persönlich, nicht automatisiert.</p>
+      </div>
+      <div class="contact-rows">
+        <div><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+  <rect x="2" y="4" width="20" height="16" rx="2" /></svg><span class="ph">[E-MAIL]</span></div>
+        <div><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg><span class="ph">[TELEFON]</span></div>
+        <div><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+  <circle cx="12" cy="10" r="3" /></svg><span>Praxis Wiesbaden · und online per Video</span></div>
+        <div><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" />
+  <path d="M12 6v6l4 2" /></svg><span>Antwort innerhalb von 24 Stunden</span></div>
+      </div>
+      <div class="frame frame--xl mt-7"><img src="img/calm-hands.jpg" alt="" width="1408" height="768" loading="lazy" decoding="async"></div>
+    </div>
+    <!--
+      Formular-Versand: Trage bei action= die URL deines Formulardienstes ein, z. B.
+        Formspark:  https://submit-form.com/DEINE-ID
+        Formspree:  https://formspree.io/f/DEINE-ID
+      und entferne data-fallback="mailto". Solange der Fallback aktiv ist, öffnet das
+      Formular das E-Mail-Programm des Besuchers (Adresse in data-mail eintragen).
+    -->
+    <form id="kontaktformular" class="card card--glass form" method="POST" action="#" data-fallback="mailto" data-mail="[E-MAIL]" novalidate>
+      <div class="form__head"><span class="form__title">Anfrage</span><span class="badge badge--dot">Kostenfrei · 30 Minuten</span></div>
+      <div class="field">
+        <label class="field__label" for="name">Name <span class="req">*</span></label>
+        <input class="input" type="text" id="name" name="name" placeholder="Vor- und Nachname" autocomplete="name" required>
+        <span class="field__error">Bitte gib deinen Namen an.</span>
+      </div>
+      <div class="field">
+        <label class="field__label" for="email">E-Mail <span class="req">*</span></label>
+        <input class="input" type="email" id="email" name="email" placeholder="du@beispiel.de" autocomplete="email" required>
+        <span class="field__error">Bitte gib eine gültige E-Mail-Adresse an.</span>
+      </div>
+      <div class="field">
+        <label class="field__label" for="format">Format</label>
+        <div class="select-wrap">
+          <select class="select" id="format" name="format">
+            <option>Online per Video</option>
+            <option>Praxis Wiesbaden</option>
+            <option>Noch offen</option>
+          </select>
+          <span class="select-wrap__chevron" aria-hidden="true">▾</span>
+        </div>
+      </div>
+      <div class="field">
+        <label class="field__label" for="nachricht">Worum geht es? <span class="req">*</span></label>
+        <textarea class="textarea" id="nachricht" name="nachricht" rows="4" placeholder="Was beschäftigt dich gerade? Was soll anders werden?" required></textarea>
+        <span class="field__hint">Zwei, drei Sätze genügen.</span>
+        <span class="field__error">Bitte schreib mindestens einen kurzen Satz.</span>
+      </div>
+      <div class="field">
+        <label class="checkbox">
+          <input type="checkbox" id="datenschutz" name="datenschutz" required>
+          <span class="checkbox__box" aria-hidden="true"></span>
+          <span>Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Angaben zur Bearbeitung der Anfrage zu.</span>
+        </label>
+        <span class="field__error">Bitte bestätige die Datenschutzerklärung.</span>
+      </div>
+      <button type="submit" class="btn btn--lg btn--full" id="senden" disabled>Anfrage senden <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" />
+  <path d="m12 5 7 7-7 7" /></svg></button>
+      <p class="caption faint">Kein Newsletter, keine Weitergabe. Du bekommst genau eine Antwort — von mir.</p>
+      <div class="form__success">Danke — dein E-Mail-Programm sollte sich jetzt geöffnet haben. Falls nicht, schreib mir direkt an <span class="ph">[E-MAIL]</span>.</div>
+    </form>
   </div>
 </section>
 </main>
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <strong>Timo Winheller Mental Coaching</strong>
-        <p class="muted small mt-1">Neuro-Resonanz-Practitioner (Denys Scharnweber Akademie). Coaching online und vor Ort in <span class="placeholder">[STADT]</span>.</p>
-      </div>
-      <div>
-        <strong>Navigation</strong>
-        <ul class="mt-1">
-          <li><a href="angebot.html">Angebot &amp; Preise</a></li>
-          <li><a href="methode.html">Methode</a></li>
-          <li><a href="fallbeispiele.html">Fallbeispiele</a></li>
-          <li><a href="ueber-mich.html">Über mich</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
-        </ul>
-      </div>
-      <div>
-        <strong>Kontakt</strong>
-        <ul class="mt-1">
-          <li><span class="placeholder">[E-MAIL]</span></li>
-          <li><span class="placeholder">[TELEFON]</span></li>
-        </ul>
-      </div>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__brand"><a class="logo" href="index.html" aria-label="Timo Winheller Mental Coaching – Startseite"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="4.5" fill="#FF6A1F"/><path d="M32 18.5a13.5 13.5 0 0 1 13.5 13.5" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round"/><path d="M32 18.5A13.5 13.5 0 0 0 18.5 32" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round" opacity=".45"/><path d="M32 8a24 24 0 0 1 24 24" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round"/><path d="M32 8A24 24 0 0 0 8 32" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round" opacity=".3"/><path d="M32 56a24 24 0 0 1-24-24" stroke="#FF6A1F" stroke-width="3" stroke-linecap="round" opacity=".55"/></svg><span class="logo__text"><span class="logo__name">TIMO WINHELLER</span><span class="logo__sub">MENTAL COACHING</span></span></a><p>Mentales Coaching für Menschen, die viel tragen. Wiesbaden und online.</p></div>
+      <div class="footer__col"><span class="footer__title">Angebot</span><a href="angebot.html">Angebot &amp; Preise</a><a href="methode.html">Methode</a><a href="fallbeispiele.html">Fallbeispiele</a></div>
+      <div class="footer__col"><span class="footer__title">Mehr</span><a href="ueber-mich.html">Über mich</a><a href="index.html#fragen">Fragen</a><a href="kontakt.html">Erstgespräch</a></div>
+      <div class="footer__col"><span class="footer__title">Kontakt</span><span class="ph">[E-MAIL]</span><span class="ph">[TELEFON]</span><span>Praxis Wiesbaden · online</span></div>
     </div>
-    <div class="footer-bottom">
-      <span>© <span id="jahr">2026</span> Timo Winheller</span>
-      <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
-    </div>
+    <div class="footer__bottom"><span>© <span id="jahr">2026</span> Timo Winheller Mental Coaching</span><span class="footer__legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></span></div>
   </div>
 </footer>
 <script src="js/main.js"></script>
