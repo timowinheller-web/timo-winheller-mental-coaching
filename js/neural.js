@@ -26,13 +26,13 @@
     { id: 'motorik', p: [205, 62], r: 48, name: 'Motorischer Cortex', text: 'Routinen und Gewohnheiten. Was du oft genug tust, läuft hier automatisch — im Guten wie im Schlechten. Neue Routinen werden hier verankert.' },
     { id: 'parietal', p: [292, 92], r: 48, name: 'Parietallappen', text: 'Aufmerksamkeit und Wahrnehmung. Wo dein Fokus hingeht, folgt die Energie — Submodalitäten arbeiten genau mit dieser Abspeicherung.' },
     { id: 'hippocampus', p: [232, 186], r: 40, name: 'Hippocampus', text: 'Erinnerung und Lernen. Glaubenssätze sind gespeicherte Erfahrungen — und neu lernbar. Das nennt man Neuroplastizität.' },
-    { id: 'amygdala', p: [188, 216], r: 34, name: 'Amygdala', text: 'Die Alarmanlage. Sie feuert, bevor du denkst: Herzrasen, Blackout, Rache-Trade. Hier setzen Anker und Regulation an.' },
+    { id: 'amygdala', p: [188, 216], r: 34, name: 'Amygdala', text: 'Die Alarmanlage. Sie feuert, bevor du denkst: Herzrasen, Blackout, Panikverkauf. Hier setzen Anker und Regulation an.' },
     { id: 'insula', p: [150, 190], r: 30, name: 'Insula', text: 'Das Bauchgefühl. Körpersignale werden hier zu Emotionen — Körperwahrnehmung und Atemarbeit wirken genau hier.' },
     { id: 'hirnstamm', p: [218, 276], r: 30, name: 'Hirnstamm', text: 'Atem, Herzschlag, Grundspannung. Über den Atem erreichst du das Nervensystem direkt — in Minuten, nicht in Wochen.' }
   ];
   var METHODS = [
     { id: 'glaubenssaetze', p: [232, 186], name: 'Glaubenssatzarbeit', text: 'Sätze wie „Ich bin nicht gut genug" steuern dich, ohne dass du sie hörst. Wir machen sie sichtbar und bauen sie um — dort, wo sie gespeichert sind.' },
-    { id: 'ankern', p: [205, 70], name: 'Ankern', text: 'Ein Zustand wie Ruhe oder Fokus wird mit einem Reiz verknüpft, den du jederzeit abrufen kannst — vor dem Meeting, vor dem Trade, vor der Prüfung.' },
+    { id: 'ankern', p: [205, 70], name: 'Ankern', text: 'Ein Zustand wie Ruhe oder Fokus wird mit einem Reiz verknüpft, den du jederzeit abrufen kannst — vor dem Meeting, vor der Anlageentscheidung, vor der Prüfung.' },
     { id: 'submodalitaeten', p: [292, 100], name: 'Submodalitäten', text: 'Wie dein Kopf ein Erlebnis abspeichert — groß, nah, laut — bestimmt, wie stark es wirkt. Wir ändern die Abspeicherung, und die Reaktion ändert sich mit.' },
     { id: 'timeline', p: [118, 128], name: 'Timeline-Arbeit', text: 'Prägende Erfahrungen werden neu bewertet, damit sie die Gegenwart nicht mehr blockieren. Ziele werden so verankert, dass sie ziehen.' },
     { id: 'wuwei', p: [150, 195], name: 'Wu-Wei-Transformation®', text: 'Widerstand nicht bekämpfen, sondern auflösen. Besonders wirksam bei Themen, an denen du dich schon lange abarbeitest.' },

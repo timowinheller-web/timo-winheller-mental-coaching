@@ -19,7 +19,7 @@ PAGES = [
     ("index", "Start", "Mental Coaching Oberberg & online · Timo Winheller – Mentale Stärke",
      "Mentales Coaching für Leistung und mentale Stärke: Blockaden und Glaubenssätze, Stress, Ziele und Entscheidungen, Alltagsängste. Vor Ort in Reichshof (Oberberg, Gummersbach, Wiehl), Köln, Bergisch Gladbach – und bundesweit online. Kostenloses Erstgespräch."),
     ("ueber-mich", "Über mich", "Über mich · Timo Winheller – Macher statt Esoteriker",
-     "Timo Winheller: Trader, Meister mit Führungspraxis, Neuro-Resonanz-Practitioner und -Master. Mentales Coaching aus der Praxis – in Reichshof und online."),
+     "Timo Winheller: Investor, Meister mit Führungspraxis, Neuro-Resonanz-Practitioner und -Master. Mentales Coaching aus der Praxis – in Reichshof und online."),
     ("angebot", "Angebot", "Angebot & Preise · Mental Coaching Timo Winheller",
      "Einzelsitzung 150 € (60 Min), Themenpaket „Mentale Stärke“ mit 4 Sitzungen für 600 €, kostenloses Erstgespräch (20 Min) mit Fragebogen. Online oder in Reichshof."),
     ("methoden", "Methoden", "Methoden: NLP, Neuro-Resonanz, Hypnose · Timo Winheller",
@@ -29,7 +29,7 @@ PAGES = [
     ("kontakt", "Kontakt", "Erstgespräch anfragen · Mental Coaching Timo Winheller",
      "Kostenloses 20-minütiges Erstgespräch anfragen – mit kurzem Fragebogen. Online oder in Reichshof, Termine abends und am Wochenende."),
     ("fallbeispiele", None, "Fallbeispiele · Mental Coaching Timo Winheller",
-     "Vier anonymisierte Verläufe aus dem Coaching: Lampenfieber, Perfektionismus, Trading-Psychologie, Entscheidung im Umbruch."),
+     "Vier anonymisierte Verläufe aus dem Coaching: Lampenfieber, Perfektionismus, Finanzen & Investments, Entscheidung im Umbruch."),
     ("danke", None, "Danke · Timo Winheller Mental Coaching", "Deine Anfrage ist angekommen."),
     ("impressum", None, "Impressum · Timo Winheller Mental Coaching", "Impressum und Anbieterkennzeichnung."),
     ("datenschutz", None, "Datenschutz · Timo Winheller Mental Coaching", "Datenschutzerklärung nach DSGVO."),
@@ -75,7 +75,7 @@ JSON_LD = (
     f'"url":"{BASE_URL}","email":"{EMAIL}","founder":{{"@type":"Person","name":"Timo Winheller"}},'
     '"address":{"@type":"PostalAddress","addressLocality":"Reichshof","addressRegion":"Nordrhein-Westfalen","addressCountry":"DE"},'
     '"areaServed":["Reichshof","Gummersbach","Wiehl","Oberbergischer Kreis","Köln","Bergisch Gladbach","Deutschland (online)"],'
-    '"knowsAbout":["Mentaltraining","Trading-Psychologie","Mentaltraining Sport","NLP","Neuro-Resonanz","Hypnose"],'
+    '"knowsAbout":["Mentaltraining","Finanz- und Investment-Psychologie","Mentaltraining Sport","NLP","Neuro-Resonanz","Hypnose"],'
     '"priceRange":"150 € pro Sitzung",'
     '"makesOffer":[{"@type":"Offer","name":"Einzelsitzung (60 Minuten)","price":"150","priceCurrency":"EUR"},'
     '{"@type":"Offer","name":"Themenpaket Mentale Stärke (4 Sitzungen)","price":"600","priceCurrency":"EUR"}]}'
@@ -142,7 +142,7 @@ def footer(slug):
       <div class="footer__col"><span class="footer__title">Mehr</span><a href="fallbeispiele.html">Fallbeispiele</a><a href="kontakt.html">Erstgespräch</a><span class="ph">[Instagram-Link]</span></div>
       <div class="footer__col"><span class="footer__title">Kontakt</span><a href="mailto:{EMAIL}">{EMAIL}</a><span class="ph">[TELEFON]</span><span>Reichshof · Oberberg · online</span></div>
     </div>
-    <p class="footer__region">Mental Coaching und Mentaltraining für Reichshof, Gummersbach, Wiehl und den Oberbergischen Kreis, für Köln und Bergisch Gladbach – und bundesweit online. Schwerpunkte: Leistung unter Druck, Trading-Psychologie, Mentaltraining für Sportler, Führung.</p>
+    <p class="footer__region">Mental Coaching und Mentaltraining für Reichshof, Gummersbach, Wiehl und den Oberbergischen Kreis, für Köln und Bergisch Gladbach – und bundesweit online. Schwerpunkte: Leistung unter Druck, Finanzen und Investments, Mentaltraining für Sportler, Führung.</p>
     <div class="footer__bottom"><span>© <span id="jahr">2026</span> Timo Winheller Mental Coaching</span><span class="footer__legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="agb.html">AGB</a></span></div>
   </div>
 </footer>
