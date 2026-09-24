@@ -1,9 +1,0 @@
-*,*::before,*::after{box-sizing:border-box}
-body{margin:0;background:var(--surface-page);color:var(--text-body);font-family:var(--font-sans);font-size:var(--size-body);line-height:var(--lh-body);font-weight:var(--weight-regular);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-h1,h2,h3,h4{font-family:var(--font-display);font-weight:var(--weight-regular);color:var(--text-strong);letter-spacing:var(--ls-heading);line-height:var(--lh-heading);margin:0;text-wrap:balance}
-p{margin:0;text-wrap:pretty}
-a{color:var(--ember-400);text-decoration:none;transition:color var(--dur-fast) var(--ease-calm)}
-a:hover{color:var(--ember-300)}
-::selection{background:rgba(255,106,31,.3);color:var(--bone)}
-:focus-visible{outline:none;box-shadow:var(--focus-ring)}
-img{display:block;max-width:100%}

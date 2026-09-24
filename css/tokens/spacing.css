@@ -1,9 +1,0 @@
-:root{
---space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:44px;--space-8:64px;--space-9:88px;--space-10:120px;--space-11:168px;
---gutter:clamp(20px,4vw,48px); /* @kind spacing */
---container:1200px;--container-narrow:760px;--container-wide:1440px;
---section-y:clamp(72px,9vw,140px); /* @kind spacing */
---stack-tight:12px; /* @kind spacing */
---stack:20px; /* @kind spacing */
---stack-loose:32px; /* @kind spacing */
-}

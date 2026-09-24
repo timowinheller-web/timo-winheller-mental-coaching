@@ -1,8 +1,0 @@
-/* Schriften lokal (DSGVO): Instrument Serif = Display, Manrope = Text. Dateien in css/fonts/. */
-@font-face{font-family:"Manrope";font-style:normal;font-weight:300;font-display:swap;src:url("../fonts/manrope-latin-300-normal.woff2") format("woff2")}
-@font-face{font-family:"Manrope";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/manrope-latin-400-normal.woff2") format("woff2")}
-@font-face{font-family:"Manrope";font-style:normal;font-weight:500;font-display:swap;src:url("../fonts/manrope-latin-500-normal.woff2") format("woff2")}
-@font-face{font-family:"Manrope";font-style:normal;font-weight:600;font-display:swap;src:url("../fonts/manrope-latin-600-normal.woff2") format("woff2")}
-@font-face{font-family:"Manrope";font-style:normal;font-weight:700;font-display:swap;src:url("../fonts/manrope-latin-700-normal.woff2") format("woff2")}
-@font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/instrument-serif-latin-400-normal.woff2") format("woff2")}
-@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url("../fonts/instrument-serif-latin-400-italic.woff2") format("woff2")}

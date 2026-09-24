@@ -1,8 +1,8 @@
 # Timo Winheller Mental Coaching – Website
 
-Statische Website (HTML/CSS/JS, kein Build-Tool nötig zum Hosten) im Design-System
-**„Mitternacht & Ember"**: Nachtblau-Grund, Sand-Neutrale, ein Orange (`--ember-500`), Glas-Panels,
-Instrument Serif + Manrope.
+Statische Website (HTML/CSS/JS, kein Build-Tool nötig zum Hosten). Design „Creme & Tinte“: Creme-Grund im
+dunklen Rahmen, große Versal-Headline (Inter Tight), Manrope als Textschrift, Haarlinien, schwarze Pill-Buttons,
+ein Akzent (Moosgrün). Hero: animierter Mesh-Kopf mit Blättern (js/neural.js).
 
 - Live (GitHub Pages): https://timowinheller-web.github.io/timo-winheller-mental-coaching/
 - Repository: https://github.com/timowinheller-web/timo-winheller-mental-coaching
@@ -15,17 +15,10 @@ Instrument Serif + Manrope.
 | `parts/<seite>.body.html` | **Seiteninhalte – hier Texte ändern** |
 | `build.py` | Baut alle Seiten: setzt `<head>`, Navigation, Footer und Icons ein |
 | `css/style.css` | Komponenten (Buttons, Karten, Nav, Hero …) |
-| `css/tokens/*.css` | Design-Tokens: Farben, Typografie, Abstände, Radien, Schatten, Motion |
-| `css/fonts/` | Schriften lokal (Manrope, Instrument Serif) – kein Google-Fonts-Aufruf |
+| `css/fonts/` | Schriften lokal (Inter Tight, Manrope) – kein Google-Fonts-Aufruf |
 | `img/*.jpg` | Die 10 Markenfotos (komprimiert), `img/icons/` Lucide-Icons, `img/logo.svg` Favicon |
-| `js/main.js` | Mobile-Menü, Akkordeon, Formular |
-| `desing/` | Design-System-Export (Tokens, Komponenten, Guidelines). **Nicht im Repo** (.gitignore) |
-
-## Darstellung: Tag/Nacht und Akzentfarbe
-
-Standard ist das helle Tag-Schema. Der Schalter in der Navigation wechselt zu Nacht und zwischen den
-Akzenten Orange, Petrol und Violett (Auswahl bleibt per localStorage erhalten). Alle Farben stehen in
-`css/tokens/theme.css`; neue Akzente = ein weiterer `:root[data-accent="…"]`-Block plus ein Punkt in `build.py`.
+| `js/main.js` | Mobile-Menü, Karussell, Akkordeon, Selbstcheck, Atem-Übung, Formular (Web3Forms/Mail-Fallback) |
+| `desing/` | älterer Design-System-Export (nicht mehr genutzt). **Nicht im Repo** (.gitignore) |
 
 ## Texte ändern und veröffentlichen
 
@@ -66,12 +59,12 @@ Feste Inhalte laut Konzept (24.09.2026): Reichshof (Oberberg) als Ort, Erstgespr
 Heilkunde-Grenze: keine Behandlung von Angststörungen/Phobien/Trauma anbieten – Wording bleibt bei Coaching.
 Der Fragebogen mit Ausschlusskriterien läuft per E-Mail, nicht über die Website (keine Gesundheitsdaten im Webformular).
 
-## Kontaktformular aktivieren
+## Kontaktformular aktivieren (Web3Forms)
 
-Aktuell öffnet das Formular das E-Mail-Programm des Besuchers (`data-fallback="mailto"`).
-Für echten Versand: Konto bei Formspark/Formspree anlegen, in `parts/kontakt.body.html`
-`action="#"` durch die Dienst-URL ersetzen, `data-fallback="mailto"` entfernen, `python3 build.py`,
-und in `parts/datenschutz.body.html` Abschnitt 4 den Dienst nennen.
+1. Auf https://web3forms.com einen Access Key für info@timowinheller.de anlegen (kostenlos).
+2. In `parts/kontakt.body.html` den Wert von `access_key` (`[WEB3FORMS-ACCESS-KEY]`) durch den Key ersetzen, `python3 build.py`.
+3. In `parts/datenschutz.body.html` Abschnitt 4 die Anbieterangaben zu Web3Forms ergänzen.
+Solange der Platzhalter steht, öffnet das Formular das E-Mail-Programm des Besuchers mit allen Angaben (Fallback).
 
 ## Eigene Domain
 
