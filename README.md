@@ -61,8 +61,7 @@ Der Fragebogen mit Ausschlusskriterien läuft per E-Mail, nicht über die Websit
 
 ## Bilder
 
-Die 10 Motive liegen aktuell nur in 314 × 445 px vor (Chat-Vorschau). Für scharfe Darstellung die Originale
-(mind. 1200 px breit) unter demselben Dateinamen in `img/` ablegen – sonst muss nichts geändert werden.
+Die 10 Motive liegen in 687 × 1024 px vor (`img/*.jpg`). Größere Versionen unter demselben Dateinamen ablegen – sonst muss nichts geändert werden.
 
 ## Kontaktformular aktivieren (Web3Forms)
 
