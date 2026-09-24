@@ -2,7 +2,7 @@
 
 Statische Website (HTML/CSS/JS, kein Build-Tool nötig zum Hosten). Design „Creme & Tinte“: Creme-Grund im
 dunklen Rahmen, große Versal-Headline (Inter Tight), Manrope als Textschrift, Haarlinien, schwarze Pill-Buttons,
-ein Akzent (Moosgrün). Hero: animierter Mesh-Kopf mit Blättern (js/neural.js).
+ein Akzent (Moosgrün). Interaktives Gehirn mit Methoden-Punkten (js/neural.js) – bewegt sich nur bei Berührung/Klick.
 
 - Live (GitHub Pages): https://timowinheller-web.github.io/timo-winheller-mental-coaching/
 - Repository: https://github.com/timowinheller-web/timo-winheller-mental-coaching
@@ -12,11 +12,11 @@ ein Akzent (Moosgrün). Hero: animierter Mesh-Kopf mit Blättern (js/neural.js).
 | Pfad | Inhalt |
 |---|---|
 | `index.html` … `datenschutz.html` | Die 8 fertigen Seiten (werden aus `parts/` gebaut) |
-| `parts/<seite>.body.html` | **Seiteninhalte – hier Texte ändern** |
+| `parts/<seite>.body.html` | **Seiteninhalte – hier Texte ändern**; `parts/_brain.html` = interaktives Gehirn (per `{{include:brain}}`) |
 | `build.py` | Baut alle Seiten: setzt `<head>`, Navigation, Footer und Icons ein |
 | `css/style.css` | Komponenten (Buttons, Karten, Nav, Hero …) |
 | `css/fonts/` | Schriften lokal (Inter Tight, Manrope) – kein Google-Fonts-Aufruf |
-| `img/*.jpg` | Die 10 Markenfotos (komprimiert), `img/icons/` Lucide-Icons, `img/logo.svg` Favicon |
+| `img/*.jpg` | 10 Bildmotive (kopf-natur, staerke, haende-wachstum, atem, gehirn-verstand-gefuehl, ruhe, kette-frei, herz, treppe, raum), `img/icons/` Lucide-Icons, `img/logo.svg` Favicon |
 | `js/main.js` | Mobile-Menü, Karussell, Akkordeon, Selbstcheck, Atem-Übung, Formular (Web3Forms/Mail-Fallback) |
 | `desing/` | älterer Design-System-Export (nicht mehr genutzt). **Nicht im Repo** (.gitignore) |
 
@@ -58,6 +58,11 @@ Feste Inhalte laut Konzept (24.09.2026): Reichshof (Oberberg) als Ort, Erstgespr
 150 €/60 Min, Themenpaket „Mentale Stärke“ 4 × = 600 €, Kleinunternehmer (§ 19 UStG), Termine abends/Wochenende.
 Heilkunde-Grenze: keine Behandlung von Angststörungen/Phobien/Trauma anbieten – Wording bleibt bei Coaching.
 Der Fragebogen mit Ausschlusskriterien läuft per E-Mail, nicht über die Website (keine Gesundheitsdaten im Webformular).
+
+## Bilder
+
+Die 10 Motive liegen aktuell nur in 314 × 445 px vor (Chat-Vorschau). Für scharfe Darstellung die Originale
+(mind. 1200 px breit) unter demselben Dateinamen in `img/` ablegen – sonst muss nichts geändert werden.
 
 ## Kontaktformular aktivieren (Web3Forms)
 

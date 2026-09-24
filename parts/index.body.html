@@ -10,8 +10,8 @@
       <p class="hero__mission">Mein Ansatz: Muster verändern, statt Symptome zu verwalten. Neuro-Resonanz, NLP und Hypnose — aus der Praxis, für die Praxis.</p>
     </div>
     <div class="hero__visual">
-      <div class="head-visual" role="img" aria-label="Animierter Kopf aus einem neuronalen Netz, aus dem Blätter wachsen"><canvas class="neural" data-neural="head" aria-hidden="true"></canvas></div>
-      <div class="stat">
+      <img class="hero__img" src="img/kopf-natur.jpg" alt="Kopf im Profil aus feinem Netz, aus dem Moos, Blätter und Blüten wachsen" width="314" height="445" fetchpriority="high">
+      <div class="stat stat--card">
         <span class="stat__num" data-count="20" data-suffix=" Min">20 Min</span>
         <p class="stat__text">Kostenloses Erstgespräch per Video. Du erzählst, ich höre zu — und sage dir ehrlich, ob und wie ich helfen kann.</p>
         <a class="link" href="kontakt.html">Termin anfragen {{icon:arrow-right}}</a>
@@ -52,32 +52,32 @@
       <p class="lead">Vier Bereiche, ein Muster dahinter: Etwas in dir bremst, obwohl du weißt, was du willst.</p>
     </div>
     <div class="grid grid--4 mt-6">
-      <article class="card card--hover feature">
-        <div class="feature__top"><span class="disc">{{icon:waves}}</span><span class="num">01</span></div>
-        <h3>Blockaden &amp; Glaubenssätze</h3>
-        <p>„Ich bin nicht gut genug." „Das konnte ich noch nie." Sätze, die dich steuern, ohne dass du sie hörst. Wir finden sie — und bauen sie um.</p>
+      <article class="card card--hover card--img">
+        <img src="img/kette-frei.jpg" alt="Kette, die aufbricht und aus der Pflanzen wachsen" width="314" height="445" loading="lazy" decoding="async">
+        <div class="card__body"><span class="num">01</span><h3>Blockaden &amp; Glaubenssätze</h3><p>„Ich bin nicht gut genug." „Das konnte ich noch nie." Sätze, die dich steuern, ohne dass du sie hörst. Wir finden sie — und bauen sie um.</p></div>
       </article>
-      <article class="card card--hover feature">
-        <div class="feature__top"><span class="disc">{{icon:wind}}</span><span class="num">02</span></div>
-        <h3>Stress &amp; Selbstregulation</h3>
-        <p>Dauerdruck, schlechter Schlaf, kurze Zündschnur. Du lernst, dein Nervensystem selbst herunterzufahren — in Minuten, nicht in Wochen.</p>
+      <article class="card card--hover card--img">
+        <img src="img/atem.jpg" alt="Profil, aus dessen Mund grüne Ranken wachsen" width="314" height="445" loading="lazy" decoding="async">
+        <div class="card__body"><span class="num">02</span><h3>Stress &amp; Selbstregulation</h3><p>Dauerdruck, schlechter Schlaf, kurze Zündschnur. Du lernst, dein Nervensystem selbst herunterzufahren — in Minuten, nicht in Wochen.</p></div>
       </article>
-      <article class="card card--hover feature">
-        <div class="feature__top"><span class="disc">{{icon:compass}}</span><span class="num">03</span></div>
-        <h3>Ziele &amp; Entscheidungen</h3>
-        <p>Du drehst dich im Kreis, vertagst, zweifelst. Wir sortieren, was du wirklich willst, und machen den nächsten Schritt konkret.</p>
+      <article class="card card--hover card--img">
+        <img src="img/treppe.jpg" alt="Moosbewachsene Treppe, die zu einem Baum im Licht führt" width="314" height="445" loading="lazy" decoding="async">
+        <div class="card__body"><span class="num">03</span><h3>Ziele &amp; Entscheidungen</h3><p>Du drehst dich im Kreis, vertagst, zweifelst. Wir sortieren, was du wirklich willst, und machen den nächsten Schritt konkret.</p></div>
       </article>
-      <article class="card card--hover feature">
-        <div class="feature__top"><span class="disc">{{icon:zap}}</span><span class="num">04</span></div>
-        <h3>Alltagsängste</h3>
-        <p>Lampenfieber, Prüfungen, schwierige Gespräche, der Anruf, den du seit Tagen aufschiebst. Mit den richtigen Werkzeugen lässt sich das gut verändern.</p>
+      <article class="card card--hover card--img">
+        <img src="img/ruhe.jpg" alt="Ruhiges Gesicht aus feinem Netz, umgeben von schwebenden Blättern" width="314" height="445" loading="lazy" decoding="async">
+        <div class="card__body"><span class="num">04</span><h3>Alltagsängste</h3><p>Lampenfieber, Prüfungen, schwierige Gespräche, der Anruf, den du seit Tagen aufschiebst. Mit den richtigen Werkzeugen lässt sich das gut verändern.</p></div>
       </article>
     </div>
     <p class="small muted mt-5">Leistung unter Druck zieht sich durch alle vier Bereiche — im Beruf, in der Führung, im Sport, am Markt.</p>
   </div>
 </section>
 
-<section class="section" id="neuro">
+<section class="section" id="werkzeuge">
+  <div class="wrap">{{include:brain}}</div>
+</section>
+
+<section class="section section--soft" id="neuro">
   <div class="wrap">
     <div class="sh sh--center">
       <span class="label">Neuro-Resonanz</span>
@@ -95,28 +95,24 @@
   </div>
 </section>
 
-<section class="section section--soft">
-  <div class="wrap grid grid--split grid--split-b">
+<section class="section">
+  <div class="wrap grid grid--split grid--split-a grid--start">
+    <div class="frame frame--tall"><img src="img/atem.jpg" alt="Profil, aus dessen Mund grüne Ranken wachsen" width="314" height="445" loading="lazy" decoding="async"></div>
     <div>
       <div class="sh">
         <span class="label">Probier es aus</span>
         <h2 class="h-display">60 Sekunden, die dein Nervensystem runterfahren.</h2>
         <p class="lead">Selbstregulation ist trainierbar. Der Atem-Anker ist eines der ersten Werkzeuge im Coaching: 4 Sekunden ein, 4 halten, 6 aus. Die lange Ausatmung sagt deinem Körper, dass keine Gefahr besteht.</p>
       </div>
-      <ul class="signals mt-4">
-        <li><span><strong>Drei Runden</strong> reichen, um den Puls spürbar zu senken.</span></li>
-        <li><span><strong>Vor dem Meeting, vor dem Trade, vor der Prüfung</strong> — überall einsetzbar, ohne dass es jemand merkt.</span></li>
-        <li><span><strong>Im Coaching</strong> verknüpfen wir diese Ruhe mit einem Anker, den du jederzeit abrufen kannst.</span></li>
-      </ul>
-    </div>
-    <div class="card" data-breath>
-      <div class="breath" aria-live="polite">
-        <span class="breath__ring breath__ring--2" aria-hidden="true"></span>
-        <span class="breath__ring breath__ring--1" aria-hidden="true"></span>
-        <div class="breath__circle" aria-hidden="true"></div>
-        <div class="breath__label"><strong>Bereit?</strong><span>4 ein · 4 halten · 6 aus</span></div>
+      <div class="card mt-5" data-breath>
+        <div class="breath" aria-live="polite">
+          <span class="breath__ring breath__ring--2" aria-hidden="true"></span>
+          <span class="breath__ring breath__ring--1" aria-hidden="true"></span>
+          <div class="breath__circle" aria-hidden="true"></div>
+          <div class="breath__label"><strong>Bereit?</strong><span>4 ein · 4 halten · 6 aus</span></div>
+        </div>
+        <p class="center"><button class="btn" type="button" data-breath-start>Starten</button></p>
       </div>
-      <p class="center"><button class="btn" type="button" data-breath-start>Starten</button></p>
     </div>
   </div>
 </section>
@@ -165,7 +161,7 @@
   </div>
 </section>
 
-<section class="section section--soft" id="schwerpunkte">
+<section class="section" id="schwerpunkte">
   <div class="wrap">
     <div class="sh">
       <span class="label">Schwerpunkte</span>
@@ -173,20 +169,17 @@
       <p class="lead">Drei Felder, in denen ich besonders oft arbeite — weil ich sie selbst kenne.</p>
     </div>
     <div class="grid grid--3 mt-6">
-      <article class="card card--hover feature">
-        <div class="feature__top"><span class="disc">{{icon:activity}}</span><span class="num">Trading</span></div>
-        <h3>Trading-Psychologie</h3>
-        <p>Regelwerk vorhanden, Live-Konto trotzdem rot? Rache-Trades, verschobene Stopps, Angst vor dem Einstieg: Das ist kein Wissensproblem. Wir arbeiten an der Körperreaktion auf Verlust und an den Glaubenssätzen dahinter — damit du deinen Plan auch dann hältst, wenn es weh tut.</p>
+      <article class="card card--hover card--img">
+        <img src="img/haende-wachstum.jpg" alt="Zwei Hände aus dunklem Stein, zwischen denen eine Pflanze über ein wachsendes Balkendiagramm rankt" width="314" height="445" loading="lazy" decoding="async">
+        <div class="card__body"><span class="num">Trading</span><h3>Trading-Psychologie</h3><p>Regelwerk vorhanden, Live-Konto trotzdem rot? Rache-Trades, verschobene Stopps, Angst vor dem Einstieg: Das ist kein Wissensproblem. Wir arbeiten an der Körperreaktion auf Verlust und an den Glaubenssätzen dahinter — damit du deinen Plan auch dann hältst, wenn es weh tut.</p></div>
       </article>
-      <article class="card card--hover feature">
-        <div class="feature__top"><span class="disc">{{icon:target}}</span><span class="num">Sport</span></div>
-        <h3>Mentaltraining für Sportler</h3>
-        <p>Im Training läuft es, im Wettkampf nicht? Fokus, Routinen vor dem Start, Umgang mit Druck und Fehlern — Mentaltraining für Sportlerinnen und Sportler mit Werkzeugen, die du selbst abrufen kannst.</p>
+      <article class="card card--hover card--img">
+        <img src="img/staerke.jpg" alt="Kauernde Figur aus dunklem Stein mit goldenen Rissen, aus denen Pflanzen wachsen" width="314" height="445" loading="lazy" decoding="async">
+        <div class="card__body"><span class="num">Sport</span><h3>Mentaltraining für Sportler</h3><p>Im Training läuft es, im Wettkampf nicht? Fokus, Routinen vor dem Start, Umgang mit Druck und Fehlern — Mentaltraining für Sportlerinnen und Sportler mit Werkzeugen, die du selbst abrufen kannst.</p></div>
       </article>
-      <article class="card card--hover feature">
-        <div class="feature__top"><span class="disc">{{icon:users}}</span><span class="num">Führung</span></div>
-        <h3>Führung &amp; Verantwortung</h3>
-        <p>Entscheidungen unter Unsicherheit, Konflikte, Dauererreichbarkeit. Für Führungskräfte, Meister und Selbstständige — Menschen, die liefern müssen, wenn andere warten.</p>
+      <article class="card card--hover card--img">
+        <img src="img/herz.jpg" alt="Herz aus dunklem Stein, bewachsen mit Moos und Farn" width="314" height="445" loading="lazy" decoding="async">
+        <div class="card__body"><span class="num">Führung</span><h3>Führung &amp; Verantwortung</h3><p>Entscheidungen unter Unsicherheit, Konflikte, Dauererreichbarkeit. Für Führungskräfte, Meister und Selbstständige — Menschen, die liefern müssen, wenn andere warten.</p></div>
       </article>
     </div>
   </div>

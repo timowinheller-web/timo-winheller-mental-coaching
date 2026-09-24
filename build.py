@@ -88,7 +88,7 @@ def head(slug, title, desc):
 <meta property="og:type" content="website">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
-<meta property="og:image" content="{BASE_URL}img/open-door.jpg">
+<meta property="og:image" content="{BASE_URL}img/kopf-natur.jpg">
 <meta property="og:locale" content="de_DE">
 <link rel="icon" href="img/logo.svg" type="image/svg+xml">
 <link rel="preload" href="css/fonts/inter-tight-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -151,6 +151,7 @@ def footer(slug):
 def main():
     for slug, _label, title, desc in PAGES:
         body = (ROOT / "parts" / f"{slug}.body.html").read_text()
+        body = re.sub(r"\{\{include:([a-z0-9-]+)\}\}", lambda m: (ROOT / "parts" / f"_{m.group(1)}.html").read_text(), body)
         body = body.replace("{{BASE_URL}}", BASE_URL).replace("{{EMAIL}}", EMAIL)
         page = head(slug, title, desc) + nav(slug) + render_icons(body) + footer(slug)
         (ROOT / f"{slug}.html").write_text(page)

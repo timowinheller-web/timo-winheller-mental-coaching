@@ -32,7 +32,7 @@
       dotsWrap.appendChild(b); cdots.push(b);
     }
     var update = function () { var k = current(); cdots.forEach(function (d, i) { d.classList.toggle('is-active', i === k); }); prev.disabled = track.scrollLeft <= 2; next.disabled = atEnd(); };
-    var play = function () { clearInterval(auto); if (reduce) return; auto = setInterval(function () { atEnd() ? scrollToItem(0) : scrollToItem(current() + 1); }, 6500); };
+    var play = function () { clearInterval(auto); }; // kein Autoplay: Karussell bewegt sich nur auf Nutzeraktion
     prev.addEventListener('click', function () { scrollToItem(current() - 1); play(); });
     next.addEventListener('click', function () { scrollToItem(current() + 1); play(); });
     car.addEventListener('mouseenter', function () { clearInterval(auto); });

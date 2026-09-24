@@ -364,3 +364,36 @@ h3{font-family:var(--font-sans);font-weight:600;font-size:1.15rem}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .reveal.is-visible{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.ticker__track,.flow__pulse{animation:none}.breath__circle{transition:none}.reveal{opacity:1;transform:none;transition:none}}
+
+/* ---------- Bilder: Hero, Bildkarten, Bildspalten ---------- */
+.hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:var(--r-lg)}
+@media (min-width:961px){.hero__visual{margin-right:calc(-1*var(--gutter))}.hero__img{border-radius:var(--r-lg) 0 0 var(--r-lg)}}
+.stat--card{background:rgba(236,232,224,.92);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);padding:18px 20px;border-radius:18px;border:1px solid var(--line);right:var(--gutter);bottom:20px}
+@media (max-width:960px){.stat--card{right:auto;bottom:auto;background:transparent;border:0;padding:0;backdrop-filter:none}.hero__visual{min-height:0}.hero__img{position:relative;height:auto;aspect-ratio:4/5;max-height:70vh}}
+.card--img{padding:10px 10px 24px;display:flex;flex-direction:column;gap:0}
+.card--img img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:14px}
+.card--img .card__body{padding:18px 14px 0;display:flex;flex-direction:column;gap:10px;flex:1}
+.card--img .card__body h3{margin:0}
+.card--img .card__body p{font-size:14.5px;line-height:1.65;color:var(--ink-2)}
+.card--img .num{margin-bottom:2px}
+.frame--tall img{aspect-ratio:3/4}
+.frame--square img{aspect-ratio:1/1}
+.frame--wide img{aspect-ratio:4/3}
+
+/* ---------- Interaktives Gehirn: Methoden-Karte ---------- */
+.brain{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(28px,4vw,56px);align-items:start}
+.brain__stage{position:relative;aspect-ratio:5/4;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--bg-3);overflow:hidden;touch-action:none;cursor:crosshair}
+.brain__stage canvas{position:absolute;inset:0;width:100%;height:100%}
+.brain__tip{position:absolute;left:0;top:0;transform:translate(-50%,calc(-100% - 14px));background:var(--ink);color:var(--bg);font-size:12.5px;font-weight:600;padding:7px 11px;border-radius:8px;pointer-events:none;opacity:0;transition:opacity .15s;white-space:nowrap;z-index:2}
+.brain__tip.is-on{opacity:1}
+.brain__hint{position:absolute;left:16px;bottom:14px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);pointer-events:none;transition:opacity .3s}
+.brain__stage.is-touched .brain__hint{opacity:0}
+.brain__list{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.brain__list button{height:36px;padding:0 14px;border-radius:var(--pill);border:1px solid var(--line-2);background:transparent;color:var(--ink-2);font-family:var(--font-sans);font-size:13px;font-weight:600;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.brain__list button:hover{border-color:var(--ink);color:var(--ink)}
+.brain__list button.is-active{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.brain__panel{margin-top:20px;padding:22px 24px;border:1px solid var(--line);border-radius:var(--r-md);background:var(--bg-3);min-height:150px;display:flex;flex-direction:column;gap:8px}
+.brain__panel h3{font-size:1.2rem}
+.brain__panel p{font-size:14.5px;line-height:1.65;color:var(--ink-2)}
+.brain__panel .link{margin-top:6px}
+@media (max-width:960px){.brain{grid-template-columns:minmax(0,1fr)}.brain__stage{aspect-ratio:4/3;cursor:default}}
