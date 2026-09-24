@@ -4,13 +4,13 @@
       <div class="sh">
         <span class="eyebrow">Kontakt</span>
         <h1 class="sh__title">Erstgespräch <em>anfragen.</em></h1>
-        <p class="lead">Schreib mir in zwei, drei Sätzen, worum es geht. Ich antworte innerhalb von 24 Stunden — persönlich, nicht automatisiert.</p>
+        <p class="lead">Schreib mir in zwei, drei Sätzen, worum es geht. Ich antworte innerhalb von 24 Stunden — persönlich. Danach bekommst du einen kurzen Fragebogen, und wir finden einen Termin für 20 Minuten per Video.</p>
       </div>
       <div class="contact-rows">
         <div>{{icon:mail}}<span class="ph">[E-MAIL]</span></div>
         <div>{{icon:phone}}<span class="ph">[TELEFON]</span></div>
-        <div>{{icon:map-pin}}<span>Praxis Wiesbaden · und online per Video</span></div>
-        <div>{{icon:clock}}<span>Antwort innerhalb von 24 Stunden</span></div>
+        <div>{{icon:map-pin}}<span>Reichshof (Oberbergischer Kreis) · vor Ort, bei dir oder online</span></div>
+        <div>{{icon:calendar}}<span>Termine werktags abends, samstags und sonntags</span></div>
       </div>
       <div class="frame frame--xl mt-7"><img src="img/calm-hands.jpg" alt="" width="1408" height="768" loading="lazy" decoding="async"></div>
     </div>
@@ -20,9 +20,11 @@
         Formspree:  https://formspree.io/f/DEINE-ID
       und entferne data-fallback="mailto". Solange der Fallback aktiv ist, öffnet das
       Formular das E-Mail-Programm des Besuchers (Adresse in data-mail eintragen).
+      Der eigentliche Fragebogen (inkl. Ausschlusskriterien) geht bewusst NICHT über die
+      Website, sondern per E-Mail nach der Anfrage – keine Gesundheitsdaten im Webformular.
     -->
     <form id="kontaktformular" class="card card--glass form" method="POST" action="#" data-fallback="mailto" data-mail="[E-MAIL]" novalidate>
-      <div class="form__head"><span class="form__title">Anfrage</span><span class="badge badge--dot">Kostenfrei · 30 Minuten</span></div>
+      <div class="form__head"><span class="form__title">Anfrage</span><span class="badge badge--dot">Kostenlos · 20 Minuten</span></div>
       <div class="field">
         <label class="field__label" for="name">Name <span class="req">*</span></label>
         <input class="input" type="text" id="name" name="name" placeholder="Vor- und Nachname" autocomplete="name" required>
@@ -33,21 +35,50 @@
         <input class="input" type="email" id="email" name="email" placeholder="du@beispiel.de" autocomplete="email" required>
         <span class="field__error">Bitte gib eine gültige E-Mail-Adresse an.</span>
       </div>
+      <div class="grid grid--2">
+        <div class="field">
+          <label class="field__label" for="thema">Thema</label>
+          <div class="select-wrap">
+            <select class="select" id="thema" name="thema">
+              <option>Blockaden &amp; Glaubenssätze</option>
+              <option>Stress &amp; Selbstregulation</option>
+              <option>Ziele &amp; Entscheidungen</option>
+              <option>Alltagsängste</option>
+              <option>Leistung unter Druck</option>
+              <option>Etwas anderes</option>
+            </select>
+            <span class="select-wrap__chevron" aria-hidden="true">▾</span>
+          </div>
+        </div>
+        <div class="field">
+          <label class="field__label" for="format">Format</label>
+          <div class="select-wrap">
+            <select class="select" id="format" name="format">
+              <option>Online per Video</option>
+              <option>Vor Ort in Reichshof</option>
+              <option>Bei mir vor Ort</option>
+              <option>Noch offen</option>
+            </select>
+            <span class="select-wrap__chevron" aria-hidden="true">▾</span>
+          </div>
+        </div>
+      </div>
       <div class="field">
-        <label class="field__label" for="format">Format</label>
+        <label class="field__label" for="termin">Terminwunsch</label>
         <div class="select-wrap">
-          <select class="select" id="format" name="format">
-            <option>Online per Video</option>
-            <option>Praxis Wiesbaden</option>
-            <option>Noch offen</option>
+          <select class="select" id="termin" name="termin">
+            <option>Werktags abends</option>
+            <option>Samstag</option>
+            <option>Sonntag</option>
+            <option>Egal</option>
           </select>
           <span class="select-wrap__chevron" aria-hidden="true">▾</span>
         </div>
       </div>
       <div class="field">
         <label class="field__label" for="nachricht">Worum geht es? <span class="req">*</span></label>
-        <textarea class="textarea" id="nachricht" name="nachricht" rows="4" placeholder="Was beschäftigt dich gerade? Was soll anders werden?" required></textarea>
-        <span class="field__hint">Zwei, drei Sätze genügen.</span>
+        <textarea class="textarea" id="nachricht" name="nachricht" rows="4" placeholder="Was bremst dich gerade? Was soll anders werden?" required></textarea>
+        <span class="field__hint">Zwei, drei Sätze genügen. Den ausführlichen Fragebogen bekommst du danach per E-Mail.</span>
         <span class="field__error">Bitte schreib mindestens einen kurzen Satz.</span>
       </div>
       <div class="field">

@@ -15,20 +15,21 @@ BASE_URL = "https://timowinheller-web.github.io/timo-winheller-mental-coaching/"
 
 # (dateiname, Menü-Label oder None, <title>, Beschreibung)
 PAGES = [
-    ("index", "Start", "Timo Winheller · Mental Coaching",
-     "Mentales Coaching für Menschen, die viel tragen. Neuro-Resonanz, online und in Wiesbaden. Kostenfreies Erstgespräch."),
-    ("angebot", "Angebot", "Angebot & Preise · Timo Winheller Mental Coaching",
-     "Einzelsitzung, 5er-Paket, 3-Monats-Begleitung. Transparente Preise, kostenfreies Erstgespräch."),
-    ("methode", "Methode", "Methode: Neuro-Resonanz · Timo Winheller Mental Coaching",
-     "Wie Neuro-Resonanz-Coaching funktioniert: NLP, Körperarbeit und Meditation, verständlich erklärt."),
-    ("fallbeispiele", None, "Fallbeispiele · Timo Winheller Mental Coaching",
-     "Vier anonymisierte Verläufe aus dem Coaching: Ausgangslage, Vorgehen, Ergebnis."),
-    ("ueber-mich", "Über mich", "Über mich · Timo Winheller Mental Coaching",
-     "Timo Winheller, Neuro-Resonanz-Practitioner: Weg, Ausbildung, Haltung."),
-    ("kontakt", "Kontakt", "Erstgespräch anfragen · Timo Winheller Mental Coaching",
-     "Kostenfreies 30-minütiges Erstgespräch anfragen. Online oder in Wiesbaden."),
+    ("index", "Start", "Mental Coaching in Reichshof & online · Timo Winheller – Mentale Stärke",
+     "Mentales Coaching für Leistung und mentale Stärke: Blockaden und Glaubenssätze, Stress und Selbstregulation, Ziele und Entscheidungen, Alltagsängste. Online oder vor Ort in Reichshof (Oberberg). Kostenloses Erstgespräch."),
+    ("angebot", "Angebot", "Angebot & Preise · Mental Coaching Timo Winheller",
+     "Einzelsitzung 150 € (60 Min), Themenpaket „Mentale Stärke“ mit 4 Sitzungen für 600 €, kostenloses Erstgespräch mit Fragebogen. Online oder in Reichshof."),
+    ("methode", "Methode", "Methode: Neuro-Resonanz · Mental Coaching Timo Winheller",
+     "Wie Neuro-Resonanz-Coaching funktioniert: NLP, Körperarbeit und Atem – Blockaden lösen, Glaubenssätze umbauen, Zustände steuern. Verständlich erklärt."),
+    ("fallbeispiele", None, "Fallbeispiele · Mental Coaching Timo Winheller",
+     "Vier anonymisierte Verläufe aus dem Coaching: Lampenfieber, Perfektionismus, Trading-Psychologie, Entscheidung im Umbruch."),
+    ("ueber-mich", "Über mich", "Über mich · Timo Winheller – Macher statt Esoteriker",
+     "Timo Winheller: Trader, Meister mit Führungspraxis, Neuro-Resonanz-Practitioner. Mentales Coaching aus der Praxis – in Reichshof und online."),
+    ("kontakt", "Kontakt", "Erstgespräch anfragen · Mental Coaching Timo Winheller",
+     "Kostenloses 20-minütiges Erstgespräch anfragen – online oder in Reichshof. Termine abends und am Wochenende."),
     ("impressum", None, "Impressum · Timo Winheller Mental Coaching", "Impressum und Anbieterkennzeichnung."),
     ("datenschutz", None, "Datenschutz · Timo Winheller Mental Coaching", "Datenschutzerklärung nach DSGVO."),
+    ("agb", None, "AGB · Timo Winheller Mental Coaching", "Allgemeine Geschäftsbedingungen für Coaching-Leistungen."),
 ]
 NAV = [(slug, label) for slug, label, _, _ in PAGES if label]
 ICON_DIR = ROOT / "img" / "icons"
@@ -89,6 +90,7 @@ def head(slug, title, desc):
 <link rel="preload" href="css/fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="css/fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">{{"@context":"https://schema.org","@type":"ProfessionalService","name":"Timo Winheller Mental Coaching","description":"Mentales Coaching für Leistung und mentale Stärke: Blockaden und Glaubenssätze, Stress und Selbstregulation, Ziele und Entscheidungen, Alltagsängste. Online und vor Ort in Reichshof.","url":"{BASE_URL}","founder":{{"@type":"Person","name":"Timo Winheller"}},"address":{{"@type":"PostalAddress","addressLocality":"Reichshof","addressRegion":"Nordrhein-Westfalen","addressCountry":"DE"}},"areaServed":["Reichshof","Oberbergischer Kreis","Deutschland (online)"],"priceRange":"150 € pro Sitzung","makesOffer":[{{"@type":"Offer","name":"Einzelsitzung (60 Minuten)","price":"150","priceCurrency":"EUR"}},{{"@type":"Offer","name":"Themenpaket Mentale Stärke (4 Sitzungen)","price":"600","priceCurrency":"EUR"}}]}}</script>
 </head>
 <body>
 <div class="aurora" aria-hidden="true"><span></span><span></span></div>
@@ -139,12 +141,12 @@ def footer(slug):
 <footer class="footer">
   <div class="wrap">
     <div class="footer__grid">
-      <div class="footer__brand">{logo()}<p>Mentales Coaching für Menschen, die viel tragen. Wiesbaden und online.</p></div>
+      <div class="footer__brand">{logo()}<p>Mentales Coaching für Leistung und mentale Stärke. Vor Ort in Reichshof (Oberberg) und online.</p></div>
       <div class="footer__col"><span class="footer__title">Angebot</span><a href="angebot.html">Angebot &amp; Preise</a><a href="methode.html">Methode</a><a href="fallbeispiele.html">Fallbeispiele</a></div>
       <div class="footer__col"><span class="footer__title">Mehr</span><a href="ueber-mich.html">Über mich</a><a href="index.html#fragen">Fragen</a><a href="kontakt.html">Erstgespräch</a></div>
-      <div class="footer__col"><span class="footer__title">Kontakt</span><span class="ph">[E-MAIL]</span><span class="ph">[TELEFON]</span><span>Praxis Wiesbaden · online</span></div>
+      <div class="footer__col"><span class="footer__title">Kontakt</span><span class="ph">[E-MAIL]</span><span class="ph">[TELEFON]</span><span class="ph">[Instagram-Link]</span><span>Reichshof · Oberberg · online</span></div>
     </div>
-    <div class="footer__bottom"><span>© <span id="jahr">2026</span> Timo Winheller Mental Coaching</span><span class="footer__legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></span></div>
+    <div class="footer__bottom"><span>© <span id="jahr">2026</span> Timo Winheller Mental Coaching</span><span class="footer__legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="agb.html">AGB</a></span></div>
   </div>
 </footer>
 <script src="js/neural.js"></script>

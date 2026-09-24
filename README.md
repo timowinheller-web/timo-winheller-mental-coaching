@@ -54,13 +54,17 @@ grep -n 'class="ph"' parts/*.html build.py
 
 | Platzhalter | Wo |
 |---|---|
-| `[E-MAIL]`, `[TELEFON]` | `build.py` (Footer), kontakt (auch `data-mail="[E-MAIL]"` im Formular), impressum, datenschutz |
-| `[STRASSE NR]`, `[PLZ]` | impressum, datenschutz |
-| **Wiesbaden** | steht als Praxis-Ort auf allen Seiten (aus dem Design-Briefing) – bitte prüfen |
-| `[JAHR]`, `[Kurzbiografie …]` | ueber-mich |
-| `[Umsatzsteuer Variante A/B]` | angebot (Preishinweis), impressum |
-| `[HOSTING-ANBIETER]`, `[DATUM]`, `[Formulardienst]`, `[Videodienst]`, `[Aufsichtsbehörde]` | datenschutz |
-| Portraitfoto | Design-System liefert keins; bei Bedarf in `img/` ablegen und auf ueber-mich einbauen |
+| `[E-MAIL]`, `[TELEFON]`, `[Instagram-Link]` | `build.py` (Footer), kontakt (auch `data-mail="[E-MAIL]"`), impressum, datenschutz |
+| `[GESCHÄFTSADRESSE]`, `[PLZ]` | impressum, datenschutz – bewusst keine Privatadresse (Postfach/Geschäftsadresse) |
+| `[NR-Master …]` | methode, ueber-mich – Abschluss bestätigen oder Satz anpassen |
+| `[Fachrichtung]`, `[Kurzbiografie …]`, `[JAHR / Status]` | ueber-mich |
+| `[DATUM]`, `[HOSTING-ANBIETER]`, `[Formulardienst]`, `[Videodienst]`, Löschfristen | datenschutz, agb |
+| AGB | `parts/agb.body.html` ist eine Vorlage (Ausfallregel 24 h, Widerruf) – anwaltlich prüfen lassen |
+
+Feste Inhalte laut Konzept (24.09.2026): Reichshof (Oberberg) als Ort, Erstgespräch 20 Min + Fragebogen,
+150 €/60 Min, Themenpaket „Mentale Stärke“ 4 × = 600 €, Kleinunternehmer (§ 19 UStG), Termine abends/Wochenende.
+Heilkunde-Grenze: keine Behandlung von Angststörungen/Phobien/Trauma anbieten – Wording bleibt bei Coaching.
+Der Fragebogen mit Ausschlusskriterien läuft per E-Mail, nicht über die Website (keine Gesundheitsdaten im Webformular).
 
 ## Kontaktformular aktivieren
 
