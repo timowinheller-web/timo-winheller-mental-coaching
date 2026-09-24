@@ -218,7 +218,7 @@
       var r = c.getBoundingClientRect(); if (!r.width || !r.height) return;
       sc.w = r.width; sc.h = r.height; c.width = Math.round(r.width * DPR); c.height = Math.round(r.height * DPR);
       sc.ctx.setTransform(DPR, 0, 0, DPR, 0, 0); build(sc);
-      if (reduce) { step(sc, 0, 0); draw(sc, 0); }
+      step(sc, 0, 0); draw(sc, 0); // Standbild sofort, Animation folgt per rAF
     }
     resize();
     var to; window.addEventListener('resize', function () { clearTimeout(to); to = setTimeout(resize, 150); });
@@ -230,6 +230,7 @@
   function loop(now) {
     requestAnimationFrame(loop);
     if (document.hidden) { last = now; return; }
+    if (!last) last = now;
     var dt = Math.min(50, now - last) / 1000; last = now; t += dt;
     for (var i = 0; i < scenes.length; i++) if (scenes[i].visible && scenes[i].w) { step(scenes[i], t, dt); draw(scenes[i], t); }
   }

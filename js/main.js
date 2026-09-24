@@ -58,6 +58,16 @@
       el.style.transitionDelay = Math.min(sib, 5) * 80 + 'ms';
       io.observe(el);
     });
+    // Fallback: falls der Observer nicht feuert (Hintergrund-Tab, Vorschau), alles im Sichtbereich einblenden
+    var revealVisible = function () {
+      document.querySelectorAll('.reveal:not(.is-visible)').forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.bottom > 0 && r.top < window.innerHeight * 1.2) el.classList.add('is-visible');
+      });
+    };
+    setTimeout(revealVisible, 2500);
+    document.addEventListener('visibilitychange', function () { if (!document.hidden) setTimeout(revealVisible, 100); });
+    window.addEventListener('scroll', revealVisible, { passive: true });
   }
 
   // ---------- Zähler ----------
