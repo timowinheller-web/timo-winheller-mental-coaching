@@ -1,8 +1,8 @@
 # Timo Winheller Mental Coaching – Website
 
-Statische Website (HTML/CSS/JS, kein Build-Tool nötig zum Hosten). Design „Creme & Tinte“: Creme-Grund im
-dunklen Rahmen, große Versal-Headline (Inter Tight), Manrope als Textschrift, Haarlinien, schwarze Pill-Buttons,
-ein Akzent (Moosgrün). Interaktives Gehirn mit Methoden-Punkten (js/neural.js) – bewegt sich nur bei Berührung/Klick.
+Statische Website (HTML/CSS/JS, kein Build-Tool nötig zum Hosten). Design „Stone & Moss“ – 1:1 nach dem
+Claude-Design-Export „Timo Winheller Website.html“ (Stein-Beige, Moosgrün, Glas-Panels, Instrument Sans, Geist Mono).
+Interaktives Gehirn (js/neural.js): Areale, Methoden und eine ziehbare Blockade – bewegt sich nur bei Berührung/Klick/Ziehen.
 
 - Live (GitHub Pages): https://timowinheller-web.github.io/timo-winheller-mental-coaching/
 - Repository: https://github.com/timowinheller-web/timo-winheller-mental-coaching
@@ -12,10 +12,10 @@ ein Akzent (Moosgrün). Interaktives Gehirn mit Methoden-Punkten (js/neural.js) 
 | Pfad | Inhalt |
 |---|---|
 | `index.html` … `datenschutz.html` | Die 8 fertigen Seiten (werden aus `parts/` gebaut) |
-| `parts/<seite>.body.html` | **Seiteninhalte – hier Texte ändern**; `parts/_brain.html` = interaktives Gehirn (per `{{include:brain}}`) |
+| `parts/<seite>.body.html` | **Seiteninhalte – hier Texte ändern**; `parts/_brain.html` = interaktives Gehirn, `parts/_cta.html` = CTA-Band (per `{{include:name}}`) |
 | `build.py` | Baut alle Seiten: setzt `<head>`, Navigation, Footer und Icons ein |
 | `css/style.css` | Komponenten (Buttons, Karten, Nav, Hero …) |
-| `css/fonts/` | Schriften lokal (Inter Tight, Manrope) – kein Google-Fonts-Aufruf |
+| `css/fonts/` | Schriften lokal (Instrument Sans, Geist Mono, aus dem Export) – kein Google-Fonts-Aufruf |
 | `img/*.jpg` | 10 Bildmotive (kopf-natur, staerke, haende-wachstum, atem, gehirn-verstand-gefuehl, ruhe, kette-frei, herz, treppe, raum), `img/icons/` Lucide-Icons, `img/logo.svg` Favicon |
 | `js/main.js` | Mobile-Menü, Karussell, Akkordeon, Selbstcheck, Atem-Übung, Formular (Web3Forms/Mail-Fallback) |
 | `desing/` | älterer Design-System-Export (nicht mehr genutzt). **Nicht im Repo** (.gitignore) |

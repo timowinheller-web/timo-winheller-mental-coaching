@@ -55,9 +55,17 @@ def render_icons(html):
     return re.sub(r"\{\{icon:([a-z0-9-]+)\}\}", lambda m: icon(m.group(1)), html)
 
 
+LOGO = ('<svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="4.5" fill="currentColor"/>'
+        '<path d="M32 18.5a13.5 13.5 0 0 1 13.5 13.5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>'
+        '<path d="M32 18.5A13.5 13.5 0 0 0 18.5 32" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".45"/>'
+        '<path d="M32 8a24 24 0 0 1 24 24" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>'
+        '<path d="M32 8A24 24 0 0 0 8 32" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".3"/>'
+        '<path d="M32 56a24 24 0 0 1-24-24" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".55"/></svg>')
+
+
 def brand():
-    return ('<a class="brand" href="index.html" aria-label="Timo Winheller Mental Coaching – Startseite">'
-            '<span class="brand__name">Timo Winheller</span><span class="brand__sub">Mental Coaching</span></a>')
+    return ('<a class="brand" href="index.html" aria-label="Timo Winheller Mental Coaching – Startseite">' + LOGO +
+            '<span class="brand__text"><span class="brand__name">TIMO WINHELLER</span><span class="brand__sub">MENTAL COACHING</span></span></a>')
 
 
 JSON_LD = (
@@ -83,7 +91,7 @@ def head(slug, title, desc):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{desc}">
-<meta name="theme-color" content="#12110F">
+<meta name="theme-color" content="#EDE4D8">
 <link rel="canonical" href="{canonical}">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{title}">
@@ -91,14 +99,14 @@ def head(slug, title, desc):
 <meta property="og:image" content="{BASE_URL}img/kopf-natur.jpg">
 <meta property="og:locale" content="de_DE">
 <link rel="icon" href="img/logo.svg" type="image/svg+xml">
-<link rel="preload" href="css/fonts/inter-tight-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="css/fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="css/fonts/instrument-sans-normal-400-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="css/fonts/geist-mono-normal-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css">
 <script type="application/ld+json">{JSON_LD}</script>
 </head>
 <body>
 <div class="progress" aria-hidden="true"></div>
-<div class="page">
+<div class="cursor-glow" aria-hidden="true"></div>
 """
 
 
@@ -109,7 +117,7 @@ def nav(active):
         links.append(f'<li><a href="{slug}.html"{cur}>{label}</a></li>')
         mobile.append(f'<a href="{slug}.html"{cur}>{label}</a>')
     return f"""<header class="nav">
-  <div class="wrap nav__inner">
+  <div class="nav__bar">
     {brand()}
     <ul class="nav__links">{"".join(links)}</ul>
     <div class="nav__right">
@@ -117,19 +125,19 @@ def nav(active):
       <button class="nav__toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobilmenu">{icon("menu", "ic--menu")}{icon("x", "ic--x")}</button>
     </div>
   </div>
-  <nav class="nav__menu" id="mobilmenu" aria-label="Menü">{"".join(mobile)}<a class="btn" href="kontakt.html">Kostenloses Erstgespräch</a></nav>
+  <nav class="nav__menu glass" id="mobilmenu" aria-label="Menü">{"".join(mobile)}<a class="btn" href="kontakt.html">Kostenloses Erstgespräch</a></nav>
 </header>
 <main id="inhalt">
 """
 
 
 def footer(slug):
-    sticky = "" if slug in NO_STICKY else '<div class="sticky-cta"><a class="btn" href="kontakt.html">Kostenloses Erstgespräch</a></div>'
+    sticky = "" if slug in NO_STICKY else '<div class="sticky-cta glass"><a class="btn" href="kontakt.html">Kostenloses Erstgespräch</a></div>'
     return f"""</main>
 <footer class="footer">
   <div class="wrap">
     <div class="footer__grid">
-      <div class="footer__brand">{brand()}<p>Mentales Coaching für Leistung und mentale Stärke. Vor Ort in Reichshof (Oberberg) und bundesweit online.</p></div>
+      <div class="footer__brand">{brand()}<p>Neuro-Mentalcoaching für Menschen, die viel tragen. Reichshof (Oberberg) und bundesweit online.</p></div>
       <div class="footer__col"><span class="footer__title">Seiten</span><a href="index.html">Start</a><a href="ueber-mich.html">Über mich</a><a href="angebot.html">Angebot</a><a href="methoden.html">Methoden</a><a href="faq.html">FAQ</a></div>
       <div class="footer__col"><span class="footer__title">Mehr</span><a href="fallbeispiele.html">Fallbeispiele</a><a href="kontakt.html">Erstgespräch</a><span class="ph">[Instagram-Link]</span></div>
       <div class="footer__col"><span class="footer__title">Kontakt</span><a href="mailto:{EMAIL}">{EMAIL}</a><span class="ph">[TELEFON]</span><span>Reichshof · Oberberg · online</span></div>
@@ -138,7 +146,6 @@ def footer(slug):
     <div class="footer__bottom"><span>© <span id="jahr">2026</span> Timo Winheller Mental Coaching</span><span class="footer__legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="agb.html">AGB</a></span></div>
   </div>
 </footer>
-</div>
 <button class="iconbtn totop" type="button" aria-label="Nach oben">{icon("arrow-up")}</button>
 {sticky}
 <script src="js/neural.js"></script>

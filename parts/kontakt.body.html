@@ -1,9 +1,9 @@
-<section class="section section--tight">
+<section class="section section--first">
   <div class="wrap grid grid--split grid--split-a grid--start">
     <div>
       <div class="sh">
-        <span class="label">Kontakt</span>
-        <h1 class="h-display h-xl">Erstgespräch anfragen.</h1>
+        <span class="eyebrow"><i>[01]</i>Kontakt</span>
+        <h1 class="sh__title">Erstgespräch <em>anfragen.</em></h1>
         <p class="lead">Beantworte die paar Fragen unten — das ist schon der Fragebogen. Ich antworte innerhalb von 24 Stunden persönlich mit Terminvorschlägen für 20 Minuten per Video.</p>
       </div>
       <div class="contact-rows mt-5">
@@ -12,8 +12,8 @@
         <div>{{icon:map-pin}}<span><span class="ph">[STRASSE NR]</span>, <span class="ph">[PLZ]</span> Reichshof (Oberbergischer Kreis) — vor Ort, bei dir oder online</span></div>
         <div>{{icon:calendar}}<span>Termine werktags abends, samstags und sonntags</span></div>
       </div>
-      <div class="card card--soft mt-5">
-        <span class="label">So geht es weiter</span>
+      <div class="card mt-5">
+        <span class="eyebrow">So geht es weiter</span>
         <ul class="signals mt-2">
           <li><span><strong>Heute:</strong> Du schickst das Formular ab.</span></li>
           <li><span><strong>Innerhalb von 24 Stunden:</strong> Antwort von mir mit Terminvorschlägen.</span></li>
@@ -21,8 +21,8 @@
         </ul>
       </div>
       <div class="frame frame--tall mt-5"><img src="img/raum.jpg" alt="Zwei dunkle Sessel vor einer grünen Mooswand" width="314" height="445" loading="lazy" decoding="async"></div>
-      <div class="card mt-3">
-        <span class="label">Wann Coaching nicht passt</span>
+      <div class="card card--inset mt-3">
+        <span class="eyebrow">Wann Coaching nicht passt</span>
         <p class="small mt-2">Coaching ist keine Heilkunde. Bei psychischen Erkrankungen — etwa Angststörungen, Depressionen oder Traumafolgen — gehört die Behandlung in ärztliche oder psychotherapeutische Hände. In akuten Krisen: Telefonseelsorge 0800 111 0 111 oder Notruf 112. Ich arbeite mit Erwachsenen.</p>
       </div>
     </div>
@@ -31,13 +31,13 @@
       bei access_key eintragen. Solange dort der Platzhalter steht, öffnet das Formular das E-Mail-Programm
       des Besuchers mit allen Angaben (Fallback). Nach dem Versand leitet Web3Forms auf danke.html weiter.
     -->
-    <form id="kontaktformular" class="form" method="POST" action="https://api.web3forms.com/submit" data-mail="{{EMAIL}}" novalidate>
+    <form id="kontaktformular" class="card card--frost form" method="POST" action="https://api.web3forms.com/submit" data-mail="{{EMAIL}}" novalidate>
       <input type="hidden" name="access_key" value="[WEB3FORMS-ACCESS-KEY]">
       <input type="hidden" name="subject" value="Anfrage Erstgespräch – timowinheller.de">
       <input type="hidden" name="from_name" value="Website timowinheller.de">
       <input type="hidden" name="redirect" value="{{BASE_URL}}danke.html">
       <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <div class="form__head"><span class="form__title">Anfrage &amp; Fragebogen</span><span class="tag tag--dot">Kostenlos · 20 Minuten</span></div>
+      <div class="form__head"><span class="form__title">Anfrage &amp; Fragebogen</span><span class="badge badge--dot">Kostenlos · 20 Minuten</span></div>
 
       <div class="grid grid--2">
         <div class="field">
@@ -56,7 +56,7 @@
         <input class="input" type="tel" id="telefon" name="Telefon" placeholder="Für Rückfragen" autocomplete="tel">
       </div>
 
-      <div class="form__section"><span class="label label--plain">Dein Anliegen</span></div>
+      <div class="form__section"><span class="eyebrow eyebrow--plain">Dein Anliegen</span></div>
       <div class="field">
         <label class="field__label" for="thema">Thema</label>
         <div class="select-wrap">
@@ -90,7 +90,7 @@
         </div>
       </div>
 
-      <div class="form__section"><span class="label label--plain">Rahmen</span></div>
+      <div class="form__section"><span class="eyebrow eyebrow--plain">Rahmen</span></div>
       <div class="grid grid--2">
         <div class="field">
           <label class="field__label" for="format">Format</label>
@@ -131,7 +131,7 @@
         </div>
       </div>
 
-      <div class="form__section"><span class="label label--plain">Damit wir sicher arbeiten</span></div>
+      <div class="form__section"><span class="eyebrow eyebrow--plain">Damit wir sicher arbeiten</span></div>
       <div class="field">
         <span class="field__label" id="lbl-behandlung">Bist du aktuell wegen eines psychischen Themas in ärztlicher oder psychotherapeutischer Behandlung? (optional)</span>
         <div class="radios" role="radiogroup" aria-labelledby="lbl-behandlung">
