@@ -62,8 +62,8 @@ button{font:inherit}
 @media (max-width:640px){.grid--2,.grid--3,.grid--4{grid-template-columns:minmax(0,1fr)}}
 
 /* ---------- Typografie ---------- */
-.h-display{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:-.03em;line-height:.96;font-size:clamp(2.1rem,4.4vw,3.8rem)}
-.h-xl{font-size:clamp(2.7rem,7vw,6.4rem);letter-spacing:-.035em;line-height:.94}
+.h-display{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:-.03em;line-height:.96;font-size:clamp(1.9rem,4.4vw,3.8rem);overflow-wrap:anywhere}
+.h-xl{font-size:clamp(2.2rem,7vw,6.4rem);letter-spacing:-.035em;line-height:.94}
 .h-md{font-family:var(--font-display);font-weight:500;letter-spacing:-.01em;font-size:clamp(1.5rem,2.4vw,2.1rem)}
 h3{font-family:var(--font-sans);font-weight:600;font-size:1.15rem}
 .label{display:inline-flex;align-items:center;gap:12px;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
@@ -154,8 +154,9 @@ h3{font-family:var(--font-sans);font-weight:600;font-size:1.15rem}
   .hero__grid{grid-template-columns:minmax(0,1fr);min-height:0}
   .hero__copy{padding-top:0}
   .hero__mission{margin-top:8px;padding-top:24px}
-  .hero__visual{min-height:440px;order:-1}
-  .stat{position:static;max-width:none;margin-top:16px}
+  .hero__visual{min-height:0;order:-1;display:flex;flex-direction:column;gap:18px}
+  .head-visual{position:relative;height:clamp(340px,105vw,520px)}
+  .stat{position:static;max-width:none;margin-top:0}
 }
 
 /* ---------- Laufband ---------- */
