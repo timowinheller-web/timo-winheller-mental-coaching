@@ -6,13 +6,27 @@ Aufruf im Projektordner:   python3 build.py
 - <head>, Navigation und Footer stehen nur hier (einmal ändern, alle Seiten neu bauen).
 - {{icon:name}} in den Parts wird durch das Lucide-Icon aus img/icons/name.svg ersetzt.
 """
+import os
 import re
 import sys
+import secrets
+import subprocess
 import pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent
 BASE_URL = "https://timowinheller-web.github.io/timo-winheller-mental-coaching/"
 EMAIL = "info@timowinheller.de"
+NODE = "/opt/homebrew/bin/node" if os.path.exists("/opt/homebrew/bin/node") else "node"
+
+# Passwortschutz: steht in .password (gitignored) ein Passwort, werden alle Seiten damit verschlüsselt
+# und hinter der Vorschalt-Seite „Hier entsteht etwas Neues" ausgeliefert. Datei leer/fehlend = offen.
+PASSWORD = (ROOT / ".password").read_text().strip() if (ROOT / ".password").exists() else ""
+# Salt bleibt stabil (.salt, gitignored), damit „Auf diesem Gerät merken" auch nach neuen Builds gilt.
+SALT_FILE = ROOT / ".salt"
+SALT = SALT_FILE.read_text().strip() if SALT_FILE.exists() else ""
+if not SALT:
+    SALT = secrets.token_hex(16)
+    SALT_FILE.write_text(SALT + "\n")
 
 # (dateiname, Menü-Label oder None, <title>, Beschreibung)
 PAGES = [
@@ -143,7 +157,7 @@ def footer(slug):
       <div class="footer__col"><span class="footer__title">Kontakt</span><a href="mailto:{EMAIL}">{EMAIL}</a><span class="ph">[TELEFON]</span><span>Reichshof · Oberberg · online</span></div>
     </div>
     <p class="footer__region">Mental Coaching und Mentaltraining für Reichshof, Gummersbach, Wiehl und den Oberbergischen Kreis, für Köln und Bergisch Gladbach – und bundesweit online. Schwerpunkte: Leistung unter Druck, Finanzen und Investments, Mentaltraining für Sportler, Führung.</p>
-    <div class="footer__bottom"><span>© <span id="jahr">2026</span> Timo Winheller Mental Coaching</span><span class="footer__legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="agb.html">AGB</a></span></div>
+    <div class="footer__bottom"><span>© <span id="jahr">2026</span> Timo Winheller Mental Coaching</span><span class="footer__legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="agb.html">AGB</a>{'<a href="index.html?logout=1">Vorschau beenden</a>' if PASSWORD else ''}</span></div>
   </div>
 </footer>
 <button class="iconbtn totop" type="button" aria-label="Nach oben">{icon("arrow-up")}</button>
@@ -155,14 +169,65 @@ def footer(slug):
 """
 
 
+def gate_shell(slug, title, payload):
+    """Vorschalt-Seite mit verschlüsseltem Inhalt der eigentlichen Seite."""
+    return f"""<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Timo Winheller · Mental Coaching – bald</title>
+<meta name="description" content="Hier entsteht etwas Neues: Timo Winheller Mental Coaching, Reichshof und online.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#EDE4D8">
+<link rel="icon" href="img/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main class="gate">
+  <div class="panel gate__panel">
+    <div class="glass gate__glass">
+      {brand()}
+      <span class="eyebrow"><i>[00]</i>Bald</span>
+      <h1 class="display">Hier entsteht<br>etwas Neues.</h1>
+      <p class="lead">Timo Winheller · Mental Coaching für Leistung und mentale Stärke — Reichshof und bundesweit online. Die Seite ist noch in Arbeit.</p>
+      <form id="gate" class="gate__form" autocomplete="off">
+        <label class="field__label" for="pw">Zugang für Testleser</label>
+        <div class="gate__row"><input class="input" type="password" id="pw" name="pw" placeholder="Passwort" autocomplete="current-password" required><button class="btn" type="submit">Öffnen</button></div>
+        <label class="checkbox"><input type="checkbox" id="remember"><span class="checkbox__box" aria-hidden="true"></span><span>Auf diesem Gerät merken</span></label>
+        <p class="gate__error caption" hidden>Das war nicht das richtige Passwort.</p>
+      </form>
+      <p class="caption faint">Fragen? <a href="mailto:{EMAIL}">{EMAIL}</a></p>
+    </div>
+    <div class="gate__media"><img src="img/kopf-natur.jpg" alt="" width="687" height="1024"></div>
+  </div>
+</main>
+<script id="payload" type="text/plain" data-salt="{SALT}">{payload}</script>
+<script src="js/gate.js?v={SALT[:8]}"></script>
+</body>
+</html>
+"""
+
+
+def encrypt(html):
+    r = subprocess.run([NODE, str(ROOT / "tools" / "encrypt.js"), SALT], input=html, capture_output=True, text=True,
+                       env={**os.environ, "SITE_PASSWORD": PASSWORD})
+    if r.returncode != 0:
+        sys.exit("Verschlüsselung fehlgeschlagen: " + r.stderr)
+    return r.stdout.strip()
+
+
 def main():
     for slug, _label, title, desc in PAGES:
         body = (ROOT / "parts" / f"{slug}.body.html").read_text()
         body = re.sub(r"\{\{include:([a-z0-9-]+)\}\}", lambda m: (ROOT / "parts" / f"_{m.group(1)}.html").read_text(), body)
         body = body.replace("{{BASE_URL}}", BASE_URL).replace("{{EMAIL}}", EMAIL)
         page = head(slug, title, desc) + nav(slug) + render_icons(body) + footer(slug)
+        if PASSWORD:
+            page = gate_shell(slug, title, encrypt(page))
         (ROOT / f"{slug}.html").write_text(page)
-        print(f"gebaut: {slug}.html")
+        print(f"gebaut: {slug}.html" + (" (verschlüsselt)" if PASSWORD else ""))
+    print("Passwortschutz:", "AN – Passwort aus .password" if PASSWORD else "AUS (keine .password-Datei)")
 
 
 if __name__ == "__main__":

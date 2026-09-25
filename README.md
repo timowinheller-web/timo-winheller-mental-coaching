@@ -59,6 +59,19 @@ Feste Inhalte laut Konzept (24.09.2026): Reichshof (Oberberg) als Ort, Erstgespr
 Heilkunde-Grenze: keine Behandlung von Angststörungen/Phobien/Trauma anbieten – Wording bleibt bei Coaching.
 Der Fragebogen mit Ausschlusskriterien läuft per E-Mail, nicht über die Website (keine Gesundheitsdaten im Webformular).
 
+## Passwortschutz („Hier entsteht etwas Neues")
+
+Solange die Datei `.password` ein Passwort enthält, baut `python3 build.py` jede Seite **verschlüsselt**:
+Besucher sehen nur die Vorschalt-Seite „Hier entsteht etwas Neues" mit Passwortfeld. Erst das richtige
+Passwort entschlüsselt die eigentliche Seite im Browser (AES-256-GCM, Schlüssel per PBKDF2 aus dem Passwort).
+Im öffentlichen GitHub-Repo liegt damit nur Chiffretext – ohne Passwort ist nichts lesbar.
+
+- Passwort ändern: `.password` editieren → `python3 build.py` → `git push`. (`.password` und `.salt` sind gitignored, nie committen.)
+- Der Browser merkt sich den Schlüssel für die Sitzung; mit „Auf diesem Gerät merken" dauerhaft. Abmelden: `index.html?logout=1` (Footer-Link „Vorschau beenden").
+- Schutz aufheben (Launch): `.password` löschen oder leeren → `python3 build.py` → `git push`.
+- Grenzen: Wer das Passwort hat, kann es weitergeben; es gibt keine Sperre nach Fehlversuchen. Deshalb ein langes Passwort wählen.
+- Alle Seiten tragen im geschützten Modus `noindex,nofollow`.
+
 ## Bilder
 
 Die 10 Motive liegen in 687 × 1024 px vor (`img/*.jpg`). Größere Versionen unter demselben Dateinamen ablegen – sonst muss nichts geändert werden.

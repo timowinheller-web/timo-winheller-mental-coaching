@@ -2,3 +2,6 @@
 Thumbs.db
 # Design-System (lokal, nicht veroeffentlichen: enthaelt Referenz-Screenshots Dritter)
 desing/
+# Passwort fuer den Passwortschutz (nur lokal, nie committen)
+.password
+.salt
