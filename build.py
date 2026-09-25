@@ -246,8 +246,6 @@ def head(slug, title, desc, body):
 </head>
 <body>
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
-<div class="progress" aria-hidden="true"></div>
-<div class="cursor-glow" aria-hidden="true"></div>
 """
 
 

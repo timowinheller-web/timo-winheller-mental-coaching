@@ -9,7 +9,7 @@
   if (!roots.length) return;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var DPR = Math.min(window.devicePixelRatio || 1, 2);
-  var cs = getComputedStyle(document.documentElement);
+  var cs = getComputedStyle(roots[0]);  // Farben aus dem Panel (überschreibbar per .brain{--neural-*})
   var v = function (n, d) { var x = cs.getPropertyValue(n).trim(); return x || d; };
   var LINE = v('--neural-line', '18,18,17'), ACC = v('--neural-node', '86,119,58');
 

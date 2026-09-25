@@ -61,10 +61,11 @@
   });
 
   // ---- Fortschritt, Nach oben, Sticky-CTA ----
-  var bar = document.querySelector('.progress'), totop = document.querySelector('.totop'), sticky = document.querySelector('.sticky-cta'), heroEl = document.querySelector('.hero');
+  var totop = document.querySelector('.totop'), sticky = document.querySelector('.sticky-cta'), heroEl = document.querySelector('.hero');
+  var heroImg = (!reduce && finePointer) ? document.querySelector('.hero__img') : null;
   function onScroll() {
     var h = document.documentElement, max = h.scrollHeight - h.clientHeight, y = window.pageYOffset || h.scrollTop;
-    if (bar) bar.style.width = (max > 0 ? y / max * 100 : 0) + '%';
+    if (heroImg) heroImg.style.transform = 'translateY(' + Math.min(y, 900) * 0.10 + 'px)';
     if (nav) nav.classList.toggle('is-scrolled', y > 40);
     if (totop) totop.classList.toggle('is-visible', y > 600);
     if (sticky) sticky.classList.toggle('is-visible', y > (heroEl ? heroEl.offsetHeight - 80 : 400));
@@ -72,9 +73,6 @@
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
   if (totop) totop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
 
-  // ---- Cursor-Glow (nur Maus, nicht bei reduzierter Bewegung) ----
-  var glow = document.querySelector('.cursor-glow');
-  if (glow && finePointer && !reduce) { var gx = 0, gy = 0, pending = false; document.addEventListener('pointermove', function (e) { gx = e.clientX; gy = e.clientY; if (!pending) { pending = true; requestAnimationFrame(function () { glow.style.transform = 'translate(' + (gx - 180) + 'px,' + (gy - 180) + 'px)'; glow.classList.add('is-on'); pending = false; }); } }, { passive: true }); }
 
   // ---- Kurzer Selbstcheck (Startseite) ----
   var sc = document.querySelector('[data-selfcheck]');
@@ -91,7 +89,7 @@
     var phases = [['Einatmen', 4000, 'is-in'], ['Halten', 4000, 'is-hold'], ['Ausatmen', 6000, 'is-out']], running = false, tmr;
     var stopB = function (t) { running = false; clearTimeout(tmr); circle.className = 'breath__circle'; btnB.textContent = 'Starten'; if (t) { label.textContent = t; sub.textContent = 'Drei Runden'; } };
     var runB = function () { var r = 0, p = 0; running = true; btnB.textContent = 'Stopp'; var nextPhase = function () { if (!running) return; if (p === 0) { r++; if (r > 3) { stopB('Fertig. Wie fühlst du dich?'); track('Atemübung beendet'); return; } sub.textContent = 'Runde ' + r + ' von 3'; } var ph = phases[p]; label.textContent = ph[0]; circle.className = 'breath__circle ' + ph[2]; circle.style.transitionDuration = ph[1] + 'ms'; tmr = setTimeout(function () { p = (p + 1) % 3; nextPhase(); }, ph[1]); }; nextPhase(); };
-    btnB.addEventListener('click', function () { if (running) { stopB('Bereit?'); sub.textContent = '4 ein · 4 halten · 6 aus'; } else runB(); });
+    btnB.addEventListener('click', function () { if (running) { stopB('Bereit?'); sub.textContent = '4 ein, 4 halten, 6 aus'; } else runB(); });
   });
 
   // ---- Drucken ----
