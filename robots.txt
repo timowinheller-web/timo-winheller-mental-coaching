@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /
+Disallow: /danke.html
+
+Sitemap: https://timowinheller-web.github.io/timo-winheller-mental-coaching/sitemap.xml

@@ -1,0 +1,4 @@
+Contact: mailto:info@timowinheller.de
+Expires: 2027-09-25T00:00:00.000Z
+Preferred-Languages: de, en
+Canonical: https://timowinheller-web.github.io/timo-winheller-mental-coaching/.well-known/security.txt

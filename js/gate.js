@@ -35,9 +35,16 @@
     return crypto.subtle.decrypt({ name: 'AES-GCM', iv: data.slice(0, 12) }, key, data.slice(12)).then(function (pt) { return new TextDecoder().decode(pt); });
   }
   function show(html) {
-    // document.open() während des Ladens hängt an statt zu ersetzen → erst nach Abschluss des Parsens schreiben.
-    if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', function () { show(html); }); return; }
-    document.open(); document.write(html); document.close();
+    // Entschlüsselte Seite per DOM-Austausch einsetzen (statt document.write: dort führt Chrome nachgeladene
+    // Skripte nicht zuverlässig aus). Vom Parser erzeugte <script>-Elemente laufen nicht, deshalb neu einhängen.
+    var doc = new DOMParser().parseFromString(html, 'text/html');
+    var root = document.adoptNode(doc.documentElement);
+    document.replaceChild(root, document.documentElement);
+    Array.prototype.slice.call(document.querySelectorAll('script[src]')).forEach(function (old) {
+      var s = document.createElement('script'); s.src = old.getAttribute('src'); s.async = false; old.parentNode.replaceChild(s, old);
+    });
+    if (location.hash) setTimeout(function () { var el = document.getElementById(location.hash.slice(1)); if (el) el.scrollIntoView(); }, 350);
+    window.scrollTo(0, 0);
   }
   function hex2buf(h) { var a = new Uint8Array(h.length / 2); for (var i = 0; i < a.length; i++) a[i] = parseInt(h.substr(i * 2, 2), 16); return a; }
   function b642buf(b) { var s = atob(b), a = new Uint8Array(s.length); for (var i = 0; i < s.length; i++) a[i] = s.charCodeAt(i); return a; }

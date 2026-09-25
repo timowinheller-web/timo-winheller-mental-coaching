@@ -192,7 +192,7 @@
     }
     function release() {
       var K = sc.knot; if (!K || K.released) return;
-      K.released = true; K.tension = 0; sc.drag = false; stage.style.cursor = 'crosshair';
+      K.released = true; document.dispatchEvent(new CustomEvent('tw:track', { detail: { name: 'Blockade gelöst' } })); K.tension = 0; sc.drag = false; stage.style.cursor = 'crosshair';
       K.members.forEach(function (mi) { sc.nodes[mi].lit = 1; sc.sparks.push({ x: sc.nodes[mi].x, y: sc.nodes[mi].y, t: 0 }); burst(mi, 2); });
       setPanel(TEXT.released[0], TEXT.released[1]); if (action) action.textContent = 'Nochmal';
       wake();
