@@ -53,13 +53,6 @@
     window.addEventListener('scroll', revealVisible, { passive: true });
   }
 
-  // ---- Zähler ----
-  document.querySelectorAll('[data-count]').forEach(function (el) {
-    var end = parseFloat(el.dataset.count), suffix = el.dataset.suffix || '', done = false;
-    var run = function () { if (done) return; done = true; if (reduce) { el.textContent = end + suffix; return; } var t0 = performance.now(); (function tick(now) { var p = Math.min(1, (now - t0) / 1100), e = 1 - Math.pow(1 - p, 3); el.textContent = Math.round(end * e) + suffix; if (p < 1) requestAnimationFrame(tick); })(t0); };
-    if ('IntersectionObserver' in window) { var o = new IntersectionObserver(function (es) { es.forEach(function (x) { if (x.isIntersecting) { run(); o.disconnect(); } }); }); o.observe(el); } else run();
-  });
-
   // ---- Fortschritt, Nach oben, Sticky-CTA ----
   var totop = document.querySelector('.totop'), sticky = document.querySelector('.sticky-cta'), heroEl = document.querySelector('.hero');
   var heroImg = (!reduce && finePointer) ? document.querySelector('.hero__img') : null;

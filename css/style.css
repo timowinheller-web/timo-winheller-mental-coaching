@@ -22,8 +22,8 @@
   --inner-top-light:inset 0 1px 0 rgba(255,255,255,.7),inset 0 0 0 1px rgba(255,255,255,.18);--focus-ring:0 0 0 2px var(--stone-100),0 0 0 4px var(--moss-600);
   --blur-glass:22px;--blur-veil:36px;--glass-saturate:1.35;
   --font-display:"Instrument Sans","Helvetica Neue",Arial,sans-serif;--font-sans:"Instrument Sans","Helvetica Neue",Arial,sans-serif;--font-mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,monospace;
-  --size-display-1:clamp(2.8rem,5.6vw,5.4rem);--size-display-2:clamp(2.4rem,4.4vw,4.2rem);--size-h1:clamp(2.1rem,3.4vw,3.2rem);--size-h2:clamp(1.7rem,2.4vw,2.3rem);--size-h3:1.35rem;--size-lead:clamp(1.05rem,1.35vw,1.3rem);--size-body:1rem;--size-small:.875rem;--size-caption:.8125rem;--size-eyebrow:.6875rem;
-  --lh-display:.96;--lh-heading:1.08;--lh-lead:1.55;--lh-body:1.68;--ls-display:-.035em;--ls-heading:-.025em;--ls-eyebrow:.14em;--ls-caps:.08em;
+  --size-display-1:clamp(3.1rem,6.8vw,6.6rem);--size-display-2:clamp(2.5rem,4.8vw,4.6rem);--size-h1:clamp(1.9rem,3vw,2.7rem);--size-h2:clamp(1.6rem,2.3vw,2.15rem);--size-h3:1.3rem;--size-lead:clamp(1.08rem,1.35vw,1.28rem);--size-body:1.0625rem;--size-small:.9rem;--size-caption:.8125rem;--size-eyebrow:.6875rem;
+  --lh-display:.92;--lh-heading:1.08;--lh-lead:1.55;--lh-body:1.65;--ls-display:-.005em;--ls-heading:-.022em;--ls-eyebrow:.12em;--ls-caps:.08em;--stretch-display:86%;
   --space-4:16px;--space-5:24px;--space-6:32px;--space-7:44px;--space-8:64px;--space-9:88px;
   --gutter:clamp(20px,4vw,48px);--container:1200px;--container-wide:1440px;--section-y:clamp(72px,9vw,140px);
   --radius-sm:8px;--radius-md:10px;--radius-lg:16px;--radius-xl:20px;--radius-2xl:28px;--radius-pill:999px;
@@ -635,3 +635,56 @@ body::after{content:"";position:fixed;inset:0;z-index:80;pointer-events:none;opa
 /* Sanfter Reveal bleibt nur auf Abschnittsköpfen (main.js), Bewegung auf Nutzeraktion */
 @media (prefers-reduced-motion:reduce){.hero__media picture{animation:none}body::after{display:none}}
 @media print{body::after{display:none}}
+
+/* ============================================================
+   Typografie II: kondensierte Versalien als Display, ruhige Grundschrift, tabellarische Ziffern.
+   Farbe II: Tannengrün ist die Aktionsfarbe, Schwarz bleibt Text, dunkler Abschluss im Footer.
+   ============================================================ */
+.display,h1.sh__title,.cta__title,.check__band{font-family:var(--font-display);font-stretch:var(--stretch-display);font-weight:600;text-transform:uppercase;letter-spacing:var(--ls-display);line-height:var(--lh-display);color:var(--text-strong)}
+.display{font-size:var(--size-display-1)}
+h1.sh__title{font-size:var(--size-display-2);max-width:14ch}
+.cta__title{font-size:var(--size-display-2);color:var(--text-strong-on-dark);max-width:13ch}
+.check__band{font-size:var(--size-display-2)}
+h2.sh__title{font-size:var(--size-h1);font-weight:500;letter-spacing:var(--ls-heading);max-width:22ch}
+.plan__amount,.stat__value,.check__score,.selfcheck strong,.plan__meta,.exercise__time{font-variant-numeric:tabular-nums}
+.pull{font-size:clamp(1.6rem,2.6vw,2.4rem);line-height:1.2;hanging-punctuation:first last}
+.brand__name{font-stretch:92%;font-weight:600;letter-spacing:.06em}
+.btn{font-size:.95rem}
+.acc__btn{font-size:1.1rem}
+.tile__title{font-size:1.25rem}
+@media (max-width:640px){.display{font-size:clamp(2.6rem,13vw,3.4rem)}h1.sh__title{font-size:clamp(2.1rem,10vw,2.8rem)}.cta__title{font-size:clamp(2.1rem,10vw,2.8rem)}}
+
+/* Aktionsfarbe Tannengrün */
+.btn{background:var(--pine-800);color:var(--bone)}
+.btn:hover{background:var(--pine-700);color:var(--bone);box-shadow:0 12px 30px -16px rgba(27,36,24,.55)}
+.btn--secondary{background:transparent;color:var(--pine-800);border-color:rgba(27,36,24,.4)}
+.btn--secondary:hover{background:var(--pine-800);color:var(--bone);border-color:var(--pine-800)}
+.hero__actions .btn--secondary{background:rgba(251,250,247,.55)}
+.btn--light{background:var(--bone);color:var(--pine-900)}
+.btn--light:hover{background:var(--moss-200);color:var(--pine-900)}
+.btn--moss{background:var(--moss-600);color:var(--bone)}
+.btn--moss:hover{background:var(--moss-700)}
+.radio input:checked+span{background:var(--pine-800);border-color:var(--pine-800)}
+.checkbox input:checked+.checkbox__box{background:var(--pine-800)}
+.brain__list button.is-active{background:var(--bone);color:var(--pine-900)}
+.dots button.is-active{background:var(--pine-800)}
+.signals li::before{background:var(--moss-500)}
+.check__meter i{background:var(--pine-800)}
+
+/* Dunkler Abschluss */
+.footer{background:var(--pine-900);border-top:0;color:var(--text-body-on-dark);padding-top:var(--space-9)}
+.footer .brand__name{color:var(--bone)}
+.footer .brand svg{color:var(--moss-300)}
+.footer .brand__sub{color:var(--moss-300)}
+.footer__brand p{color:var(--text-muted-on-dark)}
+.footer__brand .btn--secondary{color:var(--bone);border-color:rgba(251,250,247,.35)}
+.footer__brand .btn--secondary:hover{background:var(--bone);color:var(--pine-900);border-color:var(--bone)}
+.footer__title{color:rgba(251,250,247,.5)}
+.footer__col a,.footer__col>span:not(.footer__title){color:var(--text-muted-on-dark)}
+.footer__col a:hover{color:var(--bone)}
+.footer__region{color:rgba(251,250,247,.5);border-color:var(--line-on-dark)}
+.footer__bottom{border-color:var(--line-on-dark);color:rgba(251,250,247,.5)}
+.footer__legal a{color:rgba(251,250,247,.62)}
+.footer__legal a:hover{color:var(--bone)}
+.footer :focus-visible{box-shadow:0 0 0 2px var(--pine-900),0 0 0 4px var(--moss-300)}
+.cta{padding-bottom:calc(var(--section-y)*.9)}
