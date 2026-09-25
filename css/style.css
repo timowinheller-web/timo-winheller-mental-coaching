@@ -688,3 +688,37 @@ h2.sh__title{font-size:var(--size-h1);font-weight:500;letter-spacing:var(--ls-he
 .footer__legal a:hover{color:var(--bone)}
 .footer :focus-visible{box-shadow:0 0 0 2px var(--pine-900),0 0 0 4px var(--moss-300)}
 .cta{padding-bottom:calc(var(--section-y)*.9)}
+
+/* ============================================================
+   Glas III: eine Grafik hinter allem, davor Glas in Beige und Grün.
+   Hintergrund = weiche Moos-/Stein-Farbfelder + feines Neuronen-Netz (img/field.svg), fix im Viewport.
+   ============================================================ */
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:
+  radial-gradient(60% 50% at 8% 12%,rgba(210,221,194,.85),transparent 70%),
+  radial-gradient(45% 45% at 92% 18%,rgba(251,250,247,.95),transparent 70%),
+  radial-gradient(55% 55% at 86% 78%,rgba(201,181,156,.6),transparent 70%),
+  radial-gradient(50% 45% at 14% 90%,rgba(170,191,143,.5),transparent 70%),
+  var(--stone-100)}
+.bg::before{content:"";position:absolute;inset:-2%;background:url("../img/field.svg") center/cover no-repeat;opacity:.34}
+.bg::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 40%,transparent 55%,rgba(27,36,24,.10) 100%)}
+/* Beiges Glas: Panels, Karten, helle Bänder */
+.panel{background:rgba(220,203,183,.5);border:1px solid rgba(255,255,255,.5);-webkit-backdrop-filter:blur(26px) saturate(1.15);backdrop-filter:blur(26px) saturate(1.15);box-shadow:var(--inner-top-light),var(--shadow-lg)}
+.hero__panel{background:linear-gradient(180deg,rgba(220,203,183,.56),rgba(227,213,194,.46))}
+.card{background:rgba(248,243,235,.56);border:1px solid rgba(255,255,255,.62);-webkit-backdrop-filter:blur(14px) saturate(1.15);backdrop-filter:blur(14px) saturate(1.15);box-shadow:var(--inner-top-light),0 12px 32px -26px rgba(40,36,28,.45)}
+.card--frost,.check__progress,.form.card{background:rgba(248,243,235,.76)}
+.card--inset{background:rgba(18,18,17,.05);border-color:var(--line-hairline);-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none}
+.section--light{background:rgba(246,241,234,.5);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+.nav__bar{background:rgba(246,241,234,.58)}
+.nav.is-scrolled .nav__bar{background:rgba(246,241,234,.78)}
+.media{background:rgba(220,203,183,.5)}
+/* Grünes Glas: Bänder, Hauptangebot, dunkle Flächen */
+.section--alt{background:rgba(210,221,194,.36);border-top:1px solid rgba(255,255,255,.5);border-bottom:1px solid rgba(255,255,255,.5);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+.card--moss{background:rgba(233,239,224,.62);border-color:rgba(126,156,94,.42)}
+.panel--dark,.brain{background:rgba(27,36,24,.86);border-color:rgba(255,255,255,.08)}
+.footer{background:rgba(20,26,17,.9);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
+.brain__panel{background:rgba(255,255,255,.07)}
+.tile{background:rgba(220,203,183,.5)}
+/* Mobil sparsamer (GPU), Barrierefreiheit: reduzierte Transparenz */
+@media (max-width:640px){.card{-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}.section--alt,.section--light{-webkit-backdrop-filter:none;backdrop-filter:none}.bg::before{opacity:.28}}
+@media (prefers-reduced-transparency:reduce){.bg{display:none}.card{background:#F4EDE3}.card--frost,.form.card{background:#F8F3EB}.panel{background:var(--stone-200)}.panel--dark,.brain{background:var(--pine-800)}.section--alt{background:var(--stone-200)}.section--light{background:var(--stone-50)}.footer{background:var(--pine-900)}}
+@media print{.bg{display:none}}

@@ -245,6 +245,7 @@ def head(slug, title, desc, body):
 {json_ld(slug, title, body)}{CONFIG["ANALYTICS_HTML"]}
 </head>
 <body>
+<div class="bg" aria-hidden="true"></div>
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
 """
 
@@ -313,6 +314,7 @@ def gate_shell(slug, title, payload):
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<div class="bg" aria-hidden="true"></div>
 <main class="gate">
   <div class="panel gate__panel">
     <div class="glass gate__glass">
@@ -346,6 +348,24 @@ def encrypt(page):
     return r.stdout.strip()
 
 
+def field_svg():
+    """Feines Neuronen-Netz als Hintergrundgrafik (deterministisch, ca. 30 KB)."""
+    import math, random
+    rnd = random.Random(7)
+    W, H = 1600, 1000
+    pts = [(rnd.random() * W, rnd.random() * H) for _ in range(170)]
+    lines = []
+    for i, (x1, y1) in enumerate(pts):
+        for x2, y2 in pts[i + 1:]:
+            d = math.hypot(x1 - x2, y1 - y2)
+            if d < 150:
+                lines.append(f'<line x1="{x1:.0f}" y1="{y1:.0f}" x2="{x2:.0f}" y2="{y2:.0f}" stroke-opacity="{(1 - d / 150) * .55:.2f}"/>')
+    dots = "".join(f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{rnd.uniform(1.4, 2.8):.1f}"/>' for x, y in pts)
+    svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" preserveAspectRatio="xMidYMid slice">'
+           f'<g stroke="#3F5A2A" stroke-width="1" fill="none">{"".join(lines)}</g><g fill="#3F5A2A" fill-opacity=".55">{dots}</g></svg>')
+    (ROOT / "img" / "field.svg").write_text(svg)
+
+
 def sitemap():
     urls = []
     for slug, _l, _t, _d in PAGES:
@@ -372,6 +392,7 @@ def main():
             page = gate_shell(slug, title, encrypt(page))
         (ROOT / f"{slug}.html").write_text(page)
         print(f"gebaut: {slug}.html" + (" (verschlüsselt)" if PASSWORD else ""))
+    field_svg()
     sitemap()
     print("sitemap.xml, robots.txt, .well-known/security.txt geschrieben")
     print("Passwortschutz:", "AN – Passwort aus .password" if PASSWORD else "AUS (keine .password-Datei)")

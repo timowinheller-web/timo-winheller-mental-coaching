@@ -1,8 +1,9 @@
 # Timo Winheller Mental Coaching – Website
 
 Statische Website (HTML/CSS/JS, kein Framework, keine externen Skripte). Design „Stone & Moss“ nach dem
-Claude-Design-Export (Stein-Beige, Moosgrün als einziger Akzent, Glas-Panels, Instrument Sans für Display und Text,
-Geist Mono für Labels). Alle Schriften liegen lokal, kein Google-Fonts-Aufruf.
+Claude-Design-Export, weiterentwickelt: fester Hintergrund aus Moos-/Stein-Farbfeldern mit feinem Neuronen-Netz, davor Glas in
+Beige (Inhalt) und Tannengrün (Gehirn, CTA, Footer); Instrument Sans (kondensierte Versalien als Display, Text) und Geist Mono
+(Labels). Alle Schriften liegen lokal, kein Google-Fonts-Aufruf.
 
 - Live (GitHub Pages): https://timowinheller-web.github.io/timo-winheller-mental-coaching/
 - Repository: https://github.com/timowinheller-web/timo-winheller-mental-coaching
@@ -31,6 +32,7 @@ Geist Mono für Labels). Alle Schriften liegen lokal, kein Google-Fonts-Aufruf.
 | `js/main.js` | Menü, Karussell, Akkordeon, Reveal, Selbstcheck, Atem-Übung, Check-Auswertung, Formular, Ereignis-Tracking |
 | `js/neural.js` | Interaktives Gehirn (Areale, Methoden, ziehbare Blockade; bewegt sich nur bei Interaktion) |
 | `js/gate.js`, `tools/encrypt.js` | Passwortschutz (siehe unten) |
+| `img/field.svg` | Hintergrundgrafik (Neuronen-Netz), wird von `build.py` erzeugt; die Farbfelder dahinter stehen in `css/style.css` unter „Glas III“ |
 | `img/*.jpg` + `*.webp` + `*-420.*` | 10 Bildmotive mit Web-Varianten (`python3 tools/images.py` erzeugt sie neu), `img/og.jpg` Social-Vorschaubild, `img/apple-touch-icon.png`, `img/logo.svg`, `img/icons/` Lucide-Icons, `img/portrait-platzhalter.svg` |
 | `tools/og.html` | Vorlage für das Social-Vorschaubild (1200×630), mit Chrome headless gerendert |
 | `docs/` | Launch-Checkliste, Strategie und SEO-Notizen |
