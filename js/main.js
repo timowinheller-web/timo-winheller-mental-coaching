@@ -67,6 +67,20 @@
   if (totop) totop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
 
 
+
+  // ---- Spot-Licht hinter dem Inhalt und magnetische Buttons (nur Maus) ----
+  var spot = document.querySelector('.spot');
+  if (spot && finePointer && !reduce) {
+    var sx = 0, sy = 0, sp = false;
+    document.addEventListener('pointermove', function (e) { sx = e.clientX; sy = e.clientY; if (!sp) { sp = true; requestAnimationFrame(function () { spot.style.transform = 'translate(' + (sx - 280) + 'px,' + (sy - 280) + 'px)'; spot.classList.add('is-on'); sp = false; }); } }, { passive: true });
+    document.addEventListener('pointerleave', function () { spot.classList.remove('is-on'); });
+  }
+  if (finePointer && !reduce) {
+    document.querySelectorAll('.btn').forEach(function (b) {
+      b.addEventListener('pointermove', function (e) { var r = b.getBoundingClientRect(); var dx = (e.clientX - (r.left + r.width / 2)) / r.width, dy = (e.clientY - (r.top + r.height / 2)) / r.height; b.style.transform = 'translate(' + (dx * 10).toFixed(1) + 'px,' + (dy * 8).toFixed(1) + 'px)'; });
+      b.addEventListener('pointerleave', function () { b.style.transform = ''; });
+    });
+  }
   // ---- Kurzer Selbstcheck (Startseite) ----
   var sc = document.querySelector('[data-selfcheck]');
   if (sc) {

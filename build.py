@@ -60,7 +60,7 @@ TODAY = datetime.date.today().isoformat()
 # Versionskennung für CSS/JS aus dem Dateiinhalt: Browser und CDN holen nach jeder Änderung die neue Datei.
 import hashlib
 GATE_V = hashlib.sha1((ROOT / "js/gate.js").read_bytes()).hexdigest()[:8]
-ASSET_V = hashlib.sha1(b"".join((ROOT / f).read_bytes() for f in ("css/style.css", "js/main.js", "js/neural.js"))).hexdigest()[:8]
+ASSET_V = hashlib.sha1(b"".join((ROOT / f).read_bytes() for f in ("css/style.css", "js/main.js", "js/neural.js", "js/field.js"))).hexdigest()[:8]
 
 # (dateiname, Menü-Label oder None, <title>, Beschreibung)
 PAGES = [
@@ -220,7 +220,7 @@ def head(slug, title, desc, body):
 <meta name="description" content="{desc}">
 {robots}
 <meta name="author" content="Timo Winheller">
-<meta name="theme-color" content="#EDE4D8">
+<meta name="theme-color" content="#06090F">
 <link rel="canonical" href="{canonical}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Timo Winheller Mental Coaching">
@@ -238,7 +238,8 @@ def head(slug, title, desc, body):
 <meta name="twitter:image" content="{BASE_URL}img/og.jpg">
 <link rel="icon" href="img/logo.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-<link rel="preload" href="css/fonts/instrument-sans-normal-400-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="css/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="css/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="css/fonts/geist-mono-normal-400.woff2" as="font" type="font/woff2" crossorigin>
 {hero_preload}
 <link rel="stylesheet" href="css/style.css?v={ASSET_V}">
@@ -246,6 +247,7 @@ def head(slug, title, desc, body):
 </head>
 <body>
 <div class="bg" aria-hidden="true"></div>
+<div class="spot" aria-hidden="true"></div>
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
 """
 
@@ -292,6 +294,7 @@ def footer(slug):
 </footer>
 <button class="iconbtn totop" type="button" aria-label="Nach oben">{icon("arrow-up")}</button>
 {sticky}
+<script src="js/field.js?v={ASSET_V}"></script>
 <script src="js/neural.js?v={ASSET_V}"></script>
 <script src="js/main.js?v={ASSET_V}"></script>
 </body>
@@ -309,7 +312,7 @@ def gate_shell(slug, title, payload):
 <title>Timo Winheller · Mental Coaching – bald</title>
 <meta name="description" content="Hier entsteht etwas Neues: Timo Winheller Mental Coaching, Reichshof und online.">
 <meta name="robots" content="noindex,nofollow">
-<meta name="theme-color" content="#EDE4D8">
+<meta name="theme-color" content="#06090F">
 <link rel="icon" href="img/logo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -362,7 +365,7 @@ def field_svg():
                 lines.append(f'<line x1="{x1:.0f}" y1="{y1:.0f}" x2="{x2:.0f}" y2="{y2:.0f}" stroke-opacity="{(1 - d / 150) * .55:.2f}"/>')
     dots = "".join(f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{rnd.uniform(1.4, 2.8):.1f}"/>' for x, y in pts)
     svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" preserveAspectRatio="xMidYMid slice">'
-           f'<g stroke="#3F5A2A" stroke-width="1" fill="none">{"".join(lines)}</g><g fill="#3F5A2A" fill-opacity=".55">{dots}</g></svg>')
+           f'<g stroke="#8DA6FF" stroke-width="1" fill="none">{"".join(lines)}</g><g fill="#8DA6FF" fill-opacity=".55">{dots}</g></svg>')
     (ROOT / "img" / "field.svg").write_text(svg)
 
 

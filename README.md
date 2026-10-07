@@ -1,9 +1,10 @@
 # Timo Winheller Mental Coaching – Website
 
-Statische Website (HTML/CSS/JS, kein Framework, keine externen Skripte). Design „Stone & Moss“ nach dem
-Claude-Design-Export, weiterentwickelt: fester Hintergrund aus Moos-/Stein-Farbfeldern mit feinem Neuronen-Netz, davor Glas in
-Beige (Inhalt) und Tannengrün (Gehirn, CTA, Footer); Instrument Sans (kondensierte Versalien als Display, Text) und Geist Mono
-(Labels). Alle Schriften liegen lokal, kein Google-Fonts-Aufruf.
+Statische Website (HTML/CSS/JS, kein Framework, keine externen Skripte). Design „Nacht, Kobalt, Kreide, Glut“:
+tiefes Blauschwarz als Bühne mit Neuronen-Netz und Spot-Licht, Kobalt-Bänder für Energie, Kreide-Flächen für Inhalte und
+Bilder, Glut-Orange nur für Aktionen. Schriften: Bricolage Grotesque (schwer, kondensiert) für Display, Geist für Text,
+Geist Mono für Labels. Alle Schriften liegen lokal, kein Google-Fonts-Aufruf. Das vorherige Theme „Stone & Moss“ liegt
+als `css/stone-moss.css` bereit (in `build.py` den Stylesheet-Namen tauschen, Fonts-Preload anpassen).
 
 - Live (GitHub Pages): https://timowinheller-web.github.io/timo-winheller-mental-coaching/
 - Repository: https://github.com/timowinheller-web/timo-winheller-mental-coaching
@@ -31,8 +32,9 @@ Beige (Inhalt) und Tannengrün (Gehirn, CTA, Footer); Instrument Sans (kondensie
 | `css/style.css`, `css/fonts.css`, `css/fonts/` | Stylesheet und lokale Schriften |
 | `js/main.js` | Menü, Karussell, Akkordeon, Reveal, Selbstcheck, Atem-Übung, Check-Auswertung, Formular, Ereignis-Tracking |
 | `js/neural.js` | Interaktives Gehirn (Areale, Methoden, ziehbare Blockade; bewegt sich nur bei Interaktion) |
+| `js/field.js` | Neuronenfeld im Hero: reagiert auf Maus/Finger, baut sich einmal beim Laden auf, sonst keine Dauerbewegung |
 | `js/gate.js`, `tools/encrypt.js` | Passwortschutz (siehe unten) |
-| `img/field.svg` | Hintergrundgrafik (Neuronen-Netz), wird von `build.py` erzeugt; die Farbfelder dahinter stehen in `css/style.css` unter „Glas III“ |
+| `img/field.svg` | Hintergrundgrafik (Neuronen-Netz, Kobalt), wird von `build.py` erzeugt; die Lichter dahinter stehen in `css/style.css` unter `.bg` |
 | `img/*.jpg` + `*.webp` + `*-420.*` | 10 Bildmotive mit Web-Varianten (`python3 tools/images.py` erzeugt sie neu), `img/og.jpg` Social-Vorschaubild, `img/apple-touch-icon.png`, `img/logo.svg`, `img/icons/` Lucide-Icons, `img/portrait-platzhalter.svg` |
 | `tools/og.html` | Vorlage für das Social-Vorschaubild (1200×630), mit Chrome headless gerendert |
 | `docs/` | Launch-Checkliste, Strategie und SEO-Notizen |

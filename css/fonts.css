@@ -1,5 +1,7 @@
-/* Schriften lokal (aus dem Design-Export, OFL). Instrument Sans (variabel: Gewicht 400–700, Breite 75–100 %) = Display (kondensiert) + Text, Geist Mono = Labels. */
+/* Schriften lokal (OFL). Bricolage Grotesque (variabel: Gewicht 200–800, Breite 75–100 %, optische Größe) = Display,
+   Geist (variabel 100–900) = Text und UI, Geist Mono = Labels. Instrument Sans bleibt als Datei für das alte Theme (css/stone-moss.css). */
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-weight:200 800;font-stretch:75% 100%;font-display:swap;src:url("fonts/bricolage-latin.woff2") format("woff2")}
+@font-face{font-family:"Geist";font-style:normal;font-weight:100 900;font-display:swap;src:url("fonts/geist-latin.woff2") format("woff2")}
 @font-face{font-family:"Geist Mono";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/geist-mono-normal-400.woff2") format("woff2")}
 @font-face{font-family:"Geist Mono";font-style:normal;font-weight:500;font-display:swap;src:url("fonts/geist-mono-normal-500.woff2") format("woff2")}
-@font-face{font-family:"Instrument Sans";font-style:italic;font-weight:400 700;font-stretch:75% 100%;font-display:swap;src:url("fonts/instrument-sans-italic-400-700.woff2") format("woff2")}
 @font-face{font-family:"Instrument Sans";font-style:normal;font-weight:400 700;font-stretch:75% 100%;font-display:swap;src:url("fonts/instrument-sans-normal-400-700.woff2") format("woff2")}
