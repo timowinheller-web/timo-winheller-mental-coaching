@@ -44,9 +44,9 @@
   var revealVisible = function () { document.querySelectorAll('.reveal:not(.is-visible)').forEach(function (el) { var r = el.getBoundingClientRect(); if (r.bottom > 0 && r.top < window.innerHeight * 1.2) el.classList.add('is-visible'); }); };
   if (!reduce && 'IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
-    document.querySelectorAll('.sh, .frame, .media, .about__portrait, .method, .brain, .cta__inner').forEach(function (el) {
+    document.querySelectorAll('.sh, .frame, .media, .tile, .about__portrait, .method, .brain, .cta__inner').forEach(function (el) {
       if (el.closest('.hero') || el.closest('.nav') || el.closest('[hidden]') || el.closest('.gate')) return;
-      el.classList.add('reveal'); io.observe(el);
+      el.classList.add('reveal'); if (el.classList.contains('tile')) el.style.transitionDelay = (Array.prototype.indexOf.call(el.parentNode.children, el) % 3) * 110 + 'ms'; io.observe(el);
     });
     setTimeout(revealVisible, 2000);
     document.addEventListener('visibilitychange', function () { if (!document.hidden) setTimeout(revealVisible, 100); });
@@ -67,6 +67,22 @@
 
 
 
+
+  // ---- Dunkle/helle Ansicht: Schalter mit Kreis-Übergang vom Knopf aus ----
+  var tbtn = document.querySelector('.theme-toggle'), docEl = document.documentElement;
+  if (tbtn) {
+    var syncT = function () { var d = docEl.getAttribute('data-theme') === 'dark'; tbtn.setAttribute('aria-pressed', d ? 'true' : 'false'); tbtn.setAttribute('aria-label', d ? 'Helle Ansicht' : 'Dunkle Ansicht'); };
+    syncT();
+    tbtn.addEventListener('click', function () {
+      var next = docEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      var apply = function () { docEl.setAttribute('data-theme', next); try { localStorage.setItem('tw-theme', next); } catch (x) {} syncT(); };
+      if (document.startViewTransition && !reduce) { var r = tbtn.getBoundingClientRect(); docEl.style.setProperty('--vt-x', (r.left + r.width / 2) + 'px'); docEl.style.setProperty('--vt-y', (r.top + r.height / 2) + 'px'); document.startViewTransition(apply); } else apply();
+      track('Ansicht gewechselt', { ansicht: next });
+    });
+  }
+  // ---- Hintergrund-Linien wandern beim Scrollen langsam mit ----
+  var lines = document.querySelector('.bg-lines');
+  if (lines && !reduce) { var lt = false; window.addEventListener('scroll', function () { if (!lt) { lt = true; requestAnimationFrame(function () { lines.style.transform = 'translateY(' + (-(window.pageYOffset || 0) * 0.04).toFixed(1) + 'px)'; lt = false; }); } }, { passive: true }); }
   // ---- Kurzer Selbstcheck (Startseite) ----
   var sc = document.querySelector('[data-selfcheck]');
   if (sc) {

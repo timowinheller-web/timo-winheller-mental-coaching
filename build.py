@@ -69,7 +69,7 @@ TODAY = datetime.date.today().isoformat()
 # Versionskennung für CSS/JS aus dem Dateiinhalt: Browser und CDN holen nach jeder Änderung die neue Datei.
 import hashlib
 GATE_V = hashlib.sha1((ROOT / "js/gate.js").read_bytes()).hexdigest()[:8]
-ASSET_V = hashlib.sha1(b"".join((ROOT / f).read_bytes() for f in ("css/style.css", "js/main.js", "js/neural.js", "js/field.js"))).hexdigest()[:8]
+ASSET_V = hashlib.sha1(b"".join((ROOT / f).read_bytes() for f in ("css/style.css", "js/main.js", "js/neural.js", "js/field.js", "js/theme.js"))).hexdigest()[:8]
 
 # (dateiname, Menü-Label oder None, <title>, Beschreibung)
 PAGES = [
@@ -153,7 +153,8 @@ def render_tokens(body):
 
 def brand():
     return ('<a class="brand" href="index.html" aria-label="Timo Winheller Mental Coaching, Startseite">'
-            '<img class="brand__mark" src="img/logo-mark-64.png" alt="" width="94" height="24">'
+            '<img class="brand__mark logo-light" src="img/logo-mark-64.png" alt="" width="94" height="24">'
+            '<img class="brand__mark logo-dark" src="img/logo-mark-64-dark.png" alt="" width="94" height="24">'
             '<span class="brand__text"><span class="brand__name"><span class="brand__first">TIMO</span> WINHELLER</span>'
             '<span class="brand__sub">MENTAL COACHING</span></span></a>')
 
@@ -161,7 +162,8 @@ def brand():
 def brand_full(width=240):
     h = round(width * 540 / 1347)
     return (f'<a class="brand-full" href="index.html" aria-label="Timo Winheller Mental Coaching, Startseite">'
-            f'<img src="img/logo-480.png" alt="Timo Winheller Mental Coaching" width="{width}" height="{h}"></a>')
+            f'<img class="logo-light" src="img/logo-480.png" alt="Timo Winheller Mental Coaching" width="{width}" height="{h}">'
+            f'<img class="logo-dark" src="img/logo-480-dark.png" alt="Timo Winheller Mental Coaching" width="{width}" height="{h}"></a>')
 
 
 def json_ld(slug, title, body):
@@ -215,6 +217,16 @@ def csp():
             "base-uri 'self'; object-src 'none'; frame-src 'none'")
 
 
+def bg_lines():
+    """Fließende Linien nach dem Logo-Schwung als leiser Seitenhintergrund."""
+    paths = []
+    for i in range(14):
+        y = 60 + i * 68; a = 46 + (i % 4) * 9; sh = (i * 37) % 120
+        paths.append(f'<path d="M-100 {y} C {180+sh} {y-a}, {380+sh} {y-a}, {560+sh} {y+a*0.6} S {980+sh} {y+a*1.1}, {1180+sh} {y-a*0.4} S {1560} {y-a*0.9}, {1760} {y-a*0.2}"/>')
+    return ('<div class="bg-lines" aria-hidden="true"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">'
+            '<g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">' + "".join(paths) + '</g></svg></div>')
+
+
 def head(slug, title, desc, body):
     canonical = BASE_URL + ("" if slug == "index" else slug + ".html")
     robots = '<meta name="robots" content="noindex,nofollow">' if slug in NOINDEX else '<meta name="robots" content="index,follow,max-image-preview:large">'
@@ -251,11 +263,13 @@ def head(slug, title, desc, body):
 <link rel="preload" href="css/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="css/fonts/geist-mono-normal-400.woff2" as="font" type="font/woff2" crossorigin>
 {hero_preload}
+<script src="js/theme.js?v={ASSET_V}"></script>
 <link rel="stylesheet" href="css/style.css?v={ASSET_V}">
 {json_ld(slug, title, body)}{CONFIG["ANALYTICS_HTML"]}
 </head>
 <body>
 <div class="bg" aria-hidden="true"></div>
+{bg_lines()}
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
 """
 
@@ -272,6 +286,7 @@ def nav(active):
     {brand()}
     <nav aria-label="Hauptmenü"><ul class="nav__links">{"".join(links)}</ul></nav>
     <div class="nav__right">
+      <button class="iconbtn theme-toggle" type="button" aria-label="Dunkle Ansicht" aria-pressed="false">{icon("moon", "ic--moon")}{icon("sun", "ic--sun")}</button>
       <a class="btn btn--sm nav__cta" href="kontakt.html">Erstgespräch</a>
       <button class="nav__toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobilmenu">{icon("menu", "ic--menu")}{icon("x", "ic--x")}</button>
     </div>
@@ -321,6 +336,7 @@ def gate_shell(slug, title, payload):
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#06090F">
 <link rel="icon" href="img/favicon.png" type="image/png">
+<script src="js/theme.js"></script>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
