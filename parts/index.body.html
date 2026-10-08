@@ -158,7 +158,7 @@
 
 <section class="section section--alt" id="ueber-mich">
   <div class="wrap about">
-    <div class="about__portrait"><img src="img/portrait-platzhalter.svg" alt="" width="400" height="500" loading="lazy"></div>
+    {{if:PORTRAIT}}<div class="about__portrait"><img src="img/{{PORTRAIT}}" alt="Timo Winheller" width="800" height="1000" loading="lazy"></div>{{endif}}
     <div>
       <div class="sh">
         <span class="eyebrow">Wer dich begleitet</span>
@@ -166,7 +166,7 @@
         <p class="lead">Ich kenne Druck nicht aus Büchern: als Investor an den Finanzmärkten und als Meister mit Führungsverantwortung. Beides hat mir gezeigt, wie sehr Muster über Leistung entscheiden, und dass man sie verändern kann.</p>
       </div>
       <div class="about__facts mt-4">
-        <span class="badge badge--neutral">Neuro-Resonanz-Practitioner &amp; -Master</span>
+        <span class="badge badge--neutral">{{QUALI_KURZ}}</span>
         <span class="badge badge--neutral">NLP und Hypnose</span>
         <span class="badge badge--neutral">Meister mit Führungspraxis</span>
         <span class="badge badge--neutral">Investor</span>
@@ -206,16 +206,16 @@
 <section class="section" id="praxis">
   <div class="wrap">
     <div class="sh">
-      <span class="eyebrow">Aus der Praxis</span>
-      <h2 class="sh__title">Was sich danach verändert hat.</h2>
-      <p class="lead">Vier typische Verläufe, anonymisiert und in Details verändert. Keine Garantie, aber ein realistisches Bild davon, was in vier bis sechs Sitzungen möglich ist.</p>
+      <span class="eyebrow">Beispielverläufe</span>
+      <h2 class="sh__title">So kann ein Verlauf aussehen.</h2>
+      <p class="lead">Vier Beispielverläufe, wie sie im Coaching typisch sind. Es sind keine Berichte echter Klienten, sondern Illustrationen, wie die Methoden zusammenwirken.</p>
     </div>
     <div class="carousel mt-8" data-carousel>
       <div class="carousel__track" tabindex="0" aria-label="Fallbeispiele, horizontal scrollbar">
-        <article class="card quote-card carousel__item"><span class="quote-card__mark">Lampenfieber</span><p>Herzrasen und Blackout vor jedem Vorstands-Meeting. Vier Sitzungen mit Ankertechniken und Submodalitätenarbeit, dann freie Rede, ruhige Stimme, klare Botschaft.</p><footer><strong>Führungskraft, 41</strong><span>4 Sitzungen</span></footer></article>
-        <article class="card quote-card carousel__item"><span class="quote-card__mark">Perfektionismus</span><p>Projekte wurden nie fertig, weil „noch nicht gut genug". Glaubenssatzarbeit und Timeline haben den Anspruch umgebaut. Das Projekt ging raus, das Grübeln ließ nach.</p><footer><strong>Selbstständige, 34</strong><span>6 Sitzungen</span></footer></article>
-        <article class="card quote-card carousel__item"><span class="quote-card__mark">Finanzen &amp; Investments</span><p>Anlagestrategie vorhanden, im Depot trotzdem impulsive Entscheidungen: hektisches Nachkaufen nach Verlusten, Verkaufen am Tiefpunkt. Ruhe-Anker auf die Körperreaktion, neuer Glaubenssatz zum Verlust: acht Wochen ohne eine Entscheidung außerhalb der eigenen Regeln.</p><footer><strong>Privatanleger, 38</strong><span>5 Sitzungen</span></footer></article>
-        <article class="card quote-card carousel__item"><span class="quote-card__mark">Entscheidung</span><p>Neue Stelle in einer anderen Stadt, gleichzeitig Trennung, monatelang keine Entscheidung. Aufstellungsarbeit mit den inneren Anteilen, dann Zielearbeit. Entscheidung in der dritten Sitzung, ohne Rückfall.</p><footer><strong>Angestellte, 46</strong><span>3 Sitzungen</span></footer></article>
+        <article class="card quote-card carousel__item"><span class="quote-card__mark">Lampenfieber</span><p>Herzrasen und Blackout vor jedem Vorstands-Meeting. Vier Sitzungen mit Ankertechniken und Submodalitätenarbeit, dann freie Rede, ruhige Stimme, klare Botschaft.</p><footer><strong>Führungskraft, 41</strong><span>Beispiel, 4 Sitzungen</span></footer></article>
+        <article class="card quote-card carousel__item"><span class="quote-card__mark">Perfektionismus</span><p>Projekte wurden nie fertig, weil „noch nicht gut genug". Glaubenssatzarbeit und Timeline haben den Anspruch umgebaut. Das Projekt ging raus, das Grübeln ließ nach.</p><footer><strong>Selbstständige, 34</strong><span>Beispiel, 6 Sitzungen</span></footer></article>
+        <article class="card quote-card carousel__item"><span class="quote-card__mark">Finanzen &amp; Investments</span><p>Anlagestrategie vorhanden, im Depot trotzdem impulsive Entscheidungen: hektisches Nachkaufen nach Verlusten, Verkaufen am Tiefpunkt. Ruhe-Anker auf die Körperreaktion, neuer Glaubenssatz zum Verlust: acht Wochen ohne eine Entscheidung außerhalb der eigenen Regeln.</p><footer><strong>Privatanleger, 38</strong><span>Beispiel, 5 Sitzungen</span></footer></article>
+        <article class="card quote-card carousel__item"><span class="quote-card__mark">Entscheidung</span><p>Neue Stelle in einer anderen Stadt, gleichzeitig Trennung, monatelang keine Entscheidung. Aufstellungsarbeit mit den inneren Anteilen, dann Zielearbeit. Entscheidung in der dritten Sitzung, ohne Rückfall.</p><footer><strong>Angestellte, 46</strong><span>Beispiel, 3 Sitzungen</span></footer></article>
       </div>
       <div class="carousel__nav"><button class="iconbtn" type="button" data-prev aria-label="Zurück">{{icon:arrow-left}}</button><div class="dots carousel__dots" role="group" aria-label="Karten"></div><button class="iconbtn" type="button" data-next aria-label="Weiter">{{icon:arrow-right}}</button></div>
     </div>

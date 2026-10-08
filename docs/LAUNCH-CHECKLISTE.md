@@ -2,6 +2,12 @@
 
 Reihenfolge von oben nach unten. Jeder Punkt ist in einer Sitzung machbar.
 
+> Stand 08.10.2026 nach externem Website-Bericht: Qualifikation steht zentral in `build.py` → `CONFIG["QUALI"]` / `QUALI_KURZ`
+> (aktuell „Practitioner, Master in Ausbildung, Abschluss April 2027“). Porträt (`PORTRAIT`), Wendepunkt-Story (`WENDEPUNKT`) und
+> Videodienst (`VIDEO_TOOL`) erscheinen automatisch, sobald sie in CONFIG eingetragen sind. Domain in `BASE_URL` ist bereits
+> https://timowinheller.de/. robots.txt und Passwortsperre fallen automatisch weg, wenn `.password` geleert wird.
+> Fallbeispiele sind als illustrative Beispielverläufe gekennzeichnet.
+
 ## 1. Inhalte, die nur du liefern kannst (vor dem Launch)
 
 | Was | Wo | Status |

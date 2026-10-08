@@ -21,7 +21,7 @@ import subprocess
 import pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent
-BASE_URL = "https://timowinheller-web.github.io/timo-winheller-mental-coaching/"
+BASE_URL = "https://timowinheller.de/"
 EMAIL = "info@timowinheller.de"
 NODE = "/opt/homebrew/bin/node" if os.path.exists("/opt/homebrew/bin/node") else "node"
 
@@ -29,6 +29,15 @@ NODE = "/opt/homebrew/bin/node" if os.path.exists("/opt/homebrew/bin/node") else
 # Einstellungen, die du selbst pflegst. Leer = die zugehörigen Elemente werden nicht angezeigt.
 # ---------------------------------------------------------------------------------------------
 CONFIG = {
+    # Qualifikation: muss zum Launch-Tag exakt den vorliegenden Zertifikaten entsprechen.
+    "QUALI": "Neuro-Resonanz-Practitioner (Denys Scharnweber Akademie), Master-Ausbildung läuft, Abschluss April 2027",
+    "QUALI_KURZ": "Neuro-Resonanz-Practitioner, Master in Ausbildung",
+    # Porträt: Dateiname in img/ (z. B. "portrait.jpg"). Leer = Porträt-Block wird nicht angezeigt.
+    "PORTRAIT": "",
+    # Wendepunkt-Story für „Über mich" (2 bis 3 Sätze). Leer = Absatz wird nicht angezeigt.
+    "WENDEPUNKT": "",
+    # Videodienst für Online-Sitzungen (z. B. "Zoom" oder "Google Meet"). Leer = FAQ nennt keinen Dienst.
+    "VIDEO_TOOL": "",
     # Online-Terminbuchung (z. B. https://cal.com/timo-winheller/erstgespraech oder Calendly).
     # Gesetzt: „Termin direkt buchen"-Buttons erscheinen zusätzlich zum Formular.
     "BOOKING_URL": "",
@@ -67,23 +76,23 @@ PAGES = [
     ("index", "Start", "Mental Coaching Oberberg & online · Timo Winheller",
      "Mental Coaching für Leistung unter Druck: Blockaden lösen, Stress regulieren, klar entscheiden. Führung, Finanzen & Investments, Sport. Reichshof (Oberberg), Köln und bundesweit online. Kostenloses Erstgespräch."),
     ("ueber-mich", "Über mich", "Über mich · Timo Winheller Mental Coaching",
-     "Timo Winheller: Investor, Meister mit Führungspraxis, Neuro-Resonanz-Practitioner und -Master. Mental Coaching aus der Praxis – Macher statt Esoteriker. Reichshof und online."),
+     "Timo Winheller: Investor, Meister mit Führungspraxis, Neuro-Resonanz-Practitioner. Mental Coaching aus der Praxis, Macher statt Esoteriker. Reichshof und online."),
     ("angebot", "Angebot", "Angebot & Preise · Mental Coaching Reichshof & online",
      "Einzelsitzung 150 € (60 Min), Themenpaket „Mentale Stärke“ mit 4 Sitzungen für 600 €, kostenloses Erstgespräch (20 Min). Transparent, ohne Mindestlaufzeit. Online oder in Reichshof."),
     ("methoden", "Methoden", "Methoden: NLP, Neuro-Resonanz, Hypnose · Timo Winheller",
-     "Wie Mental Coaching mit NLP, Neuro-Resonanz und Hypnose funktioniert: Blockaden lösen, Glaubenssätze umbauen, Zustände steuern – verständlich erklärt, ohne Heilversprechen."),
+     "Wie Mental Coaching mit NLP, Neuro-Resonanz und Hypnose funktioniert: Blockaden lösen, Glaubenssätze umbauen, Zustände steuern, verständlich erklärt, ohne Heilversprechen."),
     ("faq", "FAQ", "Fragen & Antworten · Mental Coaching Timo Winheller",
-     "Kosten, Ablauf, online oder vor Ort, Termine, Wirkung, Abgrenzung zur Therapie – die häufigsten Fragen zum Mental Coaching bei Timo Winheller, ehrlich beantwortet."),
+     "Kosten, Ablauf, online oder vor Ort, Termine, Wirkung, Abgrenzung zur Therapie, die häufigsten Fragen zum Mental Coaching bei Timo Winheller, ehrlich beantwortet."),
     ("kontakt", "Kontakt", "Kostenloses Erstgespräch anfragen · Timo Winheller",
-     "Kostenloses 20-minütiges Erstgespräch anfragen – mit kurzem Fragebogen. Online oder in Reichshof, Termine abends und am Wochenende. Persönliche Antwort innerhalb von 24 Stunden."),
+     "Kostenloses 20-minütiges Erstgespräch anfragen, mit kurzem Fragebogen. Online oder in Reichshof, Termine abends und am Wochenende. Persönliche Antwort innerhalb von 24 Stunden."),
     ("check", None, "Mentale-Stärke-Check: 10 Fragen, 2 Minuten · Timo Winheller",
      "Wie stark bremst dich dein Kopf gerade? 10 Aussagen, 2 Minuten, sofortige Einordnung mit konkreter Empfehlung. Läuft komplett im Browser, nichts wird gespeichert."),
     ("mentalcoaching-oberberg", None, "Mental Coaching Reichshof, Gummersbach, Wiehl & Köln",
-     "Mental Coaching vor Ort im Oberbergischen Kreis: Reichshof, Gummersbach, Wiehl, Waldbröl, Bergneustadt – und für Köln, Bergisch Gladbach, Olpe. Alternativ per Video, bundesweit."),
+     "Mental Coaching vor Ort im Oberbergischen Kreis: Reichshof, Gummersbach, Wiehl, Waldbröl, Bergneustadt, und für Köln, Bergisch Gladbach, Olpe. Alternativ per Video, bundesweit."),
     ("reset", None, "Der 3-Minuten-Reset: 3 Übungen für klare Entscheidungen",
      "Drei Übungen aus dem Mental Coaching, die sofort wirken: Atem-Anker 4-4-6, Fokus-Punkt und die Regel-Frage. Zum Ausdrucken und Mitnehmen."),
     ("fallbeispiele", None, "Fallbeispiele · Mental Coaching Timo Winheller",
-     "Vier anonymisierte Verläufe aus dem Coaching: Lampenfieber vor dem Vorstand, Perfektionismus, impulsive Anlageentscheidungen, Entscheidung im Umbruch."),
+     "Vier Beispielverläufe, wie Coaching wirken kann: Lampenfieber vor dem Vorstand, Perfektionismus, impulsive Anlageentscheidungen, Entscheidung im Umbruch."),
     ("danke", None, "Danke · Timo Winheller Mental Coaching", "Deine Anfrage ist angekommen."),
     ("impressum", None, "Impressum · Timo Winheller Mental Coaching", "Impressum und Anbieterkennzeichnung."),
     ("datenschutz", None, "Datenschutz · Timo Winheller Mental Coaching", "Datenschutzerklärung nach DSGVO."),
@@ -115,7 +124,7 @@ def picture(name, alt="", cls="", opts=""):
     """<picture> mit WebP (687/420) und JPEG-Fallback. opts: 'eager' (Hero), 'sizes=…'."""
     for f in (f"{name}.jpg", f"{name}.webp", f"{name}-420.webp", f"{name}-420.jpg"):
         if not (ROOT / "img" / f).exists():
-            sys.exit(f"Bildvariante fehlt: img/{f} – bitte python3 tools/images.py ausführen")
+            sys.exit(f"Bildvariante fehlt: img/{f}, bitte python3 tools/images.py ausführen")
     o = [x.strip() for x in opts.split(",") if x.strip()]
     eager = "eager" in o
     sizes = next((x[6:] for x in o if x.startswith("sizes=")), "(max-width: 700px) 100vw, 50vw")
@@ -151,7 +160,7 @@ LOGO = ('<svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32"
 
 
 def brand():
-    return ('<a class="brand" href="index.html" aria-label="Timo Winheller Mental Coaching – Startseite">' + LOGO +
+    return ('<a class="brand" href="index.html" aria-label="Timo Winheller Mental Coaching, Startseite">' + LOGO +
             '<span class="brand__text"><span class="brand__name">TIMO WINHELLER</span><span class="brand__sub">MENTAL COACHING</span></span></a>')
 
 
@@ -164,7 +173,7 @@ def json_ld(slug, title, body):
         '"description":"Mental Coaching für Leistung und mentale Stärke: Blockaden und Glaubenssätze, Stress und Selbstregulation, '
         'Ziele und Entscheidungen, Alltagsängste. NLP, Neuro-Resonanz und Hypnose. Vor Ort in Reichshof (Oberberg) und bundesweit online.",'
         f'"url":"{BASE_URL}","image":"{BASE_URL}img/og.jpg","logo":"{BASE_URL}img/logo.svg","email":"{EMAIL}"{phone}{same_as},'
-        '"founder":{"@type":"Person","name":"Timo Winheller","jobTitle":"Mental Coach (Neuro-Resonanz-Practitioner und -Master)"},'
+        '"founder":{"@type":"Person","name":"Timo Winheller","jobTitle":"Mental Coach (Neuro-Resonanz-Practitioner)"},'
         '"address":{"@type":"PostalAddress","addressLocality":"Reichshof","addressRegion":"Nordrhein-Westfalen","postalCode":"51580","addressCountry":"DE"},'
         '"areaServed":[{"@type":"City","name":"Reichshof"},{"@type":"City","name":"Gummersbach"},{"@type":"City","name":"Wiehl"},'
         '{"@type":"City","name":"Waldbröl"},{"@type":"City","name":"Bergneustadt"},{"@type":"AdministrativeArea","name":"Oberbergischer Kreis"},'
@@ -231,7 +240,7 @@ def head(slug, title, desc, body):
 <meta property="og:image" content="{BASE_URL}img/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Timo Winheller Mental Coaching – Dein Gehirn kann umlernen">
+<meta property="og:image:alt" content="Timo Winheller Mental Coaching, Dein Gehirn kann umlernen">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{desc}">
@@ -288,7 +297,7 @@ def footer(slug):
       <div class="footer__col"><span class="footer__title">Werkzeuge</span><a href="check.html">Mentale-Stärke-Check</a><a href="reset.html">Der 3-Minuten-Reset</a><a href="fallbeispiele.html">Fallbeispiele</a><a href="mentalcoaching-oberberg.html">Coaching in Oberberg &amp; Köln</a>{insta}</div>
       <div class="footer__col"><span class="footer__title">Kontakt</span><a href="mailto:{EMAIL}">{EMAIL}</a>{phone}{wa}<span>Reichshof, Oberbergischer Kreis</span><span>Termine abends und am Wochenende</span></div>
     </div>
-    <p class="footer__region">Mental Coaching und Mentaltraining für Reichshof, Gummersbach, Wiehl, Waldbröl, Bergneustadt und den Oberbergischen Kreis, für Köln, Bergisch Gladbach und Olpe – und bundesweit online. Schwerpunkte: Leistung unter Druck, Führung, Finanzen und Investments, Mentaltraining für Sportler.</p>
+    <p class="footer__region">Mental Coaching und Mentaltraining für Reichshof, Gummersbach, Wiehl, Waldbröl, Bergneustadt und den Oberbergischen Kreis, für Köln, Bergisch Gladbach und Olpe, und bundesweit online. Schwerpunkte: Leistung unter Druck, Führung, Finanzen und Investments, Mentaltraining für Sportler.</p>
     <div class="footer__bottom"><span>© <span id="jahr">2026</span> Timo Winheller Mental Coaching</span><span class="footer__legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="agb.html">AGB</a>{'<a href="index.html?logout=1">Vorschau beenden</a>' if PASSWORD else ''}</span></div>
   </div>
 </footer>
@@ -309,7 +318,7 @@ def gate_shell(slug, title, payload):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Timo Winheller · Mental Coaching – bald</title>
+<title>Bald online: Timo Winheller Mental Coaching</title>
 <meta name="description" content="Hier entsteht etwas Neues: Timo Winheller Mental Coaching, Reichshof und online.">
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#06090F">
@@ -324,7 +333,7 @@ def gate_shell(slug, title, payload):
       {brand()}
       <span class="eyebrow">Bald</span>
       <h1 class="display">Hier entsteht<br>etwas Neues.</h1>
-      <p class="lead">Timo Winheller · Mental Coaching für Leistung und mentale Stärke — Reichshof und bundesweit online. Die Seite ist noch in Arbeit.</p>
+      <p class="lead">Timo Winheller · Mental Coaching für Leistung und mentale Stärke. Reichshof und bundesweit online. Die Seite ist noch in Arbeit.</p>
       <form id="gate" class="gate__form" autocomplete="off">
         <label class="field__label" for="pw">Zugang für Testleser</label>
         <div class="gate__row"><input class="input" type="password" id="pw" name="pw" placeholder="Passwort" autocomplete="current-password" required><button class="btn" type="submit">Öffnen</button></div>
@@ -398,7 +407,7 @@ def main():
     field_svg()
     sitemap()
     print("sitemap.xml, robots.txt, .well-known/security.txt geschrieben")
-    print("Passwortschutz:", "AN – Passwort aus .password" if PASSWORD else "AUS (keine .password-Datei)")
+    print("Passwortschutz:", "AN, Passwort aus .password" if PASSWORD else "AUS (keine .password-Datei)")
 
 
 if __name__ == "__main__":

@@ -1,9 +1,9 @@
 // Interaktives Gehirn (<div data-brain-root> mit .brain__stage > canvas):
-// Drei Ansichten – Areale, Methoden, Blockade. Das Netz bewegt sich NUR, wenn du es bewegst:
+// Drei Ansichten, Areale, Methoden, Blockade. Das Netz bewegt sich NUR, wenn du es bewegst:
 //  • Areale: Maus/Finger über das Gehirn lässt das jeweilige Hirnareal aufleuchten; Klick zeigt die Erklärung.
 //  • Methoden: grüne Punkte markieren Werkzeuge; berühren = Name, klicken = Beschreibung.
 //  • Blockade: ein dunkler Knoten sitzt im Netz und blockiert die Impulse. Zieh ihn mit gedrückter
-//    Maustaste (oder dem Finger) heraus – ab einer gewissen Spannung reißt er und das Netz feuert wieder.
+//    Maustaste (oder dem Finger) heraus, ab einer gewissen Spannung reißt er und das Netz feuert wieder.
 (function () {
   var roots = Array.prototype.slice.call(document.querySelectorAll('[data-brain-root]'));
   if (!roots.length) return;
@@ -22,29 +22,29 @@
   ];
   var INNER = [[[100, 178], [140, 160], [190, 168], [240, 148]], [[190, 48], [200, 90], [180, 130], [200, 178]], [[260, 70], [285, 95], [300, 130], [335, 150]]];
   var AREAS = [
-    { id: 'praefrontal', p: [118, 118], r: 62, name: 'Präfrontaler Cortex', text: 'Planen, Entscheiden, Impulse bremsen. Hier sitzen Ziele und Entscheidungen — und hier setzen Zielearbeit und Entscheidungsformate an.' },
-    { id: 'motorik', p: [205, 62], r: 48, name: 'Motorischer Cortex', text: 'Routinen und Gewohnheiten. Was du oft genug tust, läuft hier automatisch — im Guten wie im Schlechten. Neue Routinen werden hier verankert.' },
-    { id: 'parietal', p: [292, 92], r: 48, name: 'Parietallappen', text: 'Aufmerksamkeit und Wahrnehmung. Wo dein Fokus hingeht, folgt die Energie — Submodalitäten arbeiten genau mit dieser Abspeicherung.' },
-    { id: 'hippocampus', p: [232, 186], r: 40, name: 'Hippocampus', text: 'Erinnerung und Lernen. Glaubenssätze sind gespeicherte Erfahrungen — und neu lernbar. Das nennt man Neuroplastizität.' },
+    { id: 'praefrontal', p: [118, 118], r: 62, name: 'Präfrontaler Cortex', text: 'Planen, Entscheiden, Impulse bremsen. Hier sitzen Ziele und Entscheidungen, und hier setzen Zielearbeit und Entscheidungsformate an.' },
+    { id: 'motorik', p: [205, 62], r: 48, name: 'Motorischer Cortex', text: 'Routinen und Gewohnheiten. Was du oft genug tust, läuft hier automatisch, im Guten wie im Schlechten. Neue Routinen werden hier verankert.' },
+    { id: 'parietal', p: [292, 92], r: 48, name: 'Parietallappen', text: 'Aufmerksamkeit und Wahrnehmung. Wo dein Fokus hingeht, folgt die Energie. Submodalitäten arbeiten genau mit dieser Abspeicherung.' },
+    { id: 'hippocampus', p: [232, 186], r: 40, name: 'Hippocampus', text: 'Erinnerung und Lernen. Glaubenssätze sind gespeicherte Erfahrungen, und sie sind neu lernbar. Das nennt man Neuroplastizität.' },
     { id: 'amygdala', p: [188, 216], r: 34, name: 'Amygdala', text: 'Die Alarmanlage. Sie feuert, bevor du denkst: Herzrasen, Blackout, Panikverkauf. Hier setzen Anker und Regulation an.' },
-    { id: 'insula', p: [150, 190], r: 30, name: 'Insula', text: 'Das Bauchgefühl. Körpersignale werden hier zu Emotionen — Körperwahrnehmung und Atemarbeit wirken genau hier.' },
-    { id: 'hirnstamm', p: [218, 276], r: 30, name: 'Hirnstamm', text: 'Atem, Herzschlag, Grundspannung. Über den Atem erreichst du das Nervensystem direkt — in Minuten, nicht in Wochen.' }
+    { id: 'insula', p: [150, 190], r: 30, name: 'Insula', text: 'Das Bauchgefühl. Körpersignale werden hier zu Emotionen. Körperwahrnehmung und Atemarbeit wirken genau hier.' },
+    { id: 'hirnstamm', p: [218, 276], r: 30, name: 'Hirnstamm', text: 'Atem, Herzschlag, Grundspannung. Über den Atem erreichst du das Nervensystem direkt, in Minuten, nicht in Wochen.' }
   ];
   var METHODS = [
-    { id: 'glaubenssaetze', p: [232, 186], name: 'Glaubenssatzarbeit', text: 'Sätze wie „Ich bin nicht gut genug" steuern dich, ohne dass du sie hörst. Wir machen sie sichtbar und bauen sie um — dort, wo sie gespeichert sind.' },
-    { id: 'ankern', p: [205, 70], name: 'Ankern', text: 'Ein Zustand wie Ruhe oder Fokus wird mit einem Reiz verknüpft, den du jederzeit abrufen kannst — vor dem Meeting, vor der Anlageentscheidung, vor der Prüfung.' },
-    { id: 'submodalitaeten', p: [292, 100], name: 'Submodalitäten', text: 'Wie dein Kopf ein Erlebnis abspeichert — groß, nah, laut — bestimmt, wie stark es wirkt. Wir ändern die Abspeicherung, und die Reaktion ändert sich mit.' },
+    { id: 'glaubenssaetze', p: [232, 186], name: 'Glaubenssatzarbeit', text: 'Sätze wie „Ich bin nicht gut genug" steuern dich, ohne dass du sie hörst. Wir machen sie sichtbar und bauen sie um, dort, wo sie gespeichert sind.' },
+    { id: 'ankern', p: [205, 70], name: 'Ankern', text: 'Ein Zustand wie Ruhe oder Fokus wird mit einem Reiz verknüpft, den du jederzeit abrufen kannst: vor dem Meeting, vor der Anlageentscheidung, vor der Prüfung.' },
+    { id: 'submodalitaeten', p: [292, 100], name: 'Submodalitäten', text: 'Wie dein Kopf ein Erlebnis abspeichert (groß, nah, laut), bestimmt, wie stark es wirkt. Wir ändern die Abspeicherung, und die Reaktion ändert sich mit.' },
     { id: 'timeline', p: [118, 128], name: 'Timeline-Arbeit', text: 'Prägende Erfahrungen werden neu bewertet, damit sie die Gegenwart nicht mehr blockieren. Ziele werden so verankert, dass sie ziehen.' },
     { id: 'wuwei', p: [150, 195], name: 'Wu-Wei-Transformation®', text: 'Widerstand nicht bekämpfen, sondern auflösen. Besonders wirksam bei Themen, an denen du dich schon lange abarbeitest.' },
-    { id: 'aufstellung', p: [300, 180], name: 'Aufstellungs- & Dualitätenarbeit', text: 'Innere Konflikte — „Ich will, aber ich traue mich nicht" — werden sichtbar gemacht und integriert. Beide Seiten bekommen ihren Platz.' },
-    { id: 'hypnose', p: [190, 222], name: 'Hypnose', text: 'Gebündelte Aufmerksamkeit statt Kontrollverlust: In diesem Zustand sind automatische Muster leichter erreichbar — für Ruhe, Fokus und neue Zustände.' },
-    { id: 'atem', p: [218, 278], name: 'Atem-Anker', text: 'Die lange Ausatmung sagt deinem Körper, dass keine Gefahr besteht. In Minuten runterfahren — überall, ohne dass es jemand merkt.' }
+    { id: 'aufstellung', p: [300, 180], name: 'Aufstellungs- & Dualitätenarbeit', text: 'Innere Konflikte wie „Ich will, aber ich traue mich nicht" werden sichtbar gemacht und integriert. Beide Seiten bekommen ihren Platz.' },
+    { id: 'hypnose', p: [190, 222], name: 'Hypnose', text: 'Gebündelte Aufmerksamkeit statt Kontrollverlust: In diesem Zustand sind automatische Muster leichter erreichbar: für Ruhe, Fokus und neue Zustände.' },
+    { id: 'atem', p: [218, 278], name: 'Atem-Anker', text: 'Die lange Ausatmung sagt deinem Körper, dass keine Gefahr besteht. In Minuten runterfahren, überall, ohne dass es jemand merkt.' }
   ];
   var TEXT = {
-    areas: ['Fahr über das Gehirn', 'Jedes Areal hat eine Aufgabe — und jedes lässt sich trainieren. Berühre eine Region oder wähle sie unten aus.'],
-    methods: ['Werkzeuge im Kopf', 'Jeder grüne Punkt ist eine Methode, die ich im Coaching einsetze — und das Areal, in dem sie wirkt.'],
-    block: ['Zieh die Blockade heraus', 'Der dunkle Knoten sitzt in der Alarmanlage und lässt keine Impulse durch. Pack ihn mit gedrückter Maustaste oder dem Finger und zieh — bis er reißt.'],
-    released: ['Gelöst.', 'Die Verbindungen sind wieder frei, die Impulse fließen. Genau das passiert im Coaching: nicht durch Kraft, sondern durch Lösen — Schritt für Schritt.']
+    areas: ['Fahr über das Gehirn', 'Jedes Areal hat eine Aufgabe, und jedes lässt sich trainieren. Berühre eine Region oder wähle sie unten aus.'],
+    methods: ['Werkzeuge im Kopf', 'Jeder grüne Punkt ist eine Methode, die ich im Coaching einsetze, und das Areal, in dem sie wirkt.'],
+    block: ['Zieh die Blockade heraus', 'Der dunkle Knoten sitzt in der Alarmanlage und lässt keine Impulse durch. Pack ihn mit gedrückter Maustaste oder dem Finger und zieh, bis er reißt.'],
+    released: ['Gelöst.', 'Die Verbindungen sind wieder frei, die Impulse fließen. Genau das passiert im Coaching: nicht durch Kraft, sondern durch Lösen, Schritt für Schritt.']
   };
 
   function bez(s, t) { var u = 1 - t, a = u * u * u, b = 3 * u * u * t, c = 3 * u * t * t, d = t * t * t; return [a * s[0][0] + b * s[1][0] + c * s[2][0] + d * s[3][0], a * s[0][1] + b * s[1][1] + c * s[2][1] + d * s[3][1]]; }
