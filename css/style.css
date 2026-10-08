@@ -909,3 +909,10 @@ main,.footer{position:relative;z-index:1}
 /* Dunkel, Korrekturen */
 [data-theme="dark"] .hero .hero__panel.panel{background:none;border:0}
 [data-theme="dark"] .audience .audience__card.card{background:none;border:0;border-top:2px solid var(--fg);border-radius:0}
+
+/* Logo „Institut für mentale Veränderung" */
+.brand__sub{letter-spacing:.2em;font-size:8px;color:var(--fg);font-weight:500}
+.brand__accent{color:var(--volt)}
+[data-theme="dark"] .brand__sub{color:rgba(236,239,245,.8)}
+[data-theme="dark"] .brand__accent{color:#8DA6FF}
+@media (max-width:420px){.brand__sub{letter-spacing:.12em;font-size:7px}}
