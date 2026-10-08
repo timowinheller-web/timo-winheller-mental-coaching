@@ -87,6 +87,32 @@
   // ---- Weiche Farbflächen im Hero mit halber Scroll-Geschwindigkeit ----
   var glow = document.querySelector('.hero__glow');
   if (glow && !reduce) { var gt = false; window.addEventListener('scroll', function () { if (!gt) { gt = true; requestAnimationFrame(function () { glow.style.transform = 'translateY(' + ((window.pageYOffset || 0) * 0.5).toFixed(1) + 'px)'; gt = false; }); } }, { passive: true }); }
+  // ---- Bild-Ebenen (data-speed) und Typo-Band (data-kx) bewegen sich mit dem Scrollen ----
+  var layers = document.querySelectorAll('[data-speed]'), rows = document.querySelectorAll('[data-kx]');
+  if ((layers.length || rows.length) && !reduce) {
+    var pt = false;
+    var para = function () {
+      var vh = window.innerHeight;
+      layers.forEach(function (el) { var r = el.parentElement.getBoundingClientRect(); if (r.bottom < -200 || r.top > vh + 200) return; var d = (r.top + r.height / 2) - vh / 2; el.style.transform = 'translate3d(0,' + (d * parseFloat(el.dataset.speed)).toFixed(1) + 'px,0)'; });
+      rows.forEach(function (el) { var r = el.parentElement.getBoundingClientRect(); if (r.bottom < 0 || r.top > vh) return; var d = vh - r.top; el.style.transform = 'translate3d(' + (d * parseFloat(el.dataset.kx)).toFixed(1) + 'px,0,0)'; });
+      pt = false;
+    };
+    window.addEventListener('scroll', function () { if (!pt) { pt = true; requestAnimationFrame(para); } }, { passive: true });
+    window.addEventListener('resize', para); para();
+  }
+
+  // ---- Methoden: Vorschaubild folgt der Maus ----
+  var mr = document.querySelector('.mrows'), prev = mr && mr.querySelector('.mrow-preview');
+  if (prev && window.matchMedia('(hover:hover)').matches) {
+    var pimg = prev.querySelector('img');
+    mr.querySelectorAll('.mrow[data-img]').forEach(function (row) {
+      var pre = new Image(); pre.src = row.dataset.img;
+      row.addEventListener('mouseenter', function () { pimg.src = row.dataset.img; mr.classList.add('is-hover'); });
+    });
+    mr.addEventListener('mousemove', function (e) { var r = mr.getBoundingClientRect(); prev.style.setProperty('--px', (e.clientX - r.left) + 'px'); prev.style.setProperty('--py', (e.clientY - r.top) + 'px'); });
+    mr.addEventListener('mouseleave', function () { mr.classList.remove('is-hover'); });
+  }
+
   // ---- Kurzer Selbstcheck (Startseite) ----
   var sc = document.querySelector('[data-selfcheck]');
   if (sc) {
