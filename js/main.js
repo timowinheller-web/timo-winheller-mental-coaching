@@ -81,6 +81,20 @@
       b.addEventListener('pointerleave', function () { b.style.transform = ''; });
     });
   }
+
+  // ---- Lichtfeld folgt der Maus, Hero-Karte neigt sich leicht (nur Maus, nicht bei reduzierter Bewegung) ----
+  if (finePointer && !reduce) {
+    var root = document.documentElement, lx = 0, ly = 0, lp = false;
+    document.addEventListener('pointermove', function (e) {
+      lx = e.clientX / window.innerWidth - 0.5; ly = e.clientY / window.innerHeight - 0.5;
+      if (!lp) { lp = true; requestAnimationFrame(function () { root.style.setProperty('--mx', lx.toFixed(3)); root.style.setProperty('--my', ly.toFixed(3)); lp = false; }); }
+    }, { passive: true });
+    var heroCard = document.querySelector('.hero__media'), heroHost = document.querySelector('.hero');
+    if (heroCard && heroHost) {
+      heroHost.addEventListener('pointermove', function (e) { var r = heroCard.getBoundingClientRect(); var dx = (e.clientX - (r.left + r.width / 2)) / r.width, dy = (e.clientY - (r.top + r.height / 2)) / r.height; heroCard.style.transform = 'perspective(1200px) rotateX(' + (-dy * 5).toFixed(2) + 'deg) rotateY(' + (dx * 6).toFixed(2) + 'deg) translateZ(0)'; });
+      heroHost.addEventListener('pointerleave', function () { heroCard.style.transform = ''; });
+    }
+  }
   // ---- Kurzer Selbstcheck (Startseite) ----
   var sc = document.querySelector('[data-selfcheck]');
   if (sc) {

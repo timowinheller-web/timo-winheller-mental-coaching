@@ -1,7 +1,8 @@
 # Timo Winheller Mental Coaching – Website
 
-Statische Website (HTML/CSS/JS, kein Framework, keine externen Skripte). Design „Morgen“: helle, offene Bühne
-(Weiß und Hellblau) mit feinem Neuronen-Netz, Kobalt-Bänder für Energie, Glut-Orange nur für Aktionen. Die dunkle
+Statische Website (HTML/CSS/JS, kein Framework, keine externen Skripte). Design „Morgen“ mit Liquid-Glass-Material: ein weiches Lichtfeld
+(Kobalt, Hellblau, ein Hauch Glut) hinter allem, davor Glas mit Kantenlicht, Glanz und mehreren Blur-Stufen (Nav 32, Panel 28,
+Karte 20, Chip 12 px); Kobalt-Flächen sind dunkles Glas. Lichtfeld und Hero-Karte reagieren leicht auf die Maus. Die dunkle
 Variante „Nacht“ steckt im selben Stylesheet (Block „Theme Morgen“ in `css/style.css` entfernen = Nacht zurück). Schriften: Bricolage Grotesque (schwer, kondensiert) für Display, Geist für Text,
 Geist Mono für Labels. Alle Schriften liegen lokal, kein Google-Fonts-Aufruf. Das vorherige Theme „Stone & Moss“ liegt
 als `css/stone-moss.css` bereit (in `build.py` den Stylesheet-Namen tauschen, Fonts-Preload anpassen).
