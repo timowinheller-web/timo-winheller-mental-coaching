@@ -69,7 +69,7 @@ TODAY = datetime.date.today().isoformat()
 # Versionskennung für CSS/JS aus dem Dateiinhalt: Browser und CDN holen nach jeder Änderung die neue Datei.
 import hashlib
 GATE_V = hashlib.sha1((ROOT / "js/gate.js").read_bytes()).hexdigest()[:8]
-ASSET_V = hashlib.sha1(b"".join((ROOT / f).read_bytes() for f in ("css/style.css", "js/main.js", "js/neural.js", "js/field.js", "js/theme.js"))).hexdigest()[:8]
+ASSET_V = hashlib.sha1(b"".join((ROOT / f).read_bytes() for f in ("css/style.css", "js/main.js", "js/neural.js", "js/field.js", "js/theme.js", "js/network.js"))).hexdigest()[:8]
 
 # (dateiname, Menü-Label oder None, <title>, Beschreibung)
 PAGES = [
@@ -153,8 +153,8 @@ def render_tokens(body):
 
 def brand():
     return ('<a class="brand" href="index.html" aria-label="Timo Winheller Mental Coaching, Startseite">'
-            '<img class="brand__mark logo-light" src="img/logo-mark-64.png" alt="" width="103" height="24">'
-            '<img class="brand__mark logo-dark" src="img/logo-mark-64-dark.png" alt="" width="103" height="24">'
+            '<img class="brand__mark logo-light" src="img/logo-mark-96.png" alt="" width="146" height="34">'
+            '<img class="brand__mark logo-dark" src="img/logo-mark-96-dark.png" alt="" width="146" height="34">'
             '<span class="brand__text"><span class="brand__name"><span class="brand__first">TIMO</span> WINHELLER</span>'
             '<span class="brand__sub"><span class="brand__accent">MIND &amp;</span> <span class="brand__accent2">PERFORMANCE</span></span></span></a>')
 
@@ -269,7 +269,7 @@ def head(slug, title, desc, body):
 </head>
 <body>
 <div class="bg" aria-hidden="true"></div>
-{bg_lines()}
+<canvas class="net-bg" aria-hidden="true"></canvas>
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
 """
 
@@ -306,7 +306,7 @@ def footer(slug):
 <footer class="footer">
   <div class="wrap">
     <div class="footer__grid">
-      <div class="footer__brand">{brand_full(220)}<p>Mental Coaching für Menschen, die unter Druck liefern müssen. Reichshof (Oberberg) und bundesweit online.</p><a class="btn btn--sm btn--secondary" href="kontakt.html">Kostenloses Erstgespräch</a></div>
+      <div class="footer__brand">{brand_full(290)}<p>Mental Coaching für Menschen, die unter Druck liefern müssen. Reichshof (Oberberg) und bundesweit online.</p><a class="btn btn--sm btn--secondary" href="kontakt.html">Kostenloses Erstgespräch</a></div>
       <div class="footer__col"><span class="footer__title">Seiten</span><a href="index.html">Start</a><a href="ueber-mich.html">Über mich</a><a href="angebot.html">Angebot &amp; Preise</a><a href="methoden.html">Methoden</a><a href="faq.html">Fragen &amp; Antworten</a></div>
       <div class="footer__col"><span class="footer__title">Werkzeuge</span><a href="check.html">Mentale-Stärke-Check</a><a href="reset.html">Der 3-Minuten-Reset</a><a href="fallbeispiele.html">Fallbeispiele</a><a href="mentalcoaching-oberberg.html">Coaching in Oberberg &amp; Köln</a>{insta}</div>
       <div class="footer__col"><span class="footer__title">Kontakt</span><a href="mailto:{EMAIL}">{EMAIL}</a>{phone}{wa}<span>Reichshof, Oberbergischer Kreis</span><span>Termine abends und am Wochenende</span></div>
@@ -317,6 +317,7 @@ def footer(slug):
 </footer>
 <button class="iconbtn totop" type="button" aria-label="Nach oben">{icon("arrow-up")}</button>
 {sticky}
+<script src="js/network.js?v={ASSET_V}"></script>
 <script src="js/neural.js?v={ASSET_V}"></script>
 <script src="js/main.js?v={ASSET_V}"></script>
 </body>

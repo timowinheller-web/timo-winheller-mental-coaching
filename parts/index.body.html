@@ -1,30 +1,115 @@
-<section class="hero">
-  <svg class="hero__wave" viewBox="0 0 1200 260" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="waveg" x1="0" x2="1"><stop offset="0" stop-color="#1B2A6B"/><stop offset=".45" stop-color="#2F51E6"/><stop offset="1" stop-color="#8DA6FF"/></linearGradient></defs><path d="M-20 170 C 160 60, 300 40, 420 150 S 640 250, 760 150 S 1020 20, 1230 60" fill="none" stroke="url(#waveg)" stroke-width="16" stroke-linecap="round"/></svg>
-  <div class="panel hero__panel">
-    <div class="hero__grid">
-      <div class="glass hero__glass">
-        <span class="mono hero__eyebrow">{{icon:brain}}Mental Coaching in Reichshof &amp; online</span>
-        <h1 class="display hero__title"><span>Dein Gehirn</span><br><span>kann umlernen</span></h1>
-        <p class="lead">Für Menschen, die unter Druck liefern müssen: in Führung, an den Finanzmärkten, im Sport. Du weißt, was zu tun wäre, und etwas bremst dich trotzdem. Wir finden das Muster dahinter und bauen es um. In vier Sitzungen, vor Ort oder per Video.</p>
-        <div class="hero__actions">
-          <a class="btn" href="kontakt.html" data-track="CTA Hero">Kostenloses Erstgespräch</a>
-          <a class="btn btn--secondary" href="check.html" data-track="Check Hero">2-Minuten-Check</a>
-        </div>
+<section class="hero hero--clean">
+  <div class="hero__glow" aria-hidden="true"><span></span><span></span></div>
+  <div class="wrap hero__inner">
+    <span class="eyebrow">Mind &amp; Performance · Reichshof &amp; online</span>
+    <h1 class="display hero__title"><span>Dein Kopf entscheidet.</span> <span>Deine Muster bestimmen.</span> <span>Du kannst sie <em class="t-coral">verändern.</em></span></h1>
+    <p class="lead">Mental Coaching für Menschen, die unter Druck liefern müssen: in Führung, an den Finanzmärkten, im Sport. Wir finden das Muster hinter dem Stillstand und bauen es um. Mit Neuroresonanz, Hypnose und klarer Methode.</p>
+    <div class="hero__actions">
+      <a class="btn btn--lg" href="kontakt.html" data-track="CTA Hero">Erstgespräch starten {{icon:arrow-right}}</a>
+      <a class="btn btn--secondary btn--lg" href="#ansatz" data-track="Mehr Hero">Mehr erfahren</a>
+    </div>
+    <div class="hero__facts">
+      <div><strong>20 Minuten</strong><span>Erstgespräch, kostenlos</span></div>
+      <div><strong>Muster statt Symptom</strong><span>Wir bauen das Muster um, nicht nur das Verhalten</span></div>
+      <div><strong>Reichshof &amp; online</strong><span>Termine abends und am Wochenende</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="selbstcheck">
+  <div class="wrap grid grid--split">
+    <div>
+      <div class="sh">
+        <span class="eyebrow">Das Problem</span>
+        <h2 class="sh__title">Das ist kein Charakter. Das ist ein Muster.</h2>
       </div>
-      <div class="hero__media">
-        {{img:kopf-natur|Mensch auf einem Hügel blickt bei Sonnenaufgang über neblige Täler|hero__img|eager,sizes=(max-width: 960px) 100vw, 45vw}}
-        <div class="glass hero__stat"><div class="stat"><span class="stat__value">20 Min</span><span class="stat__label">kostenloses Erstgespräch per Video</span></div></div>
-      </div>
-      <div class="glass strip">
-        <div class="strip__item"><span class="disc disc--white">{{icon:scan-search}}</span><div><strong>Ursache statt Symptom</strong><span>Wir arbeiten am Muster, nicht am Gefühl</span></div></div>
-        <div class="strip__item"><span class="disc disc--white">{{icon:route}}</span><div><strong>Kurz statt endlos</strong><span>Ein Thema, vier Sitzungen, klarer Plan</span></div></div>
-        <div class="strip__item"><span class="disc disc--white">{{icon:map-pin}}</span><div><strong>Vor Ort &amp; online</strong><span>Reichshof, bei dir oder per Video</span></div></div>
-        <div class="strip__item"><span class="disc disc--white">{{icon:shield-check}}</span><div><strong>Klartext</strong><span>Keine Esoterik, keine Heilversprechen</span></div></div>
+      <p class="mt-3 muted measure">Dein Gehirn hat gelernt, auf Dauerbelastung mit Daueralarm zu reagieren. Was gelernt ist, lässt sich neu lernen. Das nennt man Neuroplastizität. Kreuze an, was du aus den letzten Wochen kennst.</p>
+      <div class="card selfcheck"><strong data-selfcheck-count>0 von 6</strong><p data-selfcheck-text>Kreuze an, was du aus den letzten Wochen kennst.</p><a class="btn btn--sm" href="check.html" data-track="Check Selbstcheck">Ausführlicher Check</a></div>
+      <p class="caption faint mt-3">Der ausführliche Check hat 10 Fragen, dauert 2 Minuten und liefert eine Einordnung mit Empfehlung. Nichts davon wird gespeichert.</p>
+    </div>
+    <div class="media">
+      {{img:herz|Moos im weichen Morgenlicht|}}
+      <div class="card card--frost media__card">
+        <ul class="signals signals--check" data-selfcheck>
+          <li><label class="signals__item"><input type="checkbox" name="s1"><span class="signals__dot" aria-hidden="true"></span><span>Du weißt genau, was zu tun wäre, und tust es trotzdem nicht.</span></label></li>
+          <li><label class="signals__item"><input type="checkbox" name="s2"><span class="signals__dot" aria-hidden="true"></span><span>Vor wichtigen Momenten wird dein Kopf leer oder laut.</span></label></li>
+          <li><label class="signals__item"><input type="checkbox" name="s3"><span class="signals__dot" aria-hidden="true"></span><span>Entscheidungen kosten dich mehr Kraft als früher.</span></label></li>
+          <li><label class="signals__item"><input type="checkbox" name="s4"><span class="signals__dot" aria-hidden="true"></span><span>Du funktionierst im Außen und bist leer im Innen.</span></label></li>
+          <li><label class="signals__item"><input type="checkbox" name="s5"><span class="signals__dot" aria-hidden="true"></span><span>Dein Körper meldet sich, bevor dein Kopf es zugibt.</span></label></li>
+          <li><label class="signals__item"><input type="checkbox" name="s6"><span class="signals__dot" aria-hidden="true"></span><span>Erholung fühlt sich an wie eine weitere Aufgabe.</span></label></li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
+<section class="section" id="ansatz">
+  <div class="wrap">
+    <div class="sh sh--center">
+      <span class="eyebrow">Der Ansatz</span>
+      <h2 class="sh__title">Was sich im Kopf verändert, verändert dein Handeln.</h2>
+    </div>
+    <div class="mp" data-mp>
+      <span class="mp__word mp__word--mind">Mind</span>
+      <svg class="mp__wave" viewBox="0 0 600 120" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="mpg" x1="0" x2="1"><stop offset="0" stop-color="#071426"/><stop offset=".5" stop-color="#247BFF"/><stop offset="1" stop-color="#FF735F"/></linearGradient></defs><path d="M4 80 C 90 10, 170 10, 230 70 S 380 120, 450 55 S 560 0, 596 18" fill="none" stroke="url(#mpg)" stroke-width="3" stroke-linecap="round"/></svg>
+      <span class="mp__word mp__word--perf">Performance</span>
+    </div>
+    <div class="grid grid--2 mp__cols">
+      <div class="ansatz__col"><span class="eyebrow eyebrow--blue">Mind</span><h3>Die Ebene unter dem Verhalten.</h3><p>Muster, Glaubenssätze und die Reaktionen deines Nervensystems laufen schneller als jeder Gedanke. Wir machen sie sichtbar und bauen sie um, nicht mit Willenskraft, sondern an der Stelle, an der sie entstehen.</p></div>
+      <div class="ansatz__col"><span class="eyebrow eyebrow--coral">Performance</span><h3>Die Ebene, an der du es merkst.</h3><p>Klare Entscheidungen, ruhiger Puls vor dem wichtigen Moment, Regeln, die auch unter Druck halten. Gemessen wird an deiner echten Woche, nicht an Gefühlen im Sitzungsraum.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--light" id="methoden">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">Methoden</span>
+      <h2 class="sh__title">Drei Werkzeuge. Ein Ziel.</h2>
+    </div>
+    <div class="mrows">
+      <a class="mrow" href="methoden.html" style="--c:#247BFF"><span class="mrow__name">Neuroresonanz</span><span class="mrow__text">Kopf und Nervensystem wieder in Einklang bringen. Verbindet NLP mit Körperwahrnehmung und Atem, für Blockaden, die sich mit Nachdenken nicht lösen.</span><span class="mrow__go">{{icon:arrow-right}}</span></a>
+      <a class="mrow" href="methoden.html" style="--c:#071426"><span class="mrow__name">Hypnose</span><span class="mrow__text">Gebündelte Aufmerksamkeit statt Kontrollverlust. Automatische Muster werden leichter erreichbar, für Ruhe, Fokus und neue Zustände.</span><span class="mrow__go">{{icon:arrow-right}}</span></a>
+      <a class="mrow" href="methoden.html" style="--c:#FF735F"><span class="mrow__name">Mental Coaching</span><span class="mrow__text">Ziele, Entscheidungen, Routinen. Der Transfer in deinen Alltag, damit die Veränderung auch montags um acht noch hält.</span><span class="mrow__go">{{icon:arrow-right}}</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="ueber-mich">
+  <div class="wrap about">
+    {{if:PORTRAIT}}<div class="about__portrait"><img src="img/{{PORTRAIT}}" alt="Timo Winheller" width="800" height="1000" loading="lazy"></div>{{endif}}
+    <div>
+      <div class="sh">
+        <span class="eyebrow">Über Timo</span>
+        <h2 class="sh__title">Macher statt Esoteriker.</h2>
+        <p class="lead">Ich kenne Druck nicht aus Büchern: als Investor an den Finanzmärkten und als Meister mit Führungsverantwortung. Beides hat mir gezeigt, wie sehr Muster über Leistung entscheiden, und dass man sie verändern kann.</p>
+      </div>
+      <div class="about__facts mt-4">
+        <span class="badge badge--neutral">{{QUALI_KURZ}}</span>
+        <span class="badge badge--neutral">NLP und Hypnose</span>
+        <span class="badge badge--neutral">Meister mit Führungspraxis</span>
+        <span class="badge badge--neutral">Investor</span>
+      </div>
+      <p class="mt-4 muted measure">Ich sage dir, was ich sehe, auch wenn es unbequem ist. Und wenn Coaching nicht das Richtige für dich ist, sage ich dir auch das.</p>
+      <p class="mt-4"><a class="link" href="ueber-mich.html">Mehr über mich und meinen Weg</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="prozess">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">Der Prozess</span>
+      <h2 class="sh__title">Vier Schritte vom Muster zur Umsetzung.</h2>
+    </div>
+    <ol class="process" data-process>
+      <li><span class="process__n">01</span><strong>Erkennen</strong><p>Welches Muster läuft, wann, mit welcher Körperreaktion? Ohne Diagnose-Etikett.</p></li>
+      <li><span class="process__n">02</span><strong>Verstehen</strong><p>Der Satz, das Bild, die alte Erfahrung, die das Muster am Laufen hält.</p></li>
+      <li><span class="process__n">03</span><strong>Verändern</strong><p>Neue Zustände verankern, alte Verknüpfungen lösen, direkt in der Sitzung getestet.</p></li>
+      <li><span class="process__n">04</span><strong>Umsetzen</strong><p>Anwendung in deiner echten Woche, bis die neue Reaktion automatisch läuft.</p></li>
+    </ol>
+  </div>
+</section>
 
 <section class="section" id="fuer-wen">
   <div class="wrap">
@@ -60,71 +145,6 @@
   </div>
 </section>
 
-<section class="section section--alt" id="selbstcheck">
-  <div class="wrap grid grid--split">
-    <div>
-      <div class="sh">
-        <span class="eyebrow">Erkennst du dich?</span>
-        <h2 class="sh__title">Das ist kein Charakter. Das ist ein Muster.</h2>
-      </div>
-      <p class="mt-3 muted measure">Dein Gehirn hat gelernt, auf Dauerbelastung mit Daueralarm zu reagieren. Was gelernt ist, lässt sich neu lernen. Das nennt man Neuroplastizität. Kreuze an, was du aus den letzten Wochen kennst.</p>
-      <div class="card selfcheck"><strong data-selfcheck-count>0 von 6</strong><p data-selfcheck-text>Kreuze an, was du aus den letzten Wochen kennst.</p><a class="btn btn--sm" href="check.html" data-track="Check Selbstcheck">Ausführlicher Check</a></div>
-      <p class="caption faint mt-3">Der ausführliche Check hat 10 Fragen, dauert 2 Minuten und liefert eine Einordnung mit Empfehlung. Nichts davon wird gespeichert.</p>
-    </div>
-    <div class="media">
-      {{img:herz|Moos im weichen Morgenlicht|}}
-      <div class="card card--frost media__card">
-        <ul class="signals signals--check" data-selfcheck>
-          <li><label class="signals__item"><input type="checkbox" name="s1"><span class="signals__dot" aria-hidden="true"></span><span>Du weißt genau, was zu tun wäre, und tust es trotzdem nicht.</span></label></li>
-          <li><label class="signals__item"><input type="checkbox" name="s2"><span class="signals__dot" aria-hidden="true"></span><span>Vor wichtigen Momenten wird dein Kopf leer oder laut.</span></label></li>
-          <li><label class="signals__item"><input type="checkbox" name="s3"><span class="signals__dot" aria-hidden="true"></span><span>Entscheidungen kosten dich mehr Kraft als früher.</span></label></li>
-          <li><label class="signals__item"><input type="checkbox" name="s4"><span class="signals__dot" aria-hidden="true"></span><span>Du funktionierst im Außen und bist leer im Innen.</span></label></li>
-          <li><label class="signals__item"><input type="checkbox" name="s5"><span class="signals__dot" aria-hidden="true"></span><span>Dein Körper meldet sich, bevor dein Kopf es zugibt.</span></label></li>
-          <li><label class="signals__item"><input type="checkbox" name="s6"><span class="signals__dot" aria-hidden="true"></span><span>Erholung fühlt sich an wie eine weitere Aufgabe.</span></label></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="themen">
-  <div class="wrap">
-    <div class="sh">
-      <span class="eyebrow">Themen</span>
-      <h2 class="sh__title">Woran wir arbeiten.</h2>
-      <p class="lead">Sechs Zugänge, ein Ziel: dass dein Kopf wieder für dich arbeitet statt gegen dich.</p>
-    </div>
-    <div class="grid grid--tiles mt-8">
-      <a class="tile" href="angebot.html">{{img:staerke|||sizes=(max-width: 640px) 78vw, (max-width: 960px) 50vw, 33vw}}<span class="tile__cap"><span class="tile__title">Mentale Stärke {{icon:arrow-up-right}}</span><span class="tile__body">Für Sportler und Leistungsträger: Fokus unter Druck, Routinen, Comeback.</span></span></a>
-      <a class="tile" href="angebot.html">{{img:haende-wachstum|||sizes=(max-width: 640px) 78vw, (max-width: 960px) 50vw, 33vw}}<span class="tile__cap"><span class="tile__title">Finanzen &amp; Investments {{icon:arrow-up-right}}</span><span class="tile__body">Klare Geldentscheidungen: Disziplin statt Impuls, Risiko ohne Angst, Verluste ohne Drama.</span></span></a>
-      <a class="tile" href="methoden.html">{{img:atem|||sizes=(max-width: 640px) 78vw, (max-width: 960px) 50vw, 33vw}}<span class="tile__cap"><span class="tile__title">NLP &amp; Sprache {{icon:arrow-up-right}}</span><span class="tile__body">Wie Worte dein Denken formen und wie du innere Dialoge neu schreibst.</span></span></a>
-      <a class="tile" href="methoden.html">{{img:gehirn-verstand-gefuehl|||sizes=(max-width: 640px) 78vw, (max-width: 960px) 50vw, 33vw}}<span class="tile__cap"><span class="tile__title">Neuro-Resonanz {{icon:arrow-up-right}}</span><span class="tile__body">Kopf und Nervensystem wieder in Einklang bringen: Ruhe, Schlaf, Konzentration.</span></span></a>
-      <a class="tile" href="methoden.html">{{img:ruhe|||sizes=(max-width: 640px) 78vw, (max-width: 960px) 50vw, 33vw}}<span class="tile__cap"><span class="tile__title">Hypnose {{icon:arrow-up-right}}</span><span class="tile__body">Gebündelte Aufmerksamkeit und direkter Zugang zu dem, was unter der Oberfläche wirkt.</span></span></a>
-      <a class="tile" href="#werkzeuge">{{img:kette-frei|||sizes=(max-width: 640px) 78vw, (max-width: 960px) 50vw, 33vw}}<span class="tile__cap"><span class="tile__title">Blockaden lösen {{icon:arrow-up-right}}</span><span class="tile__body">Alte Muster erkennen, verstehen und Glied für Glied durchbrechen.</span></span></a>
-    </div>
-  </div>
-</section>
-
-{{include:brain}}
-
-<section class="section section--pad" id="ablauf">
-  <div class="panel method">
-    <div class="method__copy">
-      <div class="sh">
-        <span class="eyebrow">Der Ablauf</span>
-        <h2 class="sh__title">Drei Schritte. Ein Muster weniger.</h2>
-        <p class="lead">Jede Sitzung baut auf der vorherigen auf. Du bekommst keine Theorie, sondern Werkzeuge, die du in deiner echten Woche anwendest.</p>
-      </div>
-      <div class="method__steps">
-        <div class="card feature"><div class="feature__top"><span class="disc">{{icon:scan-search}}</span><span class="feature__index">01</span></div><h3>Standort</h3><p>Wir schauen, welches Muster dein Nervensystem gerade fährt: Auslöser, Körperreaktion, Gedanke, Verhalten. Ohne Diagnose-Etikett.</p></div>
-        <div class="card feature"><div class="feature__top"><span class="disc">{{icon:brain}}</span><span class="feature__index">02</span></div><h3>Muster</h3><p>Wir finden die Verknüpfung unter dem Symptom: das innere Bild, den Satz, die alte Erfahrung, die das Muster am Laufen hält.</p></div>
-        <div class="card feature"><div class="feature__top"><span class="disc">{{icon:sprout}}</span><span class="feature__index">03</span></div><h3>Umbau</h3><p>Du trainierst neue Reaktionen, bis dein Gehirn sie automatisch wählt. Getestet an echten Situationen, nicht auf dem Papier.</p></div>
-      </div>
-    </div>
-    <div class="method__media">{{img:treppe|Holzstufen führen einen grünen Hügel hinauf|}}</div>
-  </div>
-</section>
-
 <section class="section" id="angebot">
   <div class="wrap">
     <div class="sh">
@@ -156,85 +176,6 @@
   </div>
 </section>
 
-<section class="section section--alt" id="ueber-mich">
-  <div class="wrap about">
-    {{if:PORTRAIT}}<div class="about__portrait"><img src="img/{{PORTRAIT}}" alt="Timo Winheller" width="800" height="1000" loading="lazy"></div>{{endif}}
-    <div>
-      <div class="sh">
-        <span class="eyebrow">Wer dich begleitet</span>
-        <h2 class="sh__title">Macher statt Esoteriker.</h2>
-        <p class="lead">Ich kenne Druck nicht aus Büchern: als Investor an den Finanzmärkten und als Meister mit Führungsverantwortung. Beides hat mir gezeigt, wie sehr Muster über Leistung entscheiden, und dass man sie verändern kann.</p>
-      </div>
-      <div class="about__facts mt-4">
-        <span class="badge badge--neutral">{{QUALI_KURZ}}</span>
-        <span class="badge badge--neutral">NLP und Hypnose</span>
-        <span class="badge badge--neutral">Meister mit Führungspraxis</span>
-        <span class="badge badge--neutral">Investor</span>
-      </div>
-      <p class="mt-4 muted measure">Ich sage dir, was ich sehe, auch wenn es unbequem ist. Und wenn Coaching nicht das Richtige für dich ist, sage ich dir auch das.</p>
-      <p class="mt-4"><a class="link" href="ueber-mich.html">Mehr über mich und meinen Weg</a></p>
-    </div>
-  </div>
-</section>
-
-<section class="section section--pad">
-  <div class="panel grid grid--split-b grid--start panel--pad">
-    <div>
-      <div class="sh">
-        <span class="eyebrow">Probier es aus</span>
-        <h2 class="sh__title">60 Sekunden, die dein Nervensystem runterfahren.</h2>
-        <p class="lead">Selbstregulation ist trainierbar. Der Atem-Anker ist eines der ersten Werkzeuge im Coaching: 4 Sekunden ein, 4 halten, 6 aus. Die lange Ausatmung sagt deinem Körper, dass keine Gefahr besteht.</p>
-      </div>
-      <ul class="signals mt-4">
-        <li><span><strong>Drei Runden</strong> reichen, um den Puls spürbar zu senken.</span></li>
-        <li><span><strong>Vor dem Meeting, vor der Order, vor dem Start:</strong> überall einsetzbar, ohne dass es jemand merkt.</span></li>
-        <li><span><strong>Im Coaching</strong> verknüpfen wir diese Ruhe mit einem Anker, den du jederzeit abrufen kannst.</span></li>
-      </ul>
-      <p class="mt-4"><a class="link" href="reset.html">Der 3-Minuten-Reset: drei Übungen zum Mitnehmen</a></p>
-    </div>
-    <div class="card card--frost" data-breath>
-      <div class="breath" aria-live="polite">
-        <span class="breath__ring breath__ring--2" aria-hidden="true"></span><span class="breath__ring breath__ring--1" aria-hidden="true"></span>
-        <div class="breath__circle" aria-hidden="true"></div>
-        <div class="breath__label"><strong>Bereit?</strong><span>4 ein, 4 halten, 6 aus</span></div>
-      </div>
-      <p class="center"><button class="btn" type="button" data-breath-start data-track="Atemübung">Starten</button></p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="praxis">
-  <div class="wrap">
-    <div class="sh">
-      <span class="eyebrow">Beispielverläufe</span>
-      <h2 class="sh__title">So kann ein Verlauf aussehen.</h2>
-      <p class="lead">Vier Beispielverläufe, wie sie im Coaching typisch sind. Es sind keine Berichte echter Klienten, sondern Illustrationen, wie die Methoden zusammenwirken.</p>
-    </div>
-    <div class="carousel mt-8" data-carousel>
-      <div class="carousel__track" tabindex="0" aria-label="Fallbeispiele, horizontal scrollbar">
-        <article class="card quote-card carousel__item"><span class="quote-card__mark">Lampenfieber</span><p>Herzrasen und Blackout vor jedem Vorstands-Meeting. Vier Sitzungen mit Ankertechniken und Submodalitätenarbeit, dann freie Rede, ruhige Stimme, klare Botschaft.</p><footer><strong>Führungskraft, 41</strong><span>Beispiel, 4 Sitzungen</span></footer></article>
-        <article class="card quote-card carousel__item"><span class="quote-card__mark">Perfektionismus</span><p>Projekte wurden nie fertig, weil „noch nicht gut genug". Glaubenssatzarbeit und Timeline haben den Anspruch umgebaut. Das Projekt ging raus, das Grübeln ließ nach.</p><footer><strong>Selbstständige, 34</strong><span>Beispiel, 6 Sitzungen</span></footer></article>
-        <article class="card quote-card carousel__item"><span class="quote-card__mark">Finanzen &amp; Investments</span><p>Anlagestrategie vorhanden, im Depot trotzdem impulsive Entscheidungen: hektisches Nachkaufen nach Verlusten, Verkaufen am Tiefpunkt. Ruhe-Anker auf die Körperreaktion, neuer Glaubenssatz zum Verlust: acht Wochen ohne eine Entscheidung außerhalb der eigenen Regeln.</p><footer><strong>Privatanleger, 38</strong><span>Beispiel, 5 Sitzungen</span></footer></article>
-        <article class="card quote-card carousel__item"><span class="quote-card__mark">Entscheidung</span><p>Neue Stelle in einer anderen Stadt, gleichzeitig Trennung, monatelang keine Entscheidung. Aufstellungsarbeit mit den inneren Anteilen, dann Zielearbeit. Entscheidung in der dritten Sitzung, ohne Rückfall.</p><footer><strong>Angestellte, 46</strong><span>Beispiel, 3 Sitzungen</span></footer></article>
-      </div>
-      <div class="carousel__nav"><button class="iconbtn" type="button" data-prev aria-label="Zurück">{{icon:arrow-left}}</button><div class="dots carousel__dots" role="group" aria-label="Karten"></div><button class="iconbtn" type="button" data-next aria-label="Weiter">{{icon:arrow-right}}</button></div>
-    </div>
-    <p class="mt-5"><a class="link" href="fallbeispiele.html">Alle Fallbeispiele lesen</a></p>
-  </div>
-</section>
-
-<!-- Kundenstimmen: ausgeblendeter Platzhalter, bis echte Stimmen mit Einwilligung vorliegen (keine erfundenen Zitate, UWG). -->
-<section class="section section--alt" id="stimmen" hidden>
-  <div class="wrap">
-    <div class="sh"><span class="eyebrow">Stimmen</span><h2 class="sh__title">Was Klienten sagen.</h2></div>
-    <div class="grid grid--3 mt-8">
-      <article class="card quote-card"><span class="quote-card__mark">„</span><p>[Zitat]</p><footer><strong>[Vorname N.]</strong><span>[Kontext]</span></footer></article>
-      <article class="card quote-card"><span class="quote-card__mark">„</span><p>[Zitat]</p><footer><strong>[Vorname N.]</strong><span>[Kontext]</span></footer></article>
-      <article class="card quote-card"><span class="quote-card__mark">„</span><p>[Zitat]</p><footer><strong>[Vorname N.]</strong><span>[Kontext]</span></footer></article>
-    </div>
-  </div>
-</section>
-
 <section class="section section--alt" id="fragen">
   <div class="wrap grid grid--faq">
     <div class="sh"><span class="eyebrow">Fragen</span><h2 class="sh__title">Bevor du schreibst.</h2><p class="lead">Die drei häufigsten. Alle weiteren auf der <a class="link" href="faq.html">FAQ-Seite</a>.</p></div>
@@ -245,5 +186,7 @@
     </div>
   </div>
 </section>
+
+<!-- Kundenstimmen: erst mit echten Stimmen und Einwilligung einblenden (UWG). -->
 
 {{include:cta}}

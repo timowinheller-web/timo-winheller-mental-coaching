@@ -44,9 +44,9 @@
   var revealVisible = function () { document.querySelectorAll('.reveal:not(.is-visible)').forEach(function (el) { var r = el.getBoundingClientRect(); if (r.bottom > 0 && r.top < window.innerHeight * 1.2) el.classList.add('is-visible'); }); };
   if (!reduce && 'IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
-    document.querySelectorAll('.sh, .frame, .media, .tile, .about__portrait, .method, .brain, .cta__inner').forEach(function (el) {
+    document.querySelectorAll('.sh, .frame, .media, .tile, .about__portrait, .method, .brain, .cta__inner, .card, .audience__card, .ansatz__col, .mrow, .process li, .hero__facts, .mp, .acc').forEach(function (el) {
       if (el.closest('.hero') || el.closest('.nav') || el.closest('[hidden]') || el.closest('.gate')) return;
-      el.classList.add('reveal'); if (el.classList.contains('tile')) el.style.transitionDelay = (Array.prototype.indexOf.call(el.parentNode.children, el) % 3) * 110 + 'ms'; io.observe(el);
+      if (el.closest('.reveal')) return; el.classList.add('reveal'); var idx = Array.prototype.indexOf.call(el.parentNode.children, el); if (/tile|card|audience__card|mrow|ansatz__col/.test(el.className) || el.tagName === 'LI') el.style.transitionDelay = (idx % 4) * 90 + 'ms'; io.observe(el);
     });
     setTimeout(revealVisible, 2000);
     document.addEventListener('visibilitychange', function () { if (!document.hidden) setTimeout(revealVisible, 100); });
@@ -83,6 +83,10 @@
   // ---- Hintergrund-Linien wandern beim Scrollen langsam mit ----
   var lines = document.querySelector('.bg-lines');
   if (lines && !reduce) { var lt = false; window.addEventListener('scroll', function () { if (!lt) { lt = true; requestAnimationFrame(function () { lines.style.transform = 'translateY(' + (-(window.pageYOffset || 0) * 0.04).toFixed(1) + 'px)'; lt = false; }); } }, { passive: true }); }
+
+  // ---- Weiche Farbflächen im Hero mit halber Scroll-Geschwindigkeit ----
+  var glow = document.querySelector('.hero__glow');
+  if (glow && !reduce) { var gt = false; window.addEventListener('scroll', function () { if (!gt) { gt = true; requestAnimationFrame(function () { glow.style.transform = 'translateY(' + ((window.pageYOffset || 0) * 0.5).toFixed(1) + 'px)'; gt = false; }); } }, { passive: true }); }
   // ---- Kurzer Selbstcheck (Startseite) ----
   var sc = document.querySelector('[data-selfcheck]');
   if (sc) {
