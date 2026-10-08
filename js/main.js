@@ -58,7 +58,6 @@
   var heroImg = (!reduce && finePointer) ? document.querySelector('.hero__img') : null;
   function onScroll() {
     var h = document.documentElement, max = h.scrollHeight - h.clientHeight, y = window.pageYOffset || h.scrollTop;
-    if (heroImg) heroImg.style.transform = 'translateY(' + Math.min(y, 900) * 0.10 + 'px)';
     if (nav) nav.classList.toggle('is-scrolled', y > 40);
     if (totop) totop.classList.toggle('is-visible', y > 600);
     if (sticky) sticky.classList.toggle('is-visible', y > (heroEl ? heroEl.offsetHeight - 80 : 400));
@@ -68,33 +67,6 @@
 
 
 
-  // ---- Spot-Licht hinter dem Inhalt und magnetische Buttons (nur Maus) ----
-  var spot = document.querySelector('.spot');
-  if (spot && finePointer && !reduce) {
-    var sx = 0, sy = 0, sp = false;
-    document.addEventListener('pointermove', function (e) { sx = e.clientX; sy = e.clientY; if (!sp) { sp = true; requestAnimationFrame(function () { spot.style.transform = 'translate(' + (sx - 280) + 'px,' + (sy - 280) + 'px)'; spot.classList.add('is-on'); sp = false; }); } }, { passive: true });
-    document.addEventListener('pointerleave', function () { spot.classList.remove('is-on'); });
-  }
-  if (finePointer && !reduce) {
-    document.querySelectorAll('.btn').forEach(function (b) {
-      b.addEventListener('pointermove', function (e) { var r = b.getBoundingClientRect(); var dx = (e.clientX - (r.left + r.width / 2)) / r.width, dy = (e.clientY - (r.top + r.height / 2)) / r.height; b.style.transform = 'translate(' + (dx * 10).toFixed(1) + 'px,' + (dy * 8).toFixed(1) + 'px)'; });
-      b.addEventListener('pointerleave', function () { b.style.transform = ''; });
-    });
-  }
-
-  // ---- Lichtfeld folgt der Maus, Hero-Karte neigt sich leicht (nur Maus, nicht bei reduzierter Bewegung) ----
-  if (finePointer && !reduce) {
-    var root = document.documentElement, lx = 0, ly = 0, lp = false;
-    document.addEventListener('pointermove', function (e) {
-      lx = e.clientX / window.innerWidth - 0.5; ly = e.clientY / window.innerHeight - 0.5;
-      if (!lp) { lp = true; requestAnimationFrame(function () { root.style.setProperty('--mx', lx.toFixed(3)); root.style.setProperty('--my', ly.toFixed(3)); lp = false; }); }
-    }, { passive: true });
-    var heroCard = document.querySelector('.hero__media'), heroHost = document.querySelector('.hero');
-    if (heroCard && heroHost) {
-      heroHost.addEventListener('pointermove', function (e) { var r = heroCard.getBoundingClientRect(); var dx = (e.clientX - (r.left + r.width / 2)) / r.width, dy = (e.clientY - (r.top + r.height / 2)) / r.height; heroCard.style.transform = 'perspective(1200px) rotateX(' + (-dy * 5).toFixed(2) + 'deg) rotateY(' + (dx * 6).toFixed(2) + 'deg) translateZ(0)'; });
-      heroHost.addEventListener('pointerleave', function () { heroCard.style.transform = ''; });
-    }
-  }
   // ---- Kurzer Selbstcheck (Startseite) ----
   var sc = document.querySelector('[data-selfcheck]');
   if (sc) {

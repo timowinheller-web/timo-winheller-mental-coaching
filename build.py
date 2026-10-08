@@ -256,7 +256,6 @@ def head(slug, title, desc, body):
 </head>
 <body>
 <div class="bg" aria-hidden="true"></div>
-<div class="spot" aria-hidden="true"></div>
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
 """
 
@@ -303,7 +302,6 @@ def footer(slug):
 </footer>
 <button class="iconbtn totop" type="button" aria-label="Nach oben">{icon("arrow-up")}</button>
 {sticky}
-<script src="js/field.js?v={ASSET_V}"></script>
 <script src="js/neural.js?v={ASSET_V}"></script>
 <script src="js/main.js?v={ASSET_V}"></script>
 </body>

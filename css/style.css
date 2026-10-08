@@ -738,3 +738,81 @@ html{overflow-x:hidden}
 
 /* Abzeichen auf Kobalt lesbar */
 .section--alt .badge,.ctx-volt .badge{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.45);color:var(--chalk);box-shadow:none}
+
+/* ============================================================
+   Klartext: weg mit den KI-Mustern. Flacher ruhiger Grund, solide Flächen,
+   Glas nur über Fotos und in der Navigation, keine Versal-Labels, keine Icon-Kacheln,
+   keine Verlaufsrahmen, keine leuchtenden Buttons. Signature bleibt das Gehirn.
+   ============================================================ */
+:root{--radius-sm:6px;--radius-md:8px;--radius-lg:12px;--radius-xl:14px;--radius-2xl:18px;--line:rgba(11,15,24,.12);--line-2:rgba(11,15,24,.22)}
+body{background:#F7F7F4}
+.bg,.spot,.hero .field{display:none!important}
+body::after{display:none}
+/* Abschnitts-Labels über Überschriften entfallen; Labels in Karten werden schlichte Zwischentitel */
+.sh>.eyebrow,.cta__copy>.eyebrow{display:none}
+.eyebrow{font-family:var(--font-sans);font-size:.95rem;font-weight:650;letter-spacing:0;text-transform:none;color:var(--fg);gap:0}
+.eyebrow::before{display:none}
+/* Keine Icon-Kacheln in Karten und Leisten */
+.feature .disc,.audience__card .disc,.audience__no .disc,.strip__item .disc,.options .disc,.exercise__head .disc,.hero__eyebrow .ic{display:none}
+.hero__stat{display:none}
+/* Karten: solide, Haarlinie, kein Glanz, kein Farbschatten */
+.card,.card--frost,.check__progress,.form.card,.card--inset,.panel,.panel--dark,.glass:not(.nav__menu):not(.sticky-cta){background:#FFFFFF;border:1px solid var(--line);-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none}
+.card::before,.panel::before,.hero__media::after,.tile::after,.frame::after,.media::after,.method__media::after{display:none}
+.card--inset{background:#F0F0EC}
+.card--interactive:hover{transform:none;box-shadow:none;border-color:var(--line-2);background:#FFFFFF}
+.card--moss,.section--alt .card--moss,.ctx-volt .card--moss{background:#FFFFFF;border:2px solid var(--volt);box-shadow:none}
+.card--moss .badge{background:var(--volt);color:#fff;border:0}
+.hero__glass,.hero__panel{background:none;border:0}
+/* Zielgruppen redaktionell: Spalten mit Linie statt Karten */
+.audience__card{background:none;border:0;border-top:2px solid var(--ink);border-radius:0;padding:22px 0 0}
+.audience__no{background:#F0F0EC;border:0}
+/* Leiste unter dem Hero: Text mit Trennlinien statt Icon-Kästen */
+.strip{gap:0;border-top:1px solid var(--line);padding-top:18px}
+.strip__item{background:none;border:0;border-left:1px solid var(--line);border-radius:0;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none;padding:0 18px}
+.strip__item:first-child{border-left:0;padding-left:0}
+/* Glas nur über Fotos und in der Navigation */
+.nav__bar{background:rgba(247,247,244,.78);border:1px solid var(--line);box-shadow:none;border-radius:12px}
+.nav.is-scrolled .nav__bar{background:rgba(247,247,244,.92);box-shadow:0 1px 0 var(--line)}
+.nav__menu{background:#FFFFFF;border:1px solid var(--line);box-shadow:0 20px 40px -24px rgba(11,15,24,.25);border-radius:12px}
+.tile__cap,.media__card{background:rgba(255,255,255,.78);border:0;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:none;border-radius:10px}
+.tile,.frame,.media,.method__media,.about__portrait,.hero__media{border:0;box-shadow:none;border-radius:var(--radius-xl)}
+.tile:hover{transform:none;box-shadow:none}
+.hero__media{transform:none!important}
+/* Buttons: flach, kein Glühen, klare Ecken */
+.btn{border-radius:10px;box-shadow:none!important}
+.btn:hover{transform:none}
+.btn--secondary,.btn--outline{background:#FFFFFF;border:1px solid var(--line-2);-webkit-backdrop-filter:none;backdrop-filter:none}
+.btn--secondary:hover,.btn--outline:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.hero__actions .btn--secondary{background:#FFFFFF}
+.radio span{background:#FFFFFF;border:1px solid var(--line-2);-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none;border-radius:8px}
+.input,.textarea,.select{background:#FFFFFF;border:1px solid var(--line-2);box-shadow:none}
+.badge{font-family:var(--font-sans);font-size:.8rem;letter-spacing:0;text-transform:none;background:#FFFFFF;border:1px solid var(--line-2);box-shadow:none;border-radius:6px}
+.iconbtn,.sticky-cta{-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none}
+.iconbtn{background:#FFFFFF;border:1px solid var(--line-2)}
+.sticky-cta{background:rgba(247,247,244,.95);border:1px solid var(--line);border-radius:12px}
+/* Monospace-Kleinlabels raus, normale Schrift */
+.field__label,.stat__label,.case dt,.quote-card__mark,.footer__title,.brain__hint,.check__score,.exercise__time,.strip__item span,.mono,.hero__eyebrow,.brain__tip{font-family:var(--font-sans);letter-spacing:0;text-transform:none}
+.field__label{font-size:.9rem;font-weight:600;color:var(--fg)}
+.hero__eyebrow{font-size:.95rem;font-weight:500;color:var(--fg-2)}
+.stat__label{font-size:.85rem}
+.footer__title{font-size:.9rem;font-weight:650;color:var(--fg)}
+.case dt,.quote-card__mark{font-size:.85rem;font-weight:650}
+/* Kobalt-Flächen: satte Farbe, kein Glas, keine Verlaufsrahmen */
+.section--alt,.method,.brain{background:var(--volt-600);-webkit-backdrop-filter:none;backdrop-filter:none;border:0;box-shadow:none}
+.cta__panel{background:var(--volt-600);border:0;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+.cta__copy::before,.brain__stage::before{display:none}
+.section--alt .card,.method .card,.ctx-volt .card{background:#FFFFFF;border:0}
+.brain__panel{background:rgba(255,255,255,.12);border:0;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+.footer{background:#FFFFFF;-webkit-backdrop-filter:none;backdrop-filter:none;border-top:1px solid var(--line)}
+.footer::before{display:none}
+.check__bar i,.check__meter{background:var(--volt)}
+.dots button.is-active{background:var(--ink)}
+.signals li::before{background:var(--volt)}
+/* Klartext, Korrekturen */
+.hero .hero__glass.glass{background:none;border:0;padding:0}
+.hero .strip.glass{background:none;border:0;border-top:1px solid var(--line);border-radius:0;padding:18px 0 0}
+.strip__item strong{font-size:.95rem}
+.strip__item span{font-size:.85rem}
+.brain .brain__panel.glass{background:rgba(255,255,255,.12);border:0;color:var(--chalk)}
+.breath__label span{font-family:var(--font-sans);letter-spacing:0;text-transform:none;font-size:.85rem}
+.check__band{color:var(--fg)}
