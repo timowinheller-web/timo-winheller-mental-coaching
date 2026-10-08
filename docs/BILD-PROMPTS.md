@@ -1,73 +1,71 @@
-# Bild-Prompts (je Motiv ein vollständiger Prompt)
+# Bild-Prompts: natürlich, fotorealistisch (keine Skulpturen, kein Leuchten)
 
-Hochformat 2:3, mindestens 1024 px breit (besser 1344 × 2016). Gleiche Dateinamen wie bisher, ablegen in `img/`, dann `python3 tools/images.py`, `python3 build.py`, `git push`.
+Je Motiv ein kompletter Prompt. Hochformat 2:3, mindestens 1024 px breit. Gleiche Dateinamen wie bisher, ablegen in `img/`, dann `python3 tools/images.py`, `python3 build.py`, `git push`.
 
-## `kopf-natur.jpg` (Hero, Vorschalt-Seite, Social-Bild)
+Regel: Das Porträt bleibt ein echtes Foto von dir. Alle anderen Motive zeigen keine erkennbaren Gesichter.
 
-```
-cinematic dark studio photograph, pitch-black background, profile of a human head facing left, the skull made of fine black wire mesh and matte black stone, moss and ferns growing from the back of the head, thin glowing cobalt-blue neural filaments visible inside the head like a living brain, warm ember-orange rim light on the face from the right, cool cobalt-blue key light from the left, light volumetric haze, lower left of the frame calm and empty, ultra detailed, medium format look, 85mm lens, f/4, shallow depth of field, no text, no letters, no logo, no watermark, portrait format 2:3, 1344x2016
-```
-
-## `raum.jpg` (CTA-Band, Kontakt, Angebot, Region)
+## `kopf-natur.jpg` (Hero, Social-Bild)
 
 ```
-cinematic interior photograph at night, a dark minimalist room with two black armchairs facing each other in front of a wall of dark living moss, one warm ember-orange floor lamp glowing between them, cool cobalt-blue light leaking in from a tall window on the left, polished dark floor with soft reflections, light volumetric haze, no people, quiet and inviting, ultra detailed, medium format look, 35mm lens, f/4, no text, no letters, no logo, no watermark, portrait format 2:3, 1344x2016
+a narrow forest road disappearing into thick morning fog, tall bare beech trees on both sides, wet asphalt, faint cold blue light, Bergisches Land in late autumn, no people, candid documentary photograph, real location, natural available light only, overcast or blue hour, muted colors, cool shadows, slight film grain, shot on Kodak Portra 400 with a 35mm lens, shallow depth of field, slightly imperfect framing, no retouching, no glow effects, no CGI, no 3D render, no text, no logo, no watermark, portrait format 2:3, 1344x2016
+```
+
+## `raum.jpg` (CTA-Band, Kontakt)
+
+```
+a quiet consulting room at dusk, two simple armchairs facing each other by a tall window, one small warm table lamp switched on, dark walls, a plant in the corner, blue evening light through the glass, no people, candid documentary photograph, real location, natural available light only, overcast or blue hour, muted colors, cool shadows, slight film grain, shot on Kodak Portra 400 with a 35mm lens, shallow depth of field, slightly imperfect framing, no retouching, no glow effects, no CGI, no 3D render, no text, no logo, no watermark, portrait format 2:3, 1344x2016
 ```
 
 ## `staerke.jpg` (Kachel „Mentale Stärke“)
 
 ```
-cinematic dark studio photograph, pitch-black background, a crouching athlete figure carved from matte black stone in a sprint start position, glowing cobalt-blue cracks running through the body like kintsugi, dark moss on the shoulders, tension and power, warm ember-orange rim light from the right, cool cobalt-blue key light from the left, light volumetric haze, lower third of the frame calm and dark, ultra detailed, medium format look, 85mm lens, f/4, shallow depth of field, no text, no letters, no logo, no watermark, portrait format 2:3, 1344x2016
+a lone runner seen from far behind on a misty forest trail at dawn, small in the frame, dark trees, soft grey light, breath visible in the cold air, candid documentary photograph, real location, natural available light only, overcast or blue hour, muted colors, cool shadows, slight film grain, shot on Kodak Portra 400 with a 35mm lens, shallow depth of field, slightly imperfect framing, no retouching, no glow effects, no CGI, no 3D render, no text, no logo, no watermark, portrait format 2:3, 1344x2016
 ```
 
 ## `haende-wachstum.jpg` (Kachel „Finanzen & Investments“)
 
 ```
-cinematic dark studio photograph, pitch-black background, two cupped hands carved from matte black stone with a little dark moss on the fingers, between them a thin glowing cobalt-blue line rising upward like a growth curve, tiny green leaves sprouting along the line, calm and precise, warm ember-orange rim light from the right, cool cobalt-blue key light from the left, light volumetric haze, lower third of the frame calm and dark, ultra detailed, medium format look, 85mm lens, f/4, shallow depth of field, no text, no letters, no logo, no watermark, portrait format 2:3, 1344x2016
+close-up of a man's hands writing in a black notebook on a dark wooden desk, only a small desk lamp lit, pen and a cup of coffee, deep shadows, no face, candid documentary photograph, real location, natural available light only, overcast or blue hour, muted colors, cool shadows, slight film grain, shot on Kodak Portra 400 with a 35mm lens, shallow depth of field, slightly imperfect framing, no retouching, no glow effects, no CGI, no 3D render, no text, no logo, no watermark, portrait format 2:3, 1344x2016
 ```
 
 ## `atem.jpg` (Kachel „NLP & Sprache“, Reset-Seite)
 
 ```
-cinematic dark studio photograph, pitch-black background, profile of a head carved from matte black stone and fine black wire mesh, exhaling a stream of fine glowing cobalt-blue particles that form a thin line in the air, a few small green leaves drifting in the stream, warm ember-orange rim light on the face from the right, cool cobalt-blue key light from the left, light volumetric haze, lower third of the frame calm and dark, ultra detailed, medium format look, 85mm lens, f/4, shallow depth of field, no text, no letters, no logo, no watermark, portrait format 2:3, 1344x2016
+concentric ripples spreading on dark still water after a single drop, reflections of a grey sky, almost monochrome, macro distance, candid documentary photograph, real location, natural available light only, overcast or blue hour, muted colors, cool shadows, slight film grain, shot on Kodak Portra 400 with a 35mm lens, shallow depth of field, slightly imperfect framing, no retouching, no glow effects, no CGI, no 3D render, no text, no logo, no watermark, portrait format 2:3, 1344x2016
 ```
 
 ## `gehirn-verstand-gefuehl.jpg` (Kachel „Neuro-Resonanz“, Methoden-Seite)
 
 ```
-cinematic dark studio photograph, pitch-black background, a human brain floating in darkness, left half made of black polished machinery with glowing cobalt-blue circuit lines, right half overgrown with dark green moss and tiny ember-orange blossoms, the two halves fused seamlessly in the middle, warm ember-orange rim light from the right, cool cobalt-blue key light from the left, light volumetric haze, centered, lower third of the frame calm and dark, ultra detailed, medium format look, 85mm lens, f/4, shallow depth of field, no text, no letters, no logo, no watermark, portrait format 2:3, 1344x2016
+a single green leaf held up against low evening sunlight, its veins glowing like a network, dark blurred forest behind, macro lens, hand barely visible at the edge, candid documentary photograph, real location, natural available light only, overcast or blue hour, muted colors, cool shadows, slight film grain, shot on Kodak Portra 400 with a 35mm lens, shallow depth of field, slightly imperfect framing, no retouching, no glow effects, no CGI, no 3D render, no text, no logo, no watermark, portrait format 2:3, 1344x2016
 ```
 
 ## `ruhe.jpg` (Kachel „Hypnose“, Über-mich-Seite)
 
 ```
-cinematic dark studio photograph, pitch-black background, a serene face made of fine black wire mesh and matte black stone with closed eyes, dark green leaves slowly orbiting the head, a soft cobalt-blue halo of light behind the head, deep calm, warm ember-orange rim light from the right, cool cobalt-blue key light from the left, light volumetric haze, lower third of the frame calm and dark, ultra detailed, medium format look, 85mm lens, f/4, shallow depth of field, no text, no letters, no logo, no watermark, portrait format 2:3, 1344x2016
+a still reservoir lake at dawn with fog lying on the water, dark forested hills behind, a few reeds in the foreground, blue-grey tones, total silence, candid documentary photograph, real location, natural available light only, overcast or blue hour, muted colors, cool shadows, slight film grain, shot on Kodak Portra 400 with a 35mm lens, shallow depth of field, slightly imperfect framing, no retouching, no glow effects, no CGI, no 3D render, no text, no logo, no watermark, portrait format 2:3, 1344x2016
 ```
 
 ## `kette-frei.jpg` (Kachel „Blockaden lösen“, Check-Seite)
 
 ```
-cinematic dark studio photograph, pitch-black background, a heavy black iron chain breaking apart in the middle of the frame, from the broken link a vine with dark green leaves grows upward, a glowing cobalt-blue filament sparks at the break with a few ember-orange sparks flying, dramatic, warm ember-orange rim light from the right, cool cobalt-blue key light from the left, light volumetric haze, lower third of the frame calm and dark, ultra detailed, medium format look, 85mm lens, f/4, shallow depth of field, no text, no letters, no logo, no watermark, portrait format 2:3, 1344x2016
-```
-
-## `herz.jpg` (Selbstcheck (Kobalt-Band))
-
-```
-cinematic dark studio photograph, pitch-black background, an anatomical human heart carved from matte black stone, wrapped in fine dark green moss, glowing cobalt-blue filaments pulsing through it like veins, a single drop of water on its surface, floating in darkness, warm ember-orange highlight from the right, cool cobalt-blue key light from the left, light volumetric haze, centered, ultra detailed, medium format look, 85mm lens, f/4, shallow depth of field, no text, no letters, no logo, no watermark, portrait format 2:3, 1344x2016
+an old rusted iron chain hanging from a wooden gate at the edge of a forest, one link broken open, overcast light, dark background, detail shot, candid documentary photograph, real location, natural available light only, overcast or blue hour, muted colors, cool shadows, slight film grain, shot on Kodak Portra 400 with a 35mm lens, shallow depth of field, slightly imperfect framing, no retouching, no glow effects, no CGI, no 3D render, no text, no logo, no watermark, portrait format 2:3, 1344x2016
 ```
 
 ## `treppe.jpg` (Ablauf-Panel, Angebot, Region)
 
 ```
-cinematic dark photograph, pitch-black background, a staircase of rough black stone blocks ascending into darkness, dark green moss on every step, a small tree on the top step lit by a warm ember-orange glow, cool cobalt-blue haze at the bottom of the stairs, vertical composition, light volumetric haze, ultra detailed, medium format look, 50mm lens, f/5.6, no text, no letters, no logo, no watermark, portrait format 2:3, 1344x2016
+old stone steps leading uphill through a dark beech forest, moss on the stones, wet leaves, fog at the top of the stairs, no people, candid documentary photograph, real location, natural available light only, overcast or blue hour, muted colors, cool shadows, slight film grain, shot on Kodak Portra 400 with a 35mm lens, shallow depth of field, slightly imperfect framing, no retouching, no glow effects, no CGI, no 3D render, no text, no logo, no watermark, portrait format 2:3, 1344x2016
 ```
 
-## Negativ-Prompt (optional, für jedes Bild gleich)
+## `herz.jpg` (Selbstcheck)
 
 ```
-beige background, white background, daylight, bright scene, text, letters, logo, watermark, extra limbs, cartoon, illustration, low detail, oversaturated green, pink, purple
+dark moss on a wet stone in a shaded forest, tiny water droplets, soft side light, very shallow depth of field, macro, almost black background, candid documentary photograph, real location, natural available light only, overcast or blue hour, muted colors, cool shadows, slight film grain, shot on Kodak Portra 400 with a 35mm lens, shallow depth of field, slightly imperfect framing, no retouching, no glow effects, no CGI, no 3D render, no text, no logo, no watermark, portrait format 2:3, 1344x2016
 ```
 
-## Porträtfoto (echt, kein KI-Bild)
+## Negativ-Prompt (für alle gleich)
 
-Für `img/portrait.jpg`: dunkler Hintergrund (Anthrazit bis Schwarz), kühles Hauptlicht von links, warmes Kantenlicht von rechts, Blick in die Kamera, dunkle einfarbige Kleidung ohne Logo, Hochformat 4:5, mindestens 1200 × 1500 px.
+```
+sculpture, statue, glowing lines, neon, bioluminescent, fantasy, surreal, CGI, 3D render, illustration, painting, oversaturated, HDR, perfect symmetry, text, letters, logo, watermark, extra limbs, deformed hands, face
+```
