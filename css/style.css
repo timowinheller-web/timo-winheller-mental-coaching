@@ -735,3 +735,6 @@ html{overflow-x:hidden}
 
 /* Ohne Porträt: Über-mich-Teaser einspaltig */
 .about:not(:has(.about__portrait)){grid-template-columns:minmax(0,1fr);max-width:760px}
+
+/* Abzeichen auf Kobalt lesbar */
+.section--alt .badge,.ctx-volt .badge{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.45);color:var(--chalk);box-shadow:none}
