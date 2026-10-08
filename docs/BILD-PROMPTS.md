@@ -1,71 +1,80 @@
-# Bild-Prompts: natürlich, fotorealistisch (keine Skulpturen, kein Leuchten)
+# Bild-Prompts: Theme „Morgen“ (hell, natürlich, zukunftsorientiert)
 
-Je Motiv ein kompletter Prompt. Hochformat 2:3, mindestens 1024 px breit. Gleiche Dateinamen wie bisher, ablegen in `img/`, dann `python3 tools/images.py`, `python3 build.py`, `git push`.
+Je Motiv ein kompletter Prompt. Hochformat 2:3, mindestens 1024 px breit (besser 1344 × 2016).
+Jedes Bild einzeln als eigene Datei liefern, nicht als Collage. Gleiche Dateinamen, ablegen in `img/`,
+dann `python3 tools/images.py`, `python3 build.py`, `git push`.
 
-Regel: Das Porträt bleibt ein echtes Foto von dir. Alle anderen Motive zeigen keine erkennbaren Gesichter.
+## Große Flächen
 
-## `kopf-natur.jpg` (Hero, Social-Bild)
-
-```
-a narrow forest road disappearing into thick morning fog, tall bare beech trees on both sides, wet asphalt, faint cold blue light, Bergisches Land in late autumn, no people, candid documentary photograph, real location, natural available light only, overcast or blue hour, muted colors, cool shadows, slight film grain, shot on Kodak Portra 400 with a 35mm lens, shallow depth of field, slightly imperfect framing, no retouching, no glow effects, no CGI, no 3D render, no text, no logo, no watermark, portrait format 2:3, 1344x2016
-```
-
-## `raum.jpg` (CTA-Band, Kontakt)
+### 1. `kopf-natur.jpg` (Hero, Vorschalt-Seite, Social-Bild)
 
 ```
-a quiet consulting room at dusk, two simple armchairs facing each other by a tall window, one small warm table lamp switched on, dark walls, a plant in the corner, blue evening light through the glass, no people, candid documentary photograph, real location, natural available light only, overcast or blue hour, muted colors, cool shadows, slight film grain, shot on Kodak Portra 400 with a 35mm lens, shallow depth of field, slightly imperfect framing, no retouching, no glow effects, no CGI, no 3D render, no text, no logo, no watermark, portrait format 2:3, 1344x2016
+a person seen from behind standing on a grassy hilltop at sunrise, looking out over rolling green hills of the German low mountains with soft morning mist in the valleys, wide open light-blue sky, warm sun just above the horizon, the person small in the right third of the frame, face not visible, calm empty foreground in the lower left, bright natural editorial photograph, real location, soft morning sunlight, airy and optimistic mood, light sky-blue and fresh green tones with warm golden highlights, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no retouching, no HDR, no glow, no CGI, no text, no logo, no watermark, vertical 2:3, 1344x2016
 ```
 
-## `staerke.jpg` (Kachel „Mentale Stärke“)
+### 2. `raum.jpg` (CTA-Band, Kontakt, Angebot, Region)
 
 ```
-a lone runner seen from far behind on a misty forest trail at dawn, small in the frame, dark trees, soft grey light, breath visible in the cold air, candid documentary photograph, real location, natural available light only, overcast or blue hour, muted colors, cool shadows, slight film grain, shot on Kodak Portra 400 with a 35mm lens, shallow depth of field, slightly imperfect framing, no retouching, no glow effects, no CGI, no 3D render, no text, no logo, no watermark, portrait format 2:3, 1344x2016
+a bright, calm coaching room in the morning, two comfortable linen armchairs facing each other next to a large window with a view into green trees, a small side table with a glass of water, a tall green plant, light oak floor, white walls, soft daylight falling across the room, no people, main subject in the vertical center of the frame, bright natural editorial photograph, real location, soft morning sunlight, airy and optimistic mood, light sky-blue and fresh green tones with warm golden highlights, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no retouching, no HDR, no glow, no CGI, no text, no logo, no watermark, vertical 2:3, 1344x2016
 ```
 
-## `haende-wachstum.jpg` (Kachel „Finanzen & Investments“)
+### 3. `herz.jpg` (Selbstcheck (Checkliste liegt auf der unteren Hälfte))
 
 ```
-close-up of a man's hands writing in a black notebook on a dark wooden desk, only a small desk lamp lit, pen and a cup of coffee, deep shadows, no face, candid documentary photograph, real location, natural available light only, overcast or blue hour, muted colors, cool shadows, slight film grain, shot on Kodak Portra 400 with a 35mm lens, shallow depth of field, slightly imperfect framing, no retouching, no glow effects, no CGI, no 3D render, no text, no logo, no watermark, portrait format 2:3, 1344x2016
+looking straight up into a bright beech tree canopy in spring, fresh light-green leaves forming a natural pattern against a clear light-blue sky, sunlight filtering through the leaves, the most detailed part in the upper half of the frame, calmer lower half, bright natural editorial photograph, real location, soft morning sunlight, airy and optimistic mood, light sky-blue and fresh green tones with warm golden highlights, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no retouching, no HDR, no glow, no CGI, no text, no logo, no watermark, vertical 2:3, 1344x2016
 ```
 
-## `atem.jpg` (Kachel „NLP & Sprache“, Reset-Seite)
+### 4. `treppe.jpg` (Ablauf-Panel, Angebot, Region)
 
 ```
-concentric ripples spreading on dark still water after a single drop, reflections of a grey sky, almost monochrome, macro distance, candid documentary photograph, real location, natural available light only, overcast or blue hour, muted colors, cool shadows, slight film grain, shot on Kodak Portra 400 with a 35mm lens, shallow depth of field, slightly imperfect framing, no retouching, no glow effects, no CGI, no 3D render, no text, no logo, no watermark, portrait format 2:3, 1344x2016
+a narrow wooden staircase leading up a green grassy hill towards a bright open sky, morning sun from the side casting soft shadows on the steps, small wildflowers along the edges, a sense of moving forward and upward, no people, bright natural editorial photograph, real location, soft morning sunlight, airy and optimistic mood, light sky-blue and fresh green tones with warm golden highlights, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no retouching, no HDR, no glow, no CGI, no text, no logo, no watermark, vertical 2:3, 1344x2016
 ```
 
-## `gehirn-verstand-gefuehl.jpg` (Kachel „Neuro-Resonanz“, Methoden-Seite)
+## Themen-Kacheln (unteres Drittel bleibt ruhig, dort liegt die Bildunterschrift)
+
+### 5. `staerke.jpg` (Kachel „Mentale Stärke“)
 
 ```
-a single green leaf held up against low evening sunlight, its veins glowing like a network, dark blurred forest behind, macro lens, hand barely visible at the edge, candid documentary photograph, real location, natural available light only, overcast or blue hour, muted colors, cool shadows, slight film grain, shot on Kodak Portra 400 with a 35mm lens, shallow depth of field, slightly imperfect framing, no retouching, no glow effects, no CGI, no 3D render, no text, no logo, no watermark, portrait format 2:3, 1344x2016
+a runner in simple dark sportswear seen from behind on an empty country road at sunrise, mid-stride, long soft shadow, golden morning light, green fields and a light-blue sky, runner in the upper two thirds of the frame, calm road in the lower third, face not visible, bright natural editorial photograph, real location, soft morning sunlight, airy and optimistic mood, light sky-blue and fresh green tones with warm golden highlights, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no retouching, no HDR, no glow, no CGI, no text, no logo, no watermark, vertical 2:3, 1344x2016
 ```
 
-## `ruhe.jpg` (Kachel „Hypnose“, Über-mich-Seite)
+### 6. `haende-wachstum.jpg` (Kachel „Finanzen & Investments“)
 
 ```
-a still reservoir lake at dawn with fog lying on the water, dark forested hills behind, a few reeds in the foreground, blue-grey tones, total silence, candid documentary photograph, real location, natural available light only, overcast or blue hour, muted colors, cool shadows, slight film grain, shot on Kodak Portra 400 with a 35mm lens, shallow depth of field, slightly imperfect framing, no retouching, no glow effects, no CGI, no 3D render, no text, no logo, no watermark, portrait format 2:3, 1344x2016
+a single young tree standing alone on a sunlit green meadow on a gentle hill, morning light, clear light-blue sky with a few soft clouds, a sense of patience and long-term growth, tree in the upper two thirds of the frame, calm grass in the lower third, bright natural editorial photograph, real location, soft morning sunlight, airy and optimistic mood, light sky-blue and fresh green tones with warm golden highlights, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no retouching, no HDR, no glow, no CGI, no text, no logo, no watermark, vertical 2:3, 1344x2016
 ```
 
-## `kette-frei.jpg` (Kachel „Blockaden lösen“, Check-Seite)
+### 7. `atem.jpg` (Kachel „NLP & Sprache“, Reset-Seite)
 
 ```
-an old rusted iron chain hanging from a wooden gate at the edge of a forest, one link broken open, overcast light, dark background, detail shot, candid documentary photograph, real location, natural available light only, overcast or blue hour, muted colors, cool shadows, slight film grain, shot on Kodak Portra 400 with a 35mm lens, shallow depth of field, slightly imperfect framing, no retouching, no glow effects, no CGI, no 3D render, no text, no logo, no watermark, portrait format 2:3, 1344x2016
+white linen curtains gently moving in a breeze at an open window, bright morning light streaming in, a view of green trees and light-blue sky outside, fresh air, airy and light, curtain and window in the upper two thirds, calm floor area in the lower third, bright natural editorial photograph, real location, soft morning sunlight, airy and optimistic mood, light sky-blue and fresh green tones with warm golden highlights, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no retouching, no HDR, no glow, no CGI, no text, no logo, no watermark, vertical 2:3, 1344x2016
 ```
 
-## `treppe.jpg` (Ablauf-Panel, Angebot, Region)
+### 8. `gehirn-verstand-gefuehl.jpg` (Kachel „Neuro-Resonanz“, Methoden-Seite)
 
 ```
-old stone steps leading uphill through a dark beech forest, moss on the stones, wet leaves, fog at the top of the stairs, no people, candid documentary photograph, real location, natural available light only, overcast or blue hour, muted colors, cool shadows, slight film grain, shot on Kodak Portra 400 with a 35mm lens, shallow depth of field, slightly imperfect framing, no retouching, no glow effects, no CGI, no 3D render, no text, no logo, no watermark, portrait format 2:3, 1344x2016
+close-up of a fresh green leaf in backlight against a soft light-blue sky, its fine vein network clearly visible like a natural neural network, warm sun at the edge of the leaf, very shallow depth of field, leaf in the upper two thirds of the frame, bright natural editorial photograph, real location, soft morning sunlight, airy and optimistic mood, light sky-blue and fresh green tones with warm golden highlights, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no retouching, no HDR, no glow, no CGI, no text, no logo, no watermark, vertical 2:3, 1344x2016
 ```
 
-## `herz.jpg` (Selbstcheck)
+### 9. `ruhe.jpg` (Kachel „Hypnose“, Über-mich-Seite)
 
 ```
-dark moss on a wet stone in a shaded forest, tiny water droplets, soft side light, very shallow depth of field, macro, almost black background, candid documentary photograph, real location, natural available light only, overcast or blue hour, muted colors, cool shadows, slight film grain, shot on Kodak Portra 400 with a 35mm lens, shallow depth of field, slightly imperfect framing, no retouching, no glow effects, no CGI, no 3D render, no text, no logo, no watermark, portrait format 2:3, 1344x2016
+a calm lake at sunrise with mirror-smooth water reflecting a pastel sky in light blue and soft peach, thin mist on the water, a simple wooden jetty leading into the lake, forested shore in the distance, deep calm, jetty and horizon in the upper two thirds, calm water in the lower third, bright natural editorial photograph, real location, soft morning sunlight, airy and optimistic mood, light sky-blue and fresh green tones with warm golden highlights, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no retouching, no HDR, no glow, no CGI, no text, no logo, no watermark, vertical 2:3, 1344x2016
+```
+
+### 10. `kette-frei.jpg` (Kachel „Blockaden lösen“, Check-Seite)
+
+```
+an old wooden garden gate standing wide open, a path leading through it into a sunny green meadow, morning light, light-blue sky, a sense of release and new possibilities, gate in the upper two thirds of the frame, calm path in the lower third, bright natural editorial photograph, real location, soft morning sunlight, airy and optimistic mood, light sky-blue and fresh green tones with warm golden highlights, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no retouching, no HDR, no glow, no CGI, no text, no logo, no watermark, vertical 2:3, 1344x2016
 ```
 
 ## Negativ-Prompt (für alle gleich)
 
 ```
-sculpture, statue, glowing lines, neon, bioluminescent, fantasy, surreal, CGI, 3D render, illustration, painting, oversaturated, HDR, perfect symmetry, text, letters, logo, watermark, extra limbs, deformed hands, face
+dark, gloomy, night, moody, low key, sculpture, statue, glowing lines, neon, bioluminescent, fantasy, surreal, CGI, 3D render, illustration, painting, oversaturated, HDR, heavy vignette, perfect symmetry, text, letters, logo, watermark, deformed hands, extra limbs, visible face
 ```
+
+## Porträt (`img/portrait.jpg`)
+
+Echtes Foto von dir, kein KI-Bild. Heller Hintergrund (helle Wand oder draußen vor unscharfem Grün), weiches Tageslicht
+von der Seite, Blick in die Kamera, einfarbige Kleidung (Dunkelblau passt zum Kobalt), Hochformat 4:5, mindestens 1200 × 1500 px.

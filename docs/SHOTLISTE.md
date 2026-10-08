@@ -1,7 +1,7 @@
 # Shotliste: eigene Fotos für die Website
 
 Ziel: echte, ruhige Bilder statt KI-Motive. Ein halber Tag mit Fotograf (300–800 €) oder ein guter Smartphone-Nachmittag.
-Look: dunkel, wenig Licht, kühle Schatten, ein warmes Licht (Lampe, Abendsonne). Keine Lächel-Stockfotos, keine Posen.
+Look: hell und offen, Morgenlicht, viel Himmel und frisches Grün, warme Sonnenakzente. Keine Lächel-Stockfotos, keine Posen.
 Alle Bilder Hochformat 2:3 (Kamera quer drehen ist später schwer zu retten), mindestens 1400 px breit.
 
 ## Pflicht (6 Bilder)
