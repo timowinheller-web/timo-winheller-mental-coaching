@@ -115,6 +115,7 @@
     }
 
     function draw() {
+      if (!sc.nodes || !sc.center) return;  // Bühne noch ohne Größe (z. B. verstecktes Tab)
       var i, nodes = sc.nodes, K = sc.knot;
       ctx.clearRect(0, 0, sc.w, sc.h);
       var g = ctx.createRadialGradient(sc.center[0], sc.center[1], 10, sc.center[0], sc.center[1], Math.max(sc.w, sc.h) * 0.4);

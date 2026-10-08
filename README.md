@@ -1,8 +1,8 @@
 # Timo Winheller Mental Coaching – Website
 
-Statische Website (HTML/CSS/JS, kein Framework, keine externen Skripte). Design „Nacht, Kobalt, Kreide, Glut“:
-tiefes Blauschwarz als Bühne mit Neuronen-Netz und Spot-Licht, Kobalt-Bänder für Energie, Kreide-Flächen für Inhalte und
-Bilder, Glut-Orange nur für Aktionen. Schriften: Bricolage Grotesque (schwer, kondensiert) für Display, Geist für Text,
+Statische Website (HTML/CSS/JS, kein Framework, keine externen Skripte). Design „Morgen“: helle, offene Bühne
+(Weiß und Hellblau) mit feinem Neuronen-Netz, Kobalt-Bänder für Energie, Glut-Orange nur für Aktionen. Die dunkle
+Variante „Nacht“ steckt im selben Stylesheet (Block „Theme Morgen“ in `css/style.css` entfernen = Nacht zurück). Schriften: Bricolage Grotesque (schwer, kondensiert) für Display, Geist für Text,
 Geist Mono für Labels. Alle Schriften liegen lokal, kein Google-Fonts-Aufruf. Das vorherige Theme „Stone & Moss“ liegt
 als `css/stone-moss.css` bereit (in `build.py` den Stylesheet-Namen tauschen, Fonts-Preload anpassen).
 
