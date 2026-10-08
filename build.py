@@ -151,17 +151,17 @@ def render_tokens(body):
     return body
 
 
-LOGO = ('<svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="4.5" fill="currentColor"/>'
-        '<path d="M32 18.5a13.5 13.5 0 0 1 13.5 13.5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>'
-        '<path d="M32 18.5A13.5 13.5 0 0 0 18.5 32" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".45"/>'
-        '<path d="M32 8a24 24 0 0 1 24 24" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>'
-        '<path d="M32 8A24 24 0 0 0 8 32" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".3"/>'
-        '<path d="M32 56a24 24 0 0 1-24-24" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".55"/></svg>')
-
-
 def brand():
-    return ('<a class="brand" href="index.html" aria-label="Timo Winheller Mental Coaching, Startseite">' + LOGO +
-            '<span class="brand__text"><span class="brand__name">TIMO WINHELLER</span><span class="brand__sub">MENTAL COACHING</span></span></a>')
+    return ('<a class="brand" href="index.html" aria-label="Timo Winheller Mental Coaching, Startseite">'
+            '<img class="brand__mark" src="img/logo-mark-64.png" alt="" width="94" height="24">'
+            '<span class="brand__text"><span class="brand__name"><span class="brand__first">TIMO</span> WINHELLER</span>'
+            '<span class="brand__sub">MENTAL COACHING</span></span></a>')
+
+
+def brand_full(width=240):
+    h = round(width * 540 / 1347)
+    return (f'<a class="brand-full" href="index.html" aria-label="Timo Winheller Mental Coaching, Startseite">'
+            f'<img src="img/logo-480.png" alt="Timo Winheller Mental Coaching" width="{width}" height="{h}"></a>')
 
 
 def json_ld(slug, title, body):
@@ -172,7 +172,7 @@ def json_ld(slug, title, body):
         '"name":"Timo Winheller Mental Coaching","alternateName":"Mental Coaching Timo Winheller",'
         '"description":"Mental Coaching für Leistung und mentale Stärke: Blockaden und Glaubenssätze, Stress und Selbstregulation, '
         'Ziele und Entscheidungen, Alltagsängste. NLP, Neuro-Resonanz und Hypnose. Vor Ort in Reichshof (Oberberg) und bundesweit online.",'
-        f'"url":"{BASE_URL}","image":"{BASE_URL}img/og.jpg","logo":"{BASE_URL}img/logo.svg","email":"{EMAIL}"{phone}{same_as},'
+        f'"url":"{BASE_URL}","image":"{BASE_URL}img/og.jpg","logo":"{BASE_URL}img/logo-full.png","email":"{EMAIL}"{phone}{same_as},'
         '"founder":{"@type":"Person","name":"Timo Winheller","jobTitle":"Mental Coach (Neuro-Resonanz-Practitioner)"},'
         '"address":{"@type":"PostalAddress","addressLocality":"Reichshof","addressRegion":"Nordrhein-Westfalen","postalCode":"51580","addressCountry":"DE"},'
         '"areaServed":[{"@type":"City","name":"Reichshof"},{"@type":"City","name":"Gummersbach"},{"@type":"City","name":"Wiehl"},'
@@ -245,7 +245,7 @@ def head(slug, title, desc, body):
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{desc}">
 <meta name="twitter:image" content="{BASE_URL}img/og.jpg">
-<link rel="icon" href="img/logo.svg" type="image/svg+xml">
+<link rel="icon" href="img/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preload" href="css/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="css/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -291,7 +291,7 @@ def footer(slug):
 <footer class="footer">
   <div class="wrap">
     <div class="footer__grid">
-      <div class="footer__brand">{brand()}<p>Mental Coaching für Menschen, die unter Druck liefern müssen. Reichshof (Oberberg) und bundesweit online.</p><a class="btn btn--sm btn--secondary" href="kontakt.html">Kostenloses Erstgespräch</a></div>
+      <div class="footer__brand">{brand_full(220)}<p>Mental Coaching für Menschen, die unter Druck liefern müssen. Reichshof (Oberberg) und bundesweit online.</p><a class="btn btn--sm btn--secondary" href="kontakt.html">Kostenloses Erstgespräch</a></div>
       <div class="footer__col"><span class="footer__title">Seiten</span><a href="index.html">Start</a><a href="ueber-mich.html">Über mich</a><a href="angebot.html">Angebot &amp; Preise</a><a href="methoden.html">Methoden</a><a href="faq.html">Fragen &amp; Antworten</a></div>
       <div class="footer__col"><span class="footer__title">Werkzeuge</span><a href="check.html">Mentale-Stärke-Check</a><a href="reset.html">Der 3-Minuten-Reset</a><a href="fallbeispiele.html">Fallbeispiele</a><a href="mentalcoaching-oberberg.html">Coaching in Oberberg &amp; Köln</a>{insta}</div>
       <div class="footer__col"><span class="footer__title">Kontakt</span><a href="mailto:{EMAIL}">{EMAIL}</a>{phone}{wa}<span>Reichshof, Oberbergischer Kreis</span><span>Termine abends und am Wochenende</span></div>
@@ -320,7 +320,7 @@ def gate_shell(slug, title, payload):
 <meta name="description" content="Hier entsteht etwas Neues: Timo Winheller Mental Coaching, Reichshof und online.">
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#06090F">
-<link rel="icon" href="img/logo.svg" type="image/svg+xml">
+<link rel="icon" href="img/favicon.png" type="image/png">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -328,7 +328,7 @@ def gate_shell(slug, title, payload):
 <main class="gate">
   <div class="panel gate__panel">
     <div class="glass gate__glass">
-      {brand()}
+      {brand_full(260)}
       <span class="eyebrow">Bald</span>
       <h1 class="display">Hier entsteht<br>etwas Neues.</h1>
       <p class="lead">Timo Winheller · Mental Coaching für Leistung und mentale Stärke. Reichshof und bundesweit online. Die Seite ist noch in Arbeit.</p>

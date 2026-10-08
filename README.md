@@ -36,6 +36,7 @@ als `css/stone-moss.css` bereit (in `build.py` den Stylesheet-Namen tauschen, Fo
 | `js/field.js` | Neuronenfeld im Hero: reagiert auf Maus/Finger, baut sich einmal beim Laden auf, sonst keine Dauerbewegung |
 | `js/gate.js`, `tools/encrypt.js` | Passwortschutz (siehe unten) |
 | `img/field.svg` | Hintergrundgrafik (Neuronen-Netz, Kobalt), wird von `build.py` erzeugt; die Lichter dahinter stehen in `css/style.css` unter `.bg` |
+| `img/logo-*.png`, `img/favicon.png` | Logo (Juni-Design 08.10.2026): `logo-full.png` Original freigestellt, `logo-480.png` Footer/Passwortseite, `logo-mark-64.png` Bildmarke in der Navigation, `favicon.png` |
 | `img/*.jpg` + `*.webp` + `*-420.*` | 10 Bildmotive mit Web-Varianten (`python3 tools/images.py` erzeugt sie neu), `img/og.jpg` Social-Vorschaubild, `img/apple-touch-icon.png`, `img/logo.svg`, `img/icons/` Lucide-Icons, `img/portrait-platzhalter.svg` |
 | `tools/og.html` | Vorlage für das Social-Vorschaubild (1200×630), mit Chrome headless gerendert |
 | `docs/` | Launch-Checkliste, Strategie und SEO-Notizen |
