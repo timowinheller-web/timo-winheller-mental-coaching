@@ -1178,3 +1178,17 @@ a{color:var(--blue)}
 @media (max-width:350px){.brand__mark{display:none!important}}
 [data-theme="dark"] .hv--small{border-color:#050E1C}
 [data-theme="dark"] .hv-tag{background:rgba(16,30,52,.8);border-color:rgba(255,255,255,.12)}
+/* Laufband v2: eine Zeile, endlos, massive Schrift, keine Konturbuchstaben */
+.kinetic{padding:clamp(26px,4vw,44px) 0;gap:0;background:var(--offwhite);border-top:1px solid var(--line);border-bottom:1px solid var(--line);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.kinetic__track{display:flex;width:max-content;animation:marquee 48s linear infinite}
+.kinetic:hover .kinetic__track{animation-play-state:paused}
+.kinetic__group{display:flex;align-items:center;flex:none}
+.kinetic__group>span{font-family:var(--font-display);font-weight:700;font-stretch:100%;font-size:clamp(1.9rem,4.2vw,3.6rem);line-height:1.1;letter-spacing:-.025em;text-transform:none;white-space:nowrap;color:var(--navy);padding:0 clamp(18px,2.2vw,34px)}
+.kinetic__group>.kin-soft{color:rgba(7,20,38,.32)}
+.kinetic__group>.kin-grad{background:linear-gradient(90deg,var(--blue),var(--coral));-webkit-background-clip:text;background-clip:text;color:transparent}
+.kinetic__group>i{flex:none;width:10px;height:10px;border-radius:50%;background:var(--brand-grad)}
+@keyframes marquee{to{transform:translateX(-50%)}}
+[data-theme="dark"] .kinetic{background:#050E1C}
+[data-theme="dark"] .kinetic__group>span{color:#EAF0F8}
+[data-theme="dark"] .kinetic__group>.kin-soft{color:rgba(234,240,248,.32)}
+@media (prefers-reduced-motion:reduce){.kinetic__track{animation:none}}
