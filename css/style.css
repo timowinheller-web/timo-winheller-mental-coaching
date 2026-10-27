@@ -1091,8 +1091,6 @@ a{color:var(--blue)}
    Mehr Leben: Kontrast, Bilder, Bewegung (08.10.2026)
    ============================================================ */
 /* Verlaufswort im Hero */
-.t-grad{font-style:normal;background:linear-gradient(90deg,var(--blue),#7A6CFF 45%,var(--coral) 70%,var(--blue));background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradShift 9s ease-in-out infinite alternate}
-@keyframes gradShift{to{background-position:100% 0}}
 /* Hero: Text links, Bildkomposition rechts */
 .hero--clean .hero__inner{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);align-items:center;gap:clamp(32px,5vw,80px)}
 .hero__copy{display:flex;flex-direction:column;align-items:flex-start;gap:28px;min-width:0}
@@ -1109,13 +1107,6 @@ a{color:var(--blue)}
 @media (max-width:960px){.hero--clean .hero__inner{grid-template-columns:minmax(0,1fr)}.hero__visual{max-width:440px;width:84%;margin:20px auto 30px}.hv-tag{right:-4%}}
 @media (max-width:520px){.hv--small{left:-8%;width:40%}.hv-tag{font-size:.78rem;padding:10px 14px}}
 /* Kinetisches Typo-Band */
-.kinetic{position:relative;z-index:1;background:var(--navy);color:#fff;padding:clamp(36px,6vw,72px) 0;overflow:hidden;display:flex;flex-direction:column;gap:clamp(6px,1vw,14px)}
-.kinetic__row{display:flex;align-items:center;gap:clamp(18px,2.4vw,36px);white-space:nowrap;font-family:var(--font-display);font-weight:800;font-stretch:82%;font-size:clamp(2.6rem,7.5vw,7rem);line-height:1;letter-spacing:-.03em;text-transform:uppercase;will-change:transform}
-.kinetic__row:nth-child(2){margin-left:-30vw}
-.kinetic__row i{flex:none;width:clamp(10px,1.2vw,16px);height:clamp(10px,1.2vw,16px);border-radius:50%;background:var(--coral)}
-.kinetic__row:nth-child(2) i{background:var(--blue)}
-.kin-out{color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.55)}
-.kin-grad{background:linear-gradient(90deg,#5E9BFF,var(--coral));-webkit-background-clip:text;background-clip:text;color:transparent}
 /* Navy-Sektionen für harte Kontrastsprünge */
 .section--navy{position:relative;z-index:1;background:var(--navy);color:#fff;overflow:hidden}
 .section--navy::before{content:"";position:absolute;width:60vw;height:60vw;left:-20vw;top:-30vw;border-radius:50%;background:radial-gradient(closest-side,rgba(36,123,255,.28),transparent);pointer-events:none}
@@ -1129,7 +1120,7 @@ a{color:var(--blue)}
 .section--navy .mp__word--mind{color:#5E9BFF}
 .section--navy .mp__wave stop:first-child{stop-color:#fff}
 .section--navy .process__n{background:var(--navy);color:#fff}
-[data-theme="dark"] .section--navy,[data-theme="dark"] .kinetic{background:#0A1B33}
+[data-theme="dark"] .section--navy{background:#0A1B33}
 [data-theme="dark"] .section--navy .process__n{background:#0A1B33}
 /* Themen-Kacheln: helles Glas-Etikett auf Foto */
 #themen .tile{border-radius:22px;box-shadow:0 30px 60px -36px rgba(7,20,38,.55)}
@@ -1160,14 +1151,8 @@ a{color:var(--blue)}
 .cta--image .btn--secondary{color:#fff;border-color:rgba(255,255,255,.6)}
 .cta--image .btn--secondary:hover{background:#fff;color:var(--navy)}
 @media (max-width:760px){.cta--image::before{background:linear-gradient(180deg,rgba(7,20,38,.7),rgba(7,20,38,.94))}}
-@media (prefers-reduced-motion:reduce){.t-grad{animation:none}.hv,.cta__bg,.kinetic__row{transform:none!important}}
+@media (prefers-reduced-motion:reduce){.hv,.cta__bg{transform:none!important}}
 /* Typo-Band hell: schwarze Riesenschrift statt zweiter Navy-Fläche */
-.kinetic{background:transparent;color:var(--navy);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.kin-out{-webkit-text-stroke:1.5px rgba(7,20,38,.45)}
-.kin-grad{background:linear-gradient(90deg,var(--blue),var(--coral))}
-.kin-grad{-webkit-background-clip:text;background-clip:text}
-[data-theme="dark"] .kinetic{background:transparent;color:#EAF0F8}
-[data-theme="dark"] .kin-out{-webkit-text-stroke-color:rgba(234,240,248,.45)}
 /* Navy-Flächen bekommen dieselben Lichtflecken */
 .section--alt{position:relative;overflow:hidden}
 .section--alt>.wrap{position:relative;z-index:1}
@@ -1178,19 +1163,6 @@ a{color:var(--blue)}
 [data-theme="dark"] .hv--small{border-color:#050E1C}
 [data-theme="dark"] .hv-tag{background:rgba(16,30,52,.8);border-color:rgba(255,255,255,.12)}
 /* Laufband v2: eine Zeile, endlos, massive Schrift, keine Konturbuchstaben */
-.kinetic{padding:clamp(26px,4vw,44px) 0;gap:0;background:var(--offwhite);border-top:1px solid var(--line);border-bottom:1px solid var(--line);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.kinetic__track{display:flex;width:max-content;animation:marquee 48s linear infinite}
-.kinetic:hover .kinetic__track{animation-play-state:paused}
-.kinetic__group{display:flex;align-items:center;flex:none}
-.kinetic__group>span{font-family:var(--font-display);font-weight:700;font-stretch:100%;font-size:clamp(1.9rem,4.2vw,3.6rem);line-height:1.1;letter-spacing:-.025em;text-transform:none;white-space:nowrap;color:var(--navy);padding:0 clamp(18px,2.2vw,34px)}
-.kinetic__group>.kin-soft{color:rgba(7,20,38,.32)}
-.kinetic__group>.kin-grad{background:linear-gradient(90deg,var(--blue),var(--coral));-webkit-background-clip:text;background-clip:text;color:transparent}
-.kinetic__group>i{flex:none;width:10px;height:10px;border-radius:50%;background:var(--brand-grad)}
-@keyframes marquee{to{transform:translateX(-50%)}}
-[data-theme="dark"] .kinetic{background:#050E1C}
-[data-theme="dark"] .kinetic__group>span{color:#EAF0F8}
-[data-theme="dark"] .kinetic__group>.kin-soft{color:rgba(234,240,248,.32)}
-@media (prefers-reduced-motion:reduce){.kinetic__track{animation:none}}
 
 /* ===== Audit 27.10.2026 (Lighthouse/WCAG AA): Kontraste ===== */
 :root{--blue-text:#1A5FD0}
@@ -1199,5 +1171,82 @@ a{color:var(--blue)}
 .btn{font-weight:650}
 .card--moss .badge{background:var(--blue-text)}
 .plan__note a{color:var(--blue-text)}
-.kinetic__group>.kin-soft{color:rgba(7,20,38,.46)}
 [data-theme="dark"] .plan__note a{color:#8DB4FF}
+
+/* ===== Impeccable-Kritik 27.10.2026: straffen, ruhiger, klarer ===== */
+/* Abschnittsüberschriften: lesbares Blau (5,5:1 statt 3,7:1) */
+:root:not([data-theme="dark"]) .eyebrow:not(.eyebrow--light){color:var(--blue-text)}
+:is(.section--alt,.section--navy,.method,.brain,.cta__panel) .eyebrow:not(.eyebrow--light){color:#5E9BFF!important}
+/* Akzentwort im Hero: einfarbig, ohne Verlauf und ohne Animation */
+.t-accent{font-style:normal;color:#E04E38}
+[data-theme="dark"] .t-accent{color:#FF8B7A}
+.hv-tag .t-blue{color:var(--blue-text)}
+.hv-tag .t-coral{color:#C9402A}
+[data-theme="dark"] .hv-tag .t-blue{color:#8DB4FF}
+[data-theme="dark"] .hv-tag .t-coral{color:#FF8B7A}
+/* Logo-Unterzeile nie unter 8 px */
+@media (max-width:420px){.brand__sub{font-size:8px!important;letter-spacing:.12em!important}}
+
+/* Selbstcheck: Rückmeldung direkt unter der Liste */
+.media__card .selfcheck{margin:4px 0 10px;padding:14px 0 0;border-top:1px solid var(--line);background:none;box-shadow:none}
+.media__card .selfcheck strong{font-family:var(--font-display);font-size:1.15rem;color:var(--navy)}
+.media__card .selfcheck p{flex:1 1 180px;margin:0;color:var(--fg-2);font-size:.92rem}
+[data-theme="dark"] .media__card .selfcheck strong{color:#EAF0F8}
+
+/* Themen: drei Kacheln */
+@media (min-width:641px){.grid--tiles-3{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* Ansatz mit Prozess: Wort-Akzente statt Kicker, Schritte ohne Nummern */
+.ansatz__col h3 .t-mind{color:#5E9BFF}
+.ansatz__col h3 .t-perf{color:var(--coral)}
+.ansatz__steps-title{margin:64px 0 0;font-size:1.25rem;color:#fff}
+.section--navy .process{margin-top:28px}
+.section--navy .process::before{top:7px;background:linear-gradient(90deg,#5E9BFF,var(--coral))}
+.section--navy .process li{padding-top:34px}
+.section--navy .process__n{width:16px;height:16px;border-width:2px;background:var(--navy);border-color:#5E9BFF}
+.section--navy .process li:last-child .process__n{border-color:var(--coral);background:var(--coral)}
+.section--navy .process strong{color:#fff}
+@media (max-width:760px){.section--navy .process::before{display:none}.section--navy .process li{padding-top:0;padding-left:30px}.section--navy .process__n{top:5px}}
+
+/* Über Timo ohne Porträt: Zitat statt leerer Fläche */
+.about__quote{margin:0;padding:0 0 0 0;align-self:center}
+.about__quote p{font-family:var(--font-display);font-weight:700;font-size:clamp(1.9rem,3.6vw,3rem);line-height:1.12;letter-spacing:-.02em;color:#fff;max-width:14ch;text-wrap:balance}
+.about__quote p::before{content:"„"}.about__quote p::after{content:"“"}
+.about__quote footer{margin-top:20px;font-size:.95rem;color:rgba(255,255,255,.7)}
+.about__quote::after{content:"";display:block;width:120px;height:3px;margin-top:22px;border-radius:3px;background:linear-gradient(90deg,#5E9BFF,var(--coral))}
+
+/* Preisleiste auf der Startseite */
+.pricestrip{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line-2);border-radius:18px;background:rgba(255,255,255,.7);overflow:hidden}
+.pricestrip li{display:flex;flex-direction:column;gap:4px;padding:26px 28px;border-left:1px solid var(--line)}
+.pricestrip li:first-child{border-left:0}
+.pricestrip__main{background:var(--mist)}
+.pricestrip__name{font-weight:600;color:var(--fg)}
+.pricestrip__amount{font-family:var(--font-display);font-weight:800;font-size:2.2rem;line-height:1.1;color:var(--navy);font-variant-numeric:tabular-nums}
+.pricestrip__main .pricestrip__amount{color:#C9402A}
+.pricestrip__meta{font-size:.92rem;color:var(--fg-3)}
+@media (max-width:760px){.pricestrip{grid-template-columns:1fr}.pricestrip li{border-left:0;border-top:1px solid var(--line);padding:20px 22px}.pricestrip li:first-child{border-top:0}.pricestrip__main{order:-1}}
+[data-theme="dark"] .pricestrip{background:#121824;border-color:rgba(255,255,255,.12)}
+[data-theme="dark"] .pricestrip li{border-color:rgba(255,255,255,.1)}
+[data-theme="dark"] .pricestrip__main{background:#16203A}
+[data-theme="dark"] .pricestrip__amount{color:#EAF0F8}
+[data-theme="dark"] .pricestrip__main .pricestrip__amount{color:#FF8B7A}
+
+/* Angebot: Bogen als Liste statt Karten in der Karte */
+.method__steps .step{padding:18px 0;gap:8px;height:auto;border-top:1px solid var(--line);background:none;border-radius:0;box-shadow:none}
+.method__steps .step:first-child{border-top:0;padding-top:4px}
+.method__steps .step .feature__top{justify-content:flex-start}
+.ort{max-width:880px}
+.ort > div > p{max-width:68ch}
+h1.sh__title{max-width:20ch}
+.plan__note,.footer__region{max-width:70ch}
+[data-theme="dark"] .plan--main{border-color:#5E9BFF}
+[data-theme="dark"] .card--moss .badge{background:#247BFF;color:#fff}
+[data-theme="dark"] .btn--secondary{border-color:rgba(234,240,248,.55)}
+.about:has(.about__quote){grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);max-width:none;gap:clamp(40px,6vw,96px)}
+@media (max-width:960px){.about:has(.about__quote){grid-template-columns:minmax(0,1fr);gap:28px}}
+.media__card .btn--secondary{color:var(--navy);border-color:var(--navy)}
+.media__card .btn--secondary:hover{background:var(--navy);color:#fff}
+[data-theme="dark"] .media__card .btn--secondary{color:#EAF0F8;border-color:rgba(234,240,248,.55)}
+/* Kleine Textlinks im hellen Bereich in lesbarem Blau, auf dunklen Flächen hell */
+:root:not([data-theme="dark"]) :is(p,li,.lead) a:not(.btn){color:var(--blue-text)}
+:is(.section--alt,.section--navy,.method,.cta,.cta__panel) :is(p,li,.lead) a:not(.btn){color:#8DB4FF!important}

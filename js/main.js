@@ -56,11 +56,20 @@
   // ---- Fortschritt, Nach oben, Sticky-CTA ----
   var totop = document.querySelector('.totop'), sticky = document.querySelector('.sticky-cta'), heroEl = document.querySelector('.hero');
   var heroImg = (!reduce && finePointer) ? document.querySelector('.hero__img') : null;
+  // Sticky-CTA ausblenden, solange Preise, CTA-Band oder Footer sichtbar sind (kein Verdecken, keine Doppelung)
+  var ctaInView = false, seen = new Set();
+  if (sticky && 'IntersectionObserver' in window) {
+    var stickyIo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) seen.add(e.target); else seen.delete(e.target); });
+      ctaInView = seen.size > 0; onScroll();
+    });
+    document.querySelectorAll('.plans, .pricestrip, .cta, .footer, .form').forEach(function (el) { stickyIo.observe(el); });
+  }
   function onScroll() {
     var h = document.documentElement, max = h.scrollHeight - h.clientHeight, y = window.pageYOffset || h.scrollTop;
     if (nav) nav.classList.toggle('is-scrolled', y > 40);
     if (totop) totop.classList.toggle('is-visible', y > 600);
-    if (sticky) sticky.classList.toggle('is-visible', y > (heroEl ? heroEl.offsetHeight - 80 : 400));
+    if (sticky) sticky.classList.toggle('is-visible', y > (heroEl ? heroEl.offsetHeight - 80 : 400) && !ctaInView);
   }
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
   if (totop) totop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });

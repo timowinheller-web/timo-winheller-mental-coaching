@@ -5,3 +5,4 @@ desing/
 # Passwort fuer den Passwortschutz (nur lokal, nie committen)
 .password
 .salt
+.impeccable/
