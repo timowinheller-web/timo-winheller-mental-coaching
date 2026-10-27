@@ -5,7 +5,6 @@
    Kontext-Token: jede Fläche setzt --fg/--surface/--line/--accent, Komponenten lesen nur diese.
    Vorheriges Theme: css/stone-moss.css
    ============================================================ */
-@import url("fonts.css");
 
 :root{
   --night-950:#06090F;--night-900:#0A0F19;--night-800:#111826;--night-700:#1A2335;
@@ -1192,3 +1191,13 @@ a{color:var(--blue)}
 [data-theme="dark"] .kinetic__group>span{color:#EAF0F8}
 [data-theme="dark"] .kinetic__group>.kin-soft{color:rgba(234,240,248,.32)}
 @media (prefers-reduced-motion:reduce){.kinetic__track{animation:none}}
+
+/* ===== Audit 27.10.2026 (Lighthouse/WCAG AA): Kontraste ===== */
+:root{--blue-text:#1A5FD0}
+:root:not([data-theme="dark"]){--fg-3:rgba(7,20,38,.68)}
+.btn,.btn:hover,.nav__cta{color:var(--navy)}
+.btn{font-weight:650}
+.card--moss .badge{background:var(--blue-text)}
+.plan__note a{color:var(--blue-text)}
+.kinetic__group>.kin-soft{color:rgba(7,20,38,.46)}
+[data-theme="dark"] .plan__note a{color:#8DB4FF}

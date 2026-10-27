@@ -69,7 +69,7 @@ TODAY = datetime.date.today().isoformat()
 # Versionskennung für CSS/JS aus dem Dateiinhalt: Browser und CDN holen nach jeder Änderung die neue Datei.
 import hashlib
 GATE_V = hashlib.sha1((ROOT / "js/gate.js").read_bytes()).hexdigest()[:8]
-ASSET_V = hashlib.sha1(b"".join((ROOT / f).read_bytes() for f in ("css/style.css", "js/main.js", "js/neural.js", "js/field.js", "js/theme.js", "js/network.js"))).hexdigest()[:8]
+ASSET_V = hashlib.sha1(b"".join((ROOT / f).read_bytes() for f in ("css/style.css", "css/fonts.css", "js/main.js", "js/neural.js", "js/field.js", "js/theme.js", "js/network.js"))).hexdigest()[:8]
 
 # (dateiname, Menü-Label oder None, <title>, Beschreibung)
 PAGES = [
@@ -122,7 +122,7 @@ def icon(name, extra_class=""):
 
 def picture(name, alt="", cls="", opts=""):
     """<picture> mit WebP (687/420) und JPEG-Fallback. opts: 'eager' (Hero), 'sizes=…'."""
-    for f in (f"{name}.jpg", f"{name}.webp", f"{name}-420.webp", f"{name}-420.jpg"):
+    for f in (f"{name}.jpg", f"{name}.webp", f"{name}-560.webp", f"{name}-420.webp", f"{name}-420.jpg"):
         if not (ROOT / "img" / f).exists():
             sys.exit(f"Bildvariante fehlt: img/{f}, bitte python3 tools/images.py ausführen")
     o = [x.strip() for x in opts.split(",") if x.strip()]
@@ -130,7 +130,7 @@ def picture(name, alt="", cls="", opts=""):
     sizes = next((x[6:] for x in o if x.startswith("sizes=")), "(max-width: 700px) 100vw, 50vw")
     load = 'fetchpriority="high"' if eager else 'loading="lazy" decoding="async"'
     clsattr = f' class="{cls}"' if cls else ""
-    return (f'<picture><source type="image/webp" srcset="img/{name}-420.webp 420w, img/{name}.webp 687w" sizes="{sizes}">'
+    return (f'<picture><source type="image/webp" srcset="img/{name}-420.webp 420w, img/{name}-560.webp 560w, img/{name}.webp 687w" sizes="{sizes}">'
             f'<img{clsattr} src="img/{name}.jpg" srcset="img/{name}-420.jpg 420w, img/{name}.jpg 687w" sizes="{sizes}" '
             f'width="687" height="1024" alt="{html.escape(alt, quote=True)}" {load}></picture>')
 
@@ -152,18 +152,18 @@ def render_tokens(body):
 
 
 def brand():
-    return ('<a class="brand" href="index.html" aria-label="Timo Winheller Mental Coaching, Startseite">'
-            '<img class="brand__mark logo-light" src="img/logo-mark-96.png" alt="" width="148" height="34">'
-            '<img class="brand__mark logo-dark" src="img/logo-mark-96-dark.png" alt="" width="148" height="34">'
+    return ('<a class="brand" href="index.html">'
+            '<img class="brand__mark logo-light" src="img/logo-mark-96.webp" alt="" width="148" height="34">'
+            '<img class="brand__mark logo-dark" src="img/logo-mark-96-dark.webp" alt="" width="148" height="34">'
             '<span class="brand__text"><span class="brand__name"><span class="brand__first">TIMO</span> WINHELLER</span>'
             '<span class="brand__sub"><span class="brand__accent">MIND &amp;</span> <span class="brand__accent2">PERFORMANCE</span></span></span></a>')
 
 
 def brand_full(width=240):
     h = round(width * 352 / 968)
-    return (f'<a class="brand-full" href="index.html" aria-label="Timo Winheller Mental Coaching, Startseite">'
-            f'<img class="logo-light" src="img/logo-480.png" alt="Timo Winheller Mental Coaching" width="{width}" height="{h}">'
-            f'<img class="logo-dark" src="img/logo-480-dark.png" alt="Timo Winheller Mental Coaching" width="{width}" height="{h}"></a>')
+    return (f'<a class="brand-full" href="index.html" aria-label="Timo Winheller Mind &amp; Performance, Startseite">'
+            f'<img class="logo-light" src="img/logo-480.webp" alt="Timo Winheller Mind &amp; Performance" width="{width}" height="{h}">'
+            f'<img class="logo-dark" src="img/logo-480-dark.webp" alt="Timo Winheller Mind &amp; Performance" width="{width}" height="{h}"></a>')
 
 
 def json_ld(slug, title, body):
@@ -261,9 +261,9 @@ def head(slug, title, desc, body):
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preload" href="css/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="css/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="css/fonts/geist-mono-normal-400.woff2" as="font" type="font/woff2" crossorigin>
 {hero_preload}
 <script src="js/theme.js?v={ASSET_V}"></script>
+<link rel="stylesheet" href="css/fonts.css?v={ASSET_V}">
 <link rel="stylesheet" href="css/style.css?v={ASSET_V}">
 {json_ld(slug, title, body)}{CONFIG["ANALYTICS_HTML"]}
 </head>
@@ -317,9 +317,9 @@ def footer(slug):
 </footer>
 <button class="iconbtn totop" type="button" aria-label="Nach oben">{icon("arrow-up")}</button>
 {sticky}
-<script src="js/network.js?v={ASSET_V}"></script>
-<script src="js/neural.js?v={ASSET_V}"></script>
-<script src="js/main.js?v={ASSET_V}"></script>
+<script defer src="js/network.js?v={ASSET_V}"></script>
+<script defer src="js/neural.js?v={ASSET_V}"></script>
+<script defer src="js/main.js?v={ASSET_V}"></script>
 </body>
 </html>
 """
@@ -337,8 +337,9 @@ def gate_shell(slug, title, payload):
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#06090F">
 <link rel="icon" href="img/favicon.png" type="image/png">
-<script src="js/theme.js"></script>
-<link rel="stylesheet" href="css/style.css">
+<script src="js/theme.js?v={ASSET_V}"></script>
+<link rel="stylesheet" href="css/fonts.css?v={ASSET_V}">
+<link rel="stylesheet" href="css/style.css?v={ASSET_V}">
 </head>
 <body>
 <div class="bg" aria-hidden="true"></div>
