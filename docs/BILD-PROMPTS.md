@@ -1,80 +1,76 @@
-# Bild-Prompts: Theme „Morgen“ (hell, natürlich, zukunftsorientiert)
+# Bild-Prompts: Welt der Zielgruppe (Stand 27.10.2026)
 
-Je Motiv ein kompletter Prompt. Hochformat 2:3, mindestens 1024 px breit (besser 1344 × 2016).
-Jedes Bild einzeln als eigene Datei liefern, nicht als Collage. Gleiche Dateinamen, ablegen in `img/`,
-dann `python3 tools/images.py`, `python3 build.py`, `git push`.
+Ersetzt die Natur- und Sonnenaufgangs-Serie. Die Impeccable-Kritik vom 27.10. hat gezeigt: Die Bilder sahen nach
+Meditations-Retreat aus, die Texte sprechen aber Menschen unter Druck an (Führung, Finanzen, Sport).
+Neue Regel: Bilder zeigen den Moment vor oder nach der Belastung, hell, echt, ruhig. Keine erkennbaren Gesichter
+(niemand soll für einen Klienten oder für Timo gehalten werden). Kleine Akzente in Navy und Koralle verbinden die Bilder mit dem Logo.
 
-## Große Flächen
+Lieferung: jedes Motiv einzeln, Hochformat 2:3, mindestens 1024 × 1536 px, gleiche Dateinamen als .jpg nach `img/`.
+Danach: `python3 tools/images.py`, `python3 build.py`, `git push`.
 
-### 1. `kopf-natur.jpg` (Hero, Vorschalt-Seite, Social-Bild)
+| Datei | Wo es steht |
+|---|---|
+| kopf-natur.jpg | Hero Startseite, Passwortseite |
+| ruhe.jpg | kleines Hero-Bild, Über mich |
+| herz.jpg | Selbstcheck (Liste liegt auf der unteren Hälfte) |
+| kette-frei.jpg | Kachel „Blockaden lösen“, Check |
+| gehirn-verstand-gefuehl.jpg | Kachel „Glaubenssätze“, Methoden |
+| atem.jpg | Kachel „Stress & Regulation“, Reset |
+| treppe.jpg | Karte „Führung & Verantwortung“, Angebot, Oberberg |
+| haende-wachstum.jpg | Karte „Finanzen & Investments“, Angebot |
+| staerke.jpg | Karte „Sport & Wettkampf“, Über mich |
+| raum.jpg | Abschluss-Band, Kontakt, Oberberg |
 
+## 1. kopf-natur.jpg (Hero)
 ```
-a person seen from behind standing on a grassy hilltop at sunrise, looking out over rolling green hills of the German low mountains with soft morning mist in the valleys, wide open light-blue sky, warm sun just above the horizon, the person small in the right third of the frame, face not visible, calm empty foreground in the lower left, bright natural editorial photograph, real location, soft morning sunlight, airy and optimistic mood, light sky-blue and fresh green tones with warm golden highlights, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no retouching, no HDR, no glow, no CGI, no text, no logo, no watermark, vertical 2:3, 1344x2016
-```
-
-### 2. `raum.jpg` (CTA-Band, Kontakt, Angebot, Region)
-
-```
-a bright, calm coaching room in the morning, two comfortable linen armchairs facing each other next to a large window with a view into green trees, a small side table with a glass of water, a tall green plant, light oak floor, white walls, soft daylight falling across the room, no people, main subject in the vertical center of the frame, bright natural editorial photograph, real location, soft morning sunlight, airy and optimistic mood, light sky-blue and fresh green tones with warm golden highlights, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no retouching, no HDR, no glow, no CGI, no text, no logo, no watermark, vertical 2:3, 1344x2016
-```
-
-### 3. `herz.jpg` (Selbstcheck (Checkliste liegt auf der unteren Hälfte))
-
-```
-looking straight up into a bright beech tree canopy in spring, fresh light-green leaves forming a natural pattern against a clear light-blue sky, sunlight filtering through the leaves, the most detailed part in the upper half of the frame, calmer lower half, bright natural editorial photograph, real location, soft morning sunlight, airy and optimistic mood, light sky-blue and fresh green tones with warm golden highlights, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no retouching, no HDR, no glow, no CGI, no text, no logo, no watermark, vertical 2:3, 1344x2016
-```
-
-### 4. `treppe.jpg` (Ablauf-Panel, Angebot, Region)
-
-```
-a narrow wooden staircase leading up a green grassy hill towards a bright open sky, morning sun from the side casting soft shadows on the steps, small wildflowers along the edges, a sense of moving forward and upward, no people, bright natural editorial photograph, real location, soft morning sunlight, airy and optimistic mood, light sky-blue and fresh green tones with warm golden highlights, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no retouching, no HDR, no glow, no CGI, no text, no logo, no watermark, vertical 2:3, 1344x2016
+a man in his forties seen from behind, standing at a large window of a modern office early in the morning, one hand in his pocket, a closed laptop and a coffee cup on the desk beside him, view over a small German town and green wooded hills, the quiet moment before an important day, person in the right third of the frame, calm open space on the left, bright natural editorial photograph, real location in Germany, soft daylight, calm and confident mood, clean modern look, small accents of deep navy blue and warm coral in the props, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no sunrise, no lens flare, no glow, no HDR, no CGI, no readable text, no logo, no watermark, vertical 2:3, 1024x1536
 ```
 
-## Themen-Kacheln (unteres Drittel bleibt ruhig, dort liegt die Bildunterschrift)
-
-### 5. `staerke.jpg` (Kachel „Mentale Stärke“)
-
+## 2. ruhe.jpg (kleines Hero-Bild)
 ```
-a runner in simple dark sportswear seen from behind on an empty country road at sunrise, mid-stride, long soft shadow, golden morning light, green fields and a light-blue sky, runner in the upper two thirds of the frame, calm road in the lower third, face not visible, bright natural editorial photograph, real location, soft morning sunlight, airy and optimistic mood, light sky-blue and fresh green tones with warm golden highlights, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no retouching, no HDR, no glow, no CGI, no text, no logo, no watermark, vertical 2:3, 1344x2016
+close-up of two hands holding a simple white coffee cup above a wooden desk, an open navy notebook with illegible handwriting and a coral pen beside it, morning daylight from a window, shallow depth of field, intimate and calm, bright natural editorial photograph, real location in Germany, soft daylight, calm and confident mood, clean modern look, small accents of deep navy blue and warm coral in the props, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no sunrise, no lens flare, no glow, no HDR, no CGI, no readable text, no logo, no watermark, vertical 2:3, 1024x1536
 ```
 
-### 6. `haende-wachstum.jpg` (Kachel „Finanzen & Investments“)
-
+## 3. herz.jpg (Selbstcheck)
 ```
-a single young tree standing alone on a sunlit green meadow on a gentle hill, morning light, clear light-blue sky with a few soft clouds, a sense of patience and long-term growth, tree in the upper two thirds of the frame, calm grass in the lower third, bright natural editorial photograph, real location, soft morning sunlight, airy and optimistic mood, light sky-blue and fresh green tones with warm golden highlights, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no retouching, no HDR, no glow, no CGI, no text, no logo, no watermark, vertical 2:3, 1344x2016
-```
-
-### 7. `atem.jpg` (Kachel „NLP & Sprache“, Reset-Seite)
-
-```
-white linen curtains gently moving in a breeze at an open window, bright morning light streaming in, a view of green trees and light-blue sky outside, fresh air, airy and light, curtain and window in the upper two thirds, calm floor area in the lower third, bright natural editorial photograph, real location, soft morning sunlight, airy and optimistic mood, light sky-blue and fresh green tones with warm golden highlights, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no retouching, no HDR, no glow, no CGI, no text, no logo, no watermark, vertical 2:3, 1344x2016
+top-down view of a tidy desk: a smartphone lying face down, a closed navy notebook, reading glasses and a glass of water, light oak surface, soft window light from the top of the frame, all objects in the upper half, the lower half is calm empty wood, sense of deliberately switching off, bright natural editorial photograph, real location in Germany, soft daylight, calm and confident mood, clean modern look, small accents of deep navy blue and warm coral in the props, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no sunrise, no lens flare, no glow, no HDR, no CGI, no readable text, no logo, no watermark, vertical 2:3, 1024x1536
 ```
 
-### 8. `gehirn-verstand-gefuehl.jpg` (Kachel „Neuro-Resonanz“, Methoden-Seite)
-
+## 4. kette-frei.jpg (Blockaden lösen)
 ```
-close-up of a fresh green leaf in backlight against a soft light-blue sky, its fine vein network clearly visible like a natural neural network, warm sun at the edge of the leaf, very shallow depth of field, leaf in the upper two thirds of the frame, bright natural editorial photograph, real location, soft morning sunlight, airy and optimistic mood, light sky-blue and fresh green tones with warm golden highlights, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no retouching, no HDR, no glow, no CGI, no text, no logo, no watermark, vertical 2:3, 1344x2016
-```
-
-### 9. `ruhe.jpg` (Kachel „Hypnose“, Über-mich-Seite)
-
-```
-a calm lake at sunrise with mirror-smooth water reflecting a pastel sky in light blue and soft peach, thin mist on the water, a simple wooden jetty leading into the lake, forested shore in the distance, deep calm, jetty and horizon in the upper two thirds, calm water in the lower third, bright natural editorial photograph, real location, soft morning sunlight, airy and optimistic mood, light sky-blue and fresh green tones with warm golden highlights, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no retouching, no HDR, no glow, no CGI, no text, no logo, no watermark, vertical 2:3, 1344x2016
+a hand pushing open a heavy dark door into a bright, sunlit corridor or courtyard, seen from inside, the door handle and hand sharp in the upper half, light streaming in, feeling of release and stepping forward, lower third calm and slightly darker for a caption, bright natural editorial photograph, real location in Germany, soft daylight, calm and confident mood, clean modern look, small accents of deep navy blue and warm coral in the props, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no sunrise, no lens flare, no glow, no HDR, no CGI, no readable text, no logo, no watermark, vertical 2:3, 1024x1536
 ```
 
-### 10. `kette-frei.jpg` (Kachel „Blockaden lösen“, Check-Seite)
-
+## 5. gehirn-verstand-gefuehl.jpg (Glaubenssätze)
 ```
-an old wooden garden gate standing wide open, a path leading through it into a sunny green meadow, morning light, light-blue sky, a sense of release and new possibilities, gate in the upper two thirds of the frame, calm path in the lower third, bright natural editorial photograph, real location, soft morning sunlight, airy and optimistic mood, light sky-blue and fresh green tones with warm golden highlights, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no retouching, no HDR, no glow, no CGI, no text, no logo, no watermark, vertical 2:3, 1344x2016
-```
-
-## Negativ-Prompt (für alle gleich)
-
-```
-dark, gloomy, night, moody, low key, sculpture, statue, glowing lines, neon, bioluminescent, fantasy, surreal, CGI, 3D render, illustration, painting, oversaturated, HDR, heavy vignette, perfect symmetry, text, letters, logo, watermark, deformed hands, extra limbs, visible face
+close-up of a notebook page with one handwritten sentence crossed out and a new sentence written below it in coral ink, handwriting deliberately illegible and blurred, a hand holding the pen resting on the page, warm daylight, focus on the moment of rewriting, lower third calm paper for a caption, bright natural editorial photograph, real location in Germany, soft daylight, calm and confident mood, clean modern look, small accents of deep navy blue and warm coral in the props, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no sunrise, no lens flare, no glow, no HDR, no CGI, no readable text, no logo, no watermark, vertical 2:3, 1024x1536
 ```
 
-## Porträt (`img/portrait.jpg`)
+## 6. atem.jpg (Stress & Regulation)
+```
+a woman seen from the side and slightly behind, sitting in a parked car before a meeting, both hands resting loosely on the steering wheel, shoulders relaxed, taking a slow breath, face turned away and not recognisable, bright overcast daylight through the windshield, a navy folder on the passenger seat, bright natural editorial photograph, real location in Germany, soft daylight, calm and confident mood, clean modern look, small accents of deep navy blue and warm coral in the props, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no sunrise, no lens flare, no glow, no HDR, no CGI, no readable text, no logo, no watermark, vertical 2:3, 1024x1536
+```
 
-Echtes Foto von dir, kein KI-Bild. Heller Hintergrund (helle Wand oder draußen vor unscharfem Grün), weiches Tageslicht
-von der Seite, Blick in die Kamera, einfarbige Kleidung (Dunkelblau passt zum Kobalt), Hochformat 4:5, mindestens 1200 × 1500 px.
+## 7. treppe.jpg (Führung & Verantwortung)
+```
+an empty modern meeting room minutes before a meeting, long light wooden table, a few chairs pulled slightly out, a blank whiteboard, a single navy folder and a glass of water at the head of the table, large windows with soft daylight and green trees outside, no people, sense of responsibility and focus, bright natural editorial photograph, real location in Germany, soft daylight, calm and confident mood, clean modern look, small accents of deep navy blue and warm coral in the props, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no sunrise, no lens flare, no glow, no HDR, no CGI, no readable text, no logo, no watermark, vertical 2:3, 1024x1536
+```
+
+## 8. haende-wachstum.jpg (Finanzen & Investments)
+```
+a calm home office desk in the evening with warm lamp light and blue dusk outside, a laptop screen showing an abstract out-of-focus line chart with no readable numbers, a hand resting relaxed next to the keyboard, a handwritten checklist on a card beside it, a cup of tea, discipline instead of panic, person not visible above the wrist, bright natural editorial photograph, real location in Germany, soft daylight, calm and confident mood, clean modern look, small accents of deep navy blue and warm coral in the props, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no sunrise, no lens flare, no glow, no HDR, no CGI, no readable text, no logo, no watermark, vertical 2:3, 1024x1536
+```
+
+## 9. staerke.jpg (Sport & Wettkampf)
+```
+low side view of an athlete settling into starting blocks on an empty red running track in the morning, hands on the white line, focus and stillness right before the start, head lowered so the face is not visible, stadium seats soft and out of focus, athlete in the upper two thirds, calm track surface in the lower third, bright natural editorial photograph, real location in Germany, soft daylight, calm and confident mood, clean modern look, small accents of deep navy blue and warm coral in the props, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no sunrise, no lens flare, no glow, no HDR, no CGI, no readable text, no logo, no watermark, vertical 2:3, 1024x1536
+```
+
+## 10. raum.jpg (Abschluss-Band)
+Hinweis: Am besten durch ein echtes Foto deines Raums ersetzen. Bis dahin ein neutrales Gesprächsmotiv, das nicht als „mein Praxisraum“ beschriftet wird.
+```
+two people in a conversation at a small round table by a large window, seen over the shoulder of one of them, only shoulders, arms and hands visible, two glasses of water and a notebook on the table, bright calm room with plants and light wood, attentive listening posture, the left half of the frame darker and calm for overlaid text, bright natural editorial photograph, real location in Germany, soft daylight, calm and confident mood, clean modern look, small accents of deep navy blue and warm coral in the props, true-to-life colors, gentle film grain, full-frame camera, 35mm lens, f/2.8, candid and slightly imperfect framing, no sunrise, no lens flare, no glow, no HDR, no CGI, no readable text, no logo, no watermark, vertical 2:3, 1024x1536
+```
+
+## Porträt (nur echtes Foto)
+Kein KI-Bild. Vorgaben stehen in docs/SHOTLISTE.md.
