@@ -153,14 +153,14 @@ def render_tokens(body):
 
 def brand():
     return ('<a class="brand" href="index.html" aria-label="Timo Winheller Mental Coaching, Startseite">'
-            '<img class="brand__mark logo-light" src="img/logo-mark-96.png" alt="" width="146" height="34">'
-            '<img class="brand__mark logo-dark" src="img/logo-mark-96-dark.png" alt="" width="146" height="34">'
+            '<img class="brand__mark logo-light" src="img/logo-mark-96.png" alt="" width="148" height="34">'
+            '<img class="brand__mark logo-dark" src="img/logo-mark-96-dark.png" alt="" width="148" height="34">'
             '<span class="brand__text"><span class="brand__name"><span class="brand__first">TIMO</span> WINHELLER</span>'
             '<span class="brand__sub"><span class="brand__accent">MIND &amp;</span> <span class="brand__accent2">PERFORMANCE</span></span></span></a>')
 
 
 def brand_full(width=240):
-    h = round(width * 551 / 1671)
+    h = round(width * 352 / 968)
     return (f'<a class="brand-full" href="index.html" aria-label="Timo Winheller Mental Coaching, Startseite">'
             f'<img class="logo-light" src="img/logo-480.png" alt="Timo Winheller Mental Coaching" width="{width}" height="{h}">'
             f'<img class="logo-dark" src="img/logo-480-dark.png" alt="Timo Winheller Mental Coaching" width="{width}" height="{h}"></a>')
