@@ -78,7 +78,7 @@ PAGES = [
     ("ueber-mich", "Über mich", "Über mich · Timo Winheller Mental Coaching",
      "Timo Winheller: Investor, Meister mit Führungspraxis, Neuro-Resonanz-Practitioner. Mental Coaching aus der Praxis, Macher statt Esoteriker. Reichshof und online."),
     ("angebot", "Angebot", "Angebot & Preise · Mental Coaching Reichshof & online",
-     "Einzelsitzung 150 € (60 Min), Themenpaket „Mentale Stärke“ mit 4 Sitzungen für 600 €, kostenloses Erstgespräch (20 Min). Transparent, ohne Mindestlaufzeit. Online oder in Reichshof."),
+     "150 € pro Sitzung (60 Min), keine Pakete, kostenloses Erstgespräch (20 Min). Transparent, ohne Mindestlaufzeit. Online oder in Reichshof."),
     ("methoden", "Methoden", "Methoden: NLP, Neuro-Resonanz, Hypnose · Timo Winheller",
      "Wie Mental Coaching mit NLP, Neuro-Resonanz und Hypnose funktioniert: Blockaden lösen, Glaubenssätze umbauen, Zustände steuern, verständlich erklärt, ohne Heilversprechen."),
     ("faq", "FAQ", "Fragen & Antworten · Mental Coaching Timo Winheller",
@@ -185,8 +185,7 @@ def json_ld(slug, title, body):
         '{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"09:00","closes":"18:00"}],'
         '"priceRange":"150 € pro Sitzung",'
         '"makesOffer":[{"@type":"Offer","name":"Kostenloses Erstgespräch (20 Minuten, online)","price":"0","priceCurrency":"EUR"},'
-        '{"@type":"Offer","name":"Einzelsitzung (60 Minuten)","price":"150","priceCurrency":"EUR"},'
-        '{"@type":"Offer","name":"Themenpaket Mentale Stärke (4 Sitzungen)","price":"600","priceCurrency":"EUR"}]}'
+        '{"@type":"Offer","name":"Coaching-Sitzung (60 Minuten)","price":"150","priceCurrency":"EUR"}]}'
     )
     blocks = [org]
     if slug != "index":

@@ -1216,7 +1216,7 @@ a{color:var(--blue)}
 .about__quote::after{content:"";display:block;width:120px;height:3px;margin-top:22px;border-radius:3px;background:linear-gradient(90deg,#5E9BFF,var(--coral))}
 
 /* Preisleiste auf der Startseite */
-.pricestrip{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line-2);border-radius:18px;background:rgba(255,255,255,.7);overflow:hidden}
+.pricestrip{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-width:760px;border:1px solid var(--line-2);border-radius:18px;background:rgba(255,255,255,.7);overflow:hidden}
 .pricestrip li{display:flex;flex-direction:column;gap:4px;padding:26px 28px;border-left:1px solid var(--line)}
 .pricestrip li:first-child{border-left:0}
 .pricestrip__main{background:var(--mist)}
