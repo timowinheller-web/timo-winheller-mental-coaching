@@ -1420,3 +1420,5 @@ h1.sh__title{max-width:20ch}
 /* Nav- und Footer-Links neutral, nicht Bordeaux */
 [data-theme="dark"] :is(.nav__links,.nav__menu,.footer__col,.footer__legal) a:not(.btn):not(.btn--x){color:rgba(236,239,244,.72)!important}
 [data-theme="dark"] :is(.nav__links,.nav__menu,.footer__col,.footer__legal) a:not(.btn):not(.btn--x):hover,[data-theme="dark"] :is(.nav__links,.nav__menu) a:not(.btn):not(.btn--x)[aria-current="page"]{color:#fff!important}
+/* Logo final 02.11.: „MIND &“ in der Nav blau wie im Logo */
+[data-theme="dark"] .brand__accent{color:#5E9BFF!important}

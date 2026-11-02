@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><style>
+@font-face{font-family:B;src:url("file:///Users/timowinheller/Claude/Website_Timo_Winheller/css/fonts/bricolage-latin.woff2");font-weight:200 800;font-stretch:75% 100%}
+@font-face{font-family:G;src:url("file:///Users/timowinheller/Claude/Website_Timo_Winheller/css/fonts/geist-latin.woff2");font-weight:100 900}
+html,body{margin:0}body{width:1700px;background:#0B0B0E;font-family:G;color:#ECEFF4}
+:root{--coral:#FF735F;--blue:#4D8DFF}
+.row{display:grid;grid-template-columns:230px 470px 470px 290px 240px;border-bottom:1px solid #26262c}
+.lab{padding:26px;display:flex;flex-direction:column;justify-content:center;font:700 26px G}.lab small{font:400 15px/1.45 G;color:#a4a4ad;margin-top:8px}
+.c{height:230px;display:flex;align-items:center;justify-content:center;gap:14px}
+.d{background:#141418;--ink:#ECEFF4;--sub:#a9abb4}.l{background:#F4F4F6;--ink:#141418;--sub:#5b5d66;color:#141418}
+.lock{display:flex;align-items:center;gap:18px}
+.wm b{display:block;font-family:B;font-weight:700;font-stretch:90%;font-size:38px;letter-spacing:-.02em;line-height:1;white-space:nowrap;color:var(--ink)}
+.wm i{display:block;font-style:normal;font:500 15px G;letter-spacing:.01em;margin-top:6px;color:var(--sub);white-space:nowrap}
+.wm i em{font-style:normal;color:var(--blue)}.wm i u{text-decoration:none;color:var(--coral)}
+.l .wm i em{color:#1A5FD0}.l .wm i u{color:#D9503C}
+.nav{display:flex;align-items:center;gap:10px;background:#1D1D22;border:1px solid rgba(255,255,255,.08);padding:10px 14px;border-radius:12px}
+.nav .wm b{font-size:19px}.nav .wm i{font-size:9px;margin-top:2px}
+.col{flex-direction:column}
+.mono{--ink:#fff;--c2:#fff}
+svg{overflow:visible}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<!-- 1 Wendepunkt: W, der tief fällt und höher wieder aufsteigt -->
+<symbol id="s1" viewBox="0 0 100 100"><path d="M8 30 L34 76 L50 48 L64 76" fill="none" stroke="var(--ink)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><path d="M64 76 L92 14" fill="none" stroke="var(--c2,#FF735F)" stroke-width="12" stroke-linecap="round"/></symbol>
+<!-- 2 Musterbruch: 3x3 Raster, ein Punkt bricht aus -->
+<symbol id="s2" viewBox="0 0 100 100"><g fill="var(--ink)"><circle cx="18" cy="38" r="8"/><circle cx="44" cy="38" r="8"/><circle cx="18" cy="64" r="8"/><circle cx="44" cy="64" r="8"/><circle cx="70" cy="64" r="8"/><circle cx="18" cy="90" r="8"/><circle cx="44" cy="90" r="8"/><circle cx="70" cy="90" r="8"/></g><circle cx="84" cy="14" r="10" fill="var(--c2,#FF735F)"/><path d="M70 38 L80 22" stroke="var(--c2,#FF735F)" stroke-width="5" stroke-linecap="round" opacity=".5"/></symbol>
+<!-- 3 Monogramm TW: Querbalken als T, mittlere Spitze des W ist der Stamm -->
+<symbol id="s3" viewBox="0 0 100 100"><path d="M18 14 H82" stroke="var(--c2,#FF735F)" stroke-width="12" stroke-linecap="square"/><path d="M50 14 V44 M10 34 L30 88 L50 44 L70 88 L90 34" fill="none" stroke="var(--ink)" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2"/></symbol>
+<!-- 4 Puls zu Linie: unruhige Kurve wird zur ruhigen, steigenden Linie -->
+<symbol id="s4" viewBox="0 0 100 100"><path d="M6 60 L16 60 L22 40 L30 80 L38 30 L46 70 L52 56 C 62 48, 74 40, 94 24" fill="none" stroke="var(--ink)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="94" cy="24" r="8" fill="var(--c2,#FF735F)"/></symbol>
+</defs></svg>
+<div class="row"><div class="lab">1 · Wendepunkt<small>Ein W, das tief fällt und höher wieder aufsteigt. Druck, Tiefpunkt, Aufstieg. Der Aufstieg in Koralle.</small></div>
+<div class="c d"><div class="lock"><svg width="86" height="86"><use href="#s1"/></svg><div class="wm"><b>Timo Winheller</b><i><em>Mind</em> &amp; <u>Performance</u></i></div></div></div>
+<div class="c l"><div class="lock"><svg width="86" height="86"><use href="#s1"/></svg><div class="wm"><b>Timo Winheller</b><i><em>Mind</em> &amp; <u>Performance</u></i></div></div></div>
+<div class="c d col"><div class="nav"><svg width="34" height="34"><use href="#s1"/></svg><div class="wm"><b>Timo Winheller</b><i><em>Mind</em> &amp; <u>Performance</u></i></div></div><div class="nav mono" style="background:#141418"><svg width="34" height="34"><use href="#s1"/></svg><div class="wm"><b style="color:#fff">Timo Winheller</b></div></div></div>
+<div class="c d"><svg width="64" height="64" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#1D1D22"/><svg x="12" y="12" width="40" height="40" style="--ink:#ECEFF4"><use href="#s1"/></svg></svg><svg width="32" height="32" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#FF735F"/><svg x="12" y="12" width="40" height="40" style="--ink:#141418;--c2:#fff"><use href="#s1"/></svg></svg><svg width="16" height="16" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#1D1D22"/><svg x="8" y="8" width="48" height="48" style="--ink:#ECEFF4"><use href="#s1"/></svg></svg></div></div><div class="row"><div class="lab">2 · Musterbruch<small>Ein Raster aus gleichen Punkten, einer bricht aus. „Muster statt Symptom“ als Zeichen.</small></div>
+<div class="c d"><div class="lock"><svg width="86" height="86"><use href="#s2"/></svg><div class="wm"><b>Timo Winheller</b><i><em>Mind</em> &amp; <u>Performance</u></i></div></div></div>
+<div class="c l"><div class="lock"><svg width="86" height="86"><use href="#s2"/></svg><div class="wm"><b>Timo Winheller</b><i><em>Mind</em> &amp; <u>Performance</u></i></div></div></div>
+<div class="c d col"><div class="nav"><svg width="34" height="34"><use href="#s2"/></svg><div class="wm"><b>Timo Winheller</b><i><em>Mind</em> &amp; <u>Performance</u></i></div></div><div class="nav mono" style="background:#141418"><svg width="34" height="34"><use href="#s2"/></svg><div class="wm"><b style="color:#fff">Timo Winheller</b></div></div></div>
+<div class="c d"><svg width="64" height="64" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#1D1D22"/><svg x="12" y="12" width="40" height="40" style="--ink:#ECEFF4"><use href="#s2"/></svg></svg><svg width="32" height="32" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#FF735F"/><svg x="12" y="12" width="40" height="40" style="--ink:#141418;--c2:#fff"><use href="#s2"/></svg></svg><svg width="16" height="16" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#1D1D22"/><svg x="8" y="8" width="48" height="48" style="--ink:#ECEFF4"><use href="#s2"/></svg></svg></div></div><div class="row"><div class="lab">3 · Monogramm<small>T und W aus einem Guss, kantig wie ein Meisterstempel. Der Querbalken in Koralle.</small></div>
+<div class="c d"><div class="lock"><svg width="86" height="86"><use href="#s3"/></svg><div class="wm"><b>Timo Winheller</b><i><em>Mind</em> &amp; <u>Performance</u></i></div></div></div>
+<div class="c l"><div class="lock"><svg width="86" height="86"><use href="#s3"/></svg><div class="wm"><b>Timo Winheller</b><i><em>Mind</em> &amp; <u>Performance</u></i></div></div></div>
+<div class="c d col"><div class="nav"><svg width="34" height="34"><use href="#s3"/></svg><div class="wm"><b>Timo Winheller</b><i><em>Mind</em> &amp; <u>Performance</u></i></div></div><div class="nav mono" style="background:#141418"><svg width="34" height="34"><use href="#s3"/></svg><div class="wm"><b style="color:#fff">Timo Winheller</b></div></div></div>
+<div class="c d"><svg width="64" height="64" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#1D1D22"/><svg x="12" y="12" width="40" height="40" style="--ink:#ECEFF4"><use href="#s3"/></svg></svg><svg width="32" height="32" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#FF735F"/><svg x="12" y="12" width="40" height="40" style="--ink:#141418;--c2:#fff"><use href="#s3"/></svg></svg><svg width="16" height="16" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#1D1D22"/><svg x="8" y="8" width="48" height="48" style="--ink:#ECEFF4"><use href="#s3"/></svg></svg></div></div><div class="row"><div class="lab">4 · Puls → Linie<small>Unruhiger Ausschlag wird zur ruhigen, steigenden Linie. Stress, Regulation, Richtung.</small></div>
+<div class="c d"><div class="lock"><svg width="86" height="86"><use href="#s4"/></svg><div class="wm"><b>Timo Winheller</b><i><em>Mind</em> &amp; <u>Performance</u></i></div></div></div>
+<div class="c l"><div class="lock"><svg width="86" height="86"><use href="#s4"/></svg><div class="wm"><b>Timo Winheller</b><i><em>Mind</em> &amp; <u>Performance</u></i></div></div></div>
+<div class="c d col"><div class="nav"><svg width="34" height="34"><use href="#s4"/></svg><div class="wm"><b>Timo Winheller</b><i><em>Mind</em> &amp; <u>Performance</u></i></div></div><div class="nav mono" style="background:#141418"><svg width="34" height="34"><use href="#s4"/></svg><div class="wm"><b style="color:#fff">Timo Winheller</b></div></div></div>
+<div class="c d"><svg width="64" height="64" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#1D1D22"/><svg x="12" y="12" width="40" height="40" style="--ink:#ECEFF4"><use href="#s4"/></svg></svg><svg width="32" height="32" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#FF735F"/><svg x="12" y="12" width="40" height="40" style="--ink:#141418;--c2:#fff"><use href="#s4"/></svg></svg><svg width="16" height="16" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#1D1D22"/><svg x="8" y="8" width="48" height="48" style="--ink:#ECEFF4"><use href="#s4"/></svg></svg></div></div></body></html>
