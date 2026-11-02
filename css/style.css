@@ -1417,3 +1417,6 @@ h1.sh__title{max-width:20ch}
 [data-theme="dark"] .mrow[style*="#247BFF"]{--c:#C8224F}
 [data-theme="dark"] .mrow[style*="#071426"]{--c:#8A8A94}
 [data-theme="dark"] .section--alt::after{background:radial-gradient(closest-side,rgba(200,34,79,.16),transparent)}
+/* Nav- und Footer-Links neutral, nicht Bordeaux */
+[data-theme="dark"] :is(.nav__links,.nav__menu,.footer__col,.footer__legal) a:not(.btn):not(.btn--x){color:rgba(236,239,244,.72)!important}
+[data-theme="dark"] :is(.nav__links,.nav__menu,.footer__col,.footer__legal) a:not(.btn):not(.btn--x):hover,[data-theme="dark"] :is(.nav__links,.nav__menu) a:not(.btn):not(.btn--x)[aria-current="page"]{color:#fff!important}

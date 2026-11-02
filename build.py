@@ -69,6 +69,7 @@ TODAY = datetime.date.today().isoformat()
 # Versionskennung für CSS/JS aus dem Dateiinhalt: Browser und CDN holen nach jeder Änderung die neue Datei.
 import hashlib
 GATE_V = hashlib.sha1((ROOT / "js/gate.js").read_bytes()).hexdigest()[:8]
+LOGO_V = hashlib.sha1(b"".join((ROOT / f).read_bytes() for f in ("img/logo-mark-96.webp","img/logo-mark-96-dark.webp","img/logo-480.webp","img/logo-480-dark.webp","img/favicon.png"))).hexdigest()[:8]
 ASSET_V = hashlib.sha1(b"".join((ROOT / f).read_bytes() for f in ("css/style.css", "css/fonts.css", "js/main.js", "js/neural.js", "js/field.js", "js/theme.js", "js/network.js"))).hexdigest()[:8]
 
 # (dateiname, Menü-Label oder None, <title>, Beschreibung)
@@ -153,8 +154,8 @@ def render_tokens(body):
 
 def brand():
     return ('<a class="brand" href="index.html">'
-            '<img class="brand__mark logo-light" src="img/logo-mark-96.webp" alt="" width="148" height="34">'
-            '<img class="brand__mark logo-dark" src="img/logo-mark-96-dark.webp" alt="" width="148" height="34">'
+            f'<img class="brand__mark logo-light" src="img/logo-mark-96.webp?v={LOGO_V}" alt="" width="148" height="34">'
+            f'<img class="brand__mark logo-dark" src="img/logo-mark-96-dark.webp?v={LOGO_V}" alt="" width="148" height="34">'
             '<span class="brand__text"><span class="brand__name"><span class="brand__first">TIMO</span> WINHELLER</span>'
             '<span class="brand__sub"><span class="brand__accent">MIND &amp;</span> <span class="brand__accent2">PERFORMANCE</span></span></span></a>')
 
@@ -162,8 +163,8 @@ def brand():
 def brand_full(width=240):
     h = round(width * 352 / 968)
     return (f'<a class="brand-full" href="index.html" aria-label="Timo Winheller Mind &amp; Performance, Startseite">'
-            f'<img class="logo-light" src="img/logo-480.webp" alt="Timo Winheller Mind &amp; Performance" width="{width}" height="{h}">'
-            f'<img class="logo-dark" src="img/logo-480-dark.webp" alt="Timo Winheller Mind &amp; Performance" width="{width}" height="{h}"></a>')
+            f'<img class="logo-light" src="img/logo-480.webp?v={LOGO_V}" alt="Timo Winheller Mind &amp; Performance" width="{width}" height="{h}">'
+            f'<img class="logo-dark" src="img/logo-480-dark.webp?v={LOGO_V}" alt="Timo Winheller Mind &amp; Performance" width="{width}" height="{h}"></a>')
 
 
 def json_ld(slug, title, body):
@@ -256,7 +257,7 @@ def head(slug, title, desc, body):
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{desc}">
 <meta name="twitter:image" content="{BASE_URL}img/og.jpg">
-<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="icon" href="img/favicon.png?v={LOGO_V}" type="image/png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preload" href="css/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="css/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -335,7 +336,7 @@ def gate_shell(slug, title, payload):
 <meta name="description" content="Hier entsteht etwas Neues: Timo Winheller Mental Coaching, Reichshof und online.">
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#06090F">
-<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="icon" href="img/favicon.png?v={LOGO_V}" type="image/png">
 <script src="js/theme.js?v={ASSET_V}"></script>
 <link rel="stylesheet" href="css/fonts.css?v={ASSET_V}">
 <link rel="stylesheet" href="css/style.css?v={ASSET_V}">
