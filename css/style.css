@@ -1340,3 +1340,47 @@ h1.sh__title{max-width:20ch}
 .mrow::after{left:22px;right:22px;width:auto;transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease-out)}
 .mrow:hover::after{width:auto;transform:scaleX(1)}
 @media (max-width:640px){.hero__sub{font-size:1.6rem}}
+
+/* ===== 02.11.2026 Dunkel als Standard: „Anthrazit & Mitternacht" (macOS-Dark-Anmutung) =====
+   Grund: Verlauf Anthrazit #1A1E26 oben → Mitternacht #070A12 unten. Flächen: Graphit mit 1-px-Lichtkante.
+   Bänder (Problem/Ansatz/Über mich) sind tiefer statt blauer. Blau/Koralle bleiben Akzente. */
+[data-theme="dark"]{--mist:#171B23;--graphite:#1C2029;--graphite-2:#222733;--edge:rgba(255,255,255,.07);--edge-2:rgba(255,255,255,.12);--fg:#ECEFF4;--fg-2:rgba(236,239,244,.74);--fg-3:rgba(236,239,244,.56);--line:var(--edge);--line-2:var(--edge-2)}
+[data-theme="dark"] html,[data-theme="dark"] body{background:#0B0E15}
+[data-theme="dark"] .bg{display:block!important;background:linear-gradient(180deg,#1A1E26 0%,#12161E 38%,#0B0E15 70%,#070A12 100%)}
+[data-theme="dark"] .bg::before,[data-theme="dark"] .bg::after{display:none}
+[data-theme="dark"] .bg-lines{color:rgba(141,166,255,.07)}
+[data-theme="dark"] .hero__glow span:nth-child(1){background:rgba(36,123,255,.14)}
+[data-theme="dark"] .hero__glow span:nth-child(2){background:rgba(255,115,95,.07)}
+/* Abschnitte: Standard transparent auf dem Verlauf, Bänder als tiefere Stufe */
+[data-theme="dark"] .section{background:transparent}
+[data-theme="dark"] :is(.section--alt,.section--navy,.method,.brain,.cta__panel,.section--light){background:rgba(7,10,18,.55)!important;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+[data-theme="dark"] .section--navy::before{background:radial-gradient(closest-side,rgba(36,123,255,.16),transparent)}
+[data-theme="dark"] .section--navy::after{background:radial-gradient(closest-side,rgba(255,115,95,.1),transparent)}
+[data-theme="dark"] .footer{background:#070A12;border-top:1px solid var(--edge)}
+/* Flächen: Graphit mit Lichtkante, wie Fenster in macOS */
+[data-theme="dark"] :is(.card,.card--frost,.check__progress,.form.card,.panel:not(.panel--dark):not(.hero__panel),.glass:not(.nav__menu):not(.sticky-cta),.frame__note,.gate__panel,.card--inset,.audience__no,.acc__item,.mrow,.pricestrip,.cta__steps li,.audience .audience__card){background:var(--graphite);border:1px solid var(--edge);box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+[data-theme="dark"] :is(.section--alt,.method,.ctx-volt) .card{background:var(--graphite)}
+[data-theme="dark"] .card--interactive:hover,[data-theme="dark"] .mrow:hover{background:var(--graphite-2)}
+[data-theme="dark"] .pricestrip__main{background:#0D1E3A}
+[data-theme="dark"] .pricestrip__main .pricestrip__amount{color:#FF8B7A}
+[data-theme="dark"] .pricestrip__amount{color:#ECEFF4}
+[data-theme="dark"] .audience .audience__card{border-top:1px solid var(--edge)}
+[data-theme="dark"] :is(h1,h2,h3,.display,.sh__title,.cta__title,.mrow__name,.process strong,.hero__facts strong,.brand__name,.hero__sub){color:#ECEFF4}
+[data-theme="dark"] .hero__sub .t-blue{color:#6FA6FF}
+[data-theme="dark"] .process__n{background:#0B0E15}
+/* Navigation: dunkles Glas wie die macOS-Menüleiste */
+[data-theme="dark"] .nav__bar{background:rgba(22,26,34,.72);border:1px solid var(--edge);-webkit-backdrop-filter:blur(24px) saturate(1.4);backdrop-filter:blur(24px) saturate(1.4)}
+[data-theme="dark"] .nav.is-scrolled .nav__bar{background:rgba(18,22,30,.9);box-shadow:none}
+[data-theme="dark"] .nav__menu{background:#1C2029;border-color:var(--edge)}
+[data-theme="dark"] :is(.iconbtn,.nav__toggle,.btn--secondary){background:rgba(255,255,255,.04);border-color:var(--edge-2);color:#ECEFF4}
+[data-theme="dark"] .btn--secondary:hover{background:#ECEFF4;color:#0B0E15}
+[data-theme="dark"] .sticky-cta{background:rgba(22,26,34,.9);border-color:var(--edge)}
+[data-theme="dark"] :is(.tile__cap,.media__card){background:rgba(18,22,30,.8);border:1px solid var(--edge)}
+[data-theme="dark"] :is(.input,.textarea,.select,.radio span,.checkbox__box,.badge){background:#12161E;border-color:var(--edge-2)}
+[data-theme="dark"] .cta--image::before{background:linear-gradient(90deg,rgba(7,10,18,.96) 0%,rgba(7,10,18,.9) 60%,rgba(7,10,18,.72) 100%)}
+[data-theme="dark"] .cta__steps li{background:rgba(28,32,41,.75)}
+[data-theme="dark"] :is(.hero__img,.tile img,.media img,.frame img,.audience__img img,.cta__bg img){filter:brightness(.86) saturate(.92) contrast(1.04)}
+[data-theme="dark"] .hv-tag{background:#1C2029;border:1px solid var(--edge-2)}
+[data-theme="dark"] .hv--small{border-color:#12161E}
+[data-theme="dark"] .mp__wave path{opacity:.9}
+@media (max-width:640px){[data-theme="dark"] :is(.section--alt,.section--navy,.method,.brain,.cta__panel,.section--light){-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(7,10,18,.7)!important}}

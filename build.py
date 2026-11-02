@@ -231,7 +231,7 @@ def head(slug, title, desc, body):
     robots = '<meta name="robots" content="noindex,nofollow">' if slug in NOINDEX else '<meta name="robots" content="index,follow,max-image-preview:large">'
     hero_preload = '<link rel="preload" as="image" href="img/kopf-natur.webp" type="image/webp" fetchpriority="high">' if slug == "index" else ""
     return f"""<!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -327,7 +327,7 @@ def footer(slug):
 def gate_shell(slug, title, payload):
     """Vorschalt-Seite mit verschlüsseltem Inhalt der eigentlichen Seite."""
     return f"""<!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
