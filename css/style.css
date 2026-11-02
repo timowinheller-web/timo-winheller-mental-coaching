@@ -1250,3 +1250,93 @@ h1.sh__title{max-width:20ch}
 /* Kleine Textlinks im hellen Bereich in lesbarem Blau, auf dunklen Flächen hell */
 :root:not([data-theme="dark"]) :is(p,li,.lead) a:not(.btn){color:var(--blue-text)}
 :is(.section--alt,.section--navy,.method,.cta,.cta__panel) :is(p,li,.lead) a:not(.btn){color:#8DB4FF!important}
+
+/* ===== Audit 01.11.2026 (taste-skill): Headline, Zitat, Mobil, Dekor, CTA-Band ===== */
+/* 1. Hero: eine Aussage als H1, der Rest als Statement-Absatz */
+.hero--clean .hero__title{max-width:12ch}
+.hero__sub{margin:18px 0 0;font-family:var(--font-display);font-weight:700;font-stretch:var(--stretch-display);font-size:clamp(1.5rem,2.4vw,2.25rem);line-height:1.12;letter-spacing:-.02em;color:var(--navy);max-width:22ch;text-wrap:balance}
+.hero__sub .t-blue{color:var(--blue-text)}
+.hero--clean .hero__sub+.lead{margin-top:22px}
+[data-theme="dark"] .hero__sub{color:#EAF0F8}
+[data-theme="dark"] .hero__sub .t-blue{color:#8DB4FF}
+@media (max-width:640px){.hero__sub{font-size:1.35rem}}
+/* 2. Zitat als Statement-Absatz, ohne Verlaufsbalken */
+.about__quote p{font-size:clamp(1.5rem,2.6vw,2.25rem);line-height:1.2;max-width:22ch}
+.about__quote::after{display:none}
+@media (max-width:640px){.about__quote p{font-size:1.4rem}}
+/* 3. Mobil: Themen-Kacheln untereinander statt Seitenscroll */
+@media (max-width:640px){
+  .grid--tiles{display:grid;grid-template-columns:1fr;gap:14px;overflow:visible;padding:0;margin:0;scroll-snap-type:none}
+  .grid--tiles .tile{flex:none;aspect-ratio:16/10}
+}
+/* 4. Dekor: keine Schatten auf ruhenden Flächen, keine Haarlinien, kein Glas auf Karten */
+.hv--main,.hv--small,.hv-tag{box-shadow:none}
+.hv-tag{background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none;border:0}
+.hv--main::after{display:none}
+.hero__facts{border-top:0;padding-top:0;margin-top:34px;gap:28px}
+.hero__facts div{border-right:0;margin-right:0;padding:0}
+.card,.card--frost,.check__progress,.form.card,.panel:not(.panel--dark):not(.hero__panel),.glass:not(.nav__menu):not(.sticky-cta):not(.hero__glass):not(.strip):not(.brain__panel){background:#FFFFFF;border:0;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+.section--alt .card,.method .card{background:#FFFFFF;border:0}
+.media__card .selfcheck{border-top:0;padding-top:4px;margin-top:10px}
+.signals li{border-bottom:0;padding:9px 0}
+.signals__item{padding:10px 0}
+.pricestrip{border:0;background:var(--mist);border-radius:18px}
+.pricestrip li{border-left:0}
+.pricestrip__main{background:var(--navy)}
+.pricestrip__main .pricestrip__name,.pricestrip__main .pricestrip__meta{color:rgba(255,255,255,.82)}
+.pricestrip__main .pricestrip__amount{color:#FF8B7A}
+@media (max-width:760px){.pricestrip li{border-top:0}}
+[data-theme="dark"] .pricestrip{background:#121824}
+[data-theme="dark"] .pricestrip__main{background:#2743C9}
+.acc__item,.acc__item:last-child{border:0}
+.acc__btn{padding:18px 4px}
+.acc__item+.acc__item{margin-top:2px}
+.acc__item{background:var(--mist);border-radius:14px;padding:0 18px}
+.acc__panel p{padding-right:40px}
+[data-theme="dark"] .acc__item{background:#121824}
+.footer__region,.footer__bottom{border-top:0}
+.footer__region{padding-top:0}
+/* Schriftgrößen: nichts Lesbares unter 14 px, weniger Stufen */
+.caption,.faint,.plan__note,.footer__region,.footer__bottom,.footer__legal a,.pricestrip__meta,.hero__facts span,.tile__body,.audience__card>p,.audience__card .signals li,.media__card .selfcheck p{font-size:.95rem}
+.footer__title{font-size:.95rem;letter-spacing:0;text-transform:none;font-weight:650}
+.badge{font-size:.85rem;letter-spacing:.02em;text-transform:none;font-family:var(--font-sans)}
+/* 5. CTA-Band: rechte Hälfte trägt den Ablauf; Zielgruppen als wechselnde Reihen statt Kartenreihe */
+.cta__wrap--split{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(40px,6vw,96px);align-items:center}
+.cta--image .cta__inner{max-width:none}
+.cta__steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.cta__steps li{display:flex;flex-direction:column;gap:4px;padding:20px 24px;border-radius:16px;background:rgba(255,255,255,.1)}
+.cta__steps strong{font-family:var(--font-display);font-weight:700;font-size:1.15rem;color:#fff}
+.cta__steps span{font-size:.95rem;color:rgba(255,255,255,.8);line-height:1.5}
+.cta--image::before{background:linear-gradient(90deg,rgba(7,20,38,.95) 0%,rgba(7,20,38,.9) 60%,rgba(7,20,38,.7) 100%)}
+@media (max-width:960px){.cta__wrap--split{grid-template-columns:minmax(0,1fr);gap:36px}}
+.audience{display:flex;flex-direction:column;gap:18px}
+.audience .audience__card{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:0 clamp(24px,4vw,56px);align-items:center;padding:0!important;border:0;border-radius:20px!important;background:var(--mist);overflow:hidden}
+.audience .audience__card:nth-child(even){grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
+.audience .audience__card:nth-child(even) .audience__img{order:2}
+.audience__img{margin:0;aspect-ratio:4/3;height:100%}
+.audience__img::after{display:none}
+.audience .audience__card>h3,.audience .audience__card>p,.audience .audience__card>.signals{grid-column:2;padding-right:28px}
+.audience .audience__card:nth-child(even)>h3,.audience .audience__card:nth-child(even)>p,.audience .audience__card:nth-child(even)>.signals{grid-column:1;padding-left:28px;padding-right:0}
+.audience .audience__card>h3{margin-top:26px}
+.audience .audience__card>.signals{margin:4px 0 26px}
+.audience__card .signals li{padding:6px 0}
+[data-theme="dark"] .audience .audience__card{background:#121824}
+@media (max-width:760px){
+  .audience .audience__card,.audience .audience__card:nth-child(even){grid-template-columns:minmax(0,1fr)}
+  .audience .audience__card:nth-child(even) .audience__img{order:0}
+  .audience .audience__card>h3,.audience .audience__card>p,.audience .audience__card>.signals,.audience .audience__card:nth-child(even)>h3,.audience .audience__card:nth-child(even)>p,.audience .audience__card:nth-child(even)>.signals{grid-column:1;padding:0 22px}
+  .audience__img{aspect-ratio:16/10;height:auto}
+  .audience .audience__card>h3{margin-top:18px}
+}
+/* Nachbesserung 01.11.2026: letzte Schatten/Linien, Lesegrößen 16 px */
+.tile,.tile.reveal,.tile:hover{box-shadow:none}
+.ansatz__col{border-top:0;padding-top:0}
+.mrows,.mrow{border:0}
+.mrow{background:var(--mist);border-radius:16px;margin-top:8px;padding-left:22px;padding-right:22px}
+[data-theme="dark"] .mrow{background:#121824}
+.caption,.faint,.plan__note,.footer__region,.footer__bottom,.footer__legal a,.pricestrip__meta,.hero__facts span,.tile__body,.audience__card>p,.audience__card .signals li,.media__card .selfcheck p,.cta__steps span,.footer__col a,.footer__col>span,.footer__brand p{font-size:1rem}
+#themen .tile{box-shadow:none}
+.mrow:hover{padding-left:30px}
+.mrow::after{left:22px;right:22px;width:auto;transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease-out)}
+.mrow:hover::after{width:auto;transform:scaleX(1)}
+@media (max-width:640px){.hero__sub{font-size:1.6rem}}
