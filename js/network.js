@@ -9,7 +9,7 @@
   var W = 0, H = 0, nodes = [], col = {}, raf = null, last = 0;
   function colors() {
     var dark = document.documentElement.getAttribute('data-theme') === 'dark';
-    col = dark ? { line: '200,200,210', dot: '232,105,138', coral: '255,140,120', a: 0.16 } : { line: '7,20,38', dot: '36,123,255', coral: '255,115,95', a: 0.13 };
+    col = dark ? { line: '200,200,210', dot: '111,168,255', coral: '255,140,120', a: 0.16 } : { line: '7,20,38', dot: '36,123,255', coral: '255,115,95', a: 0.13 };
   }
   function build() {
     W = window.innerWidth; H = window.innerHeight;
