@@ -1442,3 +1442,7 @@ h1.sh__title{max-width:20ch}
 [data-theme="dark"] .signals li::before,[data-theme="dark"] .audience__card .signals li::before{background:#2F7BFF}
 [data-theme="dark"] .process__n{border-color:#6FA8FF}
 [data-theme="dark"] .section--navy .process li:last-child .process__n{border-color:var(--coral);background:var(--coral)}
+/* 02.11.2026: kein blauer Hintergrund – Lichtscheine und Flächen neutral, Blau nur in Schrift, Logo, Linien */
+[data-theme="dark"] .hero__glow span:nth-child(1),[data-theme="dark"] .section--navy::before,[data-theme="dark"] .section--alt::after{background:none!important}
+[data-theme="dark"] .pricestrip__main{background:#26262C;box-shadow:none}
+[data-theme="dark"] .bg-lines{color:rgba(255,255,255,.04)}
